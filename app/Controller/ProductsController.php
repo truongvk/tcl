@@ -2,6 +2,7 @@
 
 App::uses('AppController', 'Controller');
 App::uses('Folder', 'Utility');
+App::uses('Sanitize', 'Utility');
 /**
  * Products Controller
  *
@@ -9,7 +10,7 @@ App::uses('Folder', 'Utility');
  */
 class ProductsController extends AppController {
 
-    public $helpers = array('Number', 'Text');
+    public $helpers = array('Number', 'Text', 'NamedParams');
 
     public function  beforeFilter() {
         parent::beforeFilter();
@@ -35,20 +36,65 @@ class ProductsController extends AppController {
         $this->set(compact('latest_products'));
     }
 
-    public function view($category_id) {
+    public function view($category_id=0) {
         $this->layout = 'products';
-        
+
         /**
-         * List Products By Category 
+         * Get attribute to search
          */
-        $this->paginate = array(
+         $attributes = $this->Product->Property->getThreadPropertiesByCategoryId($category_id);
+         $this->set(compact('attributes'));
+        /**
+         *Initial condition for view
+         */
+        $conditions = array('Product.published'=>1) ;
+        if($category_id){
+            if($this->Product->Category->childCount($category_id, true) > 0){
+                $children = $this->Product->Category->children($category_id, true, array('id'));
+                $children = Set::extract('/Category/id', $children);
+                $conditions['Product.category_id'] = $children;
+            }  else {
+                $conditions['Product.category_id'] = $category_id;
+            }
+        }
+        /**
+         * Filter
+         */
+        $joins = null;
+        $group = null;
+        if (!empty($this->request->params["named"])) {
+           //filter properties
+            $properties_params = Set::extract("/Property[parent_id=0]/slug", $attributes);
+            $scopeProperties = null;
+            foreach ($properties_params as $slug) {
+                if (isset($this->request->params["named"][$slug]) && !empty($this->request->params["named"][$slug])) {
+                    $scopeProperties["OR"][] = "ProductsProperty.property_id = (SELECT Property.id FROM properties Property WHERE Property.slug = '" . Sanitize::escape($this->request->params["named"][$slug])."')";
+                }
+            }
+            if (!empty($scopeProperties)) {
+                $joins = array(
+                    'table' => 'products_properties',
+                    'alias' => 'ProductsProperty',
+                    'type' => 'left',
+                    'conditions' => array("ProductsProperty.product_id = Product.id"));
+
+                $group = array("Product.id HAVING COUNT(Product.id) = " . count($scopeProperties["OR"]));
+                $conditions = array_merge($conditions, $scopeProperties);
+            }
+        }
+        /**
+         * List Products By Category
+         */
+        $products = $this->Product->find('all', array(
                 'order'=>array('Category.lft' => 'ASC', 'Product.ordered' => 'ASC'),
                 'fields'=>array('Product.id', 'Product.name', 'Product.slug', 'Product.excerpt', 'Product.features_excerpt', 'Product.price'),
-                'contain'=>array('Category','Gallery'=>array('fields'=>array('Gallery.attachment', 'Gallery.dir'),'order'=>array('Gallery.ordered'=>'ASC'), 'limit'=>1)),
-                'conditions'=>array('Product.published'=>1)                    
-            );
-        $products = $this->paginate();
+                'contain'=>array('Category'=>array('fields'=>array('Category.id', 'Category.name')),'Gallery'=>array('fields'=>array('Gallery.attachment', 'Gallery.dir'),'order'=>array('Gallery.ordered'=>'ASC'), 'limit'=>1)),
+                'conditions'=>$conditions,
+                'joins'=>array($joins),
+                'group'=>$group
+            ));
         $this->set(compact('products'));
+
     }
 
     public function detail($id) {
@@ -283,18 +329,18 @@ class ProductsController extends AppController {
      */
     public function admin_delete_image($galleriesId = null) {
         $this->autoRender = false;
-        
+
         if (!$this->request->is('post')) {
             throw new MethodNotAllowedException();
         }
-        
+
         if ($this->Product->Gallery->delete($galleriesId)) {
             $gallery_folder = WWW_ROOT.'files'.DS.'products'.DS.$galleriesId;
             if (is_dir($gallery_folder)) {
                 $folder = new Folder($gallery_folder);
                 $folder->delete();
                 @rmdir($gallery_folder);
-            }            
+            }
             return true;
         }
         return false;

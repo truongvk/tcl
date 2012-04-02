@@ -63,7 +63,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <?php
-    echo $this->Html->script(array('twitter/bootstrap.min', 'twitter/bootstrap-carousel'));
+    echo $this->Html->script(array('twitter/bootstrap.min'));
     ?>
     <?php echo $this->fetch('scriptBottom');?>
 </html>

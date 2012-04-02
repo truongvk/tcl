@@ -27,7 +27,7 @@
 					'before'=>'<label>'.__('Name').'</label><div class="controls">',
 					'after'=>$this->Form->error('name', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
 					'error' => array('attributes' => array('style' => 'display:none')),
-					'label'=>false, 'class'=>'input-xlarge'));
+					'label'=>false, 'class'=>'input-xlarge'));		
 	?>
         <div class="control-group"><label>&nbsp;</label>
             <div class="controls">

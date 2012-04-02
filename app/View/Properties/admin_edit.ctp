@@ -26,6 +26,11 @@
 					'after'=>$this->Form->error('name', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
 					'error' => array('attributes' => array('style' => 'display:none')),
 					'label'=>false, 'class'=>'input-xlarge'));
+                echo $this->Form->input('slug', array('div'=>'control-group clonable','placeholder'=>__('No need input. You can modify later.'),
+					'before'=>'<label>'.__('Slug').'</label><div class="controls">',
+					'after'=>$this->Form->error('name', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
+					'error' => array('attributes' => array('style' => 'display:none')),
+					'label'=>false, 'class'=>'input-xlarge'));
 	?>
         <div class="form-actions">
             <?php echo $this->Form->submit(__('Submit'), array('class'=>'btn btn-primary', 'div'=>false));?> 

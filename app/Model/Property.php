@@ -111,4 +111,30 @@ class Property extends AppModel {
         }
         return $list_properties;
     }
+/**
+ * Get properties by specific category id
+ * @int $id : Thuc chat day la id cua nhung category co parent_id = 0
+ * @boolean $find_parent : if true: find the parent_id of parameter $id, and used for conditions
+ *
+ * return array
+ */
+    function getThreadPropertiesByCategoryId($category_id){
+        //if (($properties = Cache::read('get_properties_of_category_'.$category_id, 'where2list')) === false) {
+            if($this->Category->childCount($category_id, true) == 0){
+                $parent = $this->Category->getParentNode($category_id);
+                if(!empty($parent)){
+                    $category_id = $parent['Category']['id'];
+                }
+            }
+            $properties = $this->find('threaded', array('fields' => array('id', 'parent_id', 'name', 'slug'),
+                                                            'conditions' => array(
+                                                                'Property.category_id' => $category_id
+                                                            ),
+                                                            'order'=>array('Property.lft ASC'),
+                                                            'contain' => false));
+
+            //Cache::write('get_properties_of_category_'.$category_id, $properties, 'where2list');
+        //}
+        return $properties;
+    }    
 }
