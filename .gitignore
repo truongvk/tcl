@@ -1,0 +1,13 @@
+/app/webroot/js/ckeditor/
+/app/webroot/js/ckfinder/
+/app/Test/
+/app/tmp/
+/nbproject/
+/lib/Cake/Console/Templates/skel/tmp/
+/plugins
+/vendors
+/build
+/dist
+.DS_Store
+tags
+/nbproject/private/

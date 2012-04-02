@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+	font-family: 'PT Serif';
+	font-style: normal;
+	font-weight: bold;
+	src: local('PT Serif Bold'), local('PTSerif-Bold'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/QABk9IxT-LFTJ_dQzv7xpIbN6UDyHWBl620a-IRfuBk.woff') format('woff');
+}
+@font-face {
+	font-family: 'PT Serif';
+	font-style: italic;
+	font-weight: bold;
+	src: local('PT Serif Bold Italic'), local('PTSerif-BoldItalic'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/Foydq9xJp--nfYIx2TBz9QFhaRv2pGgT5Kf0An0s4MM.woff') format('woff');
+}
+@font-face {
+	font-family: 'PT Serif';
+	font-style: italic;
+	font-weight: normal;
+	src: local('PT Serif Italic'), local('PTSerif-Italic'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/03aPdn7fFF3H6ngCgAlQzBsxEYwM7FgeyaSgU71cLG0.woff') format('woff');
+}
+@font-face {
+	font-family: 'PT Serif';
+	font-style: normal;
+	font-weight: normal;
+	src: local('PT Serif'), local('PTSerif-Regular'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/sDRi4fY9bOiJUbgq53yZCfesZW2xOQ-xsNqO47m55DA.woff') format('woff');
+}
+@font-face {
+	font-family: 'PT Sans';
+	font-style: normal;
+	font-weight: bold;
+	src: local('PT Sans Bold'), local('PTSans-Bold'), url('http://themes.googleusercontent.com/static/fonts/ptsans/v3/0XxGQsSc1g4rdRdjJKZrNBsxEYwM7FgeyaSgU71cLG0.woff') format('woff');
+}
+@font-face {
+	font-family: 'PT Sans';
+	font-style: italic;
+	font-weight: bold;
+	src: local('PT Sans Bold Italic'), local('PTSans-BoldItalic'), url('http://themes.googleusercontent.com/static/fonts/ptsans/v3/lILlYDvubYemzYzN7GbLkHhCUOGz7vYGh680lGh-uXM.woff') format('woff');
+}
+@font-face {
+	font-family: 'PT Sans';
+	font-style: italic;
+	font-weight: normal;
+	src: local('PT Sans Italic'), local('PTSans-Italic'), url('http://themes.googleusercontent.com/static/fonts/ptsans/v3/PIPMHY90P7jtyjpXuZ2cLD8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
+}
+@font-face {
+	font-family: 'PT Sans';
+	font-style: normal;
+	font-weight: normal;
+	src: local('PT Sans'), local('PTSans-Regular'), url('http://themes.googleusercontent.com/static/fonts/ptsans/v3/LKf8nhXsWg5ybwEGXk8UBQ.woff') format('woff');
+}
+
+
+body {
+	font-family: 'PT Sans', sans-serif;
+	font-size:  100%;
+	font-size: 13px;
+	line-height: 24px;
+	height: 100%;
+	color: #949494;
+	background: #eee;
+	padding-top: 50px;
+}
+
+.navbar .navbar-inner{
+	background: url('../../img/front/pattern.png') repeat scroll 0 0 #484848;
+}
+
+.navbar .navbar-inner .container{
+	background: none repeat scroll 0 0 #343434; padding:0px 20px 0px 20px
+}
+
+.navbar .navbar-inner .row .span12{
+	padding:5px;
+}
+
+
+#content{
+	background: #ffffff; padding:20px
+}
+
+.carousel-caption h3{
+	color: #ffffff
+}
+.product-title {
+	background: none repeat scroll 0 0 #DB261D;
+	color: #DB261D;
+	float: left;
+	margin-bottom: 30px;
+	width: 100%;
+}
+.product-title h5 {
+	font-size: 18px;
+	line-height: 13px;
+}
+.product-title span {
+	background: none repeat scroll 0 0 #FFFFFF;
+	color: #DB261D;
+	font-family: 'PT Sans',sans-serif;
+	font-weight: 400;
+	margin-left: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	text-transform: uppercase;
+}

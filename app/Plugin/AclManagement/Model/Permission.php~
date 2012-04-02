@@ -1,0 +1,12 @@
+<?php
+
+App::uses('AclManagementAppModel', 'AclManagement.Model');
+
+/**
+ * Permission Model
+ *
+ * @property Permission $Permission
+ */
+class Permission extends AclManagementAppModel {
+    public $useTable = false; 
+}

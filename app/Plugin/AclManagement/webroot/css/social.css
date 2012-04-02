@@ -1,0 +1,21 @@
+.span5 .span2 {width:155px; margin-left:0px;}
+.signin-social a{
+    outline: none;/* get rid of dotted borders in FireFox */
+    text-indent: -5000px ;/* this move the text outside of the screen area */
+    display:block;
+    height:24px;
+    width:155px;
+}
+.signin-facebook a {
+    background: url('/acl_management/img/icons/signin_facebook.png') no-repeat;
+}
+.signin-twitter a {
+    background: url('/acl_management/img/icons/signin_twitter.png') no-repeat;
+}
+/*This style rule places a background-image at a position that’s 0 pixels from the left and -22 pixels from the top*/
+.signin-twitter a:hover {
+    background-position: 0px -24px;
+}
+.signin-facebook a:hover {
+    background-position: 0px -24px;
+}
