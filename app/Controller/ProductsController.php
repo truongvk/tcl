@@ -15,7 +15,7 @@ class ProductsController extends AppController {
     public function  beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow('index','detail', 'view');
+        $this->Auth->allow('index','detail', 'view', 'add2cart', 'shopping_cart');
     }
 
     /**
@@ -38,6 +38,7 @@ class ProductsController extends AppController {
 
     public function view($category_id=0) {
         $this->layout = 'products';
+        $cart = $this->shoppingCart;
 
         /**
          * Get attribute to search
@@ -108,6 +109,39 @@ class ProductsController extends AppController {
                                         'Category'=>array('fields'=>array('Category.id','Category.name','Category.slug')))
                                     ));
         $this->set(compact('product'));
+    }
+
+    public function add2cart(){
+        $this->autoRender = false;
+        if (!$this->request->is('post') || !$this->request->is('ajax')) {
+            throw new MethodNotAllowedException();
+        }
+
+        if ($this->request->is('post')) {
+            $id = $this->request->data['Product']['id'];
+            $qty = $this->request->data['Product']['qty'];
+            $this->Product->id = $id;
+            if (!$this->Product->exists()) {
+                return false;
+            }
+            $product = $this->Product->find('first', array('conditions'=>array('Product.id'=>$id), 'fields'=>array('Product.name', 'Product.price', 'Product.slug'),
+                'contain'=>array('Gallery'=>array('fields'=>array('Gallery.attachment', 'Gallery.dir'),'order'=>array('Gallery.ordered'=>'ASC'), 'limit'=>1))));
+            $extra = Array();
+            $extra['slug'] =  $product['Product']['slug'];
+            $extra['image'] =  !empty($product['Gallery']) ? array('name'=>$product['Gallery'][0]['attachment'], 'dir'=>$product['Gallery'][0]['dir']) : null;
+            $this->shoppingCart->add_item($id, $qty, $product['Product']['price'], $product['Product']['name'], $extra);
+            return true;
+        }
+        return false;
+    }
+
+    public function shopping_cart(){
+        $this->layout = 'products';
+        if ($this->request->is('ajax')) {
+            $this->layout = 'ajax';
+        }
+
+        $this->set('cart', $this->shoppingCart);
     }
 
     /**

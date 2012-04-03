@@ -1,3 +1,5 @@
+<?php echo $this->Html->script(array('smoke/smoke.min'), array('block' => 'scriptBottom'));?>
+<?php echo $this->Html->css(array('../js/smoke/smoke', '../js/smoke/themes/default'), null, array('block' => 'scriptTop'));?>
 <style type="text/css">
     div.widget-shop {
         background: none repeat scroll 0 0 #EEEEEE;
@@ -26,12 +28,10 @@
         foreach ($products as $product):
             $features_excerpt = trim(str_replace("\r\n","", h($product['Product']['features_excerpt'])));
             $price = h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));
+            $dataCart = array('id'=>$product['Product']['id'],'qty'=>1);
+            $dataCart = h(json_encode($dataCart));
             if(($product['Category']['id'] != $cateId) && $i > 0):
-        ?>
-                    </ul>
-                </div>
-            </div>
-        <?php
+                echo '</ul></div></div>';        
             endif;
             if($product['Category']['id'] != $cateId):
         ?>
@@ -39,14 +39,14 @@
             <div class="span9" style="">
                 <div class="product-title">
                     <h5><span><?php echo $product['Category']['name']; ?></span></h5>
-                </div>
-                <ul class="thumbnails">
+                </div>                
          <?php
+                echo '<ul class="thumbnails">';
             endif;
          ?>
                 <li class="span3">
                     <div class="thumbnail">
-                         <a  data-placement="bottom" data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['id']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
+                         <a data-placement="bottom" data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['id']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
         <?php
                         if(!empty($product['Gallery'])):
                             foreach($product['Gallery'] as $gallery):
@@ -64,16 +64,15 @@
                         <div class="caption">
                             <h3><?php echo h($product['Product']['name']); ?></h3>
                             <p><?php echo h($this->Text->excerpt($product['Product']['excerpt'], null)); ?></p>
-                            <p><span class="label label-info"><?php echo $price;?></span><a class="btn pull-right" href="#"><i class='icon-shopping-cart'></i>&nbsp;<?php echo __('Buy');?></a></p>
+                            <p><span class="label label-info"><?php echo $price;?></span><a class="btn pull-right add2cart" data-cart="<?php echo $dataCart;?>" href="#"><i class='icon-shopping-cart'></i>&nbsp;<?php echo __('Buy');?></a></p>
                         </div>
                     </div>
                 </li>
-        <?php   if((($i+1) == $itemCount)): ?>
-                    </ul>
-                </div>
-            </div>
         <?php
+                if((($i+1) == $itemCount)):
+                    echo '</ul></div></div>';
                 endif;
+                
                 $cateId = $product['Category']['id'];
                 $i++;
         endforeach;
@@ -132,6 +131,18 @@
         </div>
     </div>
 </div>
+<a class="btn" id="launchModel" data-toggle="modal" href="#myModal" style="display:none">Launch Modal</a>
+<div id="myModal" class="modal hide fade" style="display: none; ">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Modal Heading</h3>
+    </div>
+    <div class="modal-body"></div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <a href="#" class="btn btn-primary">Save changes</a>
+    </div>
+</div>
 <script type="text/javascript">
 var expand = '<?php echo __('expand');?>';
 var collapse = '<?php echo __('collapse');?>';
@@ -159,6 +170,25 @@ var property = {
         }
     }
 }
+$(function(){
+    $('.add2cart').bind('click', {}, function(){
+        $params = $(this).attr('data-cart');
+        $params = jQuery.parseJSON($params);
+        
+        $.post('<?php echo $this->Html->url('/products/add2cart/');?>', {'data[Product][id]':$params.id,'data[Product][qty]':$params.qty},
+            function(response){
+                $.get('<?php echo $this->Html->url('/products/shopping_cart/');?>', {}, function(response){
+                   $('#myModal').find('.modal-body').html(response);
+                   $('#launchModel').trigger('click');
+                });
+            }
+        );
+    });
+
+    $('#myModal').on('shown', function () {
+        setTimeout("$('#myModal').modal('hide');", 4000);
+    })    
+});
 </script>
 <?php
 //script popover

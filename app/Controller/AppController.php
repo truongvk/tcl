@@ -1,7 +1,7 @@
 <?php
 
 App::uses('Controller', 'Controller');
-
+App::uses('wfCart', 'Vendor');
 class AppController extends Controller {
 
     public $components = array(
@@ -18,7 +18,7 @@ class AppController extends Controller {
             )
         ),
         'Session',
-        'DebugKit.Toolbar',
+        //'DebugKit.Toolbar',
     );
     public $helpers = array(
         'Session',
@@ -29,6 +29,7 @@ class AppController extends Controller {
         'Time'
     );
 
+    public $shoppingCart;
     public function beforeFilter() {
         parent::beforeFilter();
 
@@ -38,6 +39,13 @@ class AppController extends Controller {
         $this->Auth->loginAction = '/users/login';
         $this->Auth->logoutRedirect = '/users/login';
         $this->Auth->loginRedirect = array('plugin' => 'acl_management', 'controller' => 'users', 'action' => 'index');
+
+        //Initial shopping cart
+        $this->shoppingCart =& $this->Session->read('ShoppingCart');
+        if(!is_object($this->shoppingCart)){
+            $this->shoppingCart = new wfCart();
+            $this->Session->write('ShoppingCart', $this->shoppingCart);
+        }
     }
 
     /**
