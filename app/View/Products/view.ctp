@@ -1,5 +1,5 @@
-<?php echo $this->Html->script(array('smoke/smoke.min'), array('block' => 'scriptBottom'));?>
-<?php echo $this->Html->css(array('../js/smoke/smoke', '../js/smoke/themes/default'), null, array('block' => 'scriptTop'));?>
+<?php //echo $this->Html->script(array('smoke/smoke.min'), array('block' => 'scriptBottom'));?>
+<?php //echo $this->Html->css(array('../js/smoke/smoke', '../js/smoke/themes/default'), null, array('block' => 'scriptTop'));?>
 <style type="text/css">
     div.widget-shop {
         background: none repeat scroll 0 0 #EEEEEE;
@@ -15,8 +15,7 @@
 </style>
 <ul class="breadcrumb">
     <li><a href="<?php echo $this->Html->url('/');?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
-    <li><a href="#">Library</a> <span class="divider">/</span></li>
-    <li class="active">Data</li>
+    <li class="active"><?php echo $category_name;?></li>
 </ul>
 <div class="row">
     <div class="span9" style="">
@@ -83,7 +82,7 @@
     </div>
     <div class="span3" style="margin-left: 20px;">
         <div class="widget-shop">
-            <div class="widget-title"><?php echo __('Features Search');?>&nbsp;</div>
+            <div class="widget-title"><?php echo __('Features Search');?>&nbsp;&nbsp;<span class="label label-warning"><a href="<?php echo $this->Html->url(array($category_id));?>" style="color:#FFFFFF"><i class="icon-retweet icon-white"></i> <?php echo __('Reset');?></a></span></div>
             <ul class="nav nav-list">
                 <?php
                 $limit = Configure::read('Settings.more_less_view_limit.value');
@@ -130,17 +129,18 @@
             </ul>
         </div>
     </div>
+    <?php echo $this->element('sidebar/online_support');?>
 </div>
 <a class="btn" id="launchModel" data-toggle="modal" href="#myModal" style="display:none">Launch Modal</a>
 <div id="myModal" class="modal hide fade" style="display: none; ">
     <div class="modal-header">
         <a class="close" data-dismiss="modal">×</a>
-        <h3>Modal Heading</h3>
+        <h3><?php echo __('Your Shopping Cart');?></h3>
     </div>
     <div class="modal-body"></div>
     <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Close</a>
-        <a href="#" class="btn btn-primary">Save changes</a>
+        <a href="#" class="btn" data-dismiss="modal"><?php echo __('Continue Shopping');?></a>
+        <a href="#" class="btn btn-primary"><?php echo __('Checkout');?></a>
     </div>
 </div>
 <script type="text/javascript">
@@ -186,7 +186,7 @@ $(function(){
     });
 
     $('#myModal').on('shown', function () {
-        setTimeout("$('#myModal').modal('hide');", 4000);
+        setTimeout("$('#myModal').modal('hide');", 6000);
     })    
 });
 </script>

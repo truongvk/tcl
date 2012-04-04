@@ -11,7 +11,8 @@ class Attachment extends AppModel {
                                     'thumbnailSizes' => array(
                                         'big' => '800x600',
                                         'small' => '450x340',
-                                        'thumb' => '80x80'                                    
+                                        'thumb' => '260x180',                             
+                                        'tiny' => '80x80'                                    
                                     ),
                                     'deleteOnUpdate' => true
 			),

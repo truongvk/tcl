@@ -54,24 +54,24 @@ class Category extends AppModel {
         }
         return $categories;
     }
-    
+
     /**
      * get category that has parent_id = 0
      *
      * @return array
      */
-    function getParentCategories($fields = array('id', 'name')){
+    public function getParentCategories($fields = array('id', 'name')){
         if (($list_categories = Cache::read('getParentCategories'.implode("_", $fields), 'where2list')) === false) {
             $root_categories = $this->find('list', array('fields'=>$fields, 'order'=>array('Category.lft' => 'ASC'),'conditions'=>array('Category.parent_id'=>0, 'Category.published'=>1)));
             Cache::write('getParentCategories'.implode("_", $fields), $root_categories);
         }
         return $root_categories;
-    }    
+    }
     /**
      * Get all parent and their childs
      * @int $id
      */
-    function listCategories() {
+    public function listCategories() {
         if (($list_categories = Cache::read('list_main_categories')) === false) {
             $root_categories = $this->getParentCategories(array('id', 'id'));
             $categories = $this->generateTreeList(array('Category.published' => 1), null, null, '');
@@ -88,5 +88,13 @@ class Category extends AppModel {
             Cache::write('list_main_categories', $list_categories);
         }
         return $list_categories;
-    }    
+    }
+    
+    public function getCategoryName($category_id){
+        if (($catname = Cache::read('getCategoryName')) === false) {
+            $catname = $this->field('Category.name', array('Category.id'=>$category_id));
+            Cache::write('getCategoryName', $catname);
+        }
+        return $catname;
+    }
 }

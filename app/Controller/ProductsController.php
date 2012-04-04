@@ -38,8 +38,10 @@ class ProductsController extends AppController {
 
     public function view($category_id=0) {
         $this->layout = 'products';
-        $cart = $this->shoppingCart;
-
+        $this->Product->Category->id = $category_id;
+        if (!$this->Product->Category->exists()) {
+            throw new NotFoundException(__('Invalid Category'));
+        }
         /**
          * Get attribute to search
          */
@@ -57,6 +59,8 @@ class ProductsController extends AppController {
             }  else {
                 $conditions['Product.category_id'] = $category_id;
             }
+            
+            $this->set('category_name', $this->Product->Category->getCategoryName($category_id));
         }
         /**
          * Filter
@@ -94,7 +98,7 @@ class ProductsController extends AppController {
                 'joins'=>array($joins),
                 'group'=>$group
             ));
-        $this->set(compact('products'));
+        $this->set(compact('products', 'category_id'));
 
     }
 
