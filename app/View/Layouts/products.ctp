@@ -26,13 +26,15 @@
         <![endif]-->
 
         <!-- Le styles -->
+        <link href="<?php echo $this->Html->url('/css/front/font.css'); ?>" rel="stylesheet">
         <link href="<?php echo $this->Html->url('/css/twitter/bootstrap.css'); ?>" rel="stylesheet">
-        <link href="<?php echo $this->Html->url('/css/front/bootstrap-responsive.css'); ?>" rel="stylesheet">
+<!--        <link href="<?php //echo $this->Html->url('/css/front/bootstrap-responsive.css'); ?>" rel="stylesheet">-->
         <link href="<?php echo $this->Html->url('/css/front/mycustomize.css'); ?>" rel="stylesheet">
         <?php echo $this->fetch('scriptTop');?>
     </head>
     <body>
         <?php echo $this->element('front/header_menu');?>
+
         <div id="content" class="container">
             <div class="row">
                 <div class="span12">
@@ -64,5 +66,27 @@
     <?php
     echo $this->Html->script(array('twitter/bootstrap.min'));
     ?>
+    <script type="text/javascript">
+     $(function(){
+	jQuery('.settings .openclose').click(function()
+        {
+            var target = jQuery(this).parent().parent('.settings');
+            if(target.is('.display_switch'))
+            {
+                target.animate({top: "-78"}, function()
+                {
+                    target.removeClass('display_switch').addClass('display_settings_false');
+                });
+            }
+            else
+            {
+                target.animate({top: "0"}, function()
+                {
+                    target.removeClass('display_settings_false').addClass('display_switch');
+                });
+            }
+        });
+    });
+    </script>
     <?php echo $this->fetch('scriptBottom');?>
 </html>

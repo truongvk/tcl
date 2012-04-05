@@ -16,10 +16,10 @@
                     <?php 
                         if(!empty($product['Gallery'])):
                             foreach($product['Gallery'] as $gallery):
-                                if(fileExistsInPath(WWW_ROOT.DS.'/files/products/'.$gallery['dir'].'/small_'.$gallery['attachment'])){
+                                if(fileExistsInPath(WWW_ROOT.DS.'/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment'])){
                     ?>
                     <a data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['id']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
-                        <img alt="" src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/small_'.$gallery['attachment']);?>">
+                        <img alt="" src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment']);?>">
                     </a>
                     <?php
                                 }else{

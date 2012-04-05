@@ -17,7 +17,7 @@
                             foreach($product['Gallery'] as $gallery):                                
                     ?>
                     <a data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['id']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
-                        <img alt="" style="width:260px" src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/small_'.$gallery['attachment']);?>">
+                        <img alt="" style="width:260px" src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment']);?>">
                     </a>
                     <?php
                             endforeach;

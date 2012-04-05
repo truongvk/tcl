@@ -67,7 +67,7 @@ div.widget-shop .widget-title {
 
            </div><!-- #pix_diapo -->
     </div>
-    <div class="span6" style="margin-left: 20px;">
+    <div class="span6">
         <div class="summary">
             <div class="page-header">
                 <h3><?php echo h($product['Product']['name']);?></h3>
@@ -119,7 +119,7 @@ div.widget-shop .widget-title {
                 <div class="tab-pane" id="gallery">
                     <div class="row">
                         <div class="span11">
-                            <ul class="thumbnails" style="margin-left: 80px">
+                            <ul class="thumbnails">
                                 <li class="span3">
                                     <a class="thumbnail fancybox-buttons" data-fancybox-group="thumb" href="http://placehold.it/600x480.gif">
                                         <img alt="" src="http://placehold.it/260x180.gif">

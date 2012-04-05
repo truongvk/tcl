@@ -51,12 +51,12 @@
                             foreach($product['Gallery'] as $gallery):
                                 if(fileExistsInPath(WWW_ROOT.DS.'/files/products/'.$gallery['dir'].'/'.$gallery['attachment'])):
         ?>
-                                <img src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/small_'.$gallery['attachment']);?>">
+                                <img src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment']);?>">
         <?php
                                 endif;
                             endforeach;
                         else:
-                            echo '<img alt="" src="http://placehold.it/450x340">';
+                            echo '<img alt="" src="http://placehold.it/260x180">';
                         endif;
         ?>
                          </a>
@@ -80,7 +80,7 @@
         endif;
         ?>
     </div>
-    <div class="span3" style="margin-left: 20px;">
+    <div class="span3">
         <div class="widget-shop">
             <div class="widget-title"><?php echo __('Features Search');?>&nbsp;&nbsp;<span class="label label-warning"><a href="<?php echo $this->Html->url(array($category_id));?>" style="color:#FFFFFF"><i class="icon-retweet icon-white"></i> <?php echo __('Reset');?></a></span></div>
             <ul class="nav nav-list">

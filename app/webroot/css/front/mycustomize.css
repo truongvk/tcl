@@ -1,55 +1,3 @@
-@charset "utf-8";
-/* CSS Document */
-@font-face {
-	font-family: 'PT Serif';
-	font-style: normal;
-	font-weight: bold;
-	src: local('PT Serif Bold'), local('PTSerif-Bold'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/QABk9IxT-LFTJ_dQzv7xpIbN6UDyHWBl620a-IRfuBk.woff') format('woff');
-}
-@font-face {
-	font-family: 'PT Serif';
-	font-style: italic;
-	font-weight: bold;
-	src: local('PT Serif Bold Italic'), local('PTSerif-BoldItalic'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/Foydq9xJp--nfYIx2TBz9QFhaRv2pGgT5Kf0An0s4MM.woff') format('woff');
-}
-@font-face {
-	font-family: 'PT Serif';
-	font-style: italic;
-	font-weight: normal;
-	src: local('PT Serif Italic'), local('PTSerif-Italic'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/03aPdn7fFF3H6ngCgAlQzBsxEYwM7FgeyaSgU71cLG0.woff') format('woff');
-}
-@font-face {
-	font-family: 'PT Serif';
-	font-style: normal;
-	font-weight: normal;
-	src: local('PT Serif'), local('PTSerif-Regular'), url('http://themes.googleusercontent.com/static/fonts/ptserif/v4/sDRi4fY9bOiJUbgq53yZCfesZW2xOQ-xsNqO47m55DA.woff') format('woff');
-}
-@font-face {
-	font-family: 'PT Sans';
-	font-style: normal;
-	font-weight: bold;
-	src: local('PT Sans Bold'), local('PTSans-Bold'), url('http://themes.googleusercontent.com/static/fonts/ptsans/v3/0XxGQsSc1g4rdRdjJKZrNBsxEYwM7FgeyaSgU71cLG0.woff') format('woff');
-}
-@font-face {
-	font-family: 'PT Sans';
-	font-style: italic;
-	font-weight: bold;
-	src: local('PT Sans Bold Italic'), local('PTSans-BoldItalic'), url('http://themes.googleusercontent.com/static/fonts/ptsans/v3/lILlYDvubYemzYzN7GbLkHhCUOGz7vYGh680lGh-uXM.woff') format('woff');
-}
-@font-face {
-	font-family: 'PT Sans';
-	font-style: italic;
-	font-weight: normal;
-	src: local('PT Sans Italic'), local('PTSans-Italic'), url('http://themes.googleusercontent.com/static/fonts/ptsans/v3/PIPMHY90P7jtyjpXuZ2cLD8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
-}
-@font-face {
-	font-family: 'PT Sans';
-	font-style: normal;
-	font-weight: normal;
-	src: local('PT Sans'), local('PTSans-Regular'), url('http://themes.googleusercontent.com/static/fonts/ptsans/v3/LKf8nhXsWg5ybwEGXk8UBQ.woff') format('woff');
-}
-
-
 body {
 	font-family: 'PT Sans', sans-serif;
 	font-size:  100%;
@@ -101,4 +49,99 @@ body {
 	padding-left: 20px;
 	padding-right: 20px;
 	text-transform: uppercase;
+}
+
+.display_settings_false {
+    top: -78px;
+}
+
+.settings {
+    background: none repeat scroll 0 0 #343434;
+    border-bottom: 2px solid #DB261D;
+    border-radius: 5px 5px 5px 5px;
+    color: #777777;
+    height: 38px;
+    padding: 20px 0;
+    position: absolute;
+    top: -78px;
+    width: 100%;
+    z-index: 9999;
+}
+.settings .openclose {
+    background: url("../../img/front/pull.png") no-repeat scroll right top transparent;
+    cursor: pointer;
+    display: block;
+    float: right;
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+}
+#top-content {
+    height: 38px;
+    margin: auto;
+    max-width: 1000px;
+}
+.full-top {
+    margin-right: 10px;
+}
+#pull-bttn {
+    margin: 20px auto auto;
+    max-width: 1000px;
+}
+
+#header_menu ul.nav li a{
+    color: #FFFFFF;
+    display: block;
+    font-family: 'PT Sans',sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: normal;
+    padding: 13px 22px 13px 20px;
+    text-decoration: none;
+    text-transform: uppercase;    
+}
+
+#header_menu ul.nav li.active a{
+    background-color: transparent;
+    color: #DB261D;
+}
+
+#header_menu ul.nav li#nav-logo {
+    background: url('../../img/front/logo.png');
+    height:50px; 
+    width: 83px;
+    margin-left: -10px;
+}
+
+#header_menu div.container {
+    height: 50px;
+}
+
+#header_menu div.container div.span12{
+    padding-top: 0px; margin-left: 5px;
+}
+#footer {
+    background: none repeat scroll 0 0 #484848;
+    padding: 20px;
+}
+
+#footer h3{
+    color: #EEEEEE;
+}
+
+#copyright {
+    background: none repeat scroll 0 0 #343434;
+    height: 40px;
+    margin-bottom: 10px;
+    padding: 20px 20px 0pt;
+}
+ul.footer-menu  {
+    position: relative;
+    z-index: 300;
+    list-style: none outside none;
+}
+ul.footer-menu li {
+    float: left;
+    position: relative;
+    z-index: 100;
 }
