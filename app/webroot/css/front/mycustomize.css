@@ -9,6 +9,21 @@ body {
 	padding-top: 50px;
 }
 
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both;
+}
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
 .navbar .navbar-inner{
 	background: url('../../img/front/pattern.png') repeat scroll 0 0 #484848;
 }
@@ -119,6 +134,14 @@ body {
 
 #header_menu div.container div.span12{
     padding-top: 0px; margin-left: 5px;
+}
+#header_menu ul.dropdown-menu li a{
+    color: #555555;
+}
+#header_menu .dropdown-menu li > a:hover, .dropdown-menu .active > a, .dropdown-menu .active > a:hover {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #DB261D;
 }
 #footer {
     background: none repeat scroll 0 0 #484848;

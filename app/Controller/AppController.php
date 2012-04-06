@@ -46,6 +46,7 @@ class AppController extends Controller {
             $this->shoppingCart = new wfCart();
             $this->Session->write('ShoppingCart', $this->shoppingCart);
         }
+        $this->set('shoppingCart', $this->shoppingCart);
     }
 
     /**

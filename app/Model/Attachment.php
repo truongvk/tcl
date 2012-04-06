@@ -12,7 +12,7 @@ class Attachment extends AppModel {
                                         'big' => '800x600',
                                         'small' => '450x340',
                                         'thumb' => '260x180',                             
-                                        'tiny' => '80x80'                                    
+                                        'tiny' => '120x80'                                    
                                     ),
                                     'deleteOnUpdate' => true
 			),

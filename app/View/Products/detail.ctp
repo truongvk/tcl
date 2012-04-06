@@ -78,11 +78,15 @@ div.widget-shop .widget-title {
                 <div style="margin-bottom: 9px" class="btn-toolbar">
                     <div class="btn-group">
                         <a href="#" class="btn btn-small" style="margin-bottom:9px"><i class="icon-minus-sign"></i></a>
-                        <a href="#" class="btn active"><span>1</span></a>
+                        <a href="#" class="btn active"><span id="item_qty">2</span></a>
                         <a href="#" class="btn btn-small"><i class="icon-plus-sign"></i></a>
                     </div>
                     <div class="btn-group pull-right">
-                        <a href="#" class="btn btn-success"><i class="icon-shopping-cart icon-white"></i> Mua</a>
+                        <?php
+                        $dataCart = array('id'=>$product['Product']['id'],'qty'=>1);
+                        $dataCart = h(json_encode($dataCart));                        
+                        ?>
+                        <a class="btn btn-success add2cart" data-cart="<?php echo $dataCart;?>" href="javascript:;;"><i class="icon-shopping-cart icon-white"></i> Mua</a>
                     </div>
                 </div>
 
@@ -117,7 +121,7 @@ div.widget-shop .widget-title {
                 <?php endif; ?>
                 <?php if(!empty($product['Gallery'])): ?>
                 <div class="tab-pane" id="gallery">
-                    <div class="row">
+                    <div class="row" style="margin-left:80px">
                         <div class="span11">
                             <ul class="thumbnails">
                                 <li class="span3">
@@ -165,6 +169,9 @@ div.widget-shop .widget-title {
     <?php echo $product['Product']['promotion_content'];?>
 </div>
 <?php endif; ?>
+<?php
+echo $this->element('front/add2cart', array('qtyContainer'=>'item_qty'));
+?>
 <script type="text/javascript">
 $(function() {
     /**

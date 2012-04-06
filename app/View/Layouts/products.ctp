@@ -59,6 +59,9 @@
                 </div>
             </div>
         </div> <!-- /container -->
+        <?php
+        echo $this->element('front/footer');
+        ?>        
     </body>
     <!-- Le javascript
     ================================================== -->
@@ -87,6 +90,7 @@
             }
         });
     });
+    
     </script>
     <?php echo $this->fetch('scriptBottom');?>
 </html>

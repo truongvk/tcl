@@ -1,0 +1,2 @@
+<?php $total = h($this->Number->currency($shoppingCart->total, ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?>
+<?php echo $shoppingCart->itemcount.' '.__('items');?> - <?php echo $total;?>

@@ -12,7 +12,16 @@
                         <ul class="nav">
                             <li id="nav-logo"><a href="#">&nbsp;</a></li>
                             <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">Sản phẩm <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div><!--/.nav-collapse -->
@@ -24,9 +33,10 @@
  <!-- Top Panel -->
 <div class="settings display_settings_false">
     <div id="top-content">
-        <div class="full-top pull-right">
-            <p>0 items - $0.00 <a href="#" class="btn btn-success"><i class="icon-shopping-cart icon-white"></i> Checkout</a>
-                <a href="/cart" class="btn"><i class="icon-eye-open"></i> View Cart </a>
+        <div class="full-top pull-right">            
+            <p>               
+                <span id="mini_cart"></span>&nbsp;<a href="#" class="btn btn-success"><i class="icon-shopping-cart icon-white"></i> <?php echo __('Checkout');?></a>
+                <a href="/cart" class="btn"><i class="icon-eye-open"></i> <?php echo __('View Cart');?> </a>
             </p>
         </div>
     </div>

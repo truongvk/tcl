@@ -15,7 +15,7 @@ class ProductsController extends AppController {
     public function  beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow('index','detail', 'view', 'add2cart', 'shopping_cart');
+        $this->Auth->allow('index','detail', 'view', 'add2cart', 'shopping_cart', 'mini_cart');
     }
 
     /**
@@ -134,11 +134,13 @@ class ProductsController extends AppController {
             $extra['slug'] =  $product['Product']['slug'];
             $extra['image'] =  !empty($product['Gallery']) ? array('name'=>$product['Gallery'][0]['attachment'], 'dir'=>$product['Gallery'][0]['dir']) : null;
             $this->shoppingCart->add_item($id, $qty, $product['Product']['price'], $product['Product']['name'], $extra);
+            
             return true;
         }
         return false;
     }
 
+    
     public function shopping_cart(){
         $this->layout = 'products';
         if ($this->request->is('ajax')) {
@@ -146,6 +148,10 @@ class ProductsController extends AppController {
         }
 
         $this->set('cart', $this->shoppingCart);
+    }
+    
+    public function mini_cart(){
+        $this->layout = 'ajax';
     }
 
     /**
