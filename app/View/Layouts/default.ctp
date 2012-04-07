@@ -1,126 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title><?php echo $this->fetch('title'); ?></title>
+        <?php echo $this->fetch('meta'); ?>
+        <?php echo $this->fetch('script'); ?>
+        <?php echo $this->fetch('css'); ?>
+        <?php
+        if (Configure::read('debug') > 0) {
+            echo $this->Html->script('jquery/jquery-1.7.1.min');
+        } else {
+        ?>
+            <script src="https://www.google.com/jsapi?key=ABQIAAAAa44qXAhHZFTYANZzBZYvahSJNboRFY-KWCF1_jCiST2eg5RhLRSZtibOiJfIYeMGYIUbzDeGeg5hww" type="text/javascript"></script>
+            <script type="text/javascript">
+                google.load("jquery", "1.7.1");
+            </script>
+            <?php
+        }
+        ?>
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        <!-- Le styles -->
+        <link href="<?php echo $this->Html->url('/css/front/font.css'); ?>" rel="stylesheet">
+        <link href="<?php echo $this->Html->url('/css/twitter/bootstrap.css'); ?>" rel="stylesheet">
+<!--        <link href="<?php //echo $this->Html->url('/css/front/bootstrap-responsive.css'); ?>" rel="stylesheet">-->
+        <link href="<?php echo $this->Html->url('/css/front/mycustomize.css'); ?>" rel="stylesheet">
+        <?php echo $this->fetch('scriptTop');?>
+    </head>
+    <body>
+        <?php echo $this->element('front/header_menu');?>
 
-    <!-- Le styles -->
-    <link href="<?php echo $this->Html->url('/css/twitter/bootstrap.css');?>" rel="stylesheet">
-    <link href="<?php echo $this->Html->url('/css/twitter/bootstrap-responsive.css');?>" rel="stylesheet">
-    <link href="<?php echo $this->Html->url('/css/twitter/bootstrap-mycustomize.css');?>" rel="stylesheet">
-    <?php
-    if(Configure::read('debug') > 0){
-        echo $this->Html->script('jquery/jquery-1.7.1.min');
-    }else{
-    ?>
-    <script src="https://www.google.com/jsapi?key=ABQIAAAAa44qXAhHZFTYANZzBZYvahSJNboRFY-KWCF1_jCiST2eg5RhLRSZtibOiJfIYeMGYIUbzDeGeg5hww" type="text/javascript"></script>
-    <script type="text/javascript">
-        google.load("jquery", "1.7.1");
-    </script>
-    <?php
-    }
-    ?>
-
-    <style type="text/css">
-      /* Override some defaults */
-      html, body {
-        background-color: #eee;
-      }
-      body {
-        padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
-      }
-      .container > footer p {
-        text-align: center; /* center align it with the container */
-      }
-/*      .container {
-        width: 940px;  downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16.
-      }*/
-
-      /* The white background content wrapper */
-      .container > .content {
-        background-color: #fff;
-        padding: 20px;
-        margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-        -webkit-border-radius: 0 0 6px 6px;
-           -moz-border-radius: 0 0 6px 6px;
-                border-radius: 0 0 6px 6px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                box-shadow: 0 1px 2px rgba(0,0,0,.15);
-      }
-
-      /* Page header tweaks */
-      .page-header {
-        background-color: #f5f5f5;
-        padding: 20px 20px 10px;
-        margin: -20px -20px 20px;
-      }
-
-      /* Styles you shouldn't keep as they are for displaying this base example only */
-      .content .span12,
-      .content .span7,
-      .content .span5 {
-        min-height: 500px;
-      }
-      /* Give a quick and non-cross-browser friendly divider */
-      .content .span5 {
-        margin-left: 0;
-        padding-left: 19px;
-        border-left: 1px solid #eee;
-      }
-
-      .topbar .btn {
-        border: 0;
-      }
-
-    </style>
-  </head>
-
-  <body>
-
-    <?php echo $this->element('top-nav');?>
-
-    <div class="container">
-        <div class="content">
+        <div id="content" class="container">
             <div class="row">
                 <div class="span12">
-                <?php if(isset($title)){?>
-                <div class="page-header">
+                    <?php echo $this->fetch('content'); ?>
+
+                    <?php
+                    if ($this->fetch('latest_products')):
+                    ?>
                     <div class="row">
-                        <div class="span8">
-                            <h1><?php echo $title; ?> <small><?php if(isset($description)) echo $description;?></small></h1>
+                        <div class="span9">
+                            <?php echo $this->fetch('latest_products');?>
                         </div>
-                        <div class="span4" style="text-align: right;">
-                            <?php
-                            if (fileExistsInPath(APP.'View'.DS.'Elements'.DS . "Actions" . DS . $this->request->params['controller'] . DS . $this->request->params['action'] . ".ctp")){
-                                echo $this->element("Actions" . DS . $this->request->params['controller'] . DS . $this->request->params['action'], array());
-                            }
-                            ?>
+                        <div class="span3" style="margin-left:20px">
+                            <?php echo $this->fetch('block_ads_right');?>
                         </div>
                     </div>
-                </div>
-                <?php } ?>
-                <?php echo $this->Session->flash(); ?>
-                <?php echo $this->Session->flash('auth'); ?>
-                <?php echo $this->fetch('content'); ?>
+                    <?php
+                    endif;
+                    ?>
+
+
                 </div>
             </div>
-        </div>
-
-    </div> <!-- /container -->
-	<?php echo $this->fetch('scriptBottom');?>
+        </div> <!-- /container -->
+        <?php
+        echo $this->element('front/footer');
+        ?>        
+    </body>
     <!-- Le javascript
     ================================================== -->
-
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?php echo $this->Html->url('/js/twitter/bootstrap.min.js');?>"></script>
-
-  </body>
+    <?php
+    echo $this->Html->script(array('twitter/bootstrap.min'));
+    ?>
+    <script type="text/javascript">
+     $(function(){
+	jQuery('.settings .openclose').click(function()
+        {
+            var target = jQuery(this).parent().parent('.settings');
+            if(target.is('.display_switch'))
+            {
+                target.animate({top: "-78"}, function()
+                {
+                    target.removeClass('display_switch').addClass('display_settings_false');
+                });
+            }
+            else
+            {
+                target.animate({top: "0"}, function()
+                {
+                    target.removeClass('display_settings_false').addClass('display_switch');
+                });
+            }
+        });
+    });
+    
+    </script>
+    <?php echo $this->fetch('scriptBottom');?>
 </html>

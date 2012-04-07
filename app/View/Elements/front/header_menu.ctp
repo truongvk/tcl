@@ -36,7 +36,7 @@
         <div class="full-top pull-right">            
             <p>               
                 <span id="mini_cart"></span>&nbsp;<a href="#" class="btn btn-success"><i class="icon-shopping-cart icon-white"></i> <?php echo __('Checkout');?></a>
-                <a href="/cart" class="btn"><i class="icon-eye-open"></i> <?php echo __('View Cart');?> </a>
+                <a href="<?php echo $this->Html->url('/cart/');?>" class="btn"><i class="icon-eye-open"></i> <?php echo __('View Cart');?> </a>
             </p>
         </div>
     </div>

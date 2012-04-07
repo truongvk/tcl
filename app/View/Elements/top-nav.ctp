@@ -6,7 +6,8 @@
                 <span class="i-bar"></span>
                 <span class="i-bar"></span>
             </a>
-            <a class="brand" href="/">CakePHP</a>
+            <a class="brand" href="/">TCL</a>
+            <?php if($this->Session->check('Auth.User')):?>
             <div class="nav-collapse">
                 <ul class="nav">
 
@@ -66,17 +67,16 @@
                         </ul>
                     </li>
                 </ul>
-        <?php
-        if($this->Session->check('Auth.User.id')){
-        ?>
-        <ul class="nav pull-right">
-          <li class=""><a>Hi, <?php echo $this->Session->read('Auth.User.name');?></a></li>
-          <li class=""><?php echo $this->Html->link('Logout', '/users/logout');?></li>
-        </ul>
-        <?php
-        }
-        ?>
+
+                <ul class="nav pull-right">
+                <li class=""><a>Hi, <?php echo $this->Session->read('Auth.User.name');?></a></li>
+                <li class=""><?php echo $this->Html->link('Logout', '/users/logout');?></li>
+                </ul>
+
             </div><!--/.nav-collapse -->
+        <?php
+        endif;
+        ?>
         </div>
     </div>
 </div>

@@ -41,32 +41,3 @@
     </div>
 </div>
 <!--end footer-->
-<script type="text/javascript">
-    $(function(){
-    jQuery('.settings .openclose').click(function()
-    {
-        //show hide mini cart
-        var target = jQuery(this).parent().parent('.settings');
-        if(target.is('.display_switch'))
-        {
-            target.animate({top: "-78"}, function()
-            {
-                target.removeClass('display_switch').addClass('display_settings_false');
-            });
-        }
-        else
-        {
-            $.get("<?php echo $this->Html->url('/products/mini_cart/');?>", {}, function(response){
-                //load mini cart
-                $('#mini_cart').html(response);
-
-                target.animate({top: "0"}, function()
-                {
-                    target.removeClass('display_settings_false').addClass('display_switch');
-                });
-            });
-        }
-    });
-});
-
-</script>

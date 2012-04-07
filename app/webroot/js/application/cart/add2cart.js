@@ -14,7 +14,7 @@ $(function() {
             $('.'+config.elementClass).bind('click', {}, function(){
                 $params = $(this).attr('data-cart');
                 $params = jQuery.parseJSON($params);
-                $qty =  (config.qtyContainer != null) ? $('#'+config.qtyContainer).html() : $params.qty;
+                $qty =  ($('#'+config.qtyContainer).length) ? $('#'+config.qtyContainer).html() : $params.qty;
 
                 $.post(config.post_to_url, {'data[Product][id]':$params.id,'data[Product][qty]':$qty},
                     function(response){

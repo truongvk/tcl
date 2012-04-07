@@ -24,6 +24,10 @@ body {
   visibility: hidden;
 }
 
+/*Link white color*/
+.label.link-white {padding: 4px}
+.label.link-white a{color:#FFFFFF;}
+
 .navbar .navbar-inner{
 	background: url('../../img/front/pattern.png') repeat scroll 0 0 #484848;
 }

@@ -33,6 +33,9 @@ class AppController extends Controller {
     public function beforeFilter() {
         parent::beforeFilter();
 
+        if( (isset($this->params->admin) && $this->params->admin) || (preg_match("/admin\//i", $this->params->url))){
+            $this->layout = 'admin';
+        }        
         //$this->Auth->allow();//comment after generate action
         //Configure AuthComponent
         $this->Auth->flash = array("element" => "error", "key" => "auth", "params" => array());

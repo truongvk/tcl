@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 05, 2012 at 06:47 PM
+-- Generation Time: Apr 07, 2012 at 05:51 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -273,6 +273,81 @@ INSERT INTO `categories` (`id`, `parent_id`, `lft`, `rght`, `name`, `slug`, `ico
 (10, 7, 6, 7, '3D', '3d', NULL, 0, 1, '2012-04-01 17:53:32', '2012-04-01 17:53:32'),
 (11, 7, 8, 9, 'CRT', 'crt', NULL, 0, 1, '2012-04-01 17:53:42', '2012-04-01 17:53:45'),
 (12, 7, 4, 5, 'Led', 'led', NULL, 0, 1, '2012-04-01 18:28:29', '2012-04-01 18:28:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkout_address`
+--
+
+DROP TABLE IF EXISTS `checkout_address`;
+CREATE TABLE IF NOT EXISTS `checkout_address` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `ward` varchar(100) NOT NULL COMMENT 'phuong/xa',
+  `district` varchar(100) NOT NULL COMMENT 'quan / huyen',
+  `city` varchar(50) NOT NULL,
+  `is_delivery_address` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'dung chung dia chi giao hang',
+  PRIMARY KEY (`id`,`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `checkout_address`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+DROP TABLE IF EXISTS `customers`;
+CREATE TABLE IF NOT EXISTS `customers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `company` varchar(100) DEFAULT NULL,
+  `company_address` varchar(100) DEFAULT NULL,
+  `tax_no` int(10) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `fax` varchar(100) DEFAULT NULL,
+  `phone` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`,`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `customers`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `delivery_address`
+--
+
+DROP TABLE IF EXISTS `delivery_address`;
+CREATE TABLE IF NOT EXISTS `delivery_address` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `phone` varchar(100) DEFAULT NULL,
+  `address` varchar(255) NOT NULL,
+  `ward` varchar(100) NOT NULL COMMENT 'phuong/xa',
+  `district` varchar(100) NOT NULL COMMENT 'quan / huyen',
+  `city` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`,`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `delivery_address`
+--
+
 
 -- --------------------------------------------------------
 
