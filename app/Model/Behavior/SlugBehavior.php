@@ -38,6 +38,10 @@ class SlugBehavior extends ModelBehavior {
             $replacement = $settings['replacement'];
         }
         $this->settings['replacement'] = $replacement;
+        
+        if (!empty($settings['DBcheck'])) {
+            $this->settings['DBcheck'] = $settings['DBcheck'];
+        }        
 
         if (!empty($settings['set_func'])) {
             $this->settings['set_func'] = $settings['set_func'];
@@ -310,8 +314,23 @@ class SlugBehavior extends ModelBehavior {
         if ($this->settings[$model->name]) {
             $field = $this->settings[$model->name]['field'];
             $slug_field = $this->settings[$model->name]['slug_field'];
+            $replacement = $this->settings['replacement'];
+            $primary_key = $this->settings[$model->name]['primary_key'];
+            $DBCheck = $this->settings['DBcheck'];
             if(isset($model->data[$model->name][$field])){
-                $slug = Inflector::slug(strtolower($this->_slug(trim($model->data[$model->name][$field]))));
+                $slug = Inflector::slug(strtolower($this->_slug(trim($model->data[$model->name][$field]))), $replacement);
+                if($DBCheck){
+                    $id = (isset($model->data[$model->name][$primary_key])) ? $model->data[$model->name][$primary_key] : null;
+                    $conditions = array($model->name.'.'.$slug_field=>$slug);
+                    if($id){
+                        $conditions[$model->name.'.'.$primary_key.' <>'] =  $id;
+                    }
+                    
+                    $slugCheck = $model->find('count', array('conditions'=>$conditions));
+                    if(intval($slugCheck) > 0){
+                        $slug = $slug.$replacement.$slugCheck;
+                    }
+                }
                 $model->data[$model->name][$slug_field] = $slug;
                 $set_func = (isset($this->settings['set_func'])) ? $this->settings['set_func'] : false;;
                 if($set_func){

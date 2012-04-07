@@ -58,8 +58,9 @@ class ProductsController extends AppController {
             }  else {
                 $conditions['Product.category_id'] = $category_id;
             }
-            
-            $this->set('category_name', $this->Product->Category->getCategoryName($category_id));
+
+            $category = $this->Product->Category->getCategoryById($category_id);
+            $this->set('category_name', $category['Category']['name']);
         }
         /**
          * Filter
@@ -89,14 +90,18 @@ class ProductsController extends AppController {
         /**
          * List Products By Category
          */
-        $products = $this->Product->find('all', array(
-                'order'=>array('Category.lft' => 'ASC', 'Product.ordered' => 'ASC'),
-                'fields'=>array('Product.id', 'Product.name', 'Product.slug', 'Product.excerpt', 'Product.features_excerpt', 'Product.price'),
-                'contain'=>array('Category'=>array('fields'=>array('Category.id', 'Category.name')),'Gallery'=>array('fields'=>array('Gallery.attachment', 'Gallery.dir'),'order'=>array('Gallery.ordered'=>'ASC'), 'limit'=>1)),
-                'conditions'=>$conditions,
-                'joins'=>array($joins),
-                'group'=>$group
-            ));
+        $key = md5(serialize($conditions));
+        if (($products = Cache::read('filterProduct'.$key)) === false) {
+            $products = $this->Product->find('all', array(
+                    'order'=>array('Category.lft' => 'ASC', 'Product.ordered' => 'ASC'),
+                    'fields'=>array('Product.id', 'Product.name', 'Product.slug', 'Product.excerpt', 'Product.features_excerpt', 'Product.price'),
+                    'contain'=>array('Category'=>array('fields'=>array('Category.id', 'Category.name')),'Gallery'=>array('fields'=>array('Gallery.attachment', 'Gallery.dir'),'order'=>array('Gallery.ordered'=>'ASC'), 'limit'=>1)),
+                    'conditions'=>$conditions,
+                    'joins'=>array($joins),
+                    'group'=>$group
+                ));
+            Cache::write('filterProduct'.$key, $products);
+        }
         $this->set(compact('products', 'category_id'));
 
     }
@@ -105,11 +110,20 @@ class ProductsController extends AppController {
         /**
          * Get product detail
          */
-        $product = $this->Product->find('first', array('conditions'=>array('Product.id'=>$id),
-                                    'contain'=>array('Gallery'=>array('fields'=>array('Gallery.id','Gallery.attachment', 'Gallery.dir')),
-                                        'Category'=>array('fields'=>array('Category.id','Category.name','Category.slug')))
-                                    ));
+        $product = $this->Product->getProductDetail($id);
         $this->set(compact('product'));
+
+        /**
+         *Get related products
+         */
+        $related_products = null;
+        $category = null;
+        if(!empty($product)){
+            $related_products = $this->Product->getRelatedProducts($id, $product['Product']['category_id']);
+            $category = $this->Product->Category->getCategoryById($product['Product']['category_id']);
+        }
+        $this->set('category', $category);
+        $this->set(compact('related_products'));
     }
 
     /**

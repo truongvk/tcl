@@ -1,39 +1,9 @@
 <?php echo $this->Html->script(array('jquery/jquery.easing.1.3', 'jquery/jquery.hoverIntent.minified', 'diapo/diapo.min', 'fancybox/jquery.fancybox', 'fancybox/helpers/jquery.fancybox-buttons.js?v=2.0.4'), array('block' => 'scriptBottom'));?>
 <?php echo $this->Html->css(array('relateposts/style','../js/fancybox/jquery.fancybox', '../js/fancybox/helpers/jquery.fancybox-buttons.css?v=2.0.4', '../js/diapo/diapo','slidebox/style'), null, array('block' => 'scriptTop'));?>
-<style type="text/css">
-div.summary {
-    border: 4px solid #F5F5F5;
-    box-shadow: 0 0 1px #888888;
-    float: right;
-    margin-bottom: 20px;
-    padding: 5px;
-}
-div.summary span.label{
-    font-size: 14px;
-    padding: 5px;
-    text-align: right;
-}
-div.summary div.page-header{
-    margin: 10px 0px;
-    padding-bottom: 10px;
-}
-
-div.widget-shop {
-    background: none repeat scroll 0 0 #EEEEEE;
-    float: left;
-    margin-bottom: 20px;
-    width:220px;
-}
-div.widget-shop .widget-title {
-    background: none repeat scroll 0 0 #484848;
-    color: #A6A6A6;
-    padding: 10px 20px;
-}
-</style>
 <ul class="breadcrumb">
-    <li><a href="#"><i class="icon-home"></i></a> <span class="divider">/</span></li>
-    <li><a href="#">Library</a> <span class="divider">/</span></li>
-    <li class="active">Data</li>
+    <li><a href="<?php echo $this->Html->url('/');?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+    <li><a href="#"><?php echo $this->Html->link($category['Category']['name'], array('action'=>'view', $category['Category']['id']));?></a> <span class="divider">/</span></li>
+    <li class="active"><?php echo h($product['Product']['name']);?></li>
 </ul>
 
 <div class="row">
@@ -68,29 +38,42 @@ div.widget-shop .widget-title {
            </div><!-- #pix_diapo -->
     </div>
     <div class="span6">
-        <div class="summary">
-            <div class="page-header">
-                <h3><?php echo h($product['Product']['name']);?></h3>
-            </div>
-            <p><span class="label"><?php echo __('Price').': '.h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span></p>
-            <p><?php echo h($product['Product']['excerpt']);?></p>
-
-                <div style="margin-bottom: 9px" class="btn-toolbar">
-                    <div class="btn-group">
-                        <a href="#" class="btn btn-small" style="margin-bottom:9px"><i class="icon-minus-sign"></i></a>
-                        <a href="#" class="btn active"><span id="item_qty">2</span></a>
-                        <a href="#" class="btn btn-small"><i class="icon-plus-sign"></i></a>
+        <div class="row">
+            <div class="span6">
+                <div class="summary">
+                    <div class="page-header">
+                        <h3><?php echo h($product['Product']['name']);?></h3>
                     </div>
-                    <div class="btn-group pull-right">
-                        <?php
-                        $dataCart = array('id'=>$product['Product']['id'],'qty'=>1);
-                        $dataCart = h(json_encode($dataCart));                        
-                        ?>
-                        <a class="btn btn-success add2cart" data-cart="<?php echo $dataCart;?>" href="javascript:;;"><i class="icon-shopping-cart icon-white"></i> Mua</a>
+                    <p><span class="label"><?php echo __('Price').': '.h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span></p>
+                    <p><?php echo h($product['Product']['excerpt']);?></p>
+
+                    <div style="margin-bottom: 9px" class="btn-toolbar">
+                        <div class="btn-group">
+                            <a href="javascript:;;" id="qty-minus" class="btn btn-small" style="margin-bottom:9px"><i class="icon-minus-sign"></i></a>
+                            <a href="#" class="btn active"><span id="item_qty">1</span></a>
+                            <a href="javascript:;;" id="qty-plus" class="btn btn-small"><i class="icon-plus-sign"></i></a>
+                        </div>
+                        <div class="btn-group pull-right">
+                            <?php
+                            $dataCart = array('id'=>$product['Product']['id'],'qty'=>1);
+                            $dataCart = h(json_encode($dataCart));
+                            ?>
+                            <a class="btn btn-success add2cart" data-cart="<?php echo $dataCart;?>" href="javascript:;;"><i class="icon-shopping-cart icon-white"></i> Mua</a>
+                        </div>
                     </div>
                 </div>
-
+            </div>
         </div>
+        <div class="row">
+            <div class="span6">
+                <?php if(!empty($product['Product']['promotion_content'])): ?>
+                <div class="alert alert-info">
+                    <?php echo $product['Product']['promotion_content'];?>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
     </div>
 </div>
 <div class="clearfix"><br/></div>
@@ -124,37 +107,22 @@ div.widget-shop .widget-title {
                     <div class="row" style="margin-left:80px">
                         <div class="span11">
                             <ul class="thumbnails">
+                            <?php
+                            if(!empty($product['Gallery'])):
+                                foreach($product['Gallery'] as $gallery):
+                                    if(fileExistsInPath(WWW_ROOT.DS.'/files/products/'.$gallery['dir'].'/'.$gallery['attachment'])){
+                            ?>
                                 <li class="span3">
-                                    <a class="thumbnail fancybox-buttons" data-fancybox-group="thumb" href="http://placehold.it/600x480.gif">
-                                        <img alt="" src="http://placehold.it/260x180.gif">
+                                    <a class="thumbnail fancybox-buttons" data-fancybox-group="thumb" href="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/big_'.$gallery['attachment']);?>">
+                                        <img alt="" src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment']);?>">
                                     </a>
                                 </li>
-                                <li class="span3">
-                                    <a class="thumbnail fancybox-buttons" data-fancybox-group="thumb" href="http://placehold.it/600x480.gif">
-                                        <img alt="" src="http://placehold.it/260x180.gif">
-                                    </a>
-                                </li>
-                                <li class="span3">
-                                    <a class="thumbnail fancybox-buttons" data-fancybox-group="thumb" href="http://placehold.it/600x480.gif">
-                                        <img alt="" src="http://placehold.it/260x180.gif">
-                                    </a>
-                                </li>
-                                <li class="span3">
-                                    <a class="thumbnail fancybox-buttons" data-fancybox-group="thumb" href="http://placehold.it/600x480.gif">
-                                        <img alt="" src="http://placehold.it/260x180.gif">
-                                    </a>
-                                </li>
-                                <li class="span3">
-                                    <a class="thumbnail fancybox-buttons" data-fancybox-group="thumb" href="http://placehold.it/600x480.gif">
-                                        <img alt="" src="http://placehold.it/260x180.gif">
-                                    </a>
-                                </li>
-                                <li class="span3">
-                                    <a class="thumbnail fancybox-buttons" data-fancybox-group="thumb" href="http://placehold.it/600x480.gif">
-                                        <img alt="" src="http://placehold.it/260x180.gif">
-                                    </a>
-                                </li>
-                            </ul>                       
+                            <?php
+                                        }
+                                    endforeach;
+                                endif;
+                            ?>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -164,36 +132,39 @@ div.widget-shop .widget-title {
     </div>
 </div>
 <?php if(!empty($product['Product']['promotion_content'])): ?>
+ <span id="last"></span>
 <div id="slidebox">
     <a class="close"></a>
     <?php echo $product['Product']['promotion_content'];?>
 </div>
-<?php endif; ?>
-<?php
-echo $this->element('front/add2cart', array('qtyContainer'=>'item_qty'));
-?>
-<script type="text/javascript">
+ <script type="text/javascript">
 $(function() {
     /**
      * Slide box in footer
      */
 
-//	$(window).scroll(function(){
-//		/* when reaching the element with id "last" we want to show the slidebox. Let's get the distance from the top to the element */
-//		var distanceTop = $('#last').offset().top - $(window).height();
-//
-//		if  ($(window).scrollTop() > distanceTop)
-//			$('#slidebox').animate({'right':'0px'},300);
-//		else
-//			$('#slidebox').stop(true).animate({'right':'-430px'},100);
-//	});
-        $('#slidebox').animate({'right':'0px'},300);
-	/* remove the slidebox when clicking the cross */
-	$('#slidebox .close').bind('click',function(){
-		$(this).parent().remove();
-	});
-});
+    $(window).scroll(function(){
+            /* when reaching the element with id "last" we want to show the slidebox. Let's get the distance from the top to the element */
+            var distanceTop = $('#last').offset().top - $(window).height();
 
+            if  ($(window).scrollTop() > distanceTop)
+                    $('#slidebox').animate({'right':'0px'},300);
+            else
+                    $('#slidebox').stop(true).animate({'right':'-430px'},100);
+    });
+    $('#slidebox').animate({'right':'0px'},300);
+    /* remove the slidebox when clicking the cross */
+    $('#slidebox .close').bind('click',function(){
+            $(this).parent().remove();
+    });
+});
+ </script>
+<?php endif; ?>
+<?php
+echo $this->element('front/add2cart', array('qtyContainer'=>'item_qty'));
+echo $this->element('products/related_products', array('related_products'=>$related_products));
+?>
+<script type="text/javascript">
 $(function(){
 	$('.pix_diapo').diapo({'time': 1500, 'transPeriod' : 1500});
         $('.fancybox').fancybox();
@@ -216,6 +187,23 @@ $(function(){
                 afterLoad : function() {
                         this.title = (this.index + 1) + ' / ' + this.group.length + (this.title ? ' - ' + this.title : '');
                 }
+        });
+
+        $('#qty-plus').bind('click', {}, function(){
+            $qty = $('#item_qty').html();
+            $qty = parseInt($qty);
+            $qty++;
+            $('#item_qty').html($qty);
+        });
+
+        $('#qty-minus').bind('click', {}, function(){
+            $qty = $('#item_qty').html();
+            $qty = parseInt($qty);
+            $qty--;
+            if($qty<=0){
+                $qty = 1;
+            }
+            $('#item_qty').html($qty);
         });
 });
 </script>

@@ -9,7 +9,9 @@ App::uses('AppModel', 'Model');
  */
 class Property extends AppModel {
 
-    public $actsAs = array('Tree', 'Containable');
+    public $actsAs = array('Tree', 'Containable',
+                    'Slug' => array('field' => 'name', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '_', 'DBcheck'=>true),
+        );
 
     /**
      * Validation rules
@@ -119,7 +121,7 @@ class Property extends AppModel {
  * return array
  */
     function getThreadPropertiesByCategoryId($category_id){
-        //if (($properties = Cache::read('get_properties_of_category_'.$category_id, 'where2list')) === false) {
+        if (($properties = Cache::read('getThreadPropertiesByCategoryId'.$category_id, 'where2list')) === false) {
             if($this->Category->childCount($category_id, true) == 0){
                 $parent = $this->Category->getParentNode($category_id);
                 if(!empty($parent)){
@@ -133,8 +135,8 @@ class Property extends AppModel {
                                                             'order'=>array('Property.lft ASC'),
                                                             'contain' => false));
 
-            //Cache::write('get_properties_of_category_'.$category_id, $properties, 'where2list');
-        //}
+            Cache::write('getThreadPropertiesByCategoryId'.$category_id, $properties, 'where2list');
+        }
         return $properties;
     }    
 }

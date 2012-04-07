@@ -8,7 +8,7 @@ App::uses('AppModel', 'Model');
  */
 class Category extends AppModel {
     public $actsAs = array(
-        'Slug' => array('field' => 'name', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '-'),
+        'Slug' => array('field' => 'name', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '_', 'DBcheck'=>true),
         'Tree'
         );
 
@@ -90,10 +90,10 @@ class Category extends AppModel {
         return $list_categories;
     }
     
-    public function getCategoryName($category_id){
-        if (($catname = Cache::read('getCategoryName')) === false) {
-            $catname = $this->field('Category.name', array('Category.id'=>$category_id));
-            Cache::write('getCategoryName', $catname);
+    public function getCategoryById($category_id){
+        if (($catname = Cache::read('getCategoryById'.$category_id)) === false) {            
+            $catname = $this->find('first', array('fields'=>array('Category.id', 'Category.name', 'Category.slug', 'Category.product_count'),'conditions'=>array('Category.id'=>$category_id)));
+            Cache::write('getCategoryById'.$category_id, $catname);
         }
         return $catname;
     }

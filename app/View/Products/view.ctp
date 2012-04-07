@@ -1,18 +1,5 @@
 <?php //echo $this->Html->script(array('smoke/smoke.min'), array('block' => 'scriptBottom'));?>
 <?php //echo $this->Html->css(array('../js/smoke/smoke', '../js/smoke/themes/default'), null, array('block' => 'scriptTop'));?>
-<style type="text/css">
-    div.widget-shop {
-        background: none repeat scroll 0 0 #EEEEEE;
-        float: left;
-        margin-bottom: 20px;
-        width:220px;
-    }
-    div.widget-shop .widget-title {
-        background: none repeat scroll 0 0 #484848;
-        color: #A6A6A6;
-        padding: 10px 20px;
-    }
-</style>
 <ul class="breadcrumb">
     <li><a href="<?php echo $this->Html->url('/');?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
     <li class="active"><?php echo $category_name;?></li>
@@ -79,12 +66,24 @@
             echo '<div class="alert alert-error">'.__('No results found.').'</div>';
         endif;
         ?>
+        </div>
+        <div class="span3">        
+            <div class="row">        
+                <div class="span3">        
+                <?php
+                    echo $this->element('sidebar/features_filter', array('attributes'=>$attributes));
+                ?>
+                </div>
+            </div>
+            <div class="row">        
+                <div class="span3">        
+                <?php
+                    echo $this->element('sidebar/online_support');
+                ?>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <?php
-        echo $this->element('sidebar/features_filter', array('attributes'=>$attributes));
-        echo $this->element('sidebar/online_support');
-    ?>
 </div>
 
 <?php

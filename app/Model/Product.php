@@ -120,15 +120,15 @@ class Product extends AppModel {
 
     public function afterSave($created) {
         parent::afterSave($created);
-        
+
         if(!empty($this->data['Gallery']['upload'])){
             $this->data['Gallery']['model'] = 'Product';
-            $this->data['Gallery']['foreign_key'] = ($this->getLastInsertID()) ? $this->getLastInsertID() : $this->id;  
+            $this->data['Gallery']['foreign_key'] = ($this->getLastInsertID()) ? $this->getLastInsertID() : $this->id;
             foreach($this->data['Gallery']['upload'] as $attachment){
                 if(isset($attachment['error']) && $attachment['error'] > 0){
                     continue;
                 }
-                $this->data['Gallery']['attachment'] = $attachment; 
+                $this->data['Gallery']['attachment'] = $attachment;
                 $this->Gallery->save($this->data);
                 $this->Gallery->id = false;
             }
@@ -147,8 +147,8 @@ class Product extends AppModel {
 
     /**
      * Get promotion product
-     * 
-     * @return array 
+     *
+     * @return array
      */
     public function getPromotionProducts(){
         if (($products = Cache::read('getPromotionProducts')) === false) {
@@ -168,7 +168,7 @@ class Product extends AppModel {
      *
      * @return array
      */
-    public function getLatestProducts(){        
+    public function getLatestProducts(){
         if (($products = Cache::read('getLatestProducts')) === false) {
             $products = $this->find('all', array(
                     'order'=>array('Category.lft' => 'ASC','Product.created' => 'DESC'),
@@ -182,4 +182,27 @@ class Product extends AppModel {
         return $products;
     }
 
+    public function getProductDetail($id){
+        if (($products = Cache::read('getProductDetail'.$id)) === false) {
+            $products = $this->find('first', array('conditions'=>array('Product.id'=>$id),
+                                        'contain'=>array('Gallery'=>array('fields'=>array('Gallery.id','Gallery.attachment', 'Gallery.dir')),
+                                            'Category'=>array('fields'=>array('Category.id','Category.name','Category.slug')))
+                                        ));
+            Cache::write('getProductDetail'.$id, $products);
+        }
+        return $products;
+    }
+
+    public function getRelatedProducts($exceptID, $categoryId){
+        if (($products = Cache::read('getRelatedProducts'.$exceptID.$categoryId)) === false) {
+            $products = $this->find('all', array(
+                                            'conditions'=>array('Product.id <>'=>$exceptID, 'Product.category_id'=>$categoryId),
+                                            'fields' => array('Product.id', 'Product.slug', 'Product.name'),
+                                            'limit' => 20,
+                                            'contain'=>array('Gallery'=>array('fields'=>array('Gallery.attachment', 'Gallery.dir'),'order'=>array('Gallery.ordered'=>'ASC'), 'limit'=>1))
+                                        ));
+            Cache::write('getRelatedProducts'.$exceptID.$categoryId, $products);
+        }
+        return $products;
+    }
 }
