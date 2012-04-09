@@ -72,29 +72,29 @@ class Category extends AppModel {
      * @int $id
      */
     public function listCategories() {
-        if (($list_categories = Cache::read('list_main_categories')) === false) {
-            $root_categories = $this->getParentCategories(array('id', 'id'));
-            $categories = $this->generateTreeList(array('Category.published' => 1), null, null, '');
-            $list_categories = null;
-            $optgroup = null;
-            foreach ($categories as $category_id => $category_name) {
-                if (in_array($category_id, $root_categories)) {
-                    $optgroup = $category_name;
-                }
-                if (!in_array($category_id, $root_categories)) {
-                    $list_categories[$optgroup][$category_id] = $category_name;
-                }
-            }
-            Cache::write('list_main_categories', $list_categories);
+        if (($categories = Cache::read('list_categories')) === false) {
+            $categories = $this->generateTreeList(array('Category.published' => 1), null, null, '-- ');
+            Cache::write('list_categories', $categories);
         }
-        return $list_categories;
+        return $categories;
     }
-    
+
     public function getCategoryById($category_id){
-        if (($catname = Cache::read('getCategoryById'.$category_id)) === false) {            
-            $catname = $this->find('first', array('fields'=>array('Category.id', 'Category.name', 'Category.slug', 'Category.product_count'),'conditions'=>array('Category.id'=>$category_id)));
+        if (($catname = Cache::read('getCategoryById'.$category_id)) === false) {
+            $catname = $this->find('first', array('fields'=>array('Category.id', 'Category.parent_id', 'Category.name', 'Category.slug', 'Category.product_count'),'conditions'=>array('Category.id'=>$category_id)));
             Cache::write('getCategoryById'.$category_id, $catname);
         }
         return $catname;
     }
+
+
+    public function getBreadscrumbPath($category_id){
+        if (($parents = Cache::read('getBreadscrumbPath'.$category_id)) === false) {
+            $parents = $this->getPath($category_id, array('Category.id', 'Category.name', 'Category.slug', 'Category.product_count'));
+            Cache::write('getBreadscrumbPath'.$category_id, $parents);
+        }
+        return $parents;
+    }
+
+
 }

@@ -59,8 +59,14 @@ class ProductsController extends AppController {
                 $conditions['Product.category_id'] = $category_id;
             }
 
-            $category = $this->Product->Category->getCategoryById($category_id);
-            $this->set('category_name', $category['Category']['name']);
+            $path = $this->Product->Category->getBreadscrumbPath($category_id);
+            $this->set('breadscrumbs', $path);
+
+            /**
+             * Loc theo danh
+             */
+            $categoryList = $this->Product->Category->listCategories();
+            $this->set('categoryList', $categoryList);
         }
         /**
          * Filter
@@ -117,12 +123,12 @@ class ProductsController extends AppController {
          *Get related products
          */
         $related_products = null;
-        $category = null;
+        $path = null;
         if(!empty($product)){
             $related_products = $this->Product->getRelatedProducts($id, $product['Product']['category_id']);
-            $category = $this->Product->Category->getCategoryById($product['Product']['category_id']);
+            $path = $this->Product->Category->getBreadscrumbPath($product['Product']['category_id']);
         }
-        $this->set('category', $category);
+        $this->set('breadscrumbs', $path);
         $this->set(compact('related_products'));
     }
 

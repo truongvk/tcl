@@ -292,7 +292,6 @@ class UsersController extends AclManagementAppController {
      * @return void
      */
     public function register() {
-        $this->layout = "login";
         if ($this->request->is('post')) {
             $this->loadModel('AclManagement.User');
             $this->User->create();

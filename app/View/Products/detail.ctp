@@ -1,10 +1,7 @@
 <?php echo $this->Html->script(array('jquery/jquery.easing.1.3', 'jquery/jquery.hoverIntent.minified', 'diapo/diapo.min', 'fancybox/jquery.fancybox', 'fancybox/helpers/jquery.fancybox-buttons.js?v=2.0.4'), array('block' => 'scriptBottom'));?>
-<?php echo $this->Html->css(array('relateposts/style','../js/fancybox/jquery.fancybox', '../js/fancybox/helpers/jquery.fancybox-buttons.css?v=2.0.4', '../js/diapo/diapo','slidebox/style'), null, array('block' => 'scriptTop'));?>
-<ul class="breadcrumb">
-    <li><a href="<?php echo $this->Html->url('/');?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
-    <li><a href="#"><?php echo $this->Html->link($category['Category']['name'], array('action'=>'view', $category['Category']['id']));?></a> <span class="divider">/</span></li>
-    <li class="active"><?php echo h($product['Product']['name']);?></li>
-</ul>
+<?php echo $this->Html->css(array('../js/fancybox/jquery.fancybox', '../js/fancybox/helpers/jquery.fancybox-buttons.css?v=2.0.4', '../js/diapo/diapo','slidebox/style'), null, array());?>
+
+<?php echo $this->element('front/breadscrumbs', array('breadscrumbs'=>$breadscrumbs, 'product_name'=>h($product['Product']['name'])));?>
 
 <div class="row">
     <div class="span6">
@@ -77,7 +74,7 @@
     </div>
 </div>
 <div class="clearfix"><br/></div>
-<div class="row">
+<div class="row" id="detail-tabs">
     <div class="span12">
         <div class="tabbable">
             <ul class="nav nav-tabs" style="margin-bottom: 0px;border-bottom: none">

@@ -1,5 +1,4 @@
 <?php echo $this->Html->script(array('application/cart/add2cart'));?>
-<?php echo $this->Html->script(array('application/cart/minicart'));?>
 <div id="myModal" class="modal hide fade" style="display: none; ">
     <div class="modal-header">
         <a class="close" data-dismiss="modal">×</a>
@@ -23,11 +22,7 @@ $(function(){
         modalID: 'myModal',
         qtyContainer: '<?php echo $qtyContainer;?>'
     });
-
-    $(document).minicart ({
-        url: '<?php echo $this->Html->url('/cart/mini_cart/');?>'       
-    });
-
+    
     $('#myModal').on('shown', function () {
         setTimeout("$('#myModal').modal('hide');", 5000);
     });

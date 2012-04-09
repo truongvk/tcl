@@ -1,9 +1,7 @@
 <?php //echo $this->Html->script(array('smoke/smoke.min'), array('block' => 'scriptBottom'));?>
 <?php //echo $this->Html->css(array('../js/smoke/smoke', '../js/smoke/themes/default'), null, array('block' => 'scriptTop'));?>
-<ul class="breadcrumb">
-    <li><a href="<?php echo $this->Html->url('/');?>"><i class="icon-home"></i></a> <span class="divider">/</span></li>
-    <li class="active"><?php echo $category_name;?></li>
-</ul>
+
+<?php echo $this->element('front/breadscrumbs', array('breadscrumbs'=>$breadscrumbs));?>
 <div class="row">
     <div class="span9" style="">
         <?php
@@ -71,7 +69,7 @@
             <div class="row">        
                 <div class="span3">        
                 <?php
-                    echo $this->element('sidebar/features_filter', array('attributes'=>$attributes));
+                    echo $this->element('sidebar/features_filter', array('attributes'=>$attributes, 'categories'=>$categoryList));
                 ?>
                 </div>
             </div>

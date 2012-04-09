@@ -2,7 +2,7 @@
 	font-family:Verdana, Helvetica, sans-serif;
 	position:fixed;
 	right:-220px;
-	top:60px;
+	top:140px;
 	margin:0;
 	padding:0;
 }
@@ -75,7 +75,7 @@ span.rp_links{
 	margin-left:62px;
 }
 span.rp_links a{
-	background: #222 url(../images/bgbutton.png) repeat-x;
+	background: #222 url(bgbutton.png) repeat-x;
 	padding: 2px 5px;
 	font-size:10px;
 	color: #fff;

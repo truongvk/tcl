@@ -18,7 +18,7 @@ class AppController extends Controller {
             )
         ),
         'Session',
-        'DebugKit.Toolbar',
+        //'DebugKit.Toolbar',
     );
     public $helpers = array(
         'Session',

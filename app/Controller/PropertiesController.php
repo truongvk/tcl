@@ -137,6 +137,7 @@ class PropertiesController extends AppController {
             throw new NotFoundException(__('Invalid property'));
         }
         if ($this->Property->delete()) {
+            $this->Property->deleteAll(array('Property.parent_id'=>$id));
             $this->Session->setFlash(__('Property deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }

@@ -30,6 +30,8 @@
         <link href="<?php echo $this->Html->url('/css/twitter/bootstrap.css'); ?>" rel="stylesheet">
 <!--        <link href="<?php //echo $this->Html->url('/css/front/bootstrap-responsive.css'); ?>" rel="stylesheet">-->
         <link href="<?php echo $this->Html->url('/css/front/mycustomize.css'); ?>" rel="stylesheet">
+        <?php echo $this->Html->script(array('large_dropdown/large_dropdown'), array('block' => 'scriptBottom'));?>
+        <?php echo $this->Html->css(array('../js/large_dropdown/style'), null, array());?>
         <?php echo $this->fetch('scriptTop');?>
     </head>
     <body>
@@ -61,7 +63,9 @@
         </div> <!-- /container -->
         <?php
         echo $this->element('front/footer');
-        ?>        
+        echo $this->element('front/feedback');
+        ?>
+        
     </body>
     <!-- Le javascript
     ================================================== -->
@@ -69,26 +73,51 @@
     <?php
     echo $this->Html->script(array('twitter/bootstrap.min'));
     ?>
+    <?php echo $this->Html->script(array('application/cart/minicart'));?>
     <script type="text/javascript">
-     $(function(){
-	jQuery('.settings .openclose').click(function()
-        {
-            var target = jQuery(this).parent().parent('.settings');
-            if(target.is('.display_switch'))
+        $(function(){
+            
+            $(document).minicart ({
+                url: '<?php echo $this->Html->url('/cart/mini_cart/');?>'       
+            });
+            
+            jQuery('.settings .openclose').click(function()
             {
-                target.animate({top: "-78"}, function()
+                var target = jQuery(this).parent().parent('.settings');
+                if(target.is('.display_switch'))
                 {
-                    target.removeClass('display_switch').addClass('display_settings_false');
-                });
-            }
-            else
+                    target.animate({top: "-78"}, function()
+                    {
+                        target.removeClass('display_switch').addClass('display_settings_false');
+                    });
+                }
+                else
+                {
+                    target.animate({top: "0"}, function()
+                    {
+                        target.removeClass('display_settings_false').addClass('display_switch');
+                    });
+                }
+            });
+
+            jQuery('.options').click(function()
             {
-                target.animate({top: "0"}, function()
+                var target = jQuery(this);
+                if(target.is('.display_switch'))
                 {
-                    target.removeClass('display_settings_false').addClass('display_switch');
-                });
-            }
-        });
+                    target.animate({left: "-75"}, function()
+                    {
+                        target.removeClass('display_switch');
+                    });
+                }
+                else
+                {
+                    target.animate({left: "-313"}, function()
+                    {
+                        target.addClass('display_switch');
+                    });
+                }
+            });
     });
     
     </script>

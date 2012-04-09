@@ -2,8 +2,8 @@
 $countPost = count($related_products);
 if($countPost > 0):
 ?>
-<?php echo $this->Html->script(array('related_posts/related_posts')); ?>
-<?php echo $this->Html->css(array('../js/related_posts/style'), null, array('block' => 'scriptTop')); ?>
+<?php echo $this->Html->script(array('related_posts/related_posts'), array('block' => '')); ?>
+<?php echo $this->Html->css(array('../js/related_posts/style'), null, array('block' => '')); ?>
 
 <div id="rp_list" class="rp_list">
     <ul>

@@ -14,14 +14,10 @@ class CartController extends AppController {
     public function  beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow('index', 'view', 'delete', 'add2cart', 'mini_cart');
+        $this->Auth->allow('index', 'view', 'edit', 'delete', 'add2cart', 'mini_cart');
     }
 
-    public function index(){        
-        if ($this->request->is('ajax')) {
-            $this->layout = 'ajax';
-        }
-
+    public function index(){
         $this->set('cart', $this->shoppingCart);
     }
 
@@ -62,6 +58,17 @@ class CartController extends AppController {
         $this->layout = 'ajax';
     }
 
+    public function edit(){
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        
+        foreach($this->request->data['Cart']['quantity'] as $itemId => $itemQty){
+            $this->shoppingCart->edit_item(intval($itemId), intval($itemQty));            
+        }
+        $this->redirect(array('action'=>'index'));
+    }
+    
     public function delete($id=null){
         if (!$this->request->is('post') || !$id) {
             throw new MethodNotAllowedException();
