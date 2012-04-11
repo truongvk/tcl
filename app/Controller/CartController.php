@@ -14,7 +14,7 @@ class CartController extends AppController {
     public function  beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow('index', 'view', 'edit', 'delete', 'add2cart', 'mini_cart');
+        $this->Auth->allow('index', 'view', 'edit', 'delete', 'add2cart', 'mini_cart', 'checkout');
     }
 
     public function index(){
@@ -66,7 +66,7 @@ class CartController extends AppController {
         foreach($this->request->data['Cart']['quantity'] as $itemId => $itemQty){
             $this->shoppingCart->edit_item(intval($itemId), intval($itemQty));            
         }
-        $this->redirect(array('action'=>'index'));
+        $this->redirect(array('action'=>'checkout'));
     }
     
     public function delete($id=null){
@@ -76,6 +76,10 @@ class CartController extends AppController {
 
         $this->shoppingCart->del_item(intval($id));
         $this->redirect(array('action'=>'index'));
+    }
+
+    public function checkout(){
+        $this->set('cart', $this->shoppingCart);
     }
 }
 ?>

@@ -9,7 +9,7 @@ body {
 	padding-top: 130px;
 }
 a {
-    color: #DB261D;
+/*    color: #DB261D;*/
     text-decoration: none;
 }
 .clearfix {
@@ -59,14 +59,33 @@ a {
 .label.link-white a{color:#FFFFFF;}
 
 
+
 .nav-list li a{
    color:  #333333;
 }
-.nav li a:hover{
-   background-color:  #DB261D;
-   color:  #FFFFFF;
+
+
+.nav li a.tag-style {
+    -moz-transition: all 0.1s ease-in-out 0s;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #555555;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 1px 1px white;
+    float: left;
+    line-height: 12px;
+    margin: 6px 4px 0 0;
+    opacity: 0.5;
+    padding: 4px 6px;
+    color: #000000;
+    font-size: 11px;
+    text-decoration: none;
 }
 
+.nav li a.tag-active,
+.nav li a.tag-style:hover{
+    background: none repeat scroll 0 0 #DB261D;
+    color: #FFFFFF;   
+}
 
 .navbar .navbar-inner .container{
 	background: none repeat scroll 0 0 #343434; padding:0px 20px 0px 20px

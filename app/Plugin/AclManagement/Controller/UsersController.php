@@ -238,10 +238,11 @@ class UsersController extends AclManagementAppController {
      * @return void
      */
     function login() {
-        $this->layout = "login";
-
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
+                if($this->Session->check('ShoppingCart')){
+                    $this->redirect(array('plugin'=>false, 'controller'=>'cart', 'action'=>'index'));
+                }
                 $this->redirect($this->Auth->redirect());
             } else {
                 $this->Session->setFlash('Your username or password was incorrect.', 'error');
@@ -294,15 +295,41 @@ class UsersController extends AclManagementAppController {
     public function register() {
         if ($this->request->is('post')) {
             $this->loadModel('AclManagement.User');
+            $this->loadModel('Customer');
+            $this->loadModel('CheckoutAddress');
+            $this->loadModel('DeliveryAddress');
+
+            //validate customer info
+            $this->Customer->set($this->request->data);
+            $customer_errors = $this->Customer->validates();
+
+            //validate checkout address
+            $this->CheckoutAddress->set($this->request->data);
+            $checkout_address_errors = $this->CheckoutAddress->validates();
+
+            //validate delivery address
+            $this->DeliveryAddress->set($this->request->data);
+            $delivery_address_errors = $this->DeliveryAddress->validates();
+
+
             $this->User->create();
             $this->request->data['User']['group_id']    = 2;//member
             $this->request->data['User']['status']      = 1;//active user
-            if ($this->User->save($this->request->data)) {
-                $this->Session->setFlash(__('The user has been saved'), 'success');
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'error');
+            if($this->User->save($this->request->data)){
+                $userID = $this->User->getLastInsertID();
+                $this->request->data['Customer']['user_id'] = $userID;
+                $this->request->data['CheckoutAddress']['user_id'] = $userID;
+                $this->request->data['DeliveryAddress']['user_id'] = $userID;
+                $this->Customer->save($this->request->data['Customer']);
+                $this->CheckoutAddress->save($this->request->data['CheckoutAddress']);
+                $this->DeliveryAddress->save($this->request->data['DeliveryAddress']);
+
+                $this->Session->setFlash(__('Congrats! The registered successfully'), 'success');
+                $this->redirect(array('action' => 'login'));
+            }else {
+                $this->Session->setFlash(__('Something went wrong. Please, check your information.'), 'error');
             }
+
         }
         $groups = $this->User->Group->find('list');
         $this->set(compact('groups'));

@@ -26,35 +26,48 @@ endif;
         $limit = Configure::read('Settings.expand_collapse_attributes.value');
         foreach($attributes as $attribute):
             $header = $attribute['Property']['name'];
-        ?>
-        <li class="nav-header"><?php echo $header;?></li>
+        ?>        
+        <li class="nav-header" style="clear: both;">
+            <span style="padding-top: 10px; clear: both; display:block"><?php echo $header;?></span>
+        </li>
         <?php
             $i = 0;
             $hasFilter=null;
             foreach($attribute['children'] as $child):
-                $selectProperty = (isset($this->request->params["named"][$attribute["Property"]["slug"]]) && $child["Property"]["slug"] == $this->request->params["named"][$attribute["Property"]["slug"]]) ? 'active' : '';
+                $selectProperty = (isset($this->request->params["named"][$attribute["Property"]["slug"]]) && $child["Property"]["slug"] == $this->request->params["named"][$attribute["Property"]["slug"]]) ? 'tag-active' : '';
                 $url = array('controller'=>'products', 'action'=>'view');
                 $url_pass = $this->NamedParams->set($attribute["Property"]["slug"], $child["Property"]["slug"]);
                 if(!empty($url_pass)){
                     $url = array_merge($url, $url_pass);
                 }
-                $propertyURL = $this->Html->link($child["Property"]["name"], $url, array('escape'=>false, 'encode'=>false));
+                $propertyURL = $this->Html->link($child["Property"]["name"], $url, array('escape'=>false, 'encode'=>false, 'class'=>'tag-style '.$selectProperty));
 
                 $class = "always_show";
+
                 if ($i >= $limit) {
                     $class = 'hidden';
                 }
+
                 if($selectProperty){
                     $hasFilter[] = $selectProperty;
                 }
+
+                if($i==0){
+                    $showAll =  (isset($this->request->params["named"][$attribute["Property"]["slug"]])) ? '' : 'tag-active';
+                    echo '<li class="always_show">'.$this->Html->link(__('All'), array($category_id), array('escape'=>false, 'encode'=>false, 'class'=>'tag-style '.$showAll)).'</li>';
+                }
         ?>
-                <li class="<?php echo $class.' '.$selectProperty;?> <?php echo 'group-'.$attribute['Property']['id'];?>"><?php echo $propertyURL;?></li>
+                <li class="<?php echo $class;?> <?php echo 'group-'.$attribute['Property']['id'];?>"><?php echo $propertyURL;?></li>
         <?php
                 $i++;
             endforeach;
             if($i > $limit){
-        ?>
-                <span class="label" style="cursor: pointer;text-transform: none" id="bt-expand-<?php echo $attribute['Property']['id'];?>" onclick="property.choose_more(this, '.group-<?php echo $attribute['Property']['id'];?>');"><?php echo __('expand');?></span>
+        ?>                
+                <div class="row">
+                    <div class="span3">
+                        <span class="label" style="cursor: pointer;text-transform: none;" id="bt-expand-<?php echo $attribute['Property']['id'];?>" onclick="property.choose_more(this, '.group-<?php echo $attribute['Property']['id'];?>');"><?php echo __('expand');?></span>
+                    </div>
+                </div>
         <?php
             }
             if(!empty($hasFilter)){
@@ -64,6 +77,9 @@ endif;
             }
         endforeach;
         ?>
+        <li class="nav-header" style="clear: both;">
+           
+        </li>
     </ul>
 </div>
 

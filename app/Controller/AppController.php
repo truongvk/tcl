@@ -1,7 +1,7 @@
 <?php
 
 App::uses('Controller', 'Controller');
-App::uses('wfCart', 'Vendor');
+App::import('Vendor', 'wfCart', array('file' => 'wfcart.php'));
 class AppController extends Controller {
 
     public $components = array(
@@ -25,7 +25,7 @@ class AppController extends Controller {
         'Form',
         'Html',
         'Cache',
-        'Js',
+        'Js' => array('Jquery'),
         'Time'
     );
 

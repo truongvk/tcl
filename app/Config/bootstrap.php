@@ -86,6 +86,7 @@
 Cache::config('default', array('engine' => 'File'));
 
 Configure::load('config');
+Configure::load('vietnam_cities');
 /**
  * The settings below can be used to set additional paths to models, views and controllers.
  *

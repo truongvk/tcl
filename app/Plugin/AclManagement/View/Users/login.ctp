@@ -1,11 +1,8 @@
-<ul class="breadcrumb">
-    <li><?php echo $this->Html->link('Home', '/');?><span class="divider">/</span></li>
-    <li class="active">Sign In</li>
-</ul>
+<?php echo $this->element('front/breadscrumbs', array('data'=>array(array('name'=>__('Login')))));?>
 <?php
 echo $this->Form->create('User', array('action' => 'login', 'class'=>'form-horizontal'));
 ?>
-<?php echo $this->element('social_connect', array(), array('plugin'=>'AclManagement'));?><br/>
+<?php //echo $this->element('social_connect', array(), array('plugin'=>'AclManagement'));?><br/>
 <div class="row">
     <div class="span2">&nbsp;</div>
     <div class="span5">
@@ -30,12 +27,12 @@ echo $this->Form->input('password', array('div'=>'control-group',
 ?>
 
 <div class="row">
-<div class="span7">
-    <div class="form-actions">
-        <?php echo $this->Form->submit(__('Submit'), array('class'=>'btn btn-primary', 'div'=>false));?>
-        <?php echo $this->Form->reset(__('Cancel'), array('class'=>'btn', 'div'=>false));?>
+    <div class="span12">
+        <div class="form-actions">
+            <?php echo $this->Form->submit(__('Submit'), array('class'=>'btn btn-primary', 'div'=>false));?>
+            <?php echo $this->Form->reset(__('Cancel'), array('class'=>'btn', 'div'=>false));?>
+        </div>
     </div>
-</div>
 </div>
 <?php
 echo $this->Form->end();

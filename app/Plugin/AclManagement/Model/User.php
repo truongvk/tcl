@@ -26,12 +26,12 @@ class User extends AclManagementAppModel {
 //                'message' => 'Username already in use.'
 //            )
 //        ),
-        'name' => array(
-            'required' => true,
-            'allowEmpty' => false,
-            'rule' => 'notEmpty',
-            'message' => 'You must enter your real name.'
-        ),
+//        'name' => array(
+//            'required' => true,
+//            'allowEmpty' => false,
+//            'rule' => 'notEmpty',
+//            'message' => 'You must enter your real name.'
+//        ),
         'email' => array(
             'email' => array(
                 'required' => true,
@@ -52,6 +52,23 @@ class User extends AclManagementAppModel {
             'allowEmpty' => false,
             'rule' => 'comparePwd',
             'message' => 'Password mismatch or less than 6 characters.'
+        )
+    );
+    public $hasOne = array(
+        'CheckoutAddress' => array(
+            'className'    => 'CheckoutAddress',
+            'conditions'   => array(),
+            'dependent'    => true
+        ),
+        'DeliveryAddress' => array(
+            'className'    => 'DeliveryAddress',
+            'conditions'   => array(),
+            'dependent'    => true
+        ),
+        'Customer' => array(
+            'className'    => 'Customer',
+            'conditions'   => array(),
+            'dependent'    => true
         )
     );
 

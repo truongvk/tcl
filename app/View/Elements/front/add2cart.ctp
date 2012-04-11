@@ -6,8 +6,11 @@
     </div>
     <div class="modal-body"></div>
     <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal"><?php echo __('Continue Shopping');?></a>
-        <a href="#" class="btn btn-primary"><?php echo __('Checkout');?></a>
+        <p>
+            <a href="#" class="btn" data-dismiss="modal"><i class="icon-shopping-cart"></i> <?php echo __('Continue Shopping');?></a>
+            <a href="<?php echo $this->Html->url('/cart/');?>" class="btn"><i class="icon-eye-open"></i> <?php echo __('View Cart');?> </a>
+            <a href="<?php echo $this->Html->url('/cart/checkout');?>" class="btn btn-primary"><i class="icon-ok-sign icon-white"></i> <?php echo __('Checkout');?></a>
+        </p>
     </div>
 </div>
 <?php
@@ -22,7 +25,7 @@ $(function(){
         modalID: 'myModal',
         qtyContainer: '<?php echo $qtyContainer;?>'
     });
-    
+
     $('#myModal').on('shown', function () {
         setTimeout("$('#myModal').modal('hide');", 5000);
     });

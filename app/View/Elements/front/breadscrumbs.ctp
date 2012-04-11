@@ -37,3 +37,4 @@
     }
 ?>
 </ul>
+<?php echo $this->Session->flash(); ?>
