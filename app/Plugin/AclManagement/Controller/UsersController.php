@@ -240,7 +240,7 @@ class UsersController extends AclManagementAppController {
     function login() {
         if ($this->request->is('post')) {
             if ($this->Auth->login()) {
-                if($this->Session->check('ShoppingCart')){
+                if($this->Session->check('ShoppingCart') && $this->shoppingCart->itemcount > 0){
                     $this->redirect(array('plugin'=>false, 'controller'=>'cart', 'action'=>'index'));
                 }
                 $this->redirect($this->Auth->redirect());
@@ -318,11 +318,13 @@ class UsersController extends AclManagementAppController {
             if($this->User->save($this->request->data)){
                 $userID = $this->User->getLastInsertID();
                 $this->request->data['Customer']['user_id'] = $userID;
-                $this->request->data['CheckoutAddress']['user_id'] = $userID;
-                $this->request->data['DeliveryAddress']['user_id'] = $userID;
+                $this->request->data['CheckoutAddress']['user_id'] = $userID;                
                 $this->Customer->save($this->request->data['Customer']);
                 $this->CheckoutAddress->save($this->request->data['CheckoutAddress']);
-                $this->DeliveryAddress->save($this->request->data['DeliveryAddress']);
+                if(isset($this->request->data['DeliveryAddress']) && !empty($this->request->data['DeliveryAddress'])){
+                    $this->request->data['DeliveryAddress']['user_id'] = $userID;
+                    $this->DeliveryAddress->save($this->request->data['DeliveryAddress']);
+                }
 
                 $this->Session->setFlash(__('Congrats! The registered successfully'), 'success');
                 $this->redirect(array('action' => 'login'));

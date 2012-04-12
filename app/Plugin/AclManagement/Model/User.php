@@ -57,16 +57,19 @@ class User extends AclManagementAppModel {
     public $hasOne = array(
         'CheckoutAddress' => array(
             'className'    => 'CheckoutAddress',
+            'foreignKey' => 'user_id',
             'conditions'   => array(),
             'dependent'    => true
         ),
         'DeliveryAddress' => array(
             'className'    => 'DeliveryAddress',
+            'foreignKey' => 'user_id',
             'conditions'   => array(),
             'dependent'    => true
         ),
         'Customer' => array(
             'className'    => 'Customer',
+            'foreignKey' => 'user_id',
             'conditions'   => array(),
             'dependent'    => true
         )

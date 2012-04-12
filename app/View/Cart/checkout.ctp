@@ -1,5 +1,8 @@
-<?php echo $this->Html->script(array('sliding_form/sliding.form'), array('block' => 'scriptBottom'));?>
+<?php echo $this->Html->script(array('smoke/smoke.min'), array('block' => 'scriptBottom'));?>
+<?php echo $this->Html->css(array('../js/smoke/smoke', '../js/smoke/themes/default'), null, array('block' => 'scriptTop'));?>
+<?php echo $this->Html->script(array('sliding_form/sliding.form'), array());?>
 <?php echo $this->Html->css(array('../js/sliding_form/style'), null, array('block' => 'css'));?>
+
 <?php echo $this->element('front/breadscrumbs', array('data'=>array(array('name'=>__('Your Cart')))));?>
 <?php $vietnamCity = Configure::read('VietnamCities');?>
 <div class="row">
@@ -9,19 +12,19 @@
                 <div id="navigation" style="display:none;">
                     <ul>
                         <li class="selected">
-                            <a href="#">Account</a>
+                            <a href="#"><?php echo __('Customer Information');?><</a>
                         </li>
                         <li>
-                            <a href="#">Personal Details</a>
+                            <a href="#"><?php echo __('Checkout Information');?><</a>
                         </li>
                      	<li>
-                            <a href="#">Confirm</a>
+                            <a href="#"><?php echo __('Confirm');?><</a>
                         </li>
                     </ul>
                 </div>                    
                 <div id="steps">
                     <?php //echo $this->Form->create('User', array('class'=>'form-horizontal', 'id'=>'formElem', 'name'=>'formElem'));?>
-                    <form id="formElem" name="formElem" action="" method="post" class ="form-horizontal">
+                    <form id="formElem" name="formElem" action="<?php echo $this->Html->url('/cart/checkout/'.$IsCheckoutWithoutLogin);?>" method="post" class ="form-horizontal">
                         <fieldset class="step first-fieldset">
 <!--                            <legend>Account</legend>-->
                             <div class="fieldset-content">
@@ -38,7 +41,7 @@
                                         'before'=>'<label class="control-label">'.__('Last Name').'</label><div class="controls">',
                                         'after'=>$this->Form->error('Customer.last_name', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                         'error' => array('attributes' => array('style' => 'display:none')),
-                                        'label'=>false, 'class'=>'input-xlarge'));
+                                        'label'=>false, 'class'=>'input-xlarge required'));
                                     echo $this->Form->input('Customer.company', array('div'=>'control-group',
                                         'before'=>'<label class="control-label">'.__('Company').'</label><div class="controls">',
                                         'after'=>$this->Form->error('Customer.company', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
@@ -68,7 +71,7 @@
                                         'before'=>'<label class="control-label">'.__('Phone').'</label><div class="controls">',
                                         'after'=>$this->Form->error('Customer.phone', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                         'error' => array('attributes' => array('style' => 'display:none')),
-                                        'label'=>false, 'class'=>'input-xlarge'));
+                                        'label'=>false, 'class'=>'input-xlarge required'));
                                 ?>
                             </div>
                         </fieldset>
@@ -82,44 +85,44 @@
                                                             'before'=>'<label>'.__('First Name').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('CheckoutAddress.first_name', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge'));
+                                                            'label'=>false, 'class'=>'input-xlarge required'));
                                     echo $this->Form->input('CheckoutAddress.last_name', array('div'=>'control-group','placeholder'=>'',
                                                             'before'=>'<label>'.__('Last Name').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('CheckoutAddress.last_name', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge'));
+                                                            'label'=>false, 'class'=>'input-xlarge required'));
                                     echo $this->Form->input('CheckoutAddress.phone', array('div'=>'control-group','placeholder'=>'',
                                                             'before'=>'<label>'.__('Phone').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('CheckoutAddress.phone', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge'));
+                                                            'label'=>false, 'class'=>'input-xlarge required'));
                                     echo $this->Form->input('CheckoutAddress.address', array('div'=>'control-group','placeholder'=>'',
                                                             'before'=>'<label>'.__('Address').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('CheckoutAddress.address', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge'));
+                                                            'label'=>false, 'class'=>'input-xlarge required'));
                                     echo $this->Form->input('CheckoutAddress.ward', array('div'=>'control-group','placeholder'=>'',
                                                             'before'=>'<label>'.__('Ward').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('CheckoutAddress.ward', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge'));
+                                                            'label'=>false, 'class'=>'input-xlarge required'));
                                     echo $this->Form->input('CheckoutAddress.district', array('div'=>'control-group','placeholder'=>'',
                                                             'before'=>'<label>'.__('District').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('CheckoutAddress.district', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge'));
+                                                            'label'=>false, 'class'=>'input-xlarge required'));
                                     echo $this->Form->input('CheckoutAddress.city', array('div'=>'control-group','placeholder'=>'','options'=>$vietnamCity, 'value'=>52,
                                                             'before'=>'<label>'.__('City').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('CheckoutAddress.city', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge'));
-                                    $checked = (isset($this->data['DeliveryAddress'])) ? false : true;
-                                    echo $this->Form->input('CheckoutAddress.is_delivery_address', array('div'=>'control-group','placeholder'=>'', 'id'=>'is_delivery_address','checked'=>$checked,
+                                                            'label'=>false, 'class'=>'input-xlarge required'));
+                                    //$checked = (isset($this->data['DeliveryAddress']) && !empty($this->data['DeliveryAddress'])) ? false : true;
+                                    echo $this->Form->input('CheckoutAddress.is_delivery_address', array('div'=>'control-group','placeholder'=>'', 'id'=>'is_delivery_address',
                                                             'before'=>'<label>'.__('Delivery Address').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('CheckoutAddress.is_delivery_address', array(), array('wrap' => 'span', 'class' => 'help-inline')).'&nbsp;'.__('The same checkout address').'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
                                                             'label'=>false, 'class'=>'input-xlarge'));
-                                    if($checked){
+                                    if((isset($this->data['CheckoutAddress']['is_delivery_address']) && intval($this->data['CheckoutAddress']['is_delivery_address']) > 0)){
                                         echo $this->Html->scriptBlock('$(function(){ $("#is_delivery_address").trigger("change"); });', array('inline' => false, 'block' => 'scriptBottom'));
                                     }
                                 ?>
@@ -131,27 +134,27 @@
                                                             'before'=>'<label>'.__('Phone').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('DeliveryAddress.phone', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress'));
+                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress required'));
                                     echo $this->Form->input('DeliveryAddress.address', array('div'=>'control-group','placeholder'=>'',
                                                             'before'=>'<label>'.__('Address').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('DeliveryAddress.address', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress'));
+                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress required'));
                                     echo $this->Form->input('DeliveryAddress.ward', array('div'=>'control-group','placeholder'=>'',
                                                             'before'=>'<label>'.__('Ward').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('DeliveryAddress.ward', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress'));
+                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress required'));
                                     echo $this->Form->input('DeliveryAddress.district', array('div'=>'control-group','placeholder'=>'',
                                                             'before'=>'<label>'.__('District').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('DeliveryAddress.district', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress'));
+                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress required'));
                                     echo $this->Form->input('DeliveryAddress.city', array('div'=>'control-group','placeholder'=>'','options'=>$vietnamCity, 'value'=>52,
                                                             'before'=>'<label>'.__('City').'</label><div class="controls">',
                                                             'after'=>$this->Form->error('DeliveryAddress.city', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                                             'error' => array('attributes' => array('style' => 'display:none')),
-                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress'));
+                                                            'label'=>false, 'class'=>'input-xlarge DeliveryAddress required'));
                                 ?>
                             </div>
                         </fieldset>
@@ -208,7 +211,7 @@
                                 endif;
                                 ?>
                                 <p class="submit">
-                                    <a class="btn btn-large btn-primary" href="javascript:;;"><i class="icon-ok icon-white"></i> <?php echo __('Finish');?></a>
+                                    <a class="btn btn-large btn-primary" id="finishButton" href="javascript:;;"><i class="icon-ok icon-white"></i> <?php echo __('Finish');?></a>
                                 </p>
                             </div>
                         </fieldset>
@@ -227,6 +230,11 @@ $(function(){
         }else{
             $('.DeliveryAddress').removeAttr('disabled');
         }
+    });
+
+    $(document).sliding_form ({
+        smoke: smoke,
+        validateMsg: '<?php echo __('Please correct the errors in the Form');?>'
     });
 });
 </script>

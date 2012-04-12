@@ -21,6 +21,12 @@
             'after' => $this->Form->error('description', array(), array('wrap' => 'span', 'class' => 'help-inline')) . '</div>',
             'error' => array('attributes' => array('style' => 'display:none;')),
             'label' => false, 'class' => 'input-xxlarge'));
+        echo $this->Form->input('photo', array('div' => 'control-group', 'type' => 'file', 'placeholder' => '',
+            'before' => '<label class="control-label">' . __('Attachment') . '</label><div class="controls">',
+            'after' => $this->Form->error('photo', array(), array('wrap' => 'span', 'class' => 'help-inline')) . '</div>',
+            'error' => array('attributes' => array('style' => 'display:none')),
+            'label' => false, 'class' => 'input-xxlarge'));
+        echo $this->Form->input('photo_dir', array('type' => 'hidden'));
         echo $this->Form->input('published', array('div' => 'control-group', 'type' => 'checkbox', 'placeholder' => '',
             'before' => '<label>' . __('Published') . '</label><div class="controls">',
             'after' => $this->Form->error('published', array(), array('wrap' => 'span', 'class' => 'help-inline')) . '</div>',

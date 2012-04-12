@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 12, 2012 at 06:52 PM
+-- Generation Time: Apr 09, 2012 at 06:35 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -35,14 +35,14 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=282 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=267 ;
 
 --
 -- Dumping data for table `acos`
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1, NULL, NULL, NULL, 'controllers', 1, 212),
+(1, NULL, NULL, NULL, 'controllers', 1, 182),
 (9, 1, NULL, NULL, 'AclManagement', 2, 53),
 (10, 9, NULL, NULL, 'Groups', 3, 14),
 (21, 9, NULL, NULL, 'Users', 15, 42),
@@ -78,9 +78,6 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (189, 185, NULL, NULL, 'admin_edit', 75, 76),
 (190, 185, NULL, NULL, 'admin_delete', 77, 78),
 (191, 185, NULL, NULL, 'admin_toggle', 79, 80),
-(276, 271, NULL, NULL, 'admin_delete', 205, 206),
-(275, 271, NULL, NULL, 'admin_edit', 203, 204),
-(274, 271, NULL, NULL, 'admin_add', 201, 202),
 (266, 10, NULL, NULL, 'delete', 12, 13),
 (265, 10, NULL, NULL, 'edit', 10, 11),
 (264, 10, NULL, NULL, 'add', 8, 9),
@@ -88,18 +85,11 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (262, 10, NULL, NULL, 'index', 4, 5),
 (201, 1, NULL, NULL, 'Pages', 90, 93),
 (202, 201, NULL, NULL, 'display', 91, 92),
-(273, 271, NULL, NULL, 'admin_view', 199, 200),
-(272, 271, NULL, NULL, 'admin_index', 197, 198),
-(271, 1, NULL, NULL, 'Orders', 196, 211),
-(270, 257, NULL, NULL, 'thankyou', 193, 194),
-(269, 257, NULL, NULL, 'checkout', 191, 192),
-(268, 257, NULL, NULL, 'delete', 189, 190),
-(267, 257, NULL, NULL, 'edit', 187, 188),
 (210, 1, NULL, NULL, 'DebugKit', 94, 101),
 (211, 210, NULL, NULL, 'ToolbarAccess', 95, 100),
 (212, 211, NULL, NULL, 'history_state', 96, 97),
 (213, 211, NULL, NULL, 'sql_explain', 98, 99),
-(215, 1, NULL, NULL, 'StaticPages', 102, 123),
+(215, 1, NULL, NULL, 'StaticPages', 102, 117),
 (216, 215, NULL, NULL, 'admin_index', 103, 104),
 (217, 215, NULL, NULL, 'admin_view', 105, 106),
 (218, 215, NULL, NULL, 'admin_add', 107, 108),
@@ -107,47 +97,42 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (220, 215, NULL, NULL, 'admin_delete', 111, 112),
 (221, 215, NULL, NULL, 'admin_toggle', 113, 114),
 (222, 215, NULL, NULL, 'admin_ordered', 115, 116),
-(223, 1, NULL, NULL, 'Properties', 124, 147),
-(224, 223, NULL, NULL, 'admin_index', 125, 126),
-(225, 223, NULL, NULL, 'admin_view', 127, 128),
-(226, 223, NULL, NULL, 'admin_add', 129, 130),
-(227, 223, NULL, NULL, 'admin_edit', 131, 132),
-(228, 223, NULL, NULL, 'admin_delete', 133, 134),
+(223, 1, NULL, NULL, 'Properties', 118, 141),
+(224, 223, NULL, NULL, 'admin_index', 119, 120),
+(225, 223, NULL, NULL, 'admin_view', 121, 122),
+(226, 223, NULL, NULL, 'admin_add', 123, 124),
+(227, 223, NULL, NULL, 'admin_edit', 125, 126),
+(228, 223, NULL, NULL, 'admin_delete', 127, 128),
 (232, 185, NULL, NULL, 'admin_sort', 81, 82),
 (233, 185, NULL, NULL, 'admin_getnodes', 83, 84),
 (234, 185, NULL, NULL, 'admin_reorder', 85, 86),
 (235, 185, NULL, NULL, 'admin_reparent', 87, 88),
-(236, 223, NULL, NULL, 'admin_sort', 135, 136),
-(237, 223, NULL, NULL, 'admin_getnodes', 137, 138),
-(238, 223, NULL, NULL, 'admin_reorder', 139, 140),
-(239, 223, NULL, NULL, 'admin_reparent', 141, 142),
-(240, 223, NULL, NULL, 'getListPropertiesByCategory', 143, 144),
-(241, 1, NULL, NULL, 'Products', 148, 173),
-(242, 241, NULL, NULL, 'admin_index', 149, 150),
-(243, 241, NULL, NULL, 'admin_view', 151, 152),
-(244, 241, NULL, NULL, 'admin_add', 153, 154),
-(245, 241, NULL, NULL, 'admin_edit', 155, 156),
-(246, 241, NULL, NULL, 'admin_delete', 157, 158),
-(247, 241, NULL, NULL, 'admin_toggle', 159, 160),
-(248, 241, NULL, NULL, 'admin_ordered', 161, 162),
-(249, 223, NULL, NULL, 'get_properties_by_category', 145, 146),
-(250, 241, NULL, NULL, 'index', 163, 164),
-(251, 241, NULL, NULL, 'admin_gallery_ordered', 165, 166),
-(252, 1, NULL, NULL, 'Upload', 174, 175),
-(253, 241, NULL, NULL, 'detail', 167, 168),
-(254, 1, NULL, NULL, 'Filter', 176, 177),
-(255, 241, NULL, NULL, 'view', 169, 170),
-(256, 241, NULL, NULL, 'admin_delete_image', 171, 172),
-(257, 1, NULL, NULL, 'Cart', 178, 195),
-(258, 257, NULL, NULL, 'index', 179, 180),
-(259, 257, NULL, NULL, 'view', 181, 182),
-(260, 257, NULL, NULL, 'add2cart', 183, 184),
-(261, 257, NULL, NULL, 'mini_cart', 185, 186),
-(277, 271, NULL, NULL, 'admin_toggle', 207, 208),
-(278, 271, NULL, NULL, 'admin_ordered', 209, 210),
-(279, 215, NULL, NULL, 'get_pages', 117, 118),
-(280, 215, NULL, NULL, 'display', 119, 120),
-(281, 215, NULL, NULL, 'admin_delete_file', 121, 122);
+(236, 223, NULL, NULL, 'admin_sort', 129, 130),
+(237, 223, NULL, NULL, 'admin_getnodes', 131, 132),
+(238, 223, NULL, NULL, 'admin_reorder', 133, 134),
+(239, 223, NULL, NULL, 'admin_reparent', 135, 136),
+(240, 223, NULL, NULL, 'getListPropertiesByCategory', 137, 138),
+(241, 1, NULL, NULL, 'Products', 142, 167),
+(242, 241, NULL, NULL, 'admin_index', 143, 144),
+(243, 241, NULL, NULL, 'admin_view', 145, 146),
+(244, 241, NULL, NULL, 'admin_add', 147, 148),
+(245, 241, NULL, NULL, 'admin_edit', 149, 150),
+(246, 241, NULL, NULL, 'admin_delete', 151, 152),
+(247, 241, NULL, NULL, 'admin_toggle', 153, 154),
+(248, 241, NULL, NULL, 'admin_ordered', 155, 156),
+(249, 223, NULL, NULL, 'get_properties_by_category', 139, 140),
+(250, 241, NULL, NULL, 'index', 157, 158),
+(251, 241, NULL, NULL, 'admin_gallery_ordered', 159, 160),
+(252, 1, NULL, NULL, 'Upload', 168, 169),
+(253, 241, NULL, NULL, 'detail', 161, 162),
+(254, 1, NULL, NULL, 'Filter', 170, 171),
+(255, 241, NULL, NULL, 'view', 163, 164),
+(256, 241, NULL, NULL, 'admin_delete_image', 165, 166),
+(257, 1, NULL, NULL, 'Cart', 172, 181),
+(258, 257, NULL, NULL, 'index', 173, 174),
+(259, 257, NULL, NULL, 'view', 175, 176),
+(260, 257, NULL, NULL, 'add2cart', 177, 178),
+(261, 257, NULL, NULL, 'mini_cart', 179, 180);
 
 -- --------------------------------------------------------
 
@@ -386,33 +371,6 @@ INSERT INTO `groups` (`id`, `name`, `created`, `modified`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
---
-
-DROP TABLE IF EXISTS `orders`;
-CREATE TABLE IF NOT EXISTS `orders` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'if 0: la nhung nguoi mua hang ko dang ky',
-  `personal_information` text NOT NULL,
-  `cart_information` text NOT NULL,
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
-  `published` tinyint(4) NOT NULL DEFAULT '0' COMMENT 'mark as resolve?',
-  PRIMARY KEY (`id`),
-  KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `user_id`, `personal_information`, `cart_information`, `created`, `modified`, `published`) VALUES
-(1, 2, 'a:3:{s:8:"Customer";a:8:{s:10:"first_name";s:6:"Truong";s:9:"last_name";s:8:"Vu Khanh";s:7:"company";s:0:"";s:15:"company_address";s:0:"";s:6:"tax_no";s:0:"";s:7:"website";s:0:"";s:3:"fax";s:0:"";s:5:"phone";s:9:"988988988";}s:15:"CheckoutAddress";a:8:{s:10:"first_name";s:6:"Truong";s:9:"last_name";s:8:"Vu Khanh";s:5:"phone";s:9:"988988988";s:7:"address";s:16:"582/3 Hoang Dieu";s:4:"ward";s:14:"Hoa Thuan Dong";s:8:"district";s:8:"Hai Chau";s:4:"city";s:2:"52";s:19:"is_delivery_address";s:1:"1";}s:5:"Order";a:1:{s:7:"user_id";s:1:"2";}}', 'a:2:{i:0;a:6:{s:2:"id";s:1:"6";s:3:"qty";s:1:"1";s:5:"price";s:7:"2000000";s:4:"info";s:6:"TCL #6";s:5:"extra";a:2:{s:4:"slug";s:5:"tcl-6";s:5:"image";a:2:{s:4:"name";s:15:"TCL-32DE200.jpg";s:3:"dir";s:2:"51";}}s:8:"subtotal";i:2000000;}s:5:"total";i:2000000;}', '2012-04-12 11:24:09', '2012-04-12 17:15:11', 1),
-(2, 0, 'a:3:{s:8:"Customer";a:8:{s:10:"first_name";s:6:"Tammuz";s:9:"last_name";s:8:"Vu Khanh";s:7:"company";s:0:"";s:15:"company_address";s:0:"";s:6:"tax_no";s:0:"";s:7:"website";s:0:"";s:3:"fax";s:0:"";s:5:"phone";s:9:"988988988";}s:15:"CheckoutAddress";a:8:{s:10:"first_name";s:6:"Truong";s:9:"last_name";s:8:"Vu Khanh";s:5:"phone";s:9:"988988988";s:7:"address";s:16:"582/3 Hoang Dieu";s:4:"ward";s:14:"Hoa Thuan Dong";s:8:"district";s:8:"Hai Chau";s:4:"city";s:2:"52";s:19:"is_delivery_address";s:1:"1";}s:5:"Order";a:1:{s:7:"user_id";i:0;}}', 'a:2:{i:0;a:6:{s:2:"id";s:1:"6";s:3:"qty";s:1:"1";s:5:"price";s:7:"2000000";s:4:"info";s:6:"TCL #6";s:5:"extra";a:2:{s:4:"slug";s:5:"tcl-6";s:5:"image";a:2:{s:4:"name";s:15:"TCL-32DE200.jpg";s:3:"dir";s:2:"51";}}s:8:"subtotal";i:2000000;}s:5:"total";i:2000000;}', '2012-04-12 12:17:02', '2012-04-12 12:17:02', 0);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `products`
 --
 
@@ -552,23 +510,20 @@ CREATE TABLE IF NOT EXISTS `static_pages` (
   `title` varchar(255) NOT NULL,
   `slug` varchar(255) DEFAULT NULL,
   `description` text,
-  `photo` varchar(255) DEFAULT NULL,
-  `photo_dir` varchar(255) DEFAULT NULL,
   `published` tinyint(1) NOT NULL,
   `ordered` int(5) NOT NULL DEFAULT '0',
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `static_pages`
 --
 
-INSERT INTO `static_pages` (`id`, `title`, `slug`, `description`, `photo`, `photo_dir`, `published`, `ordered`, `created`, `modified`) VALUES
-(1, 'Giới thiệu', 'gioi_thieu', '<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', NULL, NULL, 1, 0, '2012-03-17 11:55:31', '2012-04-12 18:09:25'),
-(2, 'Dịch vụ', 'dich_vu', '<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', NULL, NULL, 1, 0, '2012-03-17 12:10:05', '2012-04-12 18:09:50'),
-(3, 'Tuyển dụng', 'tuyen_dung', '<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', 'tclvn.sql', '3', 1, 0, '2012-04-12 17:21:12', '2012-04-12 18:48:22');
+INSERT INTO `static_pages` (`id`, `title`, `slug`, `description`, `published`, `ordered`, `created`, `modified`) VALUES
+(1, 'Giới thiệu', 'gioi_thieu', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1, 0, '2012-03-17 11:55:31', '2012-03-17 12:14:25'),
+(2, 'Dịch vụ', 'dich_vu', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 1, 0, '2012-03-17 12:10:05', '2012-03-17 12:14:35');
 
 -- --------------------------------------------------------
 

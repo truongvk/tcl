@@ -14,7 +14,8 @@ ul.ldd_menu{
 	-box-shadow:0px 3px 4px #591E12;*/
 }
 ul.ldd_menu a{
-	text-decoration:none;
+    color: #fff;
+    text-decoration:none;
 }
 ul.ldd_menu > li{
 	float:left;

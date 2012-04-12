@@ -1,7 +1,7 @@
 <?php
 
 App::uses('AppController', 'Controller');
-
+App::uses('Sanitize', 'Utility');
 /**
  * StaticPages Controller
  *
@@ -12,6 +12,28 @@ class StaticPagesController extends AppController {
     var $actsAs = array(
         'Slug' => array('field' => 'title', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '-'),
     );
+
+    public function beforeFilter() {
+        parent::beforeFilter();
+        
+        $this->Auth->allow('get_pages', 'display');
+    }
+    
+    /**
+     * get static page to show on menu 
+     * @return type 
+     */
+    public function get_pages(){
+        return $this->StaticPage->find('all', array('fields'=>array('StaticPage.id', 'StaticPage.title', 'StaticPage.slug'), 'conditions'=>array('StaticPage.published'=>1)));
+    }
+    
+    public function display($slug=null){
+        $content = $this->StaticPage->findBySlug(Sanitize::escape($slug));        
+        if (empty($content)) {
+            throw new NotFoundException(__('Invalid static page'));
+        }
+        $this->set(compact('content'));
+    }
 
     /**
      * admin_index method
@@ -72,6 +94,7 @@ class StaticPagesController extends AppController {
      * @return void
      */
     public function admin_edit($id = null) {
+        $this->set('id', $id);
         $this->set('title', __('Page'));
         $this->set('description', __('Edit Page'));
         $this->StaticPage->id = $id;
@@ -160,5 +183,31 @@ class StaticPagesController extends AppController {
         }
         return false;
     }
+    /**
+     * admin_delete_file method
+     *
+     * @param string $id
+     * @return void
+     */
+    public function admin_delete_file() {
+        $this->autoRender = false;
+        if (!$this->request->is('post')) {
+            throw new MethodNotAllowedException();
+        }
+        if (!empty($this->request->data)) {
+            $this->StaticPage->id = $this->request->data['StaticPage']['id'];
+            if (!$this->StaticPage->exists()) {
+                throw new NotFoundException(__('Invalid page'));
+            }
 
+            $photo = $this->request->data['StaticPage']['photo'];
+            $this->request->data['StaticPage']['photo'] = null;
+            $this->request->data['StaticPage']['photo_dir'] = null;
+            if ($this->StaticPage->save($this->request->data, false)) {
+                @unlink(WWW_ROOT.'files'.DS.'pages'.DS.$this->StaticPage->id.DS.$photo);
+                return true;
+            }
+        }
+        return false;
+    }
 }

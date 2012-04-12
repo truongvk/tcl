@@ -14,7 +14,7 @@ class CartController extends AppController {
     public function  beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow('index', 'view', 'edit', 'delete', 'add2cart', 'mini_cart', 'checkout');
+        $this->Auth->allow('index', 'view', 'edit', 'delete', 'add2cart', 'mini_cart', 'thankyou', 'checkout');
     }
 
     public function index(){
@@ -78,8 +78,40 @@ class CartController extends AppController {
         $this->redirect(array('action'=>'index'));
     }
 
-    public function checkout(){
+    public function checkout($IsCheckoutWithoutLogin=0){
+        if(!$this->Session->check('Auth.User.id') && !$IsCheckoutWithoutLogin){
+            $this->redirect('/users/login');
+        }
+        $this->set(compact('IsCheckoutWithoutLogin'));
+
+        if ($this->request->is('post')) {            
+            $this->loadModel('Order');
+            $this->request->data['Order']['user_id'] =  ($this->Session->check('Auth.User.id')) ? $this->Session->read('Auth.User.id') : 0;
+            $this->request->data['Order']['personal_information'] = serialize($this->request->data);
+            $cartInfo = $this->shoppingCart->get_contents();
+            $cartInfo['total'] = $this->shoppingCart->total;
+            $this->request->data['Order']['cart_information'] = serialize($cartInfo);
+            if($this->Order->save($this->request->data['Order'])){
+                $this->shoppingCart->empty_cart();
+                $this->redirect(array('action'=>'thankyou'));
+            }
+        }else{
+            if($this->Session->check('Auth.User.id')){
+                $this->Session->setFlash(__('Please check your information before checkout.'), 'error');
+
+                $this->loadModel('AclManagement.User');
+                $userInfo = $this->User->find('first', array(
+                                                'conditions'=>array('User.id'=>$this->Auth->user('id')),
+                                                'fields'=>array('CheckoutAddress.*', 'DeliveryAddress.*', 'Customer.*')
+                                            ));
+                $this->data = $userInfo;
+            }
+        }
         $this->set('cart', $this->shoppingCart);
+    }
+
+    public function thankyou(){
+        
     }
 }
 ?>

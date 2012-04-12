@@ -47,134 +47,16 @@
                                     <a class="ldd_subfoot" href="#"> + New Deals</a>
                                 </div>
                             </li>
+                            <?php
+                            $pages = $this->requestAction('/static_pages/get_pages');
+                            foreach($pages as $page){
+                            ?>
                             <li>
-                                <span>Equipment</span>
-                                <div class="ldd_submenu">
-                                    <ul>
-                                        <li class="ldd_heading">By Location</li>
-                                        <li><a href="#">South America</a></li>
-                                        <li><a href="#">Antartica</a></li>
-                                        <li><a href="#">Africa</a></li>
-                                        <li><a href="#">Asia and Australia</a></li>
-                                        <li><a href="#">Europe</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Category</li>
-                                        <li><a href="#">Sun &amp; Beach</a></li>
-                                        <li><a href="#">Adventure</a></li>
-                                        <li><a href="#">Science &amp; Education</a></li>
-                                        <li><a href="#">Extreme Sports</a></li>
-                                        <li><a href="#">Relaxing</a></li>
-                                        <li><a href="#">Spa and Wellness</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Theme</li>
-                                        <li><a href="#">Paradise Islands</a></li>
-                                        <li><a href="#">Cruises &amp; Boat Trips</a></li>
-                                        <li><a href="#">Wild Animals &amp; Safaris</a></li>
-                                        <li><a href="#">Nature Pure</a></li>
-                                        <li><a href="#">Helping others &amp; For Hope</a></li>
-                                        <li><a href="#">Diving</a></li>
-                                    </ul>
-                                    <a class="ldd_subfoot" href="#"> + New Deals</a>
-                                </div>
+                                <span><?php echo $this->Html->link($page['StaticPage']['title'], '/p/'. $page['StaticPage']['slug']. '.html');?></span>
                             </li>
-                            <li>
-                                <span>Locations</span>
-                                <div class="ldd_submenu">
-                                    <ul>
-                                        <li class="ldd_heading">By Location</li>
-                                        <li><a href="#">South America</a></li>
-                                        <li><a href="#">Antartica</a></li>
-                                        <li><a href="#">Africa</a></li>
-                                        <li><a href="#">Asia and Australia</a></li>
-                                        <li><a href="#">Europe</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Category</li>
-                                        <li><a href="#">Sun &amp; Beach</a></li>
-                                        <li><a href="#">Adventure</a></li>
-                                        <li><a href="#">Science &amp; Education</a></li>
-                                        <li><a href="#">Extreme Sports</a></li>
-                                        <li><a href="#">Relaxing</a></li>
-                                        <li><a href="#">Spa and Wellness</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Theme</li>
-                                        <li><a href="#">Paradise Islands</a></li>
-                                        <li><a href="#">Cruises &amp; Boat Trips</a></li>
-                                        <li><a href="#">Wild Animals &amp; Safaris</a></li>
-                                        <li><a href="#">Nature Pure</a></li>
-                                        <li><a href="#">Helping others &amp; For Hope</a></li>
-                                        <li><a href="#">Diving</a></li>
-                                    </ul>
-                                    <a class="ldd_subfoot" href="#"> + New Deals</a>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Locations</span>
-                                <div class="ldd_submenu">
-                                    <ul>
-                                        <li class="ldd_heading">By Location</li>
-                                        <li><a href="#">South America</a></li>
-                                        <li><a href="#">Antartica</a></li>
-                                        <li><a href="#">Africa</a></li>
-                                        <li><a href="#">Asia and Australia</a></li>
-                                        <li><a href="#">Europe</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Category</li>
-                                        <li><a href="#">Sun &amp; Beach</a></li>
-                                        <li><a href="#">Adventure</a></li>
-                                        <li><a href="#">Science &amp; Education</a></li>
-                                        <li><a href="#">Extreme Sports</a></li>
-                                        <li><a href="#">Relaxing</a></li>
-                                        <li><a href="#">Spa and Wellness</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Theme</li>
-                                        <li><a href="#">Paradise Islands</a></li>
-                                        <li><a href="#">Cruises &amp; Boat Trips</a></li>
-                                        <li><a href="#">Wild Animals &amp; Safaris</a></li>
-                                        <li><a href="#">Nature Pure</a></li>
-                                        <li><a href="#">Helping others &amp; For Hope</a></li>
-                                        <li><a href="#">Diving</a></li>
-                                    </ul>
-                                    <a class="ldd_subfoot" href="#"> + New Deals</a>
-                                </div>
-                            </li>
-                            <li>
-                                <span>Locations</span>
-                                <div class="ldd_submenu">
-                                    <ul>
-                                        <li class="ldd_heading">By Location</li>
-                                        <li><a href="#">South America</a></li>
-                                        <li><a href="#">Antartica</a></li>
-                                        <li><a href="#">Africa</a></li>
-                                        <li><a href="#">Asia and Australia</a></li>
-                                        <li><a href="#">Europe</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Category</li>
-                                        <li><a href="#">Sun &amp; Beach</a></li>
-                                        <li><a href="#">Adventure</a></li>
-                                        <li><a href="#">Science &amp; Education</a></li>
-                                        <li><a href="#">Extreme Sports</a></li>
-                                        <li><a href="#">Relaxing</a></li>
-                                        <li><a href="#">Spa and Wellness</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Theme</li>
-                                        <li><a href="#">Paradise Islands</a></li>
-                                        <li><a href="#">Cruises &amp; Boat Trips</a></li>
-                                        <li><a href="#">Wild Animals &amp; Safaris</a></li>
-                                        <li><a href="#">Nature Pure</a></li>
-                                        <li><a href="#">Helping others &amp; For Hope</a></li>
-                                        <li><a href="#">Diving</a></li>
-                                    </ul>
-                                    <a class="ldd_subfoot" href="#"> + New Deals</a>
-                                </div>
-                            </li>
+                            <?php 
+                            }
+                            ?>                            
                         </ul>
                     </div>
                     <!--
@@ -205,7 +87,7 @@
     <div id="top-content">
         <div class="full-top pull-right">            
             <p>               
-                <span id="mini_cart"></span>&nbsp;<a href="#" class="btn btn-success"><i class="icon-check icon-white"></i> <?php echo __('Checkout');?></a>
+                <span id="mini_cart"></span>&nbsp;<a href="<?php echo $this->Html->url('/cart/checkout');?>" class="btn btn-success"><i class="icon-check icon-white"></i> <?php echo __('Checkout');?></a>
                 <a href="<?php echo $this->Html->url('/cart/');?>" class="btn"><i class="icon-eye-open"></i> <?php echo __('View Cart');?> </a>
             </p>
         </div>

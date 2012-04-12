@@ -8,8 +8,17 @@ App::uses('AppModel', 'Model');
  */
 class StaticPage extends AppModel {
     var $actsAs = array(
-        'Slug' => array('field' => 'title', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '-'),
-    );
+        'Upload.Upload' => array(
+            'photo' => array(
+                'path'=>'webroot{DS}files{DS}pages{DS}',
+                'fields' => array(
+                    'dir' => 'photo_dir'
+                ),
+                'deleteOnUpdate' => true
+            )
+        ),
+        'Slug' => array('field' => 'title', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '_', 'DBcheck'=>true)
+    );    
     /**
      * Validation rules
      *
