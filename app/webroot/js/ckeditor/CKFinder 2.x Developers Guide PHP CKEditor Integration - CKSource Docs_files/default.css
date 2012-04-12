@@ -1,0 +1,3104 @@
+/*	=general layout
+
+---------------------------------------------------------------------------- */
+
+
+
+body
+{
+	background: #E2E2E2 url(http://a.cksource.com/e/1/gfx/bg-body.png) repeat-x;
+}
+
+
+
+#container
+{
+	width: 973px;
+	margin: 0 auto;
+	position: relative;
+}
+
+
+
+#content
+{
+	position: relative;
+	z-index: 1;
+}
+
+
+
+#main
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set1.gif) repeat-y;
+}
+
+
+
+#mainInside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-main-bottom.jpg) no-repeat 0 bottom;
+}
+
+
+
+#mainInsideInside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set1.gif) no-repeat -973px 0;
+	padding: 10px 30px 10px;
+	position: relative;
+}
+
+
+
+#mainCol
+{
+	width: 668px;
+	float: left;
+	position: relative;
+}
+
+
+
+#sidebar
+{
+	width: 230px;
+	float: left;
+	margin: 0 0 0 15px;
+}
+
+
+
+/*	=text format
+
+---------------------------------------------------------------------------- */
+
+
+
+body, input, textarea
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #555;
+}
+
+
+
+a
+{
+	color: #189DE1;
+}
+
+blockquote
+{
+	margin-left: 40px;
+}
+
+
+
+img.fleft
+{
+	float: left;
+	margin: 0 15px 10px 0;
+}
+
+
+
+img.fright
+{
+	float: right;
+	margin: 0 0 10px 15px;
+}
+
+
+
+#content h1
+{
+	color: #0782C1;
+	font-size: 26px;
+	font-weight: normal;
+}
+
+
+
+#content h2
+{
+	color: #000;
+	font-size: 15px;
+}
+
+
+
+.introText
+{
+	font-weight: bold;
+}
+
+
+
+.tcent
+{
+	text-align: center;
+}
+
+
+
+h5.readMore
+{
+	font-size: 12px;
+}
+
+
+
+/*	=header
+
+---------------------------------------------------------------------------- */
+
+
+
+#header
+{
+	height: 95px;
+	margin: 0;
+	padding: 37px 0 0;
+	position: relative;
+	z-index: 2;
+}
+
+
+
+#header #search-theme-form
+{
+	position: absolute;
+	top: 40px;
+	right: 0;
+}
+
+
+
+#header h1, #header h2
+{
+	width: 158px;
+	height: 30px;
+	margin: 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/logo-cksource.gif) no-repeat;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set3.gif) no-repeat 0 -684px;
+	text-indent: -9000px;
+	float: left;
+}
+
+
+
+#header h2
+{
+	width: 156px;
+	background-position: right 0;
+}
+
+
+
+#header h1 a
+{
+	display: block;
+	width: 100%;
+	height: 100%;
+	outline: 0;
+}
+
+
+
+#mainnav
+{
+	width: 973px;
+	height: 35px;
+	margin: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+
+
+#mainnav li
+{
+	list-style: none;
+	margin: 0;
+	float: left;
+	position: relative;
+}
+
+
+
+#mainnav a
+{
+	display: block;
+	width: 120px;
+	height: 35px;
+	float: left;
+	text-indent: -9000px;
+	outline: 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-mainnav.png) no-repeat 0 bottom;
+}
+
+
+
+#mainnav .home a
+{
+	width: 122px;
+}
+
+#mainnav .about_us a
+{
+	background-position: -122px bottom;
+}
+
+#mainnav .products a
+{
+	background-position: -242px bottom;
+}
+
+#mainnav .customers a
+{
+	background-position: -362px bottom;
+}
+
+#mainnav .news a
+{
+	background-position: -482px bottom;
+}
+
+#mainnav .community a
+{
+	background-position: -602px bottom;
+}
+
+#mainnav .career a
+{
+	background-position: -722px bottom;
+}
+
+#mainnav .contact a
+{
+	background-position: -842px bottom;
+	width: 131px;
+}
+
+
+
+#mainnav .home a:hover
+{
+	background-position: 0 -40px;
+}
+
+#mainnav .about_us a:hover
+{
+	background-position: -122px -40px;
+}
+
+#mainnav .products a:hover, #mainnav .products:hover a
+{
+	background-position: -242px -40px;
+}
+
+#mainnav .customers a:hover
+{
+	background-position: -362px -40px;
+}
+
+#mainnav .news a:hover
+{
+	background-position: -482px -40px;
+}
+
+#mainnav .community a:hover
+{
+	background-position: -602px -40px;
+}
+
+#mainnav .career a:hover
+{
+	background-position: -722px -40px;
+}
+
+#mainnav .contact a:hover
+{
+	background-position: -842px -40px;
+}
+
+
+
+#mainnav .home a.active, #mainnav .home a.active:hover
+{
+	background-position: 0 0;
+}
+
+#mainnav .about_us a.active, #mainnav .about_us a.active:hover
+{
+	background-position: -122px 0;
+}
+
+#mainnav .products a.active, #mainnav .products a.active:hover
+{
+	background-position: -242px 0;
+}
+
+#mainnav .customers a.active, #mainnav .customers a.active:hover
+{
+	background-position: -362px 0;
+}
+
+#mainnav .news a.active, #mainnav .news a.active:hover
+{
+	background-position: -482px 0;
+}
+
+#mainnav .community a.active, #mainnav .community a.active:hover
+{
+	background-position: -602px 0;
+}
+
+#mainnav .career a.active, #mainnav .career a.active:hover
+{
+	background-position: -722px -0;
+}
+
+#mainnav .contact a.active, #mainnav .contact a.active:hover
+{
+	background-position: -842px 0;
+}
+
+
+
+#mainnav .contact a.active2
+{
+	background-position: -842px 0;
+}
+
+
+
+#mainnav div
+{
+	display: none;
+	position: absolute;
+	top: 35px;
+	left: 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-subnav-bottom.png) no-repeat 0 bottom;
+	padding: 0 0 5px;
+	opacity: 0.98;
+	filter: alpha(opacity=98);
+}
+
+
+
+#mainnav ul
+{
+	margin: 0;
+	background: #FAFAFA url(http://a.cksource.com/e/1/gfx/bg-subnav.png) repeat-x;
+	padding: 5px 5px 0;
+}
+
+
+
+#mainnav li:hover div
+{
+	display: block;
+}
+
+
+
+#mainnav ul li
+{
+	float: none;
+	display: inline;
+}
+
+
+
+#header #mainnav ul a
+{
+	text-indent: 0;
+	padding: 0 10px;
+	height: 30px;
+	color: #000;
+	line-height: 30px;
+	width: 150px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-subnav-a.jpg) repeat-x -99px -99px;
+	border-top: 1px solid #eee;
+	float: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 11px;
+}
+
+
+
+#header #mainnav .products ul a
+{
+	height: 58px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set5.png) no-repeat 15px -252px;
+	text-indent: -9000px;
+}
+
+
+
+#header #mainnav .products ul .ckfinder a
+{
+	background-position: 15px -310px;
+}
+
+
+
+#header #mainnav ul .first a
+{
+	border: none;
+}
+
+
+
+#header #mainnav ul .active a
+{
+	font-weight: bold;
+}
+
+
+
+#header #mainnav ul a:hover
+{
+	background-position: 0 0;
+	color: #fff;
+	text-decoration: none;
+}
+
+
+
+#header #mainnav .products ul a:hover
+{
+	background-position: -225px -252px;
+}
+
+
+
+#header #mainnav .products ul .ckfinder a:hover
+{
+	background-position: -225px -310px;
+}
+
+
+
+/*	=footer
+
+---------------------------------------------------------------------------- */
+
+
+
+#footer
+{
+	padding: 10px 30px 15px;
+	position: relative;
+	color: #848484;
+	font-size: 11px;
+}
+
+
+
+#footer a
+{
+	color: #848484;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat right -95px;
+	padding: 0 15px 0 0;
+}
+
+
+
+#footer a.cksource
+{
+	background: none;
+	padding: 0;
+}
+
+
+
+#footer p, #footer ul
+{
+	margin: 0;
+	display: inline;
+}
+
+
+
+#footer li
+{
+	list-style: none;
+	margin: 0 0 0 15px;
+	display: inline;
+}
+
+
+
+#footer .customers
+{
+	position: absolute;
+	top: 13px;
+	right: 30px;
+}
+
+
+
+#footer .customers h3
+{
+	font-size: 12px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/h-customers.gif) no-repeat;
+	width: 86px;
+	height: 11px;
+	text-indent: -9000px;
+	float: left;
+	margin: 2px 20px 0 0;
+}
+
+
+
+/*	=buttons
+
+---------------------------------------------------------------------------- */
+
+
+
+h5.readMore a, h5.readMoreWhite a 
+{
+	display: block;
+	width: 111px;
+	height: 32px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set5.png) no-repeat 0 -378px;
+	text-indent: -9000px;
+	outline: 0;
+}
+
+
+
+h5.btn
+{
+	display: inline;
+}
+
+
+
+h5.btn a
+{
+	display: block;
+	width: 201px;
+	height: 32px;
+	text-indent: -9000px;
+	outline: 0;
+	float: left;
+	margin: 0 15px 0 0;
+}
+
+
+
+h5.btnVisitProdSite a
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set5.png) no-repeat 0 -462px;
+}
+
+h5.btnGetProdData a
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set5.png) no-repeat 0 -503px;
+}
+
+
+
+.btnMenuContact
+{
+	display: inline;
+	margin: 0;
+}
+
+
+
+.btnMenuContact a
+{
+	display: block;
+	width: 128px;
+	height: 35px;
+	text-indent: -9000px;
+	outline: 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set5.png) no-repeat 0 -665px;
+	position: absolute;
+	top: -35px;
+	right: 0;
+}
+
+
+
+.btnCancel
+{
+	display: inline;
+	margin: 0;
+}
+
+
+
+.btnCancel a
+{
+	display: block;
+	width: 68px;
+	height: 28px;
+	text-indent: -9000px;
+	outline: 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set5.png) no-repeat 0 -626px;
+}
+
+
+
+.btnBack
+{
+	display: inline;
+	margin: 0;
+}
+
+
+
+.btnBack a
+{
+	display: block;
+	width: 81px;
+	height: 31px;
+	text-indent: -9000px;
+	outline: 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set5.png) no-repeat 0 -585px;
+}
+
+
+
+/*	=forms
+
+---------------------------------------------------------------------------- */
+
+
+
+input, select
+{
+	vertical-align: middle;
+}
+
+
+
+#search-theme-form input.text
+{
+	width: 145px;
+	padding: 7px 5px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set3.gif) no-repeat 0 -646px;
+	border: none;
+}
+
+
+
+.blockLabels
+{
+	margin: 0 0 20px;
+}
+
+
+
+.blockLabelsS2
+{
+	color: #000;
+}
+
+
+
+.blockLabels .formElement
+{
+	margin: 0 0 7px;
+	position: relative;
+}
+
+
+
+.blockLabelsS2 p, .blockLabelsS2 .formElement
+{
+	margin: 0 0 3px;
+}
+
+
+
+.blockLabels p.normal
+{
+	padding: 0;
+	margin: 0 0 15px;
+	border: none;
+}
+
+
+
+.blockLabels label
+{
+	width: 190px;
+	margin: 0 7px 0 0;
+	float: left;
+	text-align: right;
+	padding-top: 3px;
+}
+
+
+
+.blockLabelsS2 label
+{
+	width: 110px;
+	text-align: left;
+	color: #929292;
+}
+
+
+
+.textLong, .blockLabels input.text
+{
+	width: 290px;
+}
+
+
+
+.blockLabels input.textMedium
+{
+	width: 140px;
+}
+
+
+
+.blockLabels select
+{
+	width: 300px;
+}
+
+
+
+.blockLabels p.error
+{
+	background: #E5C7C7 url(http://a.cksource.com/e/1/gfx/bg-msg-error.jpg) repeat-x;
+	color: #DB2222;
+	padding: 3px 0;
+	margin: 0 -15px 7px -15px;
+	padding-left: 15px;
+	border-top: 1px solid #E2E2E2;
+}
+
+
+
+.fSection .blockLabels .formElement
+{
+	margin-right: -15px;
+}
+
+
+
+.fSection .blockLabels div.error
+{
+	margin-left: -45px;
+	padding-left: 45px;
+	padding-right: 15px;
+}
+
+
+
+span.inp
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-inp-text2.gif) no-repeat right 0;
+	padding: 5px 0 6px;
+}
+
+
+
+#container:-moz-first-node span.inp
+{
+	/* gecko */
+	padding-top: 4px;
+}
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+
+	span.inp
+	{
+		padding-top: 3px;
+	}
+
+}
+
+
+
+span.inp input.text, #webform-client-form-445 input.form-text
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat 0 -502px;
+	border: none;
+	padding: 5px;
+}
+
+
+
+span.inp select
+{
+	border: none;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat 0 -502px;
+	padding: 4px 3px 5px;
+}
+
+
+
+@media screen and (-webkit-min-device-pixel-ratio:0)
+{
+
+	span.inp select
+	{
+		background: #fff;
+	}
+
+}
+
+
+
+span.inp select option
+{
+	background-color: #fff;
+}
+
+
+
+sup.req
+{
+	color: #f00;
+}
+
+
+
+.formEnd
+{
+	text-align: center;
+}
+
+
+
+.reqInfo
+{
+	margin: -42px 0 15px 30px;
+}
+
+
+
+div.contactLayer input.text, div.contactLayer textarea
+{
+	border: 1px solid #252525;
+	background-color: #D5D8DB;
+	padding: 3px 5px;
+	width: 178px;
+	color: #000;
+}
+
+
+
+div.contactLayer input:focus, div.contactLayer input.focus, div.contactLayer textarea:focus, div.contactLayer textarea.focus
+{
+	background-color: #F1F2F3;
+}
+
+
+
+div.contactLayer textarea
+{
+	width: 203px;
+	height: 130px;
+}
+
+
+
+#contactLayer label
+{
+	color: #fff;
+	display: block;
+}
+
+
+
+/*	=boxes
+
+---------------------------------------------------------------------------- */
+
+
+
+.box
+{
+	margin: 0 0 10px;
+}
+
+
+
+#introBox
+{
+	height: 417px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-introboxes.jpg) no-repeat;
+	margin: 0 0 10px;
+	padding: 0;
+	position: relative;
+	color: #959595;
+}
+
+
+
+#introBox .intro
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-intro-theme.jpg) no-repeat 486px 0;
+	height: 372px;
+	padding: 35px 50px 0 540px;
+}
+
+
+
+#introBox .introGfx
+{
+	padding-right: 0;
+}
+
+
+
+#introBox .intro h2
+{
+	color: #fff;
+	font-size: 46px;
+	margin: 0 0 10px;
+	font-weight: normal;
+	line-height: 48px;
+}
+
+
+
+#introBox .introGfx h2
+{
+	height: 93px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-intro-text.gif) no-repeat;
+	text-indent: -9000px;
+	line-height: 100px;
+	font-size: 10px;
+	overflow: hidden;
+}
+
+
+
+#introBox .intro .introText
+{
+	font-size: 15px;
+}
+
+
+
+#introBox .introGfx .introText
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-intro-text.gif) no-repeat 0 -93px;
+	height: 86px;
+	text-indent: -9000px;
+}
+
+
+
+#introBox .intro .about li
+{
+	list-style: none;
+	margin: 0;
+}
+
+
+
+#introBox .intro .about h3
+{
+	text-indent: -9000px;
+	margin: 0;
+	position: absolute;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set5.png) no-repeat;
+}
+
+
+
+#introBox .intro .about .api h3
+{
+	width: 84px;
+	height: 103px;
+	top: 100px;
+	left: 45px;
+}
+
+
+
+#introBox .intro .about .performance h3
+{
+	width: 181px;
+	height: 252px;
+	top: 53px;
+	left: 162px;
+	background-position: -84px 0;
+}
+
+
+
+#introBox .intro .about .accessibility h3
+{
+	width: 114px;
+	height: 157px;
+	top: 86px;
+	left: 365px;
+	background-position: -265px 0;
+}
+
+
+
+#CKProducts
+{
+	width: 970px;
+	height: 91px;
+	background-color: #050505;
+	position: absolute;
+	bottom: 10px;
+	left: 1px;
+}
+
+
+
+#CKProducts .product
+{
+	float: left;
+	width: 323px;
+	height: 91px;
+	padding: 7px 0 0 135px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set3.gif) no-repeat 40px -880px;
+}
+
+
+
+#CKProducts .CKFinder
+{
+	background-position: 40px -749px;
+}
+
+
+
+#CKProducts h3
+{
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+
+#CKProducts h3 a
+{
+	color: #fff;
+}
+
+
+
+#CKProducts p
+{
+	margin: 0;
+}
+
+
+
+#CKProducts .readMoreIn
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set4.gif) no-repeat right 5px;
+	padding: 0 12px 0 0;
+}
+
+
+
+.prodSep
+{
+	width: 1px;
+	height: 98px;
+	background-color: #282828;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 475px;
+}
+
+
+
+.hBoxes
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set1.gif) repeat-y;
+}
+
+
+
+.hBoxesInside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-main-bottom.jpg) no-repeat 0 bottom;
+}
+
+
+
+.hBoxesInsideInside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set1.gif) no-repeat -973px 0;
+	padding: 10px 0 20px;
+	position: relative;
+}
+
+
+
+.hBoxes .box
+{
+	width: 240px;
+	min-height: 150px;
+	padding: 0 10px 0 30px;
+	float: left;
+}
+
+
+
+.hBoxes .boxCommunity
+{
+	width: 280px;
+}
+
+
+
+.hBoxes .box h3
+{
+	font-size: 20px;
+	font-weight: normal;
+	margin: 0 0 10px;
+}
+
+
+
+.hBoxes .box h3 a
+{
+	color: #000;
+}
+
+
+
+.boxNews li, .boxCommunity li
+{
+	list-style: none;
+	margin: 0 0 5px;
+}
+
+
+
+.boxNews h4, .boxNews h5, .boxCommunity h4, .boxCommunity h5
+{
+	margin: 0;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+
+
+.boxNews h4
+{
+	margin: 0 0 0 33px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat 2px -292px;
+	padding: 0 0 0 10px;
+}
+
+
+
+.boxNews h4 a
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat right -95px;
+	padding: 0 12px 0 0;
+}
+
+
+
+.boxNews h4 a:hover
+{
+	background-position: right -195px;
+}
+
+
+
+.boxNews h5
+{
+	color: #6B6567;
+	width: 33px;
+	float: left;
+	font-weight: bold;
+}
+
+
+
+.boxCommunity h5
+{
+	color: #6B6567;
+	font-weight: bold;
+}
+
+
+
+.boxCommunity h4
+{
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+
+
+.hBoxes .boxAboutUs
+{
+	width: 323px;
+}
+
+
+
+.boxAboutUs p
+{
+	margin: 0 0 10px;
+}
+
+
+
+.boxAboutUs ul
+{
+	margin: 0 0 0 20px;
+}
+
+
+
+.boxAboutUs li
+{
+	list-style: none;
+	margin: 0;
+	display: inline;
+}
+
+
+
+.boxAboutUs li a
+{
+	display: block;
+	width: 83px;
+	height: 83px;
+	float: left;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set3.gif) no-repeat;
+	text-indent: -9000px;
+	outline: 0;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+}
+
+
+
+.boxAboutUs li.values a
+{
+	width: 102px;
+	background-position: -83px 0;
+}
+
+.boxAboutUs li.goals a
+{
+	background-position: -185px 0;
+}
+
+
+
+.boxAboutUs li a:hover
+{
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+
+
+.hBoxSep1, .hBoxSep2
+{
+	width: 2px;
+	height: 175px;
+	overflow: hidden;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-box-sep.gif) repeat-y;
+	position: absolute;
+	top: 0;
+}
+
+
+
+.hBoxSep1
+{
+	left: 280px;
+}
+
+.hBoxSep2
+{
+	left: 600px;
+}
+
+
+
+.featuredBox
+{
+	margin: 0 0 18px 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-featuredbox.jpg) no-repeat 1px 0;
+}
+
+
+
+.featuredBoxH
+{
+	background-image: url(http://a.cksource.com/e/1/gfx/bg-featuredbox-h.jpg);
+	background-position: 0 0;
+}
+
+
+
+.featuredBoxInside
+{
+	height: 173px;
+	padding: 30px 0 0 320px;
+	position: relative;
+}
+
+
+
+.featuredBoxH .featuredBoxInside
+{
+	height: 283px;
+}
+
+
+
+.theme1 .featuredBoxInside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-fb-theme1.jpg) no-repeat 489px 0;
+}
+
+.theme2 .featuredBoxInside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-fb-theme2.jpg) no-repeat 489px 0;
+}
+
+.theme3 .featuredBoxInside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-fb-theme3.jpg) no-repeat 459px 0;
+}
+
+.theme4 .featuredBoxInside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-fb-theme4.jpg) no-repeat 490px 0;
+}
+
+
+
+.featuredBox .ico
+{
+	width: 135px;
+	height: 158px;
+	position: absolute;
+	top: 30px;
+	left: 106px;
+}
+
+
+
+.ico1 .featuredBoxInside .ico
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/fb-ico-1.png) no-repeat;
+}
+
+.ico2 .featuredBoxInside .ico, .page-team .ico1 .featuredBoxInside .ico
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/fb-ico-2.png) no-repeat;
+	left: 92px;
+	width: 148px;
+}
+
+.page-ckfinder .ico1 .featuredBoxInside .ico
+{
+  background: transparent url(http://a.cksource.com/e/1/gfx/fb-ico-6.png) no-repeat;
+  top: 34px;
+  left: 82px;
+  width: 170px;
+  height: 208px;
+}
+
+.CKFinderFBox .featuredBoxInside .ico
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/fb-ico-3.png) no-repeat;
+	top: 20px;
+	left: 101px;
+	width: 143px;
+	height: 175px;
+}
+
+.page-ckeditor .ico1 .featuredBoxInside .ico
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/fb-ico-4.png) no-repeat;
+	top: 34px;
+	left: 82px;
+	width: 170px;
+	height: 208px;
+}
+
+.CKEditorFBox .featuredBoxInside .ico
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/fb-ico-5.png) no-repeat;
+	top: 20px;
+	left: 101px;
+	width: 143px;
+	height: 175px;
+}
+
+
+
+.featuredBox h2, #content .featuredBox h2
+{
+	color: #fff;
+	font-size: 36px;
+	font-weight: normal;
+	line-height: 36px;
+}
+
+
+
+.featuredBoxH h3
+{
+	color: #fff;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0 0 10px;
+}
+
+
+
+.featuredBoxH li
+{
+	color: #959595;
+	font-size: 18px;
+	list-style: none;
+	margin: 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set4.gif) no-repeat 0 12px;
+	padding: 0 0 0 20px;
+}
+
+
+
+.featuredBox p
+{
+	color: #A4A4A4;
+	font-size: 16px;
+}
+
+
+
+.featuredBox .productInfo
+{
+	width: 210px;
+	margin: 0 18px 0 0;
+	float: left;
+	border-right: 1px solid #3E3E3E;
+}
+
+
+
+.featuredBox .productInfo h2
+{
+	margin: 0;
+}
+
+
+
+.featuredBox .productInfo h3
+{
+	color: #959595;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+
+.featuredBox .productInfo h4.price
+{
+	font-size: 50px;
+	color: #fff;
+	font-weight: normal;
+	margin: -5px 0 0 0;
+}
+
+
+
+.featuredBox .productInfo h4.price sup
+{
+	font-size: 12px;
+}
+
+
+
+.featuredBox .subPart
+{
+	width: 910px;
+	height: 45px;
+	padding: 15px 30px 0;
+	position: absolute;
+	bottom: 0;
+	left: 1px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-fb-subpart.gif) no-repeat;
+}
+
+
+
+.featuredBox .subPart .whosUsing
+{
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+
+
+
+.featuredBox .subPart .whosUsing h4
+{
+	color: #ddd;
+	font-size: 11px;
+	float: left;
+	margin: 4px 15px 0 0;
+	font-weight: normal;
+	background: transparent url(http://a.cksource.com/e/1/gfx/h-whos-using.gif) no-repeat;
+	width: 118px;
+	height: 12px;
+	text-indent: -9000px;
+}
+
+
+
+.pagination
+{
+	height: 24px;
+	margin: 0 0 20px;
+	text-align: center;
+	position: relative;
+	font-size: 10px;
+}
+
+
+
+.pagination div
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+
+.pagTR
+{
+	position: absolute;
+	top: 20px;
+	right: 30px;
+}
+
+
+
+#mainCol .pagTR
+{
+	top: -45px;
+	right: 0;
+}
+
+
+
+.pagination p, .pagination ul
+{
+	margin: 0;
+	display: inline;
+}
+
+
+
+.pagination li
+{
+	list-style: none;
+	margin: 0;
+	display: inline;
+}
+
+
+
+.pagination a, .pagination strong, .pagination em
+{
+	display: block;
+	width: 20px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	color: #333;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat 0 -478px;
+	float: left;
+	outline: 0;
+	font-style: normal;
+}
+
+
+
+.pagination strong
+{
+	background-position: 0 -454px;
+	color: #fff;
+	font-weight: normal;
+}
+
+
+
+.pagination a:hover
+{
+	text-decoration: none;
+	background-position: 0 -430px;
+}
+
+
+
+.pagination h5
+{
+	font-size: 11px;
+	font-weight: normal;
+	width: 200px;
+	position: absolute;
+	top: 5px;
+	right: 55px;
+	text-align: right;
+}
+
+
+
+.contentBox
+{
+	background-color: #EFEFEF;
+	border: 1px solid #E2E2E2;
+	padding: 15px 15px 1px;
+	margin: 0 0 20px;
+	position: relative;
+}
+
+
+
+.cBc1, .cBc2, .cBc3, .cBc4, .bBc1, .bBc2, .bBc3, .bBc4
+{
+	width: 5px;
+	height: 5px;
+	overflow: hidden;
+	position: absolute;
+	z-index: 200;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set1.gif) no-repeat -1946px 0;
+}
+
+
+
+.cBc1, .bBc1
+{
+	top: -1px;
+	left: -1px;
+}
+
+.cBc2, .bBc2
+{
+	top: -1px;
+	right: -1px;
+	background-position: -1951px 0;
+}
+
+.cBc3, .bBc3
+{
+	bottom: -1px;
+	right: -1px;
+	background-position: -1951px -5px;
+}
+
+.cBc4, .bBc4
+{
+	bottom: -1px;
+	left: -1px;
+	background-position: -1946px -5px;
+}
+
+
+
+.bBc1
+{
+}
+
+.bBc2
+{
+}
+
+.bBc3
+{
+}
+
+.bBc4
+{
+}
+
+
+
+.contentBox .col1, .contentBox .col2
+{
+	float: left;
+	width: 430px;
+	margin: 0 0 0 20px;
+}
+
+
+
+.contentBox .col1
+{
+	margin: 0;
+}
+
+
+
+.aboutUsBoxes
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set1.gif) repeat-y -1966px 0;
+	margin: -20px 0 -7px;
+}
+
+
+
+.aboutUsBoxes .box
+{
+	width: 284px;
+	float: left;
+	padding: 15px 15px 20px;
+}
+
+
+
+.aboutUsBoxes .boxTeam
+{
+	padding-left: 0;
+}
+
+.aboutUsBoxes .boxGoals
+{
+	padding-right: 0;
+}
+
+
+
+.aboutUsBoxes .box h3
+{
+	font-size: 16px;
+	color: #000;
+	margin: 0 0 5px;
+}
+
+
+
+.aboutUsBoxes .box h3 a
+{
+	color: #000;
+}
+
+
+
+.aboutUsBoxes .box h3 a:hover
+{
+}
+
+
+
+.aboutUsBoxes p
+{
+	margin: 0 0 0 95px;
+}
+
+
+
+.aboutUsBoxes h5.readMore
+{
+	font-weight: normal;
+	margin: 0 0 0 95px;
+}
+
+
+
+.aboutUsBoxes h5.readMore a
+{
+	display: inline;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat right -95px;
+	padding: 0 12px 0 0;
+	width: auto;
+	height: auto;
+	text-indent: 0;
+}
+
+
+
+.aboutUsBoxes h5.readMore a:hover
+{
+	background-position: right -195px;
+}
+
+
+
+.ppList
+{
+	overflow: hidden;
+}
+
+
+
+.ppList li
+{
+	list-style: none;
+	margin: 0 0 10px 10px;
+	float: left;
+	width: 220px;
+	height: 122px;
+}
+
+
+
+.ppList li.clear
+{
+	margin-left: 0;
+}
+
+
+
+.ppList li .inside
+{
+	width: 198px;
+	height: 100px;
+	padding: 10px;
+	background-color: #EFEFEF;
+	border: 1px solid #E2E2E2;
+	position: relative;
+	bottom: 0;
+	right: 0;
+	z-index: 5;
+}
+
+
+
+.ppList li.hover .inside
+{
+}
+
+
+
+.ppList .photo
+{
+	width: 80px;
+	height: 99px;
+	overflow: hidden;
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+
+
+.ppList h3
+{
+	color: #000;
+	margin: 0 20px 10px 90px;
+	font-size: 16px;
+	line-height: 20px;
+	width: 88px;
+}
+
+
+
+.ppList h3 a
+{
+	color: #000;
+}
+
+
+
+.ppList h4
+{
+	font-size: 11px;
+	font-weight: normal;
+	color: #959595;
+	margin: 0 0 10px 90px;
+	width: 108px;
+}
+
+
+
+.ppList .more
+{
+	display: none;
+}
+
+
+
+.ppList .more .part1
+{
+	position: absolute;
+	top: 10px;
+	left: 218px;
+	width: 230px;
+}
+
+
+
+.ppList .more .part1 h5, .ppList .more .part1 p
+{
+	font-size: 11px;
+	margin: 0;
+}
+
+
+
+.ppList .more .part1 p
+{
+	margin: 0 0 3px;
+}
+
+
+
+.ppList .more .part2
+{
+	position: absolute;
+	top: 130px;
+	left: 10px;
+	width: 428px;
+}
+
+
+
+.ppList .more .part2 p
+{
+	margin: 0 0 10px;
+}
+
+
+
+.fSection
+{
+	margin: 0 0 10px;
+	padding: 0 0 1px 30px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/dec-sep-x.gif) repeat-x 0 bottom;
+}
+
+
+
+.woNums .fSection
+{
+	padding: 0;
+}
+
+
+
+.fSection .col1, .fSection .col2
+{
+	float: left;
+	width: 303px;
+	margin: 0;
+	padding: 0 15px 0 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/dec-sep-y.gif) repeat-y right 0;
+}
+
+
+
+.fSection .col2
+{
+	background: none;
+	padding: 0 0 0 15px;
+}
+
+
+
+h2.num
+{
+	padding: 0 0 0 30px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat 0 2px;
+}
+
+
+
+h2.num1
+{
+}
+
+h2.num2
+{
+	background-position: 0 -23px;
+}
+
+h2.num3
+{
+	background-position: 0 -48px;
+}
+
+h2.num4
+{
+	background-position: 0 -73px;
+}
+
+.simplified h2.num3
+{
+  background-position: 0 -23px;
+}
+
+.simplified h2.num4
+{
+  background-position: 0 -48px;
+}
+
+.simplified2 h2.num3
+{
+  background-position: 0 0;
+}
+
+.simplified2 h2.num4
+{
+  background-position: 0 -23px;
+}
+
+.page-purchase-21 h2.num2,
+.page-purchase-36 h2.num2,
+.page-purchase-50 h2.num2
+{
+	background-position: 0 2px;
+} 
+
+.page-purchase-21 h2.num3,
+.page-purchase-36 h2.num3,
+.page-purchase-50 h2.num3
+{
+  background-position: 0 -23px;
+} 
+
+.page-purchase-21 h2.num4,
+.page-purchase-36 h2.num4,
+.page-purchase-50 h2.num4
+{
+  background-position: 0 -48px;
+} 
+
+.fSection h2.num
+{
+	margin-left: -30px;
+}
+
+
+
+.langOptions
+{
+	height: 54px;
+	margin: 0 0 20px;
+}
+
+
+
+.langOptions li
+{
+	list-style: none;
+	width: 115px;
+	padding: 20px 0 0;
+	margin: 0 3px 0 0;
+	float: left;
+	position: relative;
+}
+
+
+
+.langOptions .optionImg
+{
+	display: block;
+	width: 89px;
+	height: 48px;
+	padding: 6px 0 0;
+	background: #fff url(http://a.cksource.com/e/1/gfx/bg-langoption.gif) no-repeat;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set3.gif) no-repeat 0 -582px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: center;
+}
+
+
+
+.paymentOptions li
+{
+	list-style: none;
+	margin: 0;
+	padding: 10px 45px 10px 0;
+	width: 270px;
+	min-height: 77px;
+	float: left;
+	position: relative;
+	border: 1px solid #EFEFEF;
+	cursor: default;
+}
+
+
+
+.paymentOptions li.option3, .paymentOptions li.option4
+{
+	margin: 0 0 15px;
+}
+
+
+
+.paymentOptions li.hover
+{
+	border-color: #E2E2E2;
+	background-color: #E8E8E8;
+}
+
+
+
+.paymentOptions label
+{
+	display: block;
+	position: absolute;
+	width: 90px;
+	height: 48px;
+	top: 8px;
+	left: 25px;
+	text-indent: -9000px;
+}
+
+
+
+.paymentOptions .option1 label
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/payments/ico-credit-card.png) no-repeat;
+}
+
+
+
+.paymentOptions .option2 label
+{
+	top: 12px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/payments/ico-paypal.gif) no-repeat;
+}
+
+
+
+.paymentOptions .option3 label
+{
+	top: 10px;
+	left: 24px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/payments/ico-bank.png) no-repeat;
+}
+
+
+
+.paymentOptions .option4 label
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/payments/ico-mail.png) no-repeat;
+}
+
+
+
+.paymentOptions .select
+{
+	position: absolute;
+	top: 60px;
+	left: 40px;
+}
+
+
+
+.paymentOptions h4, .paymentOptions p
+{
+	margin: 0 0 0 100px;
+	font-size: 11px;
+	color: #929292;
+}
+
+
+
+.paymentOptions h4
+{
+	color: #000;
+	font-weight: normal;
+}
+
+
+
+.paymentOptions .hover p
+{
+	color: #666;
+}
+
+
+
+.sideBox
+{
+	background: #191A19 url(http://a.cksource.com/e/1/gfx/bg-sidebox-bottom.jpg) no-repeat 0 bottom;
+}
+
+
+
+.sideboxInside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-sidebox-top.jpg) no-repeat;
+	min-height: 96px;
+	padding: 5px 12px 1px;
+}
+
+
+
+.sideBox h3
+{
+	color: #fff;
+	font-weight: normal;
+	font-size: 18px;
+	margin: 0 0 10px;
+}
+
+
+
+.sideBox .menu li
+{
+	list-style: none;
+	margin: 0;
+}
+
+
+
+.sideBox .menu li a
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set4.gif) no-repeat right 5px;
+	padding: 0 10px 0 0;
+}
+
+
+
+.bBox
+{
+	border: 1px solid #E2E2E2;
+	padding: 10px 10px 1px;
+	position: relative;
+}
+
+
+
+.boxPayments
+{
+	padding: 10px 0;
+	text-align: center;
+}
+
+
+
+div.contactLayer
+{
+}
+
+
+
+#contactLayer
+{
+	display: none;
+	width: 910px;
+	height: 190px;
+	padding: 10px 30px 0;
+	position: absolute;
+	top: 132px;
+	left: 1px;
+	background: #010101 url(http://a.cksource.com/e/1/gfx/bg-contactform.jpg) repeat-x;
+	color: #959595;
+}
+
+
+
+.homepage #contactLayer
+{
+	height: 402px;
+}
+
+
+
+.withFeaturedBoxH div.contactLayer
+{
+	height: 302px;
+}
+
+
+
+div.contactLayer h1
+{
+	color: #fff;
+	font-size: 32px;
+	font-weight: normal;
+	margin: 0 0 10px;
+}
+
+
+
+div.contactLayer h3
+{
+	color: #fff;
+	font-size: 14px;
+}
+
+
+
+div.contactLayer .part1, div.contactLayer .part2
+{
+	width: 375px;
+	float: left;
+}
+
+
+
+div.contactLayer .part2
+{
+	width: 535px;
+	padding: 10px 0 0;
+}
+
+
+
+div.contactLayer .col1, div.contactLayer .col2, div.contactLayer .col3
+{
+	float: left;
+}
+
+
+
+div.contactLayer .part1 .col1
+{
+	width: 150px;
+	padding: 0 10px 0 0;
+}
+
+
+
+div.contactLayer .part1 .col2
+{
+	width: 190px;
+	padding: 35px 0 0;
+}
+
+
+
+div.contactLayer .part2 .col1
+{
+	border-left: 1px solid #252525;
+	padding: 0 0 0 30px;
+	width: 190px;
+	margin: 0 15px 0 0;
+}
+
+
+
+div.contactLayer .part2 .col2
+{
+	width: 215px;
+}
+
+
+
+div.contactLayer .part2 .col3
+{
+	width: 69px;
+	margin: 0 0 0 15px;
+	padding: 18px 0 0;
+}
+
+
+
+div.contactLayer address em
+{
+	color: #fff;
+	font-style: normal;
+}
+
+
+
+div.contactLayer form p
+{
+	margin: 0 0 7px;
+}
+
+
+
+div.contactLayer .end
+{
+}
+
+
+
+div.contactLayer .reqInfo
+{
+	margin: 20px 0 0;
+}
+
+
+
+#mask
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/mask.png) no-repeat center -130px;
+	background-color: #555 !important;
+}
+
+
+
+.homepage #mask
+{
+	background-position: center -10px;
+}
+
+
+
+.withFeaturedBoxH #mask
+{
+	background-position: center -60px;
+}
+
+
+
+.paymentNav
+{
+	position: relative;
+	height: 32px;
+}
+
+
+
+.paymentNav h5.btnBack
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+
+.paymentNav .image
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+
+.post
+{
+	border-top: 1px solid #E5E6E7;
+	padding: 10px 0 30px;
+}
+
+
+
+.firstPost
+{
+	border: none;
+	padding: 0;
+}
+
+
+
+.post h2
+{
+	margin: 0;
+}
+
+
+
+.post .date
+{
+	font-size: 11px;
+}
+
+
+
+.entryOptions li
+{
+	list-style: none;
+	margin: 0 20px 0 0;
+	display: inline;
+}
+
+
+
+.entryOptions li a
+{
+	padding: 0 12px 0 0;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat right -95px;
+}
+
+
+
+.entryOptions li a:hover
+{
+	background-position: right -195px;
+}
+
+
+
+.message
+{
+	margin: 0 0px 10px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	position: relative;
+	z-index: 201;
+	width: 668px;
+}
+
+
+
+.message .inside
+{
+	padding: 20px 20px 15px;
+}
+
+
+
+.message p, .message ul
+{
+	margin: 0 0 5px;
+}
+
+
+
+.messageError
+{
+	background: #E5C7C7 url(http://a.cksource.com/e/1/gfx/bg-msg-error.jpg) repeat-x;
+}
+
+
+
+.messageError .inside
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/ico-stop-48.png) no-repeat 20px 20px;
+	padding-left: 70px;
+}
+
+
+
+.tooltip strong
+{
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set2.gif) no-repeat 0 -414px;
+	text-indent: -9000px;
+	position: absolute;
+	z-index: 700;
+	top: 5px;
+	right: 0;
+	overflow: hidden;
+}
+
+
+
+.tooltip strong.hover
+{
+	background-position: 0 -398px;
+}
+
+
+
+.fSection .tooltip strong
+{
+	right: 15px;
+}
+
+
+
+.fSection .error .tooltip strong
+{
+	right: 30px;
+}
+
+
+
+.tooltip em
+{
+	display: none;
+	position: absolute;
+	z-index: 710;
+	top: 30px;
+	right: -108px;
+	width: 200px;
+	background: #F5F5F5;
+	font-size: 11px;
+	border: 1px solid #ddd;
+	padding: 5px;
+	font-style: normal;
+	-moz-border-radius: 3px;
+	color: #555;
+}
+
+
+
+.contactLayer .resizable-textarea
+{
+	width: 35%;
+}
+
+
+
+div.error
+{
+	/*margin: 10px 0px 20px 0;*/
+	border: none;
+}
+
+
+
+.form-item label
+{
+	font-weight: normal;
+	display: inline;
+}
+
+
+
+#cksource-purchase-product-form .form-item, #cksource-purchase-form .form-item, #webform-client-form-445 .form-item
+{
+	display: inline;
+}
+
+.req
+{
+	margin-right: 15px;
+}
+
+
+
+.fSection div.error
+{
+	background: #E5C7C7 url(http://a.cksource.com/e/1/gfx/bg-msg-error.jpg) repeat-x scroll 0 0;
+	border: 1px solid #E2E2E2;
+	color: #DB2222;
+	margin: 0 -15px 7px -45px;
+	padding: 3px 0 3px 45px;
+}
+
+
+
+.form-item input.error, .form-item textarea.error, .form-item select.error
+{
+	border: 1px solid #E2E2E2;
+}
+
+
+
+.CKEditor, .Support
+{
+	background: transparent url(http://a.cksource.com/e/1/img/logo-ckeditor.png) no-repeat scroll 15px 15px;
+	padding-left: 130px;
+	padding-bottom: 80px;
+}
+
+
+
+.CKFinder
+{
+	background: transparent url(http://a.cksource.com/e/1/img/logo-ckfinder2.png) no-repeat scroll 15px 15px;
+	padding-left: 130px;
+	padding-bottom: 80px;
+}
+
+
+
+.wiretransfer
+{
+	text-align: center;
+	width: 100%;
+}
+
+
+
+.wiretransfer table
+{
+	border: 1px solid #E2E2E2;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+
+
+.wiretransfer table td
+{
+	padding: 6px;
+	border: 1px solid #E2E2E2;
+	border-collapse: collapse;
+}
+
+
+
+.blockLabelsS2 p
+{
+	padding-left: 118px;
+}
+
+
+
+.blockLabelsS2 label
+{
+	margin-left: -118px;
+}
+
+
+
+#edit-product-agreement-terms
+{
+	margin-left: 15px;
+}
+
+
+
+.fSection .checkboxError
+{
+	background: #E5C7C7 url(http://a.cksource.com/e/1/gfx/bg-msg-error.jpg) repeat-x scroll 0 0;
+	padding: 5px 20px 5px 10px;
+}
+
+
+
+.fSection .labelError
+{
+	background: #E5C7C7 url(http://a.cksource.com/e/1/gfx/bg-msg-error.jpg) repeat-x scroll 0 0;
+	border: 1px solid #E2E2E2;
+	color: #DB2222;
+	padding: 5px 18px 5px 40px;
+	width: 100%;
+	display: block;
+	margin-left: -45px;
+}
+
+
+
+.hidden
+{
+	display: none;
+}
+
+
+
+div.notice
+{
+	background: #FFCCCC none repeat scroll 0 0;
+	color: #220000;
+	padding: 2px;
+}
+
+
+
+#webform-component-email, #webform-component-phone, #webform-component-url
+{
+	display: none;
+}
+
+
+
+#webform-client-form-445 .blockLabels label
+{
+	width: 80px;
+}
+
+
+
+#webform-client-form-445 .form-submit
+{
+	background: transparent url('http://a.cksource.com/e/1/gfx/btn-send.png') no-repeat center;
+	border: medium none;
+	cursor: pointer;
+	padding: 0;
+	display: block;
+	width: 68px; /*however wide the image is*/
+	height: 28px;
+	text-indent: -999em;
+	margin-left: 88px;
+}
+
+
+
+/*  =customer list
+
+---------------------------------------------------------------------------- */
+
+.page-customers .pagination
+{
+	margin-right: 10px;
+}
+
+
+
+.customerList li
+{
+	background: none;
+	margin-bottom: 0;
+	margin-left: 0;
+	padding: 13px 0 0 54px;
+	width: 180px;
+	float: left;
+	border-top: 1px solid #E5E6E7;
+}
+
+
+
+.customerList li.firstRow
+{
+	border: none;
+	padding-top: 130px;
+}
+
+
+
+.customerList li.clear
+{
+	padding-left: 16px;
+}
+
+
+
+.customerList h2, #main .customerList h2
+{
+	width: 179px;
+	height: 120px;
+	text-align: center;
+	top: 20px;
+	right: 16px;
+	line-height: normal;
+	padding: 0;
+	display: table;
+}
+
+
+
+#main .customerList li.firstRow h2
+{
+	top: 0;
+}
+
+
+
+.customerList h2 a
+{
+	display: block;
+	width: 179px;
+	height: 120px;
+	line-height: 120px;
+	text-align: center;
+	background: transparent url(http://a.cksource.com/c/1/inc/gfx/bg-logo.gif) no-repeat 0 0;
+}
+
+.customerList h2 a img
+{
+	vertical-align: middle;
+}
+
+
+
+h2 span
+{
+	display: inline-block;
+	line-height: 120px;
+}
+
+
+
+.customerList h3, #main .customerList h3
+{
+	font-size: 14px;
+	margin: 0 0 5px;
+}
+
+
+
+.customerList h4
+{
+	font-size: 11px;
+	font-weight: normal;
+	margin: 0 0 14px;
+}
+
+
+
+.customerList ul
+{
+	list-style-type: none;
+}
+
+
+
+.customerList h4 a
+{
+	background: transparent url(http://a.cksource.com/c/1/inc/gfx/icons-subpages.gif) no-repeat 100% -127px;
+	padding: 0 20px 0 0;
+}
+
+
+
+.opinionWrapper
+{
+	position: relative;
+	bottom: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.opinionContainer
+{
+	z-index: 100;
+	position: absolute;
+	background-color: #FFF;
+	margin: 0;
+	padding: 5px;
+	width: 400px;
+	display: none;
+	border: 1px solid #E2E2E2;
+}
+
+
+
+.lastCol .opinionContainer
+{
+	right: 0;
+}
+
+
+
+#main .customerList h2
+{
+	position: static;
+}
+
+
+
+.aboutUsBoxes a.icon
+{
+	background: transparent url(http://a.cksource.com/e/1/gfx/bg-set3.gif) no-repeat 1px -128px;
+	display: block;
+	float: left;
+	height: 100px;
+	width: 92px;
+	text-indent: -9000px;
+}
+
+
+
+.aboutUsBoxes .boxValues a.icon
+{
+	background-position: 0px -428px;
+}
+
+
+
+.aboutUsBoxes .boxGoals a.icon
+{
+	background-position: 0px -278px;
+}
+
+
+
+ul.entryOptions
+{
+	clear: both;
+	float: left;
+	margin-bottom: 16px;
+}
+
+
+
+ul.entryOptions li.node_read_more
+{
+	float: left;
+}
+
+
+
+ul.entryOptions li.comment_comments, ul.entryOptions li.comment_add
+{
+	float: right;
+}
+
+
+
+#comment-form ul.tips
+{
+	display: none;
+}
+
+
+
+#comment-form .form-item label
+{
+	display: block;
+	font-weight: bold;
+}
+
+
+
+#comment-form span.inp
+{
+	background: none;
+}
+
+#need-help div
+{
+	color:#FFF;
+	display:none;
+}
+
+.post pre {
+        border: 1px solid rgb(221, 221, 221) ! important;
+        padding:8px 12px !important;
+}
+
+#customer_type .form-radios label {
+    width:90px;
+}
+
+#helpjapan {
+	height: 87px;
+	width:986px;
+	margin: 0 auto;
+	padding: 5px 0 10px; 
+	border-bottom: 1px solid gray;
+	color:black;
+}
+#helpjapan img {
+	float:left;
+	margin: 0 10px 0 0;
+}
+#helpjapan div {
+	padding:10px;
+	font-size: 1.2em;
+	line-height: 1em;
+}
+
+.page-blog-ckeditor-for-asp-net-and-java-3-6-1-released .btnDemo {
+  display:none;
+}
+
+.joboffer {
+  padding-bottom:5px;
+}
+
+.lightbox_thumb img {
+	margin-left:5px;
+}
+
+.node-type-blog .ckfinder_thumb {
+	float:right;
+	margin-top:-20px;
+  margin-right:0;
+  padding:0;
+  border:none;
+}
+
+p.search-snippet {
+	margin-bottom:5px;
+	margin-top:5px;
+}

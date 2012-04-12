@@ -1,0 +1,107 @@
+/*	=CSS reseting (c) Codivate
+---------------------------------------------------------------------------- */
+
+html, body, h1, h2, h3, h4, h5, h6, div, span, blockquote, p, address, form,
+fieldset, img, ul, ol, dl, dt, dd, li, hr, table, td, th, strong, em, sup, sub,
+dfn, ins, del, q, cite, var, samp, code, kbd, tt, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	line-height: 1.5em;
+}
+
+input, textarea, select, option, optgroup, button, td, th {
+	font-size: 1em;
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+i, cite, em, var, dfn, blockquote {
+	font-style: italic;
+}
+
+address {
+	font-style: normal;
+}
+
+caption, th { 
+	text-align: left;
+	font-weight: bold;
+}
+
+p, ul, ol, blockquote, address, form, table, pre, dl, h1, h2, h3, h4, h5, h6 {
+	margin-bottom: 15px;
+}
+
+ul ul, ul ol, ol ul, ol ol {
+	margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 17px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+h4 {
+  font-size: 12px;
+}
+
+h5 {
+  font-size: 11px;
+}
+
+h6 {
+  font-size: 10px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+li, .item-list ul li {
+	margin-left: 40px;
+}
+
+.item-list ul {
+	padding-left:0;
+}
+
+ul ul, ol ul {
+	list-style-type: circle;
+}
+
+ul ul ul, ol ul ul, ul ol ul, ol ol ul {
+	list-style-type: square;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/*	=popularne klasy
+---------------------------------------------------------------------------- */
+
+.clear {
+	clear: both;
+}

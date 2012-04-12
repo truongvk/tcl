@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0079)http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta http-equiv="Content-Style-Type" content="text/css">
+		<meta name="generator" content="MediaWiki 1.15.2">
+		<meta name="keywords" content="CKFinder 2.x/Developers Guide/PHP/CKEditor Integration,CKFinder 2.x/Developers Guide/PHP/CKEditor Integration V1,CKFinder 2.x/Developers Guide/PHP/Integration/JavaScript V1">
+		<link rel="shortcut icon" href="http://a.cksource.com/e/1/gfx/icon.png">
+		<link rel="search" type="application/opensearchdescription+xml" href="http://docs.cksource.com/opensearch_desc.php" title="CKSource Docs (en)">
+		<link rel="alternate" type="application/rss+xml" title="CKSource Docs RSS Feed" href="http://docs.cksource.com/index.php?title=Special:RecentChanges&feed=rss">
+		<link rel="alternate" type="application/atom+xml" title="CKSource Docs Atom Feed" href="http://docs.cksource.com/index.php?title=Special:RecentChanges&feed=atom">
+		<title>CKFinder 2.x/Developers Guide/PHP/CKEditor Integration - CKSource Docs</title>
+		<link type="text/css" rel="stylesheet" media="all" href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/reset.css">
+		<link type="text/css" rel="stylesheet" media="all" href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/default.css">
+                <script type="text/javascript" src="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			$("a.hidinglink").each(function(){
+				$("#" + $(this).show().attr("rel")).hide();
+			});
+			$("a.hidinglink").click(function() {
+					$("#" + $(this).attr("rel")).slideToggle();
+					return false;
+			});
+		});
+		</script>
+		<link rel="stylesheet" href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/shared.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/commonPrint.css" type="text/css" media="print">
+		<link rel="stylesheet" href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/main.css" type="text/css" media="screen">
+		<!--[if lt IE 5.5000]><link rel="stylesheet" href="/skins/cksource/IE50Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 5.5000]><link rel="stylesheet" href="/skins/cksource/IE55Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 6]><link rel="stylesheet" href="/skins/cksource/IE60Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="/skins/cksource/IE70Fixes.css?207" type="text/css" media="screen" /><![endif]-->
+		<link rel="stylesheet" href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/index.php" type="text/css">
+		<link rel="stylesheet" href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/index(1).php" type="text/css" media="print">
+		<link rel="stylesheet" href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/index(2).php" type="text/css">
+		<link rel="stylesheet" href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/index(3).php" type="text/css">
+		<!--[if lt IE 7]><script type="text/javascript" src="/skins/common/IEFixes.js?207"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+
+		<script type="text/javascript">/*<![CDATA[*/
+		var skin = "cksource";
+		var stylepath = "/skins";
+		var wgArticlePath = "/$1";
+		var wgScriptPath = "";
+		var wgScript = "/index.php";
+		var wgVariantArticlePath = false;
+		var wgActionPaths = {};
+		var wgServer = "http://docs.cksource.com";
+		var wgCanonicalNamespace = "";
+		var wgCanonicalSpecialPageName = false;
+		var wgNamespaceNumber = 0;
+		var wgPageName = "CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration";
+		var wgTitle = "CKFinder 2.x/Developers Guide/PHP/CKEditor Integration";
+		var wgAction = "view";
+		var wgArticleId = "902";
+		var wgIsArticle = true;
+		var wgUserName = null;
+		var wgUserGroups = null;
+		var wgUserLanguage = "en";
+		var wgContentLanguage = "en";
+		var wgBreakFrames = false;
+		var wgCurRevisionId = 6212;
+		var wgVersion = "1.15.2";
+		var wgEnableAPI = true;
+		var wgEnableWriteAPI = true;
+		var wgSeparatorTransformTable = ["", ""];
+		var wgDigitTransformTable = ["", ""];
+		var wgRestrictionEdit = [];
+		var wgRestrictionMove = [];
+		/*]]>*/</script>
+
+		<script type="text/javascript" src="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/wikibits.js"><!-- wikibits js --></script><style type="text/css">@import "/skins/cksource/KHTMLFixes.css";</style>
+		<!-- Head Scripts -->
+		<script type="text/javascript" src="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/ajax.js"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-php {line-height: normal;}
+.source-php li, .source-php pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for php
+ * CSS class: source-php, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.php.source-php .de1, .php.source-php .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.php.source-php  {font-family:monospace;}
+.php.source-php .imp {font-weight: bold; color: red;}
+.php.source-php li, .php.source-php .li1 {font-weight: normal; vertical-align:top;}
+.php.source-php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.php.source-php .li2 {font-weight: bold; vertical-align:top;}
+.php.source-php .kw1 {color: #b1b100;}
+.php.source-php .kw2 {color: #000000; font-weight: bold;}
+.php.source-php .kw3 {color: #990000;}
+.php.source-php .kw4 {color: #009900; font-weight: bold;}
+.php.source-php .co1 {color: #666666; font-style: italic;}
+.php.source-php .co2 {color: #666666; font-style: italic;}
+.php.source-php .co3 {color: #0000cc; font-style: italic;}
+.php.source-php .co4 {color: #009933; font-style: italic;}
+.php.source-php .coMULTI {color: #666666; font-style: italic;}
+.php.source-php .es0 {color: #000099; font-weight: bold;}
+.php.source-php .es1 {color: #000099; font-weight: bold;}
+.php.source-php .es2 {color: #660099; font-weight: bold;}
+.php.source-php .es3 {color: #660099; font-weight: bold;}
+.php.source-php .es4 {color: #006699; font-weight: bold;}
+.php.source-php .es5 {color: #006699; font-weight: bold; font-style: italic;}
+.php.source-php .es6 {color: #009933; font-weight: bold;}
+.php.source-php .es_h {color: #000099; font-weight: bold;}
+.php.source-php .br0 {color: #009900;}
+.php.source-php .sy0 {color: #339933;}
+.php.source-php .sy1 {color: #000000; font-weight: bold;}
+.php.source-php .st0 {color: #0000ff;}
+.php.source-php .st_h {color: #0000ff;}
+.php.source-php .nu0 {color: #cc66cc;}
+.php.source-php .nu8 {color: #208080;}
+.php.source-php .nu12 {color: #208080;}
+.php.source-php .nu19 {color:#800080;}
+.php.source-php .me1 {color: #004000;}
+.php.source-php .me2 {color: #004000;}
+.php.source-php .re0 {color: #000088;}
+.php.source-php .ln-xtra, .php.source-php li.ln-xtra, .php.source-php div.ln-xtra {background-color: #ffc;}
+.php.source-php span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-javascript {line-height: normal;}
+.source-javascript li, .source-javascript pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.javascript.source-javascript .de1, .javascript.source-javascript .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.javascript.source-javascript  {font-family:monospace;}
+.javascript.source-javascript .imp {font-weight: bold; color: red;}
+.javascript.source-javascript li, .javascript.source-javascript .li1 {font-weight: normal; vertical-align:top;}
+.javascript.source-javascript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.javascript.source-javascript .li2 {font-weight: bold; vertical-align:top;}
+.javascript.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.javascript.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.javascript.source-javascript .kw3 {color: #000066;}
+.javascript.source-javascript .co1 {color: #006600; font-style: italic;}
+.javascript.source-javascript .co2 {color: #009966; font-style: italic;}
+.javascript.source-javascript .coMULTI {color: #006600; font-style: italic;}
+.javascript.source-javascript .es0 {color: #000099; font-weight: bold;}
+.javascript.source-javascript .br0 {color: #009900;}
+.javascript.source-javascript .sy0 {color: #339933;}
+.javascript.source-javascript .st0 {color: #3366CC;}
+.javascript.source-javascript .nu0 {color: #CC0000;}
+.javascript.source-javascript .me1 {color: #660066;}
+.javascript.source-javascript .ln-xtra, .javascript.source-javascript li.ln-xtra, .javascript.source-javascript div.ln-xtra {background-color: #ffc;}
+.javascript.source-javascript span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=18000";
+/*]]>*/
+</style>		<script type="text/javascript" src="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/index(4).php"><!-- site js --></script>
+
+<script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/document_iterator.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/find_proxy.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/get_html_text.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/global_constants.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/name_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/number_injection_builder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/string_finder.js"></script><script src="chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/change_sink.js"></script><meta name="document_iterator.js"><meta name="find_proxy.js"><meta name="get_html_text.js"><meta name="global_constants.js"><meta name="name_injection_builder.js"><meta name="number_injection_builder.js"><meta name="string_finder.js"><meta name="change_sink.js"></head>
+<body class="mediawiki ltr ns-0 ns-subject page-CKFinder_2_x_Developers_Guide_PHP_CKEditor_Integration skin-cksource">
+	<div id="container">
+		<div id="header">
+
+			<h1><a href="http://docs.cksource.com/">CKSource</a></h1>
+
+			<ul id="mainnav">
+				<li class="menu-228 active first home"><a href="http://docs.cksource.com/" title=""><span>Home</span></a></li>
+				<li class="menu-225 about_us"><a href="http://cksource.com/about" title="About us"><span>About us</span></a></li>
+				<li class="menu-222 products"><a href="http://cksource.com/products" title="Products"><span>Products</span></a><div>
+					<ul>
+						<li class="ckeditor first active"><a href="http://cksource.com/ckeditor">CKEditor</a></li>
+						<li class="ckfinder"><a href="http://cksource.com/ckfinder">CKFinder</a></li>
+					</ul>
+					</div></li>
+				<li class="menu-224 customers"><a href="http://cksource.com/customers" title="Customers"><span>Customers</span></a></li>
+				<li class="menu-303 news"><a href="http://cksource.com/blog" title=""><span>News</span></a></li>
+				<li class="menu-227 community"><a href="http://cksource.com/forums/" title=""><span>Community</span></a></li>
+				<li class="menu-221 career"><a href="http://cksource.com/career" title="Jobs"><span>Career</span></a></li>
+				<li class="menu-230 last contact"><a href="http://cksource.com/contact" title="Contact Us"><span>Contact</span></a></li>
+			</ul>
+
+			<form action="http://docs.cksource.com/index.php" method="post" id="search-theme-form">
+				<div>
+					<span class="inp"><input type="text" maxlength="128" name="search" id="edit-search-theme-form-1" size="25" value="Search Docs..." onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search Docs...&#39;;}" onfocus="if (this.value == &#39;Search Docs...&#39;) {this.value = &#39;&#39;;}" class="form-text text"></span>
+					<input type="image" name="op" value="Search" id="edit-submit" class="form-submit image" src="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/btn-search.gif">
+					<input type="hidden" name="title" value="Special:Search">
+					<input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form">
+				</div>
+			</form>
+			<div id="personaltools">
+					<h5><a href="http://docs.cksource.com/index.php?title=Special:UserLogin&returnto=CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration">Login / Create Account</a></h5>
+							
+			</div>
+
+		</div><!--/header-->
+
+		<div id="content">
+			<div id="main">
+				<div id="mainInside">
+					<div id="mainInsideInside">
+						<div id="breadcrumbs"><span class="subpages">&lt; <a href="http://docs.cksource.com/CKFinder_2.x" title="CKFinder 2.x">CKFinder 2.x</a> | <a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide" title="CKFinder 2.x/Developers Guide">Developers Guide</a> | <a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP" title="CKFinder 2.x/Developers Guide/PHP">PHP</a></span></div>
+						<h1 id="mainHeader">CKEditor Integration</h1>
+						<div id="mainCol">
+							<div class="post">
+								<table id="toc" class="toc" summary="Contents"><tbody><tr><td><div id="toctitle"><h2>Contents</h2> <span class="toctoggle">[<a id="togglelink" class="internal" href="javascript:toggleToc()">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#PHP"><span class="tocnumber">1</span> <span class="toctext">PHP</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#SetupCKEditor_Function"><span class="tocnumber">1.1</span> <span class="toctext">SetupCKEditor Function</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Example_1"><span class="tocnumber">1.1.1</span> <span class="toctext">Example 1</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#SetupCKEditorObject_Method"><span class="tocnumber">1.2</span> <span class="toctext">SetupCKEditorObject Method</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Example_2"><span class="tocnumber">1.2.1</span> <span class="toctext">Example 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Manual_Integration"><span class="tocnumber">1.3</span> <span class="toctext">Manual Integration</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Example_3"><span class="tocnumber">1.3.1</span> <span class="toctext">Example 3</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#JavaScript"><span class="tocnumber">2</span> <span class="toctext">JavaScript</span></a>
+<ul>
+<li class="toclevel-2"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#CKFinder.setupCKEditor"><span class="tocnumber">2.1</span> <span class="toctext">CKFinder.setupCKEditor</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Example_1_2"><span class="tocnumber">2.1.1</span> <span class="toctext">Example 1</span></a></li>
+<li class="toclevel-3"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Example_2_2"><span class="tocnumber">2.1.2</span> <span class="toctext">Example 2</span></a></li>
+<li class="toclevel-3"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Example_3_2"><span class="tocnumber">2.1.3</span> <span class="toctext">Example 3</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Manual_Integration_2"><span class="tocnumber">2.2</span> <span class="toctext">Manual Integration</span></a>
+<ul>
+<li class="toclevel-3"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Enabling_CKFinder"><span class="tocnumber">2.2.1</span> <span class="toctext">Enabling CKFinder</span></a></li>
+<li class="toclevel-3"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Changing_the_Size_of_the_CKFinder_Window"><span class="tocnumber">2.2.2</span> <span class="toctext">Changing the Size of the CKFinder Window</span></a></li>
+<li class="toclevel-3"><a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration#Specifying_Destination_Folder_for_Quick_Uploads"><span class="tocnumber">2.2.3</span> <span class="toctext">Specifying Destination Folder for Quick Uploads</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td></tr></tbody></table><script type="text/javascript"> if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } </script>
+<a name="PHP" id="PHP"></a><h1> <span class="mw-headline"> PHP </span></h1>
+<p>CKFinder comes with built-in API to easily integrate it with <a href="http://ckeditor.com/" class="external text" title="http://ckeditor.com" rel="nofollow">CKEditor</a>. Check the <code>_samples</code> folder for more detailed examples.
+</p>
+<a name="SetupCKEditor_Function" id="SetupCKEditor_Function"></a><h2> <span class="mw-headline"> SetupCKEditor Function </span></h2>
+<p>The static <code>SetupCKEditor()</code> function accepts four arguments:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="php source-php"><pre class="de1">SetupCKEditor<span class="br0">(</span> <span class="re0">$editorObj</span> <span class="br0">[</span><span class="sy0">,</span> <span class="re0">$basePath</span><span class="sy0">,</span> <span class="re0">$imageType</span><span class="sy0">,</span> <span class="re0">$flashType</span><span class="br0">]</span> <span class="br0">)</span></pre></div></div>
+<ul><li> <code>editorObj</code> – the CKEditor class instance.
+</li><li> <code>basePath</code> – the path where CKFinder is installed (optional, default value: <code>/ckfinder/</code>).
+</li><li> <code>imageType</code> – the name of the resource type that should be used when CKFinder is launched from the <b>Image Properties</b> dialog window (optional).
+</li><li> <code>flashType</code> – the name of the resource type that should be used when CKFinder is launched from the <b>Flash Properties</b> dialog window (optional).
+</li></ul>
+<a name="Example_1" id="Example_1"></a><h4> <span class="mw-headline"> Example 1 </span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="php source-php"><pre class="de1"><span class="kw2">&lt;?php</span>
+<span class="co1">// Make sure you are using correct paths here.</span>
+<span class="kw1">include_once</span> <span class="st_h">'ckeditor/ckeditor.php'</span><span class="sy0">;</span>
+<span class="kw1">include_once</span> <span class="st_h">'ckfinder/ckfinder.php'</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$ckeditor</span> <span class="sy0">=</span> <span class="kw2">new</span> CKEditor<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">basePath</span> <span class="sy0">=</span> <span class="st_h">'/ckeditor/'</span><span class="sy0">;</span>
+CKFinder<span class="sy0">::</span><span class="me2">SetupCKEditor</span><span class="br0">(</span><span class="re0">$ckeditor</span><span class="sy0">,</span> <span class="st_h">'/ckfinder/'</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">editor</span><span class="br0">(</span><span class="st_h">'CKEditor1'</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<a name="SetupCKEditorObject_Method" id="SetupCKEditorObject_Method"></a><h2> <span class="mw-headline"> SetupCKEditorObject Method </span></h2>
+<p>The <b>SetupCKEditorObject()</b> method accepts three arguments:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="php source-php"><pre class="de1">SetupCKEditorObject<span class="br0">(</span> <span class="re0">$editorObj</span> <span class="br0">[</span><span class="sy0">,</span> <span class="re0">$imageType</span><span class="sy0">,</span> <span class="re0">$flashType</span><span class="br0">]</span> <span class="br0">)</span></pre></div></div>
+<ul><li> <code>editorObj</code> – the CKEditor class instance.
+</li><li> <code>imageType</code> – the name of the resource type that should be used when CKFinder is launched from the <b>Image Properties</b> dialog window (optional).
+</li><li> <code>flashType</code> – the name of the resource type that should be used when CKFinder is launched from the <b>Flash Properties</b> dialog window (optional).
+</li></ul>
+<a name="Example_2" id="Example_2"></a><h4> <span class="mw-headline"> Example 2 </span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="php source-php"><pre class="de1"><span class="kw2">&lt;?php</span>
+<span class="co1">// Make sure you are using correct paths here.</span>
+<span class="kw1">include_once</span> <span class="st_h">'ckeditor/ckeditor.php'</span><span class="sy0">;</span>
+<span class="kw1">include_once</span> <span class="st_h">'ckfinder/ckfinder.php'</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$ckeditor</span> <span class="sy0">=</span> <span class="kw2">new</span> CKEditor<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">basePath</span> <span class="sy0">=</span> <span class="st_h">'/ckeditor/'</span><span class="sy0">;</span>
+<span class="re0">$ckfinder</span> <span class="sy0">=</span> <span class="kw2">new</span> CKFinder<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ckfinder</span><span class="sy0">-&gt;</span><span class="me1">BasePath</span> <span class="sy0">=</span> <span class="st_h">'/ckfinder/'</span><span class="sy0">;</span> <span class="co1">// Note: the BasePath property in the CKFinder class starts with a capital letter.</span>
+<span class="re0">$ckfinder</span><span class="sy0">-&gt;</span><span class="me1">SetupCKEditorObject</span><span class="br0">(</span><span class="re0">$ckeditor</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">editor</span><span class="br0">(</span><span class="st_h">'CKEditor1'</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<a name="Manual_Integration" id="Manual_Integration"></a><h2> <span class="mw-headline"> Manual Integration </span></h2>
+<p>In order to configure CKEditor manually to use CKFinder, you will need to pass some additional file browser configuration settings to the <code>config</code> property of the CKEditor instance.
+</p>
+<a name="Example_3" id="Example_3"></a><h4> <span class="mw-headline"> Example 3 </span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="php source-php"><pre class="de1"><span class="kw2">&lt;?php</span>
+<span class="co1">// Make sure you are using a correct path here.</span>
+<span class="kw1">include_once</span> <span class="st_h">'ckeditor/ckeditor.php'</span><span class="sy0">;</span>
+&nbsp;
+<span class="re0">$ckeditor</span> <span class="sy0">=</span> <span class="kw2">new</span> CKEditor<span class="br0">(</span><span class="br0">)</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">basePath</span> <span class="sy0">=</span> <span class="st_h">'/ckeditor/'</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">config</span><span class="br0">[</span><span class="st_h">'filebrowserBrowseUrl'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'/ckfinder/ckfinder.html'</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">config</span><span class="br0">[</span><span class="st_h">'filebrowserImageBrowseUrl'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'/ckfinder/ckfinder.html?type=Images'</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">config</span><span class="br0">[</span><span class="st_h">'filebrowserFlashBrowseUrl'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'/ckfinder/ckfinder.html?type=Flash'</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">config</span><span class="br0">[</span><span class="st_h">'filebrowserUploadUrl'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files'</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">config</span><span class="br0">[</span><span class="st_h">'filebrowserImageUploadUrl'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Images'</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">config</span><span class="br0">[</span><span class="st_h">'filebrowserFlashUploadUrl'</span><span class="br0">]</span> <span class="sy0">=</span> <span class="st_h">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Flash'</span><span class="sy0">;</span>
+<span class="re0">$ckeditor</span><span class="sy0">-&gt;</span><span class="me1">editor</span><span class="br0">(</span><span class="st_h">'CKEditor1'</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<a name="JavaScript" id="JavaScript"></a><h1> <span class="mw-headline"> JavaScript </span></h1>
+<div class="usermessage" style="border:1px solid #000;padding:6px;margin-bottom:10px">If you have followed the "old" <a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/Integration/JavaScript_V1" title="CKFinder 2.x/Developers Guide/PHP/Integration/JavaScript V1">JavaScript integration (V1) instructions</a>, please read <a href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration_V1" title="CKFinder 2.x/Developers Guide/PHP/CKEditor Integration V1">CKEditor Integration (V1)</a> instruction instead.</div>
+<p><br>
+CKFinder comes with built-in API to easily integrate it with CKEditor.
+</p>
+<a name="CKFinder.setupCKEditor" id="CKFinder.setupCKEditor"></a><h2> <span class="mw-headline"> CKFinder.setupCKEditor </span></h2>
+<p>The <code><a href="http://docs.cksource.com/ckfinder_2.x_api/symbols/CKFinder.html#.setupCKEditor" class="external text" title="http://docs.cksource.com/ckfinder_2.x_api/symbols/CKFinder.html#.setupCKEditor" rel="nofollow">setupCKEditor</a></code> method accepts four arguments:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">CKFinder.<span class="me1">setupCKEditor</span><span class="br0">(</span> editorObj<span class="sy0">,</span> config<span class="br0">[</span><span class="sy0">,</span> imageType<span class="sy0">,</span> flashType<span class="br0">]</span> <span class="br0">)</span></pre></div></div>
+<ul><li> <code>editorObj</code> – the CKEditor instance. If <code>editorObj</code> is <code>null</code>, CKFinder will integrate with all CKEditor instances.
+</li><li> <code>config</code> – an object with specific configuration options. Alternatively, it might be just the <code>basePath</code> to the CKFinder installation.
+</li></ul>
+<div style="margin-left:40px">
+<div class="note"><div class="floatleft"><a title="Important note" class="image" href="http://docs.cksource.com/File:Warning_blue.png"><img width="30" height="30" border="0" src="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/30px-Warning_blue.png" alt="important note"></a></div>
+<p>At this moment the only supported configuration options in the <code>config</code> object are: <code>basePath</code>, <code>width</code> and <code>height</code>, all other settings will not be used.
+</p>
+</div></div>
+<ul><li> <code>imageType</code> – the name of the resource type that should be used when CKFinder is launched from the <b>Image Properties</b> dialog window.
+</li><li> <code>flashType</code> – the name of the resource type that should be used when CKFinder is launched from the <b>Flash Properties</b> dialog window.
+</li></ul>
+<a name="Example_1_2" id="Example_1_2"></a><h4> <span class="mw-headline"> Example 1 </span></h4>
+<p>The following sample code shows how to integrate CKFinder with the <code>editor1</code> instance and use the <code>/ckfinder/</code> base path.
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw2">var</span> editor <span class="sy0">=</span> CKEDITOR.<span class="me1">replace</span><span class="br0">(</span> <span class="st0">'editor1'</span> <span class="br0">)</span><span class="sy0">;</span>
+CKFinder.<span class="me1">setupCKEditor</span><span class="br0">(</span> editor<span class="sy0">,</span> <span class="st0">'/ckfinder/'</span> <span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<a name="Example_2_2" id="Example_2_2"></a><h4> <span class="mw-headline"> Example 2 </span></h4>
+<p>It is also possible to pass an object with specific properties as the second argument:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"><span class="kw2">var</span> editor <span class="sy0">=</span> CKEDITOR.<span class="me1">replace</span><span class="br0">(</span> <span class="st0">'editor1'</span> <span class="br0">)</span><span class="sy0">;</span>
+CKFinder.<span class="me1">setupCKEditor</span><span class="br0">(</span> editor<span class="sy0">,</span> <span class="br0">{</span> basePath <span class="sy0">:</span> <span class="st0">'/ckfinder/'</span><span class="sy0">,</span> rememberLastFolder <span class="sy0">:</span> <span class="kw2">false</span> <span class="br0">}</span> <span class="br0">)</span> <span class="sy0">;</span></pre></div></div>
+<a name="Example_3_2" id="Example_3_2"></a><h4> <span class="mw-headline"> Example 3 </span></h4>
+<p>This example shows passing <code>null</code> as the first argument to integrate CKFinder with all CKEditor instances:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">CKFinder.<span class="me1">setupCKEditor</span><span class="br0">(</span> <span class="kw2">null</span><span class="sy0">,</span> <span class="st0">'/ckfinder/'</span> <span class="br0">)</span><span class="sy0">;</span>
+<span class="kw2">var</span> editor <span class="sy0">=</span> CKEDITOR.<span class="me1">replace</span><span class="br0">(</span> <span class="st0">'editor1'</span> <span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<p>Check the <code>_samples</code> folder for more examples.
+</p>
+<a name="Manual_Integration_2" id="Manual_Integration_2"></a><h2> <span class="mw-headline"> Manual Integration </span></h2>
+<p>In order to configure CKEditor manually to use CKFinder, you will need to pass some additional CKFinder configuration settings to the CKEditor instance.
+</p>
+<a name="Enabling_CKFinder" id="Enabling_CKFinder"></a><h3> <span class="mw-headline"> Enabling CKFinder </span></h3>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1"> CKEDITOR.<span class="me1">replace</span><span class="br0">(</span> <span class="st0">'editor1'</span><span class="sy0">,</span>
+<span class="br0">{</span>
+	filebrowserBrowseUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/ckfinder.html'</span><span class="sy0">,</span>
+	filebrowserImageBrowseUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/ckfinder.html?type=Images'</span><span class="sy0">,</span>
+	filebrowserFlashBrowseUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/ckfinder.html?type=Flash'</span><span class="sy0">,</span>
+	filebrowserUploadUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files'</span><span class="sy0">,</span>
+	filebrowserImageUploadUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Images'</span><span class="sy0">,</span>
+	filebrowserFlashUploadUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Flash'</span>
+<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<p>Remember to change the <code>/ckfinder/</code> path in the above URLs, if you have installed CKFinder in a different location.
+</p>
+<a name="Changing_the_Size_of_the_CKFinder_Window" id="Changing_the_Size_of_the_CKFinder_Window"></a><h3> <span class="mw-headline"> Changing the Size of the CKFinder Window </span></h3>
+<p>To change CKFinder the window width and height, use the <code>filebrowserWindowWidth</code> and <code>filebrowserWindowHeight</code> configuration settings, respectively:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">CKEDITOR.<span class="me1">replace</span><span class="br0">(</span> <span class="st0">'editor1'</span><span class="sy0">,</span>
+<span class="br0">{</span>
+	filebrowserBrowseUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/ckfinder.html'</span><span class="sy0">,</span>
+	filebrowserImageBrowseUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/ckfinder.html?type=Images'</span><span class="sy0">,</span>
+	filebrowserFlashBrowseUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/ckfinder.html?type=Flash'</span><span class="sy0">,</span>
+	filebrowserUploadUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files'</span><span class="sy0">,</span>
+	filebrowserImageUploadUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Images'</span><span class="sy0">,</span>
+	filebrowserFlashUploadUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Flash'</span><span class="sy0">,</span>
+	filebrowserWindowWidth <span class="sy0">:</span> <span class="st0">'1000'</span><span class="sy0">,</span>
+ 	filebrowserWindowHeight <span class="sy0">:</span> <span class="st0">'700'</span>
+<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<p>It is possible to change the size of the CKFinder window inside a specific dialog window by adding its name to the configuration setting. For example, to change just the size of <b>Image Properties</b> dialog window, set the following property: <code>filebrowser<b>Image</b>WindowWidth</code>.
+</p>
+<a name="Specifying_Destination_Folder_for_Quick_Uploads" id="Specifying_Destination_Folder_for_Quick_Uploads"></a><h3> <span class="mw-headline"> Specifying Destination Folder for Quick Uploads </span></h3>
+<p>The <code>QuickUpload</code> command is used when uploading files directly in the <b>Upload</b> tab <sup>(1)</sup> in CKEditor.
+</p><p><a href="http://docs.cksource.com/File:CKEditor_Image_Dialog.png" class="image" title="Image:CKEditor Image Dialog.png"><img alt="Image:CKEditor Image Dialog.png" src="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/CKEditor_Image_Dialog.png" width="462" height="471" border="0"></a>
+</p><p><br>
+When configuring the <code>filebrowserUploadUrl</code> settings, it is possible to point CKFinder to a subfolder for a given resource type and upload files directly to this subfolder.
+</p><p>In order to do this, add the <code>currentFolder</code> attribute to the query string:
+</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;"><div class="javascript source-javascript"><pre class="de1">CKEDITOR.<span class="me1">replace</span><span class="br0">(</span> <span class="st0">'editor1'</span><span class="sy0">,</span>
+<span class="br0">{</span>
+	filebrowserBrowseUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/ckfinder.html'</span><span class="sy0">,</span>
+	filebrowserImageBrowseUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/ckfinder.html?type=Images'</span><span class="sy0">,</span>
+	filebrowserFlashBrowseUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/ckfinder.html?type=Flash'</span><span class="sy0">,</span>
+	filebrowserUploadUrl <span class="sy0">:</span> 
+ 	   <span class="st0">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Files&amp;currentFolder=/archive/'</span><span class="sy0">,</span>
+	filebrowserImageUploadUrl <span class="sy0">:</span> 
+	   <span class="st0">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Images&amp;currentFolder=/cars/'</span><span class="sy0">,</span>
+	filebrowserFlashUploadUrl <span class="sy0">:</span> <span class="st0">'/ckfinder/core/connector/php/connector.php?command=QuickUpload&amp;type=Flash'</span>
+<span class="br0">}</span><span class="br0">)</span><span class="sy0">;</span></pre></div></div>
+<div class="note"><div class="floatleft"><a title="Important note" class="image" href="http://docs.cksource.com/File:Warning_blue.png"><img width="30" height="30" border="0" src="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/30px-Warning_blue.png" alt="important note"></a></div>
+<p>The folder specified must already exist on the server (see <code>archive</code> and <code>cars</code> in the example above).
+</p>
+</div>
+<p>/code
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 90/1000000
+Post-expand include size: 4207/2097152 bytes
+Template argument size: 63/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key fckedit_cksourcedocs:pcache:idhash:902-0!1!0!!en!2!edit=0 and timestamp 20120321083659 -->
+<div class="printfooter">
+Retrieved from "<a href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs.htm">http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration</a>"</div>
+							</div>
+							<div class="clear"> </div>
+						</div>
+
+						<div id="contentfooter">
+								 This page was last modified on 21 April 2011, at 10:02.						</div>
+					</div>
+				</div>
+
+			</div>
+			
+			<div id="pagetools" class="">
+				<h5>Page Tools</h5>
+				<div class="pagetoolslist">
+					<ul>
+			
+						 <li id="ca-nstab-main" class="selected"><a href="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs.htm" title="View the content page [c]" accesskey="c">Page</a></li>
+						 <li id="ca-talk" class="new"><a href="http://docs.cksource.com/index.php?title=Talk:CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration&action=edit&redlink=1" title="Discussion about the content page [t]" accesskey="t">Discussion</a></li>
+						 <li id="ca-viewsource"><a href="http://docs.cksource.com/index.php?title=CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration&action=edit" title="This page is protected.
+You can view its source [e]" accesskey="e">View source</a></li>
+						 <li id="ca-history"><a href="http://docs.cksource.com/index.php?title=CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration&action=history" title="Past revisions of this page [h]" accesskey="h">History</a></li>					</ul>
+				</div>
+			</div>
+			
+		</div><!--/content-->
+
+		<div id="footer">
+
+			<p>© 2003 - 2012 CKSource - Frederico Knabben. All rights reserved.</p>
+
+			<ul>
+				<li><a href="http://cksource.com/terms">Terms of use</a></li>
+				<li><a href="http://cksource.com/privacy">Privacy policy</a></li>
+			</ul>
+
+		</div><!--/footer-->
+
+	</div><!--/container-->
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./CKFinder 2.x Developers Guide PHP CKEditor Integration - CKSource Docs_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-271067-3");
+pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+
+</body><span id="skype_highlighting_settings" display="none" autoextractnumbers="1"></span><object id="skype_plugin_object" location.href="http://docs.cksource.com/CKFinder_2.x/Developers_Guide/PHP/CKEditor_Integration" location.hostname="docs.cksource.com" style="position: absolute; visibility: hidden; left: -100px; top: -100px; " width="0" height="0" type="application/x-vnd.skype.click2call.chrome.5.6.0"></object></html>
