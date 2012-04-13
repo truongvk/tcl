@@ -36,9 +36,9 @@
                                             'after'=>$this->Form->error('price', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                             'error' => array('attributes' => array('style' => 'display:none')),
                                             'label'=>false, 'class'=>'input-xlarge'));
-                    echo $this->Form->input('discount', array('div'=>'control-group','placeholder'=>'',
-                                            'before'=>'<label>'.__('Discount').'</label><div class="controls">',
-                                            'after'=>$this->Form->error('discount', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
+                    echo $this->Form->input('promotion_price', array('div'=>'control-group','placeholder'=>'',
+                                            'before'=>'<label>'.__('Promotion Price').'</label><div class="controls">',
+                                            'after'=>$this->Form->error('promotion_price', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
                                             'error' => array('attributes' => array('style' => 'display:none')),
                                             'label'=>false, 'class'=>'input-xlarge'));                    
                     echo $this->Form->input('instock', array('div'=>'control-group','placeholder'=>'',

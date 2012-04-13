@@ -1,6 +1,6 @@
 <?php echo $this->Html->script(array('jquery/jquery.easing.1.3', 'jquery/jquery.hoverIntent.minified', 'diapo/diapo.min', 'fancybox/jquery.fancybox', 'fancybox/helpers/jquery.fancybox-buttons.js?v=2.0.4'), array('block' => 'scriptBottom'));?>
 <?php echo $this->Html->css(array('../js/fancybox/jquery.fancybox', '../js/fancybox/helpers/jquery.fancybox-buttons.css?v=2.0.4', '../js/diapo/diapo','slidebox/style'), null, array());?>
-
+<script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
 <?php echo $this->element('front/breadscrumbs', array('breadscrumbs'=>$breadscrumbs, 'product_name'=>h($product['Product']['name'])));?>
 
 <div class="row">
@@ -41,21 +41,46 @@
                     <div class="page-header">
                         <h3><?php echo h($product['Product']['name']);?></h3>
                     </div>
-                    <p><span class="label"><?php echo __('Price').': '.h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span></p>
+                    <?php
+                    if($product['Product']['promotion_price'] > 0){
+                    ?>
+                    <p>
+                        <span class="label label-important"><?php echo __('Price').': '.h($this->Number->currency($product['Product']['promotion_price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span>
+                        <strike><span class="label"><?php echo __('List Price').': '.h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span></strike>
+                    </p>
+                    <?php
+                    }else{
+                    ?>
+                    <p><span class="label label-important"><?php echo __('Price').': '.h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span></p>
+                    <?php
+                    }
+                    ?>
                     <p><?php echo h($product['Product']['excerpt']);?></p>
 
                     <div style="margin-bottom: 9px" class="btn-toolbar">
-                        <div class="btn-group">
-                            <a href="javascript:;;" id="qty-minus" class="btn btn-small" style="margin-bottom:9px"><i class="icon-minus-sign"></i></a>
-                            <a href="#" class="btn active"><span id="item_qty">1</span></a>
-                            <a href="javascript:;;" id="qty-plus" class="btn btn-small"><i class="icon-plus-sign"></i></a>
+                        <div class="btn-group pull-left">
+                            <a href="#" class="btn btn-primary"><i class="icon-user icon-white"></i> <?php echo __('Online Support');?></a>
+                            <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <?php if(Configure::read('debug') == 0):?>
+                                <li><a href="ymsgr:sendim?khanhtruong111@yahoo.com" border="0"><img src="http://opi.yahoo.com/online?u=khanhtruong111&t=2"></a> </li>
+                                <li><a href="ymsgr:sendim?khanhtruong111@yahoo.com" border="0"><img src="http://opi.yahoo.com/online?u=khanhtruong111&t=2"></a> </li>
+                                <li><a href="skype:khanhtruong111?call"><img src="http://mystatus.skype.com/smallclassic/khanhtruong111" style="border: none;" alt="My status" /></a></li>
+                                <?php endif;?>
+                            </ul>
                         </div>
+
                         <div class="btn-group pull-right">
                             <?php
                             $dataCart = array('id'=>$product['Product']['id'],'qty'=>1);
                             $dataCart = h(json_encode($dataCart));
                             ?>
-                            <a class="btn btn-success add2cart" data-cart="<?php echo $dataCart;?>" href="javascript:;;"><i class="icon-shopping-cart icon-white"></i> Mua</a>
+                            <a class="btn btn-success add2cart" data-cart="<?php echo $dataCart;?>" href="javascript:;;"><i class="icon-shopping-cart icon-white"></i> <?php echo __('Buy');?></a>
+                        </div>
+                        <div class="btn-group pull-right">
+                            <a href="javascript:;;" id="qty-minus" class="btn btn-small" style="margin-bottom:9px"><i class="icon-minus-sign"></i></a>
+                            <a href="#" class="btn active"><span id="item_qty">1</span></a>
+                            <a href="javascript:;;" id="qty-plus" class="btn btn-small"><i class="icon-plus-sign"></i></a>&nbsp;
                         </div>
                     </div>
                 </div>
@@ -63,14 +88,39 @@
         </div>
         <div class="row">
             <div class="span6">
-                <?php if(!empty($product['Product']['promotion_content'])): ?>
-                <div class="alert alert-info">
-                    <?php echo $product['Product']['promotion_content'];?>
+                <?php if(Configure::read('debug') == 0): ?>
+                <!-- AddThis Button BEGIN -->
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                <a class="addthis_button_preferred_1"></a>
+                <a class="addthis_button_preferred_2"></a>
+                <a class="addthis_button_preferred_3"></a>
+                <a class="addthis_button_preferred_4"></a>
+                <a class="addthis_button_compact"></a>
+                <a class="addthis_counter addthis_bubble_style"></a>
                 </div>
-                <?php endif; ?>
+                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f88443513c1aca4"></script>
+                <!-- AddThis Button END -->
+                <!-- AddThis Button small BEGIN -->
+<!--                <div class="addthis_toolbox addthis_default_style ">
+                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+                <a class="addthis_counter addthis_pill_style"></a>
+                </div>
+                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f88443513c1aca4"></script>-->
+                <!-- AddThis Button END -->
+                <?php endif;?>
             </div>
         </div>
-
+        <?php
+        if($product['Product']['instock'] < 1){
+        ?>
+        <div class="clearfix"><br/></div>
+        <div class="row">
+            <div class="span6">
+                <div class="alert alert-error"><?php echo __('Not in stock');?></div>
+            </div>
+        </div>
+        <?php } ?>
     </div>
 </div>
 <div class="clearfix"><br/></div>
