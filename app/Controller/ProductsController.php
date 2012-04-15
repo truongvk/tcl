@@ -36,11 +36,12 @@ class ProductsController extends AppController {
         $this->set(compact('latest_products'));
     }
 
-    public function view($category_id=0) {
-        $this->Product->Category->id = $category_id;
-        if (!$this->Product->Category->exists()) {
+    public function view($slug=0) {
+        $category_id = $this->Product->Category->getCategoryIdBySlug($slug);
+        if (empty($category_id)) {
             throw new NotFoundException(__('Invalid Category'));
         }
+        $this->set(compact('slug'));
         /**
          * Get attribute to search
          */
@@ -65,7 +66,7 @@ class ProductsController extends AppController {
             /**
              * Loc theo danh
              */
-            $categoryList = $this->Product->Category->listCategories();
+            $categoryList = $this->Product->Category->listCategories('{n}.Category.slug');
             $this->set('categoryList', $categoryList);
         }
         /**
@@ -112,7 +113,8 @@ class ProductsController extends AppController {
 
     }
 
-    public function detail($id) {
+    public function detail($slug=null) {
+        $id = $this->Product->getProductIdBySlug($slug);
         /**
          * Get product detail
          */

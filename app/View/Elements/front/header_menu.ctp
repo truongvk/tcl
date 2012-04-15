@@ -6,7 +6,23 @@
 <!--                <img src="http://placehold.it/83x50">-->
             </div>
             <div class="span8">
-                <p class="right-content pull-right">Follow us on Twitter, Facebook and Dribbble</p>
+                
+                    <?php if($this->Session->check('Auth.User.id')): ?>
+                    <div style="margin-bottom: 9px" class="btn-toolbar pull-right">
+                        <div class="btn-group">
+                            <a href="<?php echo $this->Html->url(array('controller'=>'orders', 'action'=>'history'));?>" class="btn"><i class="icon-asterisk"></i> <?php echo __('Order History');?></a>
+                            <a href="#" class="btn"><i class="icon-pencil"></i> <?php echo __('Edit Profile');?></a>                            
+                        </div>
+                        <div class="btn-group">
+                            <?php echo $this->Html->link('<i class="icon-off icon-white"></i> '.__('Logout'), array('plugin'=>'acl_management', 'controller'=>'users', 'logout'), array('class'=>'btn btn-warning', 'escape'=>false));?>
+                        </div>
+                    </div>
+                    <?php else: ?>
+                        <p class="right-content pull-right">
+                            <?php echo $this->Html->link('<i class="icon-lock"></i> '.__('Login'), array('plugin'=>'acl_management', 'controller'=>'users', 'login'), array('class'=>'btn', 'escape'=>false));?>
+                            <?php echo $this->Html->link('<i class="icon-user"></i> '.__('Register'), array('plugin'=>'acl_management', 'controller'=>'users', 'register'), array('class'=>'btn', 'escape'=>false));?>
+                        </p>
+                    <?php endif; ?>                
             </div>
         </div>
     </div>
@@ -16,35 +32,36 @@
                     <div class="nav-collapse">
                         <ul id="ldd_menu" class="ldd_menu">                            
                             <li>
-                                <span>Vacations</span><!-- Increases to 510px in width-->
+                                <span><?php echo __('Products');?></span><!-- Increases to 510px in width-->
                                 <div class="ldd_submenu">
-                                    <ul>
-                                        <li class="ldd_heading">By Location</li>
-                                        <li><a href="#">South America</a></li>
-                                        <li><a href="#">Antartica</a></li>
-                                        <li><a href="#">Africa</a></li>
-                                        <li><a href="#">Asia and Australia</a></li>
-                                        <li><a href="#">Europe</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Category</li>
-                                        <li><a href="#">Sun &amp; Beach</a></li>
-                                        <li><a href="#">Adventure</a></li>
-                                        <li><a href="#">Science &amp; Education</a></li>
-                                        <li><a href="#">Extreme Sports</a></li>
-                                        <li><a href="#">Relaxing</a></li>
-                                        <li><a href="#">Spa and Wellness</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li class="ldd_heading">By Theme</li>
-                                        <li><a href="#">Paradise Islands</a></li>
-                                        <li><a href="#">Cruises &amp; Boat Trips</a></li>
-                                        <li><a href="#">Wild Animals &amp; Safaris</a></li>
-                                        <li><a href="#">Nature Pure</a></li>
-                                        <li><a href="#">Helping others &amp; For Hope</a></li>
-                                        <li><a href="#">Diving</a></li>
-                                    </ul>
-                                    <a class="ldd_subfoot" href="#"> + New Deals</a>
+                                    <?php 
+                                        $products_categories = $this->requestAction('/categories/get_menu_categories');
+                                        $numOfCate = count($products_categories);
+                                        $numOfSpan = $numOfCate*3;
+                                    ?>
+                                    <div class="row">
+                                        <div class="span<?php echo $numOfSpan;?>">
+                                            <div class="row">                                            
+                                            <?php foreach ($products_categories as $category): ?>
+                                                    <div class="span3">
+                                                        <ul>
+                                                            <li class="ldd_heading"><?php echo $this->Html->link($category['Category']['name'], array('controller'=>'products', 'action'=>'view', $category['Category']['slug']));?></li>
+                                                            <?php
+                                                                if(!empty($category['children'])):
+                                                                    foreach ($category['children'] as $child): 
+                                                            ?>
+                                                                        <li><?php echo $this->Html->link($child['Category']['name'], array('controller'=>'products', 'action'=>'view', $child['Category']['slug']));?></li>
+                                                            <?php 
+                                                                    endforeach;
+                                                                endif; 
+                                                            ?>
+                                                        </ul>
+                                                    </div>
+                                            <?php endforeach; ?>
+                                            </div>    
+                                        </div>    
+                                    </div>    
+                                    <a class="ldd_subfoot" href="#"></a>
                                 </div>
                             </li>
                             <?php

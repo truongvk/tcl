@@ -13,6 +13,19 @@
 </ul>
 
 <?php echo $this->Form->create('Product', array('class'=>'form-horizontal', 'type'=>'file'));?>
+<div class="alert alert-info">
+<?php 
+echo $this->Form->input('url', array('div'=>'control-group','placeholder'=>'',
+                                     'value'=>FULL_BASE_URL.$this->Html->url(array('admin'=>false,'action' => 'detail', $this->data['Product']['slug'])),
+                                     'onclick'=>'this.select();',
+                                     'before'=>'<label>'.__('URL').'</label><div class="controls">',
+                                     'after'=>'&nbsp;<span class="label label-info link-white"><i class="icon-eye-open icon-white"></i> <a href='.$this->Html->url(array('admin'=>false,'action' => 'detail', $this->data['Product']['slug'])).' target="_blank">'.__('View').'</a></span></div>',
+                                     'error' => array('attributes' => array('style' => 'display:none')),
+                                     'label'=>false, 'class'=>'input-xlarge'));
+
+?>
+</div>    
+    
 <div class="tabbable" style="margin-bottom: 9px;">
     <ul class="nav nav-tabs">
         <li class="active"><a href="#1" data-toggle="tab"><?php echo __('General Infomation'); ?></a></li>

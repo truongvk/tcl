@@ -8,6 +8,18 @@
         <li class="active"><?php echo __('Edit Page'); ?></li>
     </ul>
     <?php echo $this->Form->create('StaticPage', array('class' => 'form-horizontal', 'type'=>'file')); ?>
+    <div class="alert alert-info">
+    <?php 
+    echo $this->Form->input('url', array('div'=>'control-group','placeholder'=>'',
+                                        'value'=>FULL_BASE_URL.$this->Html->url('/p/'.$this->data['StaticPage']['slug']),
+                                        'onclick'=>'this.select();',
+                                        'before'=>'<label>'.__('URL').'</label><div class="controls">',
+                                        'after'=>'&nbsp;<span class="label label-info link-white"><i class="icon-eye-open icon-white"></i> <a href='.$this->Html->url('/p/'.$this->data['StaticPage']['slug']).' target="_blank">'.__('View').'</a></span></div>',
+                                        'error' => array('attributes' => array('style' => 'display:none')),
+                                        'label'=>false, 'class'=>'input-xlarge'));
+
+    ?>
+    </div>     
     <fieldset>
         <legend><?php echo __('Edit Page'); ?></legend>
         <?php

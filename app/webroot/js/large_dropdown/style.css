@@ -37,7 +37,7 @@ ul.ldd_menu > li > span{
 ul.ldd_menu .ldd_submenu{
 	position:absolute;
 	top:50px;
-	width:550px;
+/*	width:550px;*/
 	display:none;
 	opacity:0.97;/*make transparent*/
 	left:0px;

@@ -50,6 +50,10 @@ a {
     margin-right:-20px;
 }
 
+#header_menu .right-content a{
+    margin-top: auto;
+}
+
 .navbar-fixed-top{
    position: absolute;
 }
@@ -202,11 +206,11 @@ ul.footer-menu li {
     padding: 20px 20px 20px 90px;
     position: absolute;
     top: 145px;
-    width: 200px;
+    width: 250px;
     z-index: 9999;
 }
 .options .open_close {
-    background: url("../../img/front/button.png") no-repeat scroll left top transparent;
+    background: url("../../img/front/contact.png") no-repeat scroll left top transparent;
     cursor: pointer;
     display: block;
     height: 301px;
@@ -216,7 +220,7 @@ ul.footer-menu li {
 }
 .full_options {
     float: left;
-    width: 200px;
+    width: 250px;
 }
 .options_block {
     display: block;

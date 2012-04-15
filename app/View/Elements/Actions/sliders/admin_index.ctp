@@ -1,0 +1,1 @@
+<button class="btn btn-small btn-primary" onclick="window.location.href = '<?php echo $this->Html->url(array("controller"=>"sliders", "action"=>"add"));?>'"><?php echo __('New Slider');?></button>&nbsp;

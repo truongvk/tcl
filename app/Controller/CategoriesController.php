@@ -11,8 +11,21 @@ class CategoriesController extends AppController {
 
     public function beforeFilter(){
         parent::beforeFilter();
+        
+        $this->Auth->allow('get_menu_categories');
     }
 
+    public function get_menu_categories(){
+        $this->autoRender  = false;
+        
+        $categories = Cache::read('get_menu_categories');
+        if(empty($categories)){
+            $categories = $this->Category->find('threaded', array('order'=>array('Category.lft'=>'ASC'),'conditions'=>array('Category.published'=>1)));
+            Cache::write('get_menu_categories', $categories);
+        }
+        
+        return $categories;
+    }
     /**
      * admin_index method
      *

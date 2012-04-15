@@ -12,12 +12,19 @@
                 <ul class="nav">
 
                     <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Post <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->Html->url('/admin/posts/index');?>">Manage Posts</a></li>
-                            <li class="divider"></li>
-                            <li><a href="<?php echo $this->Html->url('/admin/posts/add');?>">New Post</a></li>
-                        </ul>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/orders/index');?>"><?php echo __('Orders');?> </a>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/global_config/index');?>"><?php echo __('Site Config');?></a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/contacts/index');?>"><?php echo __('Contact');?></a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/sliders/index');?>"><?php echo __('Slider');?></a>
                     </li>
 
                     <li class="dropdown">

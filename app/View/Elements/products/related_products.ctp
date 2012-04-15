@@ -25,7 +25,7 @@ if($countPost > 0):
                 ?>
                 <span class="rp_title"><?php echo h($product['Product']['name']);?></span>
                 <span class="rp_links">
-                    <?php echo $this->Html->link(__('detail'), array('controller'=>'products', 'action'=>'detail', $product['Product']['id'].'_'.$product['Product']['slug']))?>
+                    <?php echo $this->Html->link(__('detail'), array('controller'=>'products', 'action'=>'detail', $product['Product']['slug']))?>
                 </span>
             </div>
         </li>

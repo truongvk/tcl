@@ -1,0 +1,1 @@
+<button class="btn btn-small btn-primary" onclick="document.myForm.submit();"><?php echo __('Save');?></button>&nbsp;

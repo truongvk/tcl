@@ -18,7 +18,7 @@
                         if(!empty($product['Gallery'])):
                             foreach($product['Gallery'] as $gallery):                                
                     ?>
-                    <a data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['id']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
+                    <a data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['slug']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
                         <img alt="" style="width:260px" src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment']);?>">
                     </a>
                     <?php
@@ -26,7 +26,7 @@
                         endif;
                     ?>
                     <div class="caption">
-                        <a href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['id']);?>">
+                        <a href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['slug']);?>">
                             <h3><?php echo $product['Product']['name'];?></h3>
                         </a>
                         <p><?php echo $this->Text->excerpt($product['Product']['excerpt'], '');?></p>

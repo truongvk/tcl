@@ -1,13 +1,13 @@
-<?php if(!empty($attributes) && !empty($categories)): ?>
+<?php if(!empty($attributes) && !empty($categoryList)): ?>
 <?php
-if(!empty($categories)):
+if(!empty($categoryList)):
 ?>
 <div class="widget-shop">
     <div class="widget-title"><?php echo __('Filter By Category');?></div>
     <form class="form-search">
         <?php
         $category_id = (isset($category_id)) ? $category_id : null;
-        echo $this->Form->input('category_id', array('options'=>$categories, 'value'=>$category_id, 'div'=>'control-group','placeholder'=>'','id'=>'filterBy',
+        echo $this->Form->input('category_id', array('options'=>$categoryList, 'value'=>$slug, 'div'=>'control-group','placeholder'=>'','id'=>'filterBy',
                                             'onchange'=>'javascript: window.location.href="'.$this->Html->url(array('controller'=>'products', 'action'=>'view')).'/"+this.value',
                                             'before'=>'<div class="controls">',
                                             'after'=>$this->Form->error('name', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
@@ -20,7 +20,7 @@ if(!empty($categories)):
 endif;
 ?>
 <div class="widget-shop">
-    <div class="widget-title"><?php echo __('Filter By Features');?>&nbsp;&nbsp;<span class="label label-warning"><a href="<?php echo $this->Html->url(array($category_id));?>" style="color:#FFFFFF"><i class="icon-retweet icon-white"></i> <?php echo __('Reset');?></a></span></div>
+    <div class="widget-title"><?php echo __('Filter By Features');?>&nbsp;&nbsp;<span class="label label-warning"><a href="<?php echo $this->Html->url(array('controller'=>'products', 'action'=>'view', $slug));?>" style="color:#FFFFFF"><i class="icon-retweet icon-white"></i> <?php echo __('Reset');?></a></span></div>
     <ul class="nav nav-list">
         <?php
         $limit = Configure::read('Settings.expand_collapse_attributes.value');
@@ -33,12 +33,13 @@ endif;
         <?php
             $i = 0;
             $hasFilter=null;
+            $defaultUrl = array('controller'=>'products', 'action'=>'view');
             foreach($attribute['children'] as $child):
                 $selectProperty = (isset($this->request->params["named"][$attribute["Property"]["slug"]]) && $child["Property"]["slug"] == $this->request->params["named"][$attribute["Property"]["slug"]]) ? 'tag-active' : '';
-                $url = array('controller'=>'products', 'action'=>'view');
+                
                 $url_pass = $this->NamedParams->set($attribute["Property"]["slug"], $child["Property"]["slug"]);
                 if(!empty($url_pass)){
-                    $url = array_merge($url, $url_pass);
+                    $url = array_merge($defaultUrl, $url_pass);
                 }
                 $propertyURL = $this->Html->link($child["Property"]["name"], $url, array('escape'=>false, 'encode'=>false, 'class'=>'tag-style '.$selectProperty));
 
@@ -54,7 +55,12 @@ endif;
 
                 if($i==0){
                     $showAll =  (isset($this->request->params["named"][$attribute["Property"]["slug"]])) ? '' : 'tag-active';
-                    echo '<li class="always_show">'.$this->Html->link(__('All'), array($category_id), array('escape'=>false, 'encode'=>false, 'class'=>'tag-style '.$showAll)).'</li>';
+                    $url_pass = $this->NamedParams->set($attribute["Property"]["slug"], 0);
+                    $url = $defaultUrl;
+                    if(!empty($url_pass)){
+                        $url = array_merge($defaultUrl, $url_pass);
+                    }                    
+                    echo '<li class="always_show">'.$this->Html->link(__('All'), $url, array('escape'=>false, 'encode'=>false, 'class'=>'tag-style '.$showAll)).'</li>';
                 }
         ?>
                 <li class="<?php echo $class;?> <?php echo 'group-'.$attribute['Property']['id'];?>"><?php echo $propertyURL;?></li>

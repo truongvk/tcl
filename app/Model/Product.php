@@ -205,4 +205,14 @@ class Product extends AppModel {
         }
         return $products;
     }
+    
+    public function getProductIdBySlug($slug){
+        if (($products = Cache::read('getProductIdBySlug'.$slug)) === false) {
+            $products = $this->field('Product.id', array('Product.slug'=>$slug));
+            Cache::write('getProductIdBySlug'.$slug, $products);
+        }
+        return $products;
+    }
+    
+    
 }

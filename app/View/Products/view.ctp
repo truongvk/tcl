@@ -30,7 +30,7 @@
          ?>
                 <li class="span3">
                     <div class="thumbnail">
-                         <a data-placement="bottom" data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['id']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
+                         <a data-placement="bottom" data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['slug']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
         <?php
                         if(!empty($product['Gallery'])):
                             foreach($product['Gallery'] as $gallery):
@@ -69,7 +69,7 @@
             <div class="row">        
                 <div class="span3">        
                 <?php
-                    echo $this->element('sidebar/features_filter', array('attributes'=>$attributes, 'categories'=>$categoryList));
+                    echo $this->element('sidebar/features_filter', array('attributes'=>$attributes, 'categoryList'=>$categoryList));
                 ?>
                 </div>
             </div>

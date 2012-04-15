@@ -23,13 +23,13 @@
         foreach ($breadscrumbs as $breadscrumb) {
             if ($i + 1 == $numItems) {
                 if ((isset($product_name)) && (!empty($product_name))) {
-                    $path.= "<li>".$this->Html->link($breadscrumb["Category"]["name"], array('action'=>'view', $breadscrumb["Category"]["id"])).' <span class="divider">/</span></li>';
+                    $path.= "<li>".$this->Html->link($breadscrumb["Category"]["name"], array('action'=>'view', $breadscrumb["Category"]["slug"])).' <span class="divider">/</span></li>';
                     $path.= "<li class=\"active\">".$product_name."</li>";
                 }else{
                     $path.= "<li class=\"active\">".$breadscrumb["Category"]["name"]."</li>";
                 }
             }else{
-                $path.= "<li>".$this->Html->link($breadscrumb["Category"]["name"], array('action'=>'view', $breadscrumb["Category"]["id"])).' <span class="divider">/</span></li>';
+                $path.= "<li>".$this->Html->link($breadscrumb["Category"]["name"], array('action'=>'view', $breadscrumb["Category"]["slug"])).' <span class="divider">/</span></li>';
             }
             $i++;
         }

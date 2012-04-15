@@ -53,7 +53,7 @@
                 </td>
 		<td style="text-align: center"><?php echo h($product['Product']['created']); ?>&nbsp;</td>
 		<td style="text-align: center">
-                    <span class="label label-info link-white"><i class="icon-zoom-in icon-white"></i> <?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id'])); ?></span>
+                    <span class="label label-info link-white"><i class="icon-zoom-in icon-white"></i> <?php echo $this->Html->link(__('View'), array('admin'=>false,'action' => 'detail', $product['Product']['slug'])); ?></span>
                     <span class="label label-warning link-white"><i class="icon-edit icon-white"></i> <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $product['Product']['id'])); ?></span>
                     <span class="label label-important link-white"><i class="icon-trash icon-white"></i> <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?></span>
 		</td>

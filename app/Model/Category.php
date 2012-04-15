@@ -71,10 +71,11 @@ class Category extends AppModel {
      * Get all parent and their childs
      * @int $id
      */
-    public function listCategories() {
-        if (($categories = Cache::read('list_categories')) === false) {
-            $categories = $this->generateTreeList(array('Category.published' => 1), null, null, '-- ');
-            Cache::write('list_categories', $categories);
+    public function listCategories($key=null, $value=null) {
+        $keyCache = base64_encode($key.$value);
+        if (($categories = Cache::read('list_categories'.$keyCache)) === false) {
+            $categories = $this->generateTreeList(array('Category.published' => 1), $key ,$value, '--');
+            Cache::write('list_categories'.$keyCache, $categories);
         }
         return $categories;
     }
@@ -95,6 +96,12 @@ class Category extends AppModel {
         }
         return $parents;
     }
-
+    public function getCategoryIdBySlug($slug){
+        if (($id = Cache::read('getCategoryIdBySlug'.$slug)) === false) {
+            $id = $this->field('Category.id', array('Category.slug'=>$slug));
+            Cache::write('getCategoryIdBySlug'.$slug, $id);
+        }
+        return $id;
+    }
 
 }

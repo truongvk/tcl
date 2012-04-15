@@ -63,7 +63,7 @@
         </div> <!-- /container -->
         <?php
         echo $this->element('front/footer');
-        echo $this->element('front/feedback');
+        echo $this->element('front/contact');
         ?>
         
     </body>
@@ -96,25 +96,6 @@
                     target.animate({top: "0"}, function()
                     {
                         target.removeClass('display_settings_false').addClass('display_switch');
-                    });
-                }
-            });
-
-            jQuery('.options').click(function()
-            {
-                var target = jQuery(this);
-                if(target.is('.display_switch'))
-                {
-                    target.animate({left: "-75"}, function()
-                    {
-                        target.removeClass('display_switch');
-                    });
-                }
-                else
-                {
-                    target.animate({left: "-313"}, function()
-                    {
-                        target.addClass('display_switch');
                     });
                 }
             });

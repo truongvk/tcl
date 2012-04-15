@@ -9,6 +9,21 @@ App::uses('AppController', 'Controller');
  */
 class OrdersController extends AppController {
     public $helpers = array('Number');
+    
+    /**
+     * Order history of customer 
+     */
+    public function history(){
+         $this->paginate = array(
+            //'contain' => array('Customer'),
+            'conditions' => array('User.id'=>$this->Auth->user('id')), 
+            'order' => array('Order.created' => 'DESC')
+        );
+
+        $this->Order->recursive = 0;
+        $this->set('orders', $this->paginate());       
+    }
+    
     /**
      * admin_index method
      *
@@ -22,7 +37,7 @@ class OrdersController extends AppController {
         $this->paginate = array(
             'contain' => array('Customer'),
             'conditions' => array(), 
-            'order' => array('Order.ordered' => 'ASC')
+            'order' => array('Order.created' => 'DESC')
         );
 
         $this->Order->recursive = 0;
