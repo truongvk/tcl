@@ -9,9 +9,11 @@ App::uses('AppController', 'Controller');
  */
 class ContactsController extends AppController {
 
+    public $components = array('Email');
+    
     public function beforeFilter() {
         parent::beforeFilter();
-        
+
         $this->Auth->allow('index');
     }
     /**
@@ -54,14 +56,27 @@ class ContactsController extends AppController {
      * @return void
      */
     public function index() {
+        if(!$this->request->is('ajax')){
+            throw new NotFoundException(__('Invalid Contact'));
+        }
+        $this->autoRender = false;
         if ($this->request->is('post')) {
             $this->Contact->create();
             if ($this->Contact->save($this->request->data)) {
-                $this->Session->setFlash(__('The contact has been saved'), 'success');
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('The contact could not be saved. Please, try again.'), 'error');
+                $sentTo = $this->requestAction('/global_config/setting2array/admin_email/1');
+                $email = $this->Email;
+                $email->from(array($this->request->data['Contact']['email']));
+                $email->to($sentTo);
+                $email->subject('[TCLVN]'.__('Feedback'));
+                $email->send($this->request->data['Contact']['content']);
+                
+                return true;
+            }else{
+                $invalidFields = $this->Contact->invalidFieldsList();
+                return $invalidFields;
             }
+
+            return false;
         }
     }
 }

@@ -31,4 +31,16 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+    
+    public function invalidFieldsList(){
+            $invalidFields = $this->invalidFields();
+            $invalid = null;
+            foreach ($invalidFields as $invalidField):
+                $invalidField = array_unique($invalidField);
+                foreach($invalidField as $field){
+                    $invalid[] = $field;
+                }
+            endforeach;
+            return '<ul><li>'.  implode('</li><li>', $invalid).'</li></ul>';        
+    }
 }

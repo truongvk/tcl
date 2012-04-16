@@ -17,6 +17,10 @@ ul.ldd_menu a{
     color: #fff;
     text-decoration:none;
 }
+
+ul.ldd_menu a:hover{
+    color: #DB261D;
+}
 ul.ldd_menu > li{
 	float:left;
 	position:relative;

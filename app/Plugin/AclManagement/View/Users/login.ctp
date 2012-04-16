@@ -46,7 +46,15 @@ echo $this->Form->create('User', array('action' => 'login', 'class'=>'form-horiz
             <label class="control-label">&nbsp;</label>
             <div class="controls">
                 <?php echo $this->Form->submit(__('Submit'), array('class'=>'btn btn-primary', 'div'=>false));?>
-                <?php echo $this->Form->reset(__('Cancel'), array('class'=>'btn', 'div'=>false));?>
+                <?php echo $this->Form->reset(__('Cancel'), array('class'=>'btn', 'div'=>false));?>                
+            </div>
+        </div>
+        <div class="control-group required">
+            <label class="control-label">&nbsp;</label>
+            <div class="controls">
+                <p>
+                    <?php echo $this->Html->link(__('Forgot password ?'), '/users/forgot_password', array('class'=>'', 'div'=>false));?>
+                </p>
             </div>
         </div>
     </div>

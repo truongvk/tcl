@@ -15,7 +15,7 @@ class ProductsController extends AppController {
     public function  beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow('index','detail', 'view');
+        $this->Auth->allow('index','detail', 'view', 'getRandomProducts');
     }
 
     /**
@@ -134,6 +134,16 @@ class ProductsController extends AppController {
         $this->set(compact('related_products'));
     }
 
+    public function getRandomProducts(){
+        $this->autoRender = false;
+        $random = $this->Product->find('all',array(
+                    'conditions' => array(
+                        'Product.published'=>1,
+                    ),
+                    'order' => 'rand()',
+                ));
+        return $random;
+    }
     /**
      * admin_index method
      *

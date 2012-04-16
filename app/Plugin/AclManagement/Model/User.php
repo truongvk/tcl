@@ -3,10 +3,11 @@
  * User Model
  */
 App::uses('AclManagementAppModel', 'AclManagement.Model');
+App::uses('CakeEmail', 'Network/Email');
 class User extends AclManagementAppModel {
     public $name = 'User';
     public $useTable = "users";
-    public $actsAs = array('Acl' => array('type' => 'requester'));
+    public $actsAs = array('Acl' => array('type' => 'requester'), 'Containable');
     public $validate = array(
 //        'username' => array(
 //            'alphanumeric' => array(
@@ -105,6 +106,7 @@ class User extends AclManagementAppModel {
     public function beforeValidate() {
         if (isset($this->data['User']['id'])) {
             $this->validate['password']['allowEmpty'] = true;
+            unset($this->validate['email']);
         }
 
         return true;
@@ -123,7 +125,7 @@ class User extends AclManagementAppModel {
         $this->data['User']['key'] = String::uuid();
 
         return true;
-    }  
+    }
 
     public function comparePwd($check) {
         $check['password'] = trim($check['password']);
@@ -144,4 +146,54 @@ class User extends AclManagementAppModel {
 
         return $r;
     }
+
+    function forgotPassword($email) {
+        $user = $this->find('first', array("conditions" => array("User.email"=> $email), "contain"=>array('Customer')));
+        if ($user) {
+            $id = $user['User']['id'];
+            $password = $user['User']['password'];
+
+            $salt = Configure::read("Security.salt");
+            $activate_key = md5($password . $salt);
+
+            $link = Router::url("/users/activate_password/$id/$activate_key", true);
+            $link = "<a href='".$link."' target='_blank'>".$link."</a>";
+
+            $message = __("Forgot your password, %s ?<br> We received a request to reset the password for your account (%s) . If you want to reset your password, please click on the link below (or copy and paste the URL into your browser).
+            <br>" . $link . "<br>This link takes you to a secure page where you can change your password. However, if you don’t want to reset your password, please ignore this message.
+            <br>Yours sincerely,<br>", $user['Customer']['last_name'].' '.$user['Customer']['first_name'], $user['User']['email']);
+
+            $cake_email = new CakeEmail();
+            $cake_email->from(array('no-reply@'.Configure::read('Settings.domain.value') => 'TCLVN'));
+            $cake_email->to($email);
+            $cake_email->subject('[TCLVN] '.__('Forgot Password'));
+            $cake_email->send($message);
+
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    
+    function activatePassword($data) {
+        $user = $this->read(null, $data['User']['ident']);pr($data);
+        if ($user) {
+            $password = $user['User']['password'];
+            $salt = Configure::read("Security.salt");
+            $thekey = md5($password . $salt);
+
+            if ($thekey == $data['User']['activate']) {
+                $password = AuthComponent::password($data['User']['password']);
+                if ($this->updateAll(array('User.password' => "'".$password."'"), array("User.id" => $data['User']['ident']))) {
+                    return true;
+                } else {
+                    return false;
+                }                
+            } else {
+                return false;
+            }
+        } 
+        return false;
+    }    
 }

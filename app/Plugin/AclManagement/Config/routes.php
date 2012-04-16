@@ -3,6 +3,9 @@
 Router::connect('/admin/users', array('plugin' => 'acl_management', 'controller' => 'users', 'action'=>'index'));
 //register
 Router::connect('/users/register', array('plugin' => 'acl_management', 'controller' => 'users', 'action' => 'register'));
+Router::connect('/users/edit_profile', array('plugin' => 'acl_management', 'controller' => 'users', 'action' => 'edit_profile'));
+Router::connect('/users/forgot_password', array('plugin' => 'acl_management', 'controller' => 'users', 'action' => 'forgot_password'));
+Router::connect('/users/activate_password', array('plugin' => 'acl_management', 'controller' => 'users', 'action' => 'activate_password'));
 //login
 Router::connect('/users/login', array('plugin' => 'acl_management', 'controller' => 'users', 'action' => 'login'));
 Router::connect('/admin/users/login', array('admin'=>true, 'plugin' => 'acl_management', 'controller' => 'users', 'action' => 'login'));

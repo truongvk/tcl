@@ -11,16 +11,16 @@
                     <div style="margin-bottom: 9px" class="btn-toolbar pull-right">
                         <div class="btn-group">
                             <a href="<?php echo $this->Html->url(array('controller'=>'orders', 'action'=>'history'));?>" class="btn"><i class="icon-asterisk"></i> <?php echo __('Order History');?></a>
-                            <a href="#" class="btn"><i class="icon-pencil"></i> <?php echo __('Edit Profile');?></a>                            
+                            <a href="<?php echo $this->Html->url('/users/edit_profile');?>" class="btn"><i class="icon-pencil"></i> <?php echo __('Edit Profile');?></a>                            
                         </div>
                         <div class="btn-group">
-                            <?php echo $this->Html->link('<i class="icon-off icon-white"></i> '.__('Logout'), array('plugin'=>'acl_management', 'controller'=>'users', 'logout'), array('class'=>'btn btn-warning', 'escape'=>false));?>
+                            <?php echo $this->Html->link('<i class="icon-off icon-white"></i> '.__('Logout'), '/users/logout', array('class'=>'btn btn-warning', 'escape'=>false));?>
                         </div>
                     </div>
                     <?php else: ?>
                         <p class="right-content pull-right">
-                            <?php echo $this->Html->link('<i class="icon-lock"></i> '.__('Login'), array('plugin'=>'acl_management', 'controller'=>'users', 'login'), array('class'=>'btn', 'escape'=>false));?>
-                            <?php echo $this->Html->link('<i class="icon-user"></i> '.__('Register'), array('plugin'=>'acl_management', 'controller'=>'users', 'register'), array('class'=>'btn', 'escape'=>false));?>
+                            <?php echo $this->Html->link('<i class="icon-lock"></i> '.__('Login'), '/users/login', array('class'=>'btn', 'escape'=>false));?>
+                            <?php echo $this->Html->link('<i class="icon-user"></i> '.__('Register'), '/users/register', array('class'=>'btn', 'escape'=>false));?>
                         </p>
                     <?php endif; ?>                
             </div>
@@ -32,7 +32,7 @@
                     <div class="nav-collapse">
                         <ul id="ldd_menu" class="ldd_menu">                            
                             <li>
-                                <span><?php echo __('Products');?></span><!-- Increases to 510px in width-->
+                                <span><a href="#"><?php echo __('Products');?></a></span><!-- Increases to 510px in width-->
                                 <div class="ldd_submenu">
                                     <?php 
                                         $products_categories = $this->requestAction('/categories/get_menu_categories');

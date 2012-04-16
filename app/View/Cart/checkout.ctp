@@ -1,5 +1,3 @@
-<?php echo $this->Html->script(array('smoke/smoke.min'), array('block' => 'scriptBottom'));?>
-<?php echo $this->Html->css(array('../js/smoke/smoke', '../js/smoke/themes/default'), null, array('block' => 'scriptTop'));?>
 <?php echo $this->Html->script(array('sliding_form/sliding.form'), array());?>
 <?php echo $this->Html->css(array('../js/sliding_form/style'), null, array('block' => 'css'));?>
 

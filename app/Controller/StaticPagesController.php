@@ -28,6 +28,7 @@ class StaticPagesController extends AppController {
     }
     
     public function display($slug=null){
+        $this->layout = 'info';
         $content = $this->StaticPage->findBySlug(Sanitize::escape($slug));        
         if (empty($content)) {
             throw new NotFoundException(__('Invalid static page'));
