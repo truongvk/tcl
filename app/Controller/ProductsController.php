@@ -140,6 +140,7 @@ class ProductsController extends AppController {
                     'conditions' => array(
                         'Product.published'=>1,
                     ),
+                    'contain'=>array('Gallery'=>array('fields'=>array('Gallery.attachment', 'Gallery.dir'),'order'=>array('Gallery.ordered'=>'ASC'), 'limit'=>1)),
                     'order' => 'rand()',
                 ));
         return $random;

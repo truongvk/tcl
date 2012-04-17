@@ -51,6 +51,7 @@
                             <?php echo $this->fetch('latest_products');?>
                         </div>
                         <div class="span3">
+                            <?php echo $this->element('sidebar/subscribe');?>
                             <?php echo $this->fetch('block_ads_right');?>
                         </div>
                     </div>

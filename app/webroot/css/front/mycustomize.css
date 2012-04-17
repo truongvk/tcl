@@ -262,3 +262,35 @@ div.widget-shop .widget-title {
 div.widget-shop .form-search {
     padding:10px 5px 0 5px
 }
+
+div.widget-shop ul.subscribe li{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div.widget-shop ul.typical_products {
+    border-top: 1px dotted #999999;
+    margin: 20px !important;
+}
+
+div.widget-shop ul.typical_products .intro{
+    width:105px; 
+    margin-left:15px
+}
+
+div.widget-shop ul.typical_products li {
+    border-bottom: 1px dotted #999999;
+    padding-bottom: 5px;
+    padding-top: 5px;    
+}
+
+div.widget-shop ul.typical_products img {
+    border: 1px solid #999999;
+    float: left;
+    margin-right: 10px;
+    padding: 3px;  
+}
+
+div.widget-shop ul.typical_products li.nav-header {    
+    border-bottom: none;
+}

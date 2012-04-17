@@ -28,6 +28,10 @@
                     </li>
 
                     <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/subscribers/index');?>"><?php echo __('Subscribers');?></a>
+                    </li>
+
+                    <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Category');?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo $this->Html->url('/admin/categories');?>"><?php echo __('Manage Category');?></a></li>

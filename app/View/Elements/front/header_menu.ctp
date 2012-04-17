@@ -50,7 +50,7 @@
                                                                 if(!empty($category['children'])):
                                                                     foreach ($category['children'] as $child): 
                                                             ?>
-                                                                        <li><?php echo $this->Html->link($child['Category']['name'], array('controller'=>'products', 'action'=>'view', $child['Category']['slug']));?></li>
+                                                                        <li><?php echo $this->Html->link($child['Category']['name'].' ('.$child['Category']['product_count'].')', array('controller'=>'products', 'action'=>'view', $child['Category']['slug']));?></li>
                                                             <?php 
                                                                     endforeach;
                                                                 endif; 
