@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 17, 2012 at 07:09 PM
+-- Generation Time: Apr 18, 2012 at 06:36 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -35,17 +35,17 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=315 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=333 ;
 
 --
 -- Dumping data for table `acos`
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1, NULL, NULL, NULL, 'controllers', 1, 252),
-(9, 1, NULL, NULL, 'AclManagement', 2, 59),
+(1, NULL, NULL, NULL, 'controllers', 1, 282),
+(9, 1, NULL, NULL, 'AclManagement', 2, 63),
 (10, 9, NULL, NULL, 'Groups', 3, 14),
-(21, 9, NULL, NULL, 'Users', 15, 48),
+(21, 9, NULL, NULL, 'Users', 15, 52),
 (22, 21, NULL, NULL, 'login', 16, 17),
 (23, 21, NULL, NULL, 'logout', 18, 19),
 (24, 21, NULL, NULL, 'index', 20, 21),
@@ -54,120 +54,135 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (27, 21, NULL, NULL, 'edit', 26, 27),
 (28, 21, NULL, NULL, 'delete', 28, 29),
 (40, 21, NULL, NULL, 'toggle', 30, 31),
-(61, 9, NULL, NULL, 'UserPermissions', 49, 58),
-(62, 61, NULL, NULL, 'index', 50, 51),
-(63, 61, NULL, NULL, 'sync', 52, 53),
-(64, 61, NULL, NULL, 'edit', 54, 55),
-(65, 61, NULL, NULL, 'toggle', 56, 57),
+(61, 9, NULL, NULL, 'UserPermissions', 53, 62),
+(62, 61, NULL, NULL, 'index', 54, 55),
+(63, 61, NULL, NULL, 'sync', 56, 57),
+(64, 61, NULL, NULL, 'edit', 58, 59),
+(65, 61, NULL, NULL, 'toggle', 60, 61),
 (130, 21, NULL, NULL, 'facebook_connect', 32, 33),
 (131, 21, NULL, NULL, 'twitter_connect', 34, 35),
 (132, 21, NULL, NULL, 'twitter_login', 36, 37),
 (133, 21, NULL, NULL, 'oauth_callback', 38, 39),
 (136, 21, NULL, NULL, 'register', 40, 41),
-(295, 292, NULL, NULL, 'admin_add', 227, 228),
-(294, 292, NULL, NULL, 'admin_view', 225, 226),
-(293, 292, NULL, NULL, 'admin_index', 223, 224),
-(292, 1, NULL, NULL, 'Sliders', 222, 239),
-(291, 288, NULL, NULL, 'index', 219, 220),
-(290, 288, NULL, NULL, 'admin_view', 217, 218),
-(289, 288, NULL, NULL, 'admin_index', 215, 216),
-(288, 1, NULL, NULL, 'Contacts', 214, 221),
-(185, 1, NULL, NULL, 'Categories', 60, 81),
-(186, 185, NULL, NULL, 'admin_index', 61, 62),
-(188, 185, NULL, NULL, 'admin_add', 63, 64),
-(189, 185, NULL, NULL, 'admin_edit', 65, 66),
-(190, 185, NULL, NULL, 'admin_delete', 67, 68),
-(191, 185, NULL, NULL, 'admin_toggle', 69, 70),
-(276, 271, NULL, NULL, 'admin_delete', 199, 200),
-(275, 271, NULL, NULL, 'admin_edit', 197, 198),
-(274, 271, NULL, NULL, 'admin_add', 195, 196),
+(295, 292, NULL, NULL, 'admin_add', 231, 232),
+(294, 292, NULL, NULL, 'admin_view', 229, 230),
+(293, 292, NULL, NULL, 'admin_index', 227, 228),
+(292, 1, NULL, NULL, 'Sliders', 226, 243),
+(291, 288, NULL, NULL, 'index', 223, 224),
+(290, 288, NULL, NULL, 'admin_view', 221, 222),
+(289, 288, NULL, NULL, 'admin_index', 219, 220),
+(288, 1, NULL, NULL, 'Contacts', 218, 225),
+(185, 1, NULL, NULL, 'Categories', 64, 85),
+(186, 185, NULL, NULL, 'admin_index', 65, 66),
+(188, 185, NULL, NULL, 'admin_add', 67, 68),
+(189, 185, NULL, NULL, 'admin_edit', 69, 70),
+(190, 185, NULL, NULL, 'admin_delete', 71, 72),
+(191, 185, NULL, NULL, 'admin_toggle', 73, 74),
+(276, 271, NULL, NULL, 'admin_delete', 203, 204),
+(275, 271, NULL, NULL, 'admin_edit', 201, 202),
+(274, 271, NULL, NULL, 'admin_add', 199, 200),
 (266, 10, NULL, NULL, 'delete', 12, 13),
 (265, 10, NULL, NULL, 'edit', 10, 11),
 (264, 10, NULL, NULL, 'add', 8, 9),
 (263, 10, NULL, NULL, 'view', 6, 7),
 (262, 10, NULL, NULL, 'index', 4, 5),
-(201, 1, NULL, NULL, 'Pages', 82, 85),
-(202, 201, NULL, NULL, 'display', 83, 84),
-(273, 271, NULL, NULL, 'admin_view', 193, 194),
-(272, 271, NULL, NULL, 'admin_index', 191, 192),
-(271, 1, NULL, NULL, 'Orders', 190, 207),
-(270, 257, NULL, NULL, 'thankyou', 187, 188),
-(269, 257, NULL, NULL, 'checkout', 185, 186),
-(268, 257, NULL, NULL, 'delete', 183, 184),
-(267, 257, NULL, NULL, 'edit', 181, 182),
-(210, 1, NULL, NULL, 'DebugKit', 86, 93),
-(211, 210, NULL, NULL, 'ToolbarAccess', 87, 92),
-(212, 211, NULL, NULL, 'history_state', 88, 89),
-(213, 211, NULL, NULL, 'sql_explain', 90, 91),
-(215, 1, NULL, NULL, 'StaticPages', 94, 115),
-(216, 215, NULL, NULL, 'admin_index', 95, 96),
-(217, 215, NULL, NULL, 'admin_view', 97, 98),
-(218, 215, NULL, NULL, 'admin_add', 99, 100),
-(219, 215, NULL, NULL, 'admin_edit', 101, 102),
-(220, 215, NULL, NULL, 'admin_delete', 103, 104),
-(221, 215, NULL, NULL, 'admin_toggle', 105, 106),
-(222, 215, NULL, NULL, 'admin_ordered', 107, 108),
-(223, 1, NULL, NULL, 'Properties', 116, 139),
-(224, 223, NULL, NULL, 'admin_index', 117, 118),
-(225, 223, NULL, NULL, 'admin_view', 119, 120),
-(226, 223, NULL, NULL, 'admin_add', 121, 122),
-(227, 223, NULL, NULL, 'admin_edit', 123, 124),
-(228, 223, NULL, NULL, 'admin_delete', 125, 126),
-(232, 185, NULL, NULL, 'admin_sort', 71, 72),
-(233, 185, NULL, NULL, 'admin_getnodes', 73, 74),
-(234, 185, NULL, NULL, 'admin_reorder', 75, 76),
-(235, 185, NULL, NULL, 'admin_reparent', 77, 78),
-(236, 223, NULL, NULL, 'admin_sort', 127, 128),
-(237, 223, NULL, NULL, 'admin_getnodes', 129, 130),
-(238, 223, NULL, NULL, 'admin_reorder', 131, 132),
-(239, 223, NULL, NULL, 'admin_reparent', 133, 134),
-(240, 223, NULL, NULL, 'getListPropertiesByCategory', 135, 136),
-(241, 1, NULL, NULL, 'Products', 140, 167),
-(242, 241, NULL, NULL, 'admin_index', 141, 142),
-(243, 241, NULL, NULL, 'admin_view', 143, 144),
-(244, 241, NULL, NULL, 'admin_add', 145, 146),
-(245, 241, NULL, NULL, 'admin_edit', 147, 148),
-(246, 241, NULL, NULL, 'admin_delete', 149, 150),
-(247, 241, NULL, NULL, 'admin_toggle', 151, 152),
-(248, 241, NULL, NULL, 'admin_ordered', 153, 154),
-(249, 223, NULL, NULL, 'get_properties_by_category', 137, 138),
-(250, 241, NULL, NULL, 'index', 155, 156),
-(251, 241, NULL, NULL, 'admin_gallery_ordered', 157, 158),
-(252, 1, NULL, NULL, 'Upload', 168, 169),
-(253, 241, NULL, NULL, 'detail', 159, 160),
-(254, 1, NULL, NULL, 'Filter', 170, 171),
-(255, 241, NULL, NULL, 'view', 161, 162),
-(256, 241, NULL, NULL, 'admin_delete_image', 163, 164),
-(257, 1, NULL, NULL, 'Cart', 172, 189),
-(258, 257, NULL, NULL, 'index', 173, 174),
-(259, 257, NULL, NULL, 'view', 175, 176),
-(260, 257, NULL, NULL, 'add2cart', 177, 178),
-(261, 257, NULL, NULL, 'mini_cart', 179, 180),
-(277, 271, NULL, NULL, 'admin_toggle', 201, 202),
-(278, 271, NULL, NULL, 'admin_ordered', 203, 204),
-(279, 215, NULL, NULL, 'get_pages', 109, 110),
-(280, 215, NULL, NULL, 'display', 111, 112),
-(281, 215, NULL, NULL, 'admin_delete_file', 113, 114),
-(282, 185, NULL, NULL, 'get_menu_categories', 79, 80),
-(283, 271, NULL, NULL, 'history', 205, 206),
-(284, 1, NULL, NULL, 'GlobalConfig', 208, 213),
-(286, 284, NULL, NULL, 'admin_index', 209, 210),
-(287, 284, NULL, NULL, 'setting2array', 211, 212),
-(296, 292, NULL, NULL, 'admin_edit', 229, 230),
-(297, 292, NULL, NULL, 'admin_delete', 231, 232),
-(298, 292, NULL, NULL, 'admin_toggle', 233, 234),
-(299, 292, NULL, NULL, 'admin_ordered', 235, 236),
-(300, 292, NULL, NULL, 'get_sliders', 237, 238),
+(201, 1, NULL, NULL, 'Pages', 86, 89),
+(202, 201, NULL, NULL, 'display', 87, 88),
+(273, 271, NULL, NULL, 'admin_view', 197, 198),
+(272, 271, NULL, NULL, 'admin_index', 195, 196),
+(271, 1, NULL, NULL, 'Orders', 194, 211),
+(270, 257, NULL, NULL, 'thankyou', 191, 192),
+(269, 257, NULL, NULL, 'checkout', 189, 190),
+(268, 257, NULL, NULL, 'delete', 187, 188),
+(267, 257, NULL, NULL, 'edit', 185, 186),
+(210, 1, NULL, NULL, 'DebugKit', 90, 97),
+(211, 210, NULL, NULL, 'ToolbarAccess', 91, 96),
+(212, 211, NULL, NULL, 'history_state', 92, 93),
+(213, 211, NULL, NULL, 'sql_explain', 94, 95),
+(215, 1, NULL, NULL, 'StaticPages', 98, 119),
+(216, 215, NULL, NULL, 'admin_index', 99, 100),
+(217, 215, NULL, NULL, 'admin_view', 101, 102),
+(218, 215, NULL, NULL, 'admin_add', 103, 104),
+(219, 215, NULL, NULL, 'admin_edit', 105, 106),
+(220, 215, NULL, NULL, 'admin_delete', 107, 108),
+(221, 215, NULL, NULL, 'admin_toggle', 109, 110),
+(222, 215, NULL, NULL, 'admin_ordered', 111, 112),
+(223, 1, NULL, NULL, 'Properties', 120, 143),
+(224, 223, NULL, NULL, 'admin_index', 121, 122),
+(225, 223, NULL, NULL, 'admin_view', 123, 124),
+(226, 223, NULL, NULL, 'admin_add', 125, 126),
+(227, 223, NULL, NULL, 'admin_edit', 127, 128),
+(228, 223, NULL, NULL, 'admin_delete', 129, 130),
+(232, 185, NULL, NULL, 'admin_sort', 75, 76),
+(233, 185, NULL, NULL, 'admin_getnodes', 77, 78),
+(234, 185, NULL, NULL, 'admin_reorder', 79, 80),
+(235, 185, NULL, NULL, 'admin_reparent', 81, 82),
+(236, 223, NULL, NULL, 'admin_sort', 131, 132),
+(237, 223, NULL, NULL, 'admin_getnodes', 133, 134),
+(238, 223, NULL, NULL, 'admin_reorder', 135, 136),
+(239, 223, NULL, NULL, 'admin_reparent', 137, 138),
+(240, 223, NULL, NULL, 'getListPropertiesByCategory', 139, 140),
+(241, 1, NULL, NULL, 'Products', 144, 171),
+(242, 241, NULL, NULL, 'admin_index', 145, 146),
+(243, 241, NULL, NULL, 'admin_view', 147, 148),
+(244, 241, NULL, NULL, 'admin_add', 149, 150),
+(245, 241, NULL, NULL, 'admin_edit', 151, 152),
+(246, 241, NULL, NULL, 'admin_delete', 153, 154),
+(247, 241, NULL, NULL, 'admin_toggle', 155, 156),
+(248, 241, NULL, NULL, 'admin_ordered', 157, 158),
+(249, 223, NULL, NULL, 'get_properties_by_category', 141, 142),
+(250, 241, NULL, NULL, 'index', 159, 160),
+(251, 241, NULL, NULL, 'admin_gallery_ordered', 161, 162),
+(252, 1, NULL, NULL, 'Upload', 172, 173),
+(253, 241, NULL, NULL, 'detail', 163, 164),
+(254, 1, NULL, NULL, 'Filter', 174, 175),
+(255, 241, NULL, NULL, 'view', 165, 166),
+(256, 241, NULL, NULL, 'admin_delete_image', 167, 168),
+(257, 1, NULL, NULL, 'Cart', 176, 193),
+(258, 257, NULL, NULL, 'index', 177, 178),
+(259, 257, NULL, NULL, 'view', 179, 180),
+(260, 257, NULL, NULL, 'add2cart', 181, 182),
+(261, 257, NULL, NULL, 'mini_cart', 183, 184),
+(277, 271, NULL, NULL, 'admin_toggle', 205, 206),
+(278, 271, NULL, NULL, 'admin_ordered', 207, 208),
+(279, 215, NULL, NULL, 'get_pages', 113, 114),
+(280, 215, NULL, NULL, 'display', 115, 116),
+(281, 215, NULL, NULL, 'admin_delete_file', 117, 118),
+(282, 185, NULL, NULL, 'get_menu_categories', 83, 84),
+(283, 271, NULL, NULL, 'history', 209, 210),
+(284, 1, NULL, NULL, 'GlobalConfig', 212, 217),
+(286, 284, NULL, NULL, 'admin_index', 213, 214),
+(287, 284, NULL, NULL, 'setting2array', 215, 216),
+(296, 292, NULL, NULL, 'admin_edit', 233, 234),
+(297, 292, NULL, NULL, 'admin_delete', 235, 236),
+(298, 292, NULL, NULL, 'admin_toggle', 237, 238),
+(299, 292, NULL, NULL, 'admin_ordered', 239, 240),
+(300, 292, NULL, NULL, 'get_sliders', 241, 242),
 (301, 21, NULL, NULL, 'edit_profile', 42, 43),
-(305, 241, NULL, NULL, 'getRandomProducts', 165, 166),
+(305, 241, NULL, NULL, 'getRandomProducts', 169, 170),
 (303, 21, NULL, NULL, 'activate_password', 44, 45),
 (304, 21, NULL, NULL, 'forgot_password', 46, 47),
-(306, 1, NULL, NULL, 'Subscribers', 240, 251),
-(307, 306, NULL, NULL, 'admin_index', 241, 242),
-(310, 306, NULL, NULL, 'admin_edit', 243, 244),
-(311, 306, NULL, NULL, 'admin_delete', 245, 246),
-(312, 306, NULL, NULL, 'admin_toggle', 247, 248),
-(314, 306, NULL, NULL, 'add', 249, 250);
+(306, 1, NULL, NULL, 'Subscribers', 244, 255),
+(307, 306, NULL, NULL, 'admin_index', 245, 246),
+(310, 306, NULL, NULL, 'admin_edit', 247, 248),
+(311, 306, NULL, NULL, 'admin_delete', 249, 250),
+(312, 306, NULL, NULL, 'admin_toggle', 251, 252),
+(314, 306, NULL, NULL, 'add', 253, 254),
+(315, 1, NULL, NULL, 'CustomerTypes', 256, 267),
+(316, 315, NULL, NULL, 'admin_index', 257, 258),
+(324, 323, NULL, NULL, 'admin_index', 269, 270),
+(318, 315, NULL, NULL, 'admin_add', 259, 260),
+(319, 315, NULL, NULL, 'admin_edit', 261, 262),
+(320, 315, NULL, NULL, 'admin_delete', 263, 264),
+(323, 1, NULL, NULL, 'Customers', 268, 281),
+(322, 315, NULL, NULL, 'admin_ordered', 265, 266),
+(325, 323, NULL, NULL, 'admin_view', 271, 272),
+(331, 21, NULL, NULL, 'admin_newcustomer', 48, 49),
+(327, 323, NULL, NULL, 'admin_edit', 273, 274),
+(328, 323, NULL, NULL, 'admin_delete', 275, 276),
+(329, 323, NULL, NULL, 'admin_toggle', 277, 278),
+(330, 323, NULL, NULL, 'admin_ordered', 279, 280),
+(332, 21, NULL, NULL, 'admin_editcustomer', 50, 51);
 
 -- --------------------------------------------------------
 
@@ -185,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `aros` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `aros`
@@ -199,9 +214,11 @@ INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (7, 2, 'User', 4, NULL, 8, 9),
 (8, 2, 'User', 5, NULL, 10, 11),
 (9, NULL, 'Group', 1, NULL, 13, 16),
-(10, NULL, 'Group', 2, NULL, 17, 20),
+(10, NULL, 'Group', 2, NULL, 17, 24),
 (11, 9, 'User', 1, NULL, 14, 15),
-(12, 10, 'User', 2, NULL, 18, 19);
+(12, 10, 'User', 2, NULL, 18, 19),
+(13, 10, 'User', 11, NULL, 20, 21),
+(14, 10, 'User', 12, NULL, 22, 23);
 
 -- --------------------------------------------------------
 
@@ -330,12 +347,16 @@ CREATE TABLE IF NOT EXISTS `checkout_address` (
   `city` varchar(50) NOT NULL,
   `is_delivery_address` tinyint(1) NOT NULL DEFAULT '1' COMMENT 'dung chung dia chi giao hang',
   PRIMARY KEY (`id`,`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `checkout_address`
 --
 
+INSERT INTO `checkout_address` (`id`, `user_id`, `first_name`, `last_name`, `phone`, `address`, `ward`, `district`, `city`, `is_delivery_address`) VALUES
+(1, 12, 'Phap', 'Su', '988988988', '582/3 Hoang Dieu', 'Hoa Thuan Dong', 'Hai Chau', '52', 1),
+(2, 12, 'Phap', 'Su', '988988988', '582/3 Hoang Dieu', 'Hoa Thuan Dong', 'Hai Chau', '52', 1),
+(3, 12, 'Phap', 'Su', '988988988', '582/3 Hoang Dieu', 'Hoa Thuan Dong', 'Hai Chau', '52', 1);
 
 -- --------------------------------------------------------
 
@@ -373,6 +394,7 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `title`, `content`, `created`) VA
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE IF NOT EXISTS `customers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_type_id` int(11) NOT NULL DEFAULT '1' COMMENT 'Dua vao loai khach hang chun chung',
   `user_id` int(11) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
@@ -383,12 +405,37 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `fax` varchar(100) DEFAULT NULL,
   `phone` varchar(100) NOT NULL,
   PRIMARY KEY (`id`,`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `customers`
 --
 
+INSERT INTO `customers` (`id`, `customer_type_id`, `user_id`, `first_name`, `last_name`, `company`, `company_address`, `tax_no`, `website`, `fax`, `phone`) VALUES
+(1, 2, 12, 'Tammuz', 'Vu', '', '', NULL, '', '', '988988988');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_types`
+--
+
+DROP TABLE IF EXISTS `customer_types`;
+CREATE TABLE IF NOT EXISTS `customer_types` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `created` datetime NOT NULL,
+  `ordered` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `customer_types`
+--
+
+INSERT INTO `customer_types` (`id`, `name`, `created`, `ordered`) VALUES
+(1, 'Guest', '2012-04-18 10:18:44', 0),
+(2, 'Đại lý', '2012-04-18 10:19:51', 1);
 
 -- --------------------------------------------------------
 
@@ -460,7 +507,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 --
 
 INSERT INTO `orders` (`id`, `user_id`, `personal_information`, `cart_information`, `created`, `modified`, `published`) VALUES
-(1, 2, 'a:3:{s:8:"Customer";a:8:{s:10:"first_name";s:6:"Truong";s:9:"last_name";s:8:"Vu Khanh";s:7:"company";s:0:"";s:15:"company_address";s:0:"";s:6:"tax_no";s:0:"";s:7:"website";s:0:"";s:3:"fax";s:0:"";s:5:"phone";s:9:"988988988";}s:15:"CheckoutAddress";a:8:{s:10:"first_name";s:6:"Truong";s:9:"last_name";s:8:"Vu Khanh";s:5:"phone";s:9:"988988988";s:7:"address";s:16:"582/3 Hoang Dieu";s:4:"ward";s:14:"Hoa Thuan Dong";s:8:"district";s:8:"Hai Chau";s:4:"city";s:2:"52";s:19:"is_delivery_address";s:1:"1";}s:5:"Order";a:1:{s:7:"user_id";s:1:"2";}}', 'a:2:{i:0;a:6:{s:2:"id";s:1:"6";s:3:"qty";s:1:"1";s:5:"price";s:7:"2000000";s:4:"info";s:6:"TCL #6";s:5:"extra";a:2:{s:4:"slug";s:5:"tcl-6";s:5:"image";a:2:{s:4:"name";s:15:"TCL-32DE200.jpg";s:3:"dir";s:2:"51";}}s:8:"subtotal";i:2000000;}s:5:"total";i:2000000;}', '2012-04-12 11:24:09', '2012-04-12 17:15:11', 1),
+(1, 12, 'a:3:{s:8:"Customer";a:8:{s:10:"first_name";s:6:"Truong";s:9:"last_name";s:8:"Vu Khanh";s:7:"company";s:0:"";s:15:"company_address";s:0:"";s:6:"tax_no";s:0:"";s:7:"website";s:0:"";s:3:"fax";s:0:"";s:5:"phone";s:9:"988988988";}s:15:"CheckoutAddress";a:8:{s:10:"first_name";s:6:"Truong";s:9:"last_name";s:8:"Vu Khanh";s:5:"phone";s:9:"988988988";s:7:"address";s:16:"582/3 Hoang Dieu";s:4:"ward";s:14:"Hoa Thuan Dong";s:8:"district";s:8:"Hai Chau";s:4:"city";s:2:"52";s:19:"is_delivery_address";s:1:"1";}s:5:"Order";a:1:{s:7:"user_id";s:1:"2";}}', 'a:2:{i:0;a:6:{s:2:"id";s:1:"6";s:3:"qty";s:1:"1";s:5:"price";s:7:"2000000";s:4:"info";s:6:"TCL #1";s:5:"extra";a:2:{s:4:"slug";s:5:"tcl-6";s:5:"image";a:2:{s:4:"name";s:15:"TCL-32DE200.jpg";s:3:"dir";s:2:"51";}}s:8:"subtotal";i:2000000;}s:5:"total";i:2000000;}', '2012-04-12 11:24:09', '2012-04-12 17:15:11', 1),
 (2, 0, 'a:3:{s:8:"Customer";a:8:{s:10:"first_name";s:6:"Tammuz";s:9:"last_name";s:8:"Vu Khanh";s:7:"company";s:0:"";s:15:"company_address";s:0:"";s:6:"tax_no";s:0:"";s:7:"website";s:0:"";s:3:"fax";s:0:"";s:5:"phone";s:9:"988988988";}s:15:"CheckoutAddress";a:8:{s:10:"first_name";s:6:"Truong";s:9:"last_name";s:8:"Vu Khanh";s:5:"phone";s:9:"988988988";s:7:"address";s:16:"582/3 Hoang Dieu";s:4:"ward";s:14:"Hoa Thuan Dong";s:8:"district";s:8:"Hai Chau";s:4:"city";s:2:"52";s:19:"is_delivery_address";s:1:"1";}s:5:"Order";a:1:{s:7:"user_id";i:0;}}', 'a:2:{i:0;a:6:{s:2:"id";s:1:"6";s:3:"qty";s:1:"1";s:5:"price";s:7:"2000000";s:4:"info";s:6:"TCL #6";s:5:"extra";a:2:{s:4:"slug";s:5:"tcl-6";s:5:"image";a:2:{s:4:"name";s:15:"TCL-32DE200.jpg";s:3:"dir";s:2:"51";}}s:8:"subtotal";i:2000000;}s:5:"total";i:2000000;}', '2012-04-12 12:17:02', '2012-04-12 12:17:02', 0);
 
 -- --------------------------------------------------------
@@ -679,8 +726,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `group_id` int(11) NOT NULL,
   `username` varchar(60) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `avatar` tinytext COLLATE utf8_unicode_ci COMMENT 'full url to avatar image file',
   `language` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
   `timezone` varchar(128) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -696,11 +743,12 @@ CREATE TABLE IF NOT EXISTS `users` (
   `oauth_uid` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'twitter login',
   PRIMARY KEY (`id`),
   UNIQUE KEY `emailIDX` (`email`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `group_id`, `username`, `name`, `password`, `email`, `avatar`, `language`, `timezone`, `key`, `status`, `created`, `modified`, `last_login`, `facebook_id`, `oauth_token`, `oauth_secret`, `oauth_provider`, `oauth_uid`) VALUES
-(1, 1, NULL, 'phapsu', '047e1e63f7f1b4b8dfc62333b7745ea1cf138c54', 'admin@gmail.com', NULL, NULL, NULL, '4f8c2eec-6008-4c1d-8f06-07bc89179cc6', 1, '2012-03-13 10:38:30', '2012-03-13 10:38:30', '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL);
+(1, 1, NULL, 'phapsu', '047e1e63f7f1b4b8dfc62333b7745ea1cf138c54', 'admin@gmail.com', NULL, NULL, NULL, '4f8c2eec-6008-4c1d-8f06-07bc89179cc6', 1, '2012-03-13 10:38:30', '2012-03-13 10:38:30', '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL),
+(12, 2, NULL, NULL, '047e1e63f7f1b4b8dfc62333b7745ea1cf138c54', 'admin@phapsu.com', NULL, NULL, NULL, '4f8eeba0-2b08-46b3-8b4f-0b8089179cc6', 0, '2012-04-18 11:41:30', '2012-04-18 18:28:16', '0000-00-00 00:00:00', 0, NULL, NULL, NULL, NULL);

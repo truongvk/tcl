@@ -1,1 +1,0 @@
-<button class="btn btn-small btn-primary" onclick="window.location.href = '<?php echo $this->Html->url(array("controller"=>"categories", "action"=>"add"));?>'"><?php echo __('New Category');?></button>&nbsp;

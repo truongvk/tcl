@@ -1,0 +1,1 @@
+<button class="btn btn-small btn-primary" onclick="window.location.href = '<?php echo $this->Html->url(array("controller"=>"customer_types", "action"=>"add"));?>'"><?php echo __('New Customer Type');?></button>&nbsp;

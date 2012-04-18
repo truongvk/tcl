@@ -27,14 +27,14 @@ class UsersController extends AclManagementAppController {
                     'dependent' => true
                 )
                 )), false);
-        
+
 //        $this->Security->blackHoleCallback = '__blackhole';
 //        $this->Security->disabledFields = array('User.password1', 'User.password2','Customer.*', 'CheckoutAddress.*', 'DeliveryAddress.*');
 //        //config security
 //        if ($this->request->is('ajax') || (isset($this->params->admin) && $this->params->admin) || (preg_match("/admin\//i", $this->params->url))) {
 //            $this->Security->csrfCheck = false;
 //            $this->Security->validatePost = false;
-//        }        
+//        }
     }
 //    public function __blackhole($type) {
 //        // handle errors.
@@ -301,28 +301,29 @@ class UsersController extends AclManagementAppController {
     }
 
     /**
-     * register method
-     *
-     * @return void
+     * Insert new user
+     * @return boolean
      */
-    public function register() {
-        if ($this->request->is('post')) {
+    private function __newUser(){
             $this->loadModel('Customer');
             $this->loadModel('CheckoutAddress');
             $this->loadModel('DeliveryAddress');
 
             //validate customer info
             $this->Customer->set($this->request->data);
-            $customer_errors = $this->Customer->validates();
+            $customerCheck = $this->Customer->validates();
 
             //validate checkout address
             $this->CheckoutAddress->set($this->request->data);
-            $checkout_address_errors = $this->CheckoutAddress->validates();
+            $checkoutCheck = $this->CheckoutAddress->validates();
 
             //validate delivery address
             $this->DeliveryAddress->set($this->request->data);
-            $delivery_address_errors = $this->DeliveryAddress->validates();
+            $deliveryCheck = $this->DeliveryAddress->validates();
 
+            if(!$customerCheck || !$checkoutCheck || !$deliveryCheck){
+                return false;
+            }
 
             $this->User->create();
             $this->request->data['User']['group_id']    = 2;//member
@@ -330,7 +331,7 @@ class UsersController extends AclManagementAppController {
             if($this->User->save($this->request->data)){
                 $userID = $this->User->getLastInsertID();
                 $this->request->data['Customer']['user_id'] = $userID;
-                $this->request->data['CheckoutAddress']['user_id'] = $userID;                
+                $this->request->data['CheckoutAddress']['user_id'] = $userID;
                 $this->Customer->save($this->request->data['Customer']);
                 $this->CheckoutAddress->save($this->request->data['CheckoutAddress']);
                 if(isset($this->request->data['DeliveryAddress']) && !empty($this->request->data['DeliveryAddress'])){
@@ -338,46 +339,96 @@ class UsersController extends AclManagementAppController {
                     $this->DeliveryAddress->save($this->request->data['DeliveryAddress']);
                 }
 
-                $this->Session->setFlash(__('Congrats! The registered successfully'), 'success');
+                return $userID;
+            }
+
+            return false;
+    }
+    /**
+     * register method
+     *
+     * @return void
+     */
+    public function register() {
+        if ($this->request->is('post')) {
+            $saveUser = $this->__newUser();
+            if($saveUser){
+                $this->Session->setFlash(__('Congrats! Register successfully'), 'success');
                 $this->redirect(array('action' => 'login'));
             }else {
                 $this->Session->setFlash(__('Something went wrong. Please, check your information.'), 'error');
             }
 
         }
-        $groups = $this->User->Group->find('list');
-        $this->set(compact('groups'));
+//        $groups = $this->User->Group->find('list');
+//        $this->set(compact('groups'));
     }
-    
-    function forgot_password() {
-        if ($this->request->is('post') || $this->request->is('put')) {
-            $this->autoRender = false;
-            $email = $this->request->data["User"]["email"];
-            if ($this->User->forgotPassword($email)) {
-                $this->Session->setFlash(__('Please check your email for instructions on resetting your password.'));
-                $this->redirect(array('action' => 'login'));
-            } else {
-                $this->Session->setFlash(__('Your email is invalid or not registered.'));
+
+    /**
+     * admin add customer method
+     *
+     * @return void
+     */
+    public function admin_newcustomer() {
+        if ($this->request->is('post')) {
+            $saveUser = $this->__newUser();
+            if($saveUser){
+                $this->Session->setFlash(__('Congrats! Register successfully'), 'success');
+                $this->redirect(array('action' => 'editcustomer', $saveUser));
+            }else {
+                $this->Session->setFlash(__('Something went wrong. Please, check your information.'), 'error');
             }
         }
-    }    
-    
-    function activate_password($ident=null, $activate=null) {
-        if ($this->request->is('post') || $this->request->is('put')) {
-            if (!empty($this->request->data['User']['ident']) && !empty($this->request->data['User']['activate'])) {
-                $this->set('ident', $this->request->data['User']['ident']);
-                $this->set('activate', $this->request->data['User']['activate']);
 
-                $return = $this->User->activatePassword($this->request->data);
-                if ($return) {
-                    $this->Session->setFlash(__('New password is saved.'), 'success');
-                    $this->redirect(array('action' => 'login'));
-                } else {
-                    $this->Session->setFlash(__('Sorry password could not be saved. Please check your email and click the password reset link again.'), 'error');
-                }
+        $customer_types = $this->User->Customer->CustomerType->find('list');
+        $this->set(compact('customer_types'));
+    }
+
+    /**
+     * edit customer
+     */
+    private function __editcustomer(){
+            $this->loadModel('Customer');
+            $this->loadModel('CheckoutAddress');
+            $this->loadModel('DeliveryAddress');
+
+            //validate customer info
+            $this->Customer->set($this->request->data);
+            $customerCheck = $this->Customer->validates();
+
+            //validate checkout address
+            $this->CheckoutAddress->set($this->request->data);
+            $checkoutCheck = $this->CheckoutAddress->validates();
+
+            //validate delivery address
+            $this->DeliveryAddress->set($this->request->data);
+            $deliveryCheck = $this->DeliveryAddress->validates();
+
+            if(!$customerCheck || !$checkoutCheck || !$deliveryCheck){
+                return false;
             }
-        } 
-        $this->set(compact('ident', 'activate'));
+
+
+            $this->User->create();
+            $this->request->data['User']['id']  = (isset($this->request->data['User']['id']) && !empty($this->request->data['User']['id']))
+                                                    ? $this->request->data['User']['id'] : $this->Auth->user('id');
+
+            if($this->User->save($this->request->data)){
+                $userID = $this->User->id;
+                $this->request->data['Customer']['user_id'] = $userID;
+                $this->request->data['CheckoutAddress']['user_id'] = $userID;
+                $this->Customer->save($this->request->data['Customer']);
+                $this->CheckoutAddress->save($this->request->data['CheckoutAddress']);
+                if(isset($this->request->data['DeliveryAddress']) && !empty($this->request->data['DeliveryAddress'])){
+                    $this->request->data['DeliveryAddress']['user_id'] = $userID;
+                    $this->DeliveryAddress->save($this->request->data['DeliveryAddress']);
+                }
+
+                return $userID;
+            }
+
+
+            return false;
     }
 
     /**
@@ -385,53 +436,47 @@ class UsersController extends AclManagementAppController {
      *
      * @return void
      */
+    public function admin_editcustomer($customer_id) {
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $editCustomer = $this->__editcustomer();
+            if($editCustomer){
+                $this->Session->setFlash(__('Congrats! Profile has been updated successfully'), 'success');
+                $this->redirect(array('action' => 'editcustomer', $editCustomer));
+            }else {
+                $this->Session->setFlash(__('Something went wrong. Please, check your information.'), 'error');
+            }
+
+        }else{
+            $this->request->data = $this->User->read(null, $customer_id);
+        }
+        $customer_types = $this->User->Customer->CustomerType->find('list');
+        $this->set(compact('customer_types'));
+    }
+    /**
+     * edit profile method
+     *
+     * @return void
+     */
     public function edit_profile() {//var_dump($this->request->is('get'));exit;
         if ($this->request->is('post') || $this->request->is('put')) {
-            $this->loadModel('Customer');
-            $this->loadModel('CheckoutAddress');
-            $this->loadModel('DeliveryAddress');
-            
-            //validate customer info
-            $this->Customer->set($this->request->data);
-            $this->Customer->validates();
-
-            //validate checkout address
-            $this->CheckoutAddress->set($this->request->data);
-            $this->CheckoutAddress->validates();
-
-            //validate delivery address
-            $this->DeliveryAddress->set($this->request->data);
-            $this->DeliveryAddress->validates();
-
-
-            $this->User->create();
-            $this->request->data['User']['id']  = $this->Auth->user('id');
-            if(!empty($this->request->data['User']['password1']) && !empty($this->request->data['User']['password2'])){                
+            if(!empty($this->request->data['User']['password1']) && !empty($this->request->data['User']['password2'])){
                 if($this->request->data['User']['password1'] != $this->request->data['User']['password2']){
                     $this->Session->setFlash(__('Password does not match.'), 'error');
-                    $this->redirect(array('action' => 'edit_profile'));
+                    //$this->redirect(array('action' => 'edit_profile'));
+                    return false;
                 }else{
                     //$newPass = $this->Auth->password($this->request->data['User']['password1']);
                     $pass1 = $this->request->data['User']['password1'];
                     $pass2 = $this->request->data['User']['password2'];
                     $this->request->data['User'] = $this->Session->read('Auth.User');
                     $this->request->data['User']['password']  = $pass1;
-                    $this->request->data['User']['password2'] = $pass2;                    
+                    $this->request->data['User']['password2'] = $pass2;
                 }
             }
-            if($this->User->save($this->request->data)){
-                $userID = $this->User->getLastInsertID();
-                $this->request->data['Customer']['user_id'] = $userID;
-                $this->request->data['CheckoutAddress']['user_id'] = $userID;                
-                $this->Customer->save($this->request->data['Customer']);
-                $this->CheckoutAddress->save($this->request->data['CheckoutAddress']);
-                if(isset($this->request->data['DeliveryAddress']) && !empty($this->request->data['DeliveryAddress'])){
-                    $this->request->data['DeliveryAddress']['user_id'] = $userID;
-                    $this->DeliveryAddress->save($this->request->data['DeliveryAddress']);
-                }
-
+            $editCustomer = $this->__editcustomer();
+            if($editCustomer){
                 $this->Session->setFlash(__('Congrats! Your profile has been updated successfully'), 'success');
-                $this->redirect(array('action' => 'edit_profile'));
+                $this->redirect(array('action' => 'edit_profile',));
             }else {
                 $this->Session->setFlash(__('Something went wrong. Please, check your information.'), 'error');
             }
@@ -521,6 +566,37 @@ class UsersController extends AclManagementAppController {
             $data['User'] = array('id' => $user_id, 'status' => $status);
             $allowed = $this->User->saveAll($data["User"], array('validate' => false));
         }
+    }
+
+    function forgot_password() {
+        if ($this->request->is('post') || $this->request->is('put')) {
+            $this->autoRender = false;
+            $email = $this->request->data["User"]["email"];
+            if ($this->User->forgotPassword($email)) {
+                $this->Session->setFlash(__('Please check your email for instructions on resetting your password.'));
+                $this->redirect(array('action' => 'login'));
+            } else {
+                $this->Session->setFlash(__('Your email is invalid or not registered.'));
+            }
+        }
+    }
+
+    function activate_password($ident=null, $activate=null) {
+        if ($this->request->is('post') || $this->request->is('put')) {
+            if (!empty($this->request->data['User']['ident']) && !empty($this->request->data['User']['activate'])) {
+                $this->set('ident', $this->request->data['User']['ident']);
+                $this->set('activate', $this->request->data['User']['activate']);
+
+                $return = $this->User->activatePassword($this->request->data);
+                if ($return) {
+                    $this->Session->setFlash(__('New password is saved.'), 'success');
+                    $this->redirect(array('action' => 'login'));
+                } else {
+                    $this->Session->setFlash(__('Sorry password could not be saved. Please check your email and click the password reset link again.'), 'error');
+                }
+            }
+        }
+        $this->set(compact('ident', 'activate'));
     }
 
     /**

@@ -32,6 +32,15 @@
                     </li>
 
                     <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Customer');?> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo $this->Html->url('/admin/customers');?>"><?php echo __('Manage Customer');?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url('/admin/customer_types/');?>"><?php echo __('Manage Customer Type');?></a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Category');?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo $this->Html->url('/admin/categories');?>"><?php echo __('Manage Category');?></a></li>

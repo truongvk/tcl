@@ -231,7 +231,7 @@
                         </div>
                     </div>
                 </td>
-		<td style="text-align: center"><?php echo h($order['Order']['created']); ?>&nbsp;</td>
+                <td style="text-align: center"><?php echo h(date('d/m/Y H:i', strtotime($order['Order']['created']))); ?>&nbsp;</td>
 		<td style="text-align: center">
 		<span style="cursor: pointer">
 		<?php echo $this->Html->image('icons/allow-' . intval($order['Order']['published']) . '.png',

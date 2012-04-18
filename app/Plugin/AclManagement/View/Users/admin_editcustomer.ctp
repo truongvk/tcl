@@ -1,7 +1,13 @@
+<ul class="breadcrumb">
+    <li>
+            <?php echo $this->Html->link('Customer', array('plugin'=>false, 'admin'=>true, 'controller'=>'customers','action'=>'index'));?>
+            <span class="divider">/</span>
+    </li>
+    <li class="active"><?php echo __('Edit Customer'); ?></li>
+</ul>
+
 <?php $vietnamCity = Configure::read('VietnamCities');?>
 <div class="users form">
-<?php echo $this->element('front/breadscrumbs', array('data'=>array(array('name'=>__('Register')))));?>
-<?php //echo $this->element('social_connect', array(), array('plugin'=>'AclManagement'));?>
 <?php echo $this->Form->create('User', array('class'=>'form-horizontal'));?>
     <div class="tabbable1">
         <ul class="nav nav-tabs" style="margin-bottom: 0px;border-bottom: none">
@@ -10,13 +16,17 @@
         </ul>
         <div class="tab-content" style="border: 1px solid #DDDDDD;padding: 15px 5px 10px 5px;">
             <div class="tab-pane active" id="1">
-                <div class="page-header">
+                <div class="">
                     <h3><?php echo __('Login Information');?></h3>
-                </div>
-                <div class="control-group"><label class="control-label">&nbsp;</label>
-                    <div class="controls"><?php echo $this->Session->read('Auth.User.email');?></div>
-                </div>                
-                <?php                    
+                </div>                           
+                <?php  
+                    echo $this->Form->input('id');
+                    echo $this->Form->input('Customer.id');
+                    echo $this->Form->input('email', array('div'=>'control-group',
+                        'before'=>'<label class="control-label">'.__('Email').'</label><div class="controls">',
+                        'after'=>$this->Form->error('email', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
+                        'error' => array('attributes' => array('style' => 'display:none')),
+                        'label'=>false, 'class'=>'input-xlarge'));                
                     echo $this->Form->input('password1', array('div'=>'control-group', 'type'=>'password',
                         'before'=>'<label class="control-label">'.__('Password').'</label><div class="controls">',
                         'after'=>$this->Form->error('password1', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
@@ -28,10 +38,15 @@
                         'error' => array('attributes' => array('style' => 'display:none')),
                         'label'=>false, 'class'=>'input-xlarge'));
                 ?>
-                <div class="page-header">
+                <div class="">
                     <h3><?php echo __('Personal Information');?></h3>
                 </div>
                 <?php
+                    echo $this->Form->input('Customer.customer_type_id', array('div'=>'control-group', 'options'=>$customer_types,
+                        'before'=>'<label class="control-label">'.__('Customer Type').'</label><div class="controls">',
+                        'after'=>$this->Form->error('Customer.customer_type_id', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
+                        'error' => array('attributes' => array('style' => 'display:none')),
+                        'label'=>false, 'class'=>'input-xlarge'));                
                     echo $this->Form->input('Customer.first_name', array('div'=>'control-group',
                         'before'=>'<label class="control-label">'.__('First Name').'</label><div class="controls">',
                         'after'=>$this->Form->error('Customer.first_name', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
@@ -75,7 +90,7 @@
                 ?>
             </div>
             <div class="tab-pane" id="2">
-                <div class="page-header">
+                <div class="">
                     <h3><?php echo __('Checkout Address');?></h3>
                 </div>
                 <?php
@@ -125,7 +140,7 @@
                         echo $this->Html->scriptBlock('$(function(){ $("#is_delivery_address").trigger("change"); });', array('inline' => false, 'block' => 'scriptBottom'));
                     }
                 ?>
-                <div class="page-header">
+                <div class="">
                     <h3><?php echo __('Delivery Address');?></h3>
                 </div>
                 <?php           

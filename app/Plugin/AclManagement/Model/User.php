@@ -34,6 +34,14 @@ class User extends AclManagementAppModel {
 //            'message' => 'You must enter your real name.'
 //        ),
         'email' => array(
+            'notempty' => array(
+                    'rule' => array('notempty'),
+                    //'message' => 'Your custom message here',
+                    //'allowEmpty' => false,
+                    //'required' => false,
+                    //'last' => false, // Stop validation after this rule
+                    //'on' => 'create', // Limit validation to 'create' or 'update' operations
+            ),            
             'email' => array(
                 'required' => true,
                 'allowEmpty' => false,
@@ -105,6 +113,7 @@ class User extends AclManagementAppModel {
 
     public function beforeValidate() {
         if (isset($this->data['User']['id'])) {
+            $this->validate['password']['required'] = false;
             $this->validate['password']['allowEmpty'] = true;
             unset($this->validate['email']);
         }
