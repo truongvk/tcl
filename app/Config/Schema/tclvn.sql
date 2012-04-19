@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 18, 2012 at 06:36 PM
+-- Generation Time: Apr 19, 2012 at 06:51 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -35,14 +35,14 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=333 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=342 ;
 
 --
 -- Dumping data for table `acos`
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1, NULL, NULL, NULL, 'controllers', 1, 282),
+(1, NULL, NULL, NULL, 'controllers', 1, 294),
 (9, 1, NULL, NULL, 'AclManagement', 2, 63),
 (10, 9, NULL, NULL, 'Groups', 3, 14),
 (21, 9, NULL, NULL, 'Users', 15, 52),
@@ -174,15 +174,21 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (318, 315, NULL, NULL, 'admin_add', 259, 260),
 (319, 315, NULL, NULL, 'admin_edit', 261, 262),
 (320, 315, NULL, NULL, 'admin_delete', 263, 264),
-(323, 1, NULL, NULL, 'Customers', 268, 281),
+(323, 1, NULL, NULL, 'Customers', 268, 277),
 (322, 315, NULL, NULL, 'admin_ordered', 265, 266),
 (325, 323, NULL, NULL, 'admin_view', 271, 272),
 (331, 21, NULL, NULL, 'admin_newcustomer', 48, 49),
-(327, 323, NULL, NULL, 'admin_edit', 273, 274),
-(328, 323, NULL, NULL, 'admin_delete', 275, 276),
-(329, 323, NULL, NULL, 'admin_toggle', 277, 278),
-(330, 323, NULL, NULL, 'admin_ordered', 279, 280),
-(332, 21, NULL, NULL, 'admin_editcustomer', 50, 51);
+(335, 334, NULL, NULL, 'admin_index', 279, 280),
+(328, 323, NULL, NULL, 'admin_delete', 273, 274),
+(334, 1, NULL, NULL, 'EmailMarketings', 278, 293),
+(332, 21, NULL, NULL, 'admin_editcustomer', 50, 51),
+(333, 323, NULL, NULL, 'admin_email_marketing', 275, 276),
+(336, 334, NULL, NULL, 'admin_view', 281, 282),
+(337, 334, NULL, NULL, 'admin_add', 283, 284),
+(338, 334, NULL, NULL, 'admin_edit', 285, 286),
+(339, 334, NULL, NULL, 'admin_delete', 287, 288),
+(340, 334, NULL, NULL, 'admin_toggle', 289, 290),
+(341, 334, NULL, NULL, 'admin_ordered', 291, 292);
 
 -- --------------------------------------------------------
 
@@ -463,6 +469,27 @@ CREATE TABLE IF NOT EXISTS `delivery_address` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `email_marketings`
+--
+
+DROP TABLE IF EXISTS `email_marketings`;
+CREATE TABLE IF NOT EXISTS `email_marketings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_type_id` int(11) NOT NULL DEFAULT '0' COMMENT '0: send all, -1: subscriber, >0 customer type',
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Dumping data for table `email_marketings`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `groups`
 --
 
@@ -686,7 +713,7 @@ CREATE TABLE IF NOT EXISTS `static_pages` (
 --
 
 INSERT INTO `static_pages` (`id`, `title`, `slug`, `description`, `photo`, `photo_dir`, `published`, `ordered`, `created`, `modified`) VALUES
-(1, 'Giới thiệu', 'gioi_thieu', '<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', NULL, NULL, 1, 0, '2012-03-17 11:55:31', '2012-04-12 18:09:25'),
+(1, 'Giới thiệu', 'gioi_thieu', '<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', NULL, NULL, 1, 0, '2012-03-17 11:55:31', '2012-04-19 18:14:15'),
 (2, 'Dịch vụ', 'dich_vu', '<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', NULL, NULL, 1, 0, '2012-03-17 12:10:05', '2012-04-12 18:09:50'),
 (3, 'Tuyển dụng', 'tuyen_dung', '<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n<h3>\r\n	Lorem ipsum</h3>\r\n<p>\r\n	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>\r\n', 'tclvn.sql', '3', 1, 0, '2012-04-12 17:21:12', '2012-04-12 18:48:22');
 

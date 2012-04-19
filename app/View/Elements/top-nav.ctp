@@ -35,8 +35,9 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Customer');?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo $this->Html->url('/admin/customers');?>"><?php echo __('Manage Customer');?></a></li>
-                            <li class="divider"></li>
                             <li><a href="<?php echo $this->Html->url('/admin/customer_types/');?>"><?php echo __('Manage Customer Type');?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url('/admin/email_marketings/');?>"><?php echo __('Email Marketing');?></a></li>
                         </ul>
                     </li>
 

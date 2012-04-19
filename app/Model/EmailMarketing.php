@@ -1,17 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * CustomerType Model
+ * EmailMarketing Model
  *
+ * @property CustomerType $CustomerType
  */
-class CustomerType extends AppModel {
+class EmailMarketing extends AppModel {
 /**
  * Validation rules
  *
  * @var array
  */
 	public $validate = array(
-		'name' => array(
+		'title' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -21,9 +22,9 @@ class CustomerType extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'ordered' => array(
-			'numeric' => array(
-				'rule' => array('numeric'),
+		'content' => array(
+			'notempty' => array(
+				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -32,6 +33,9 @@ class CustomerType extends AppModel {
 			),
 		),
 	);
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
 /**
  * belongsTo associations
  *
@@ -44,13 +48,6 @@ class CustomerType extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
-		'User' => array(
-			'className' => 'AclManagement.User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
-	);        
+	);
 }
