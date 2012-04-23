@@ -1,8 +1,39 @@
+<?php echo $this->Html->script(array('jquery/jquery-ui/jquery-ui-datepicker.min.js'), array('block' => 'scriptBottom'));?>
+<?php echo $this->Html->css(array('jquery.ui/jquery-ui-1.8.19.custom.css', 'jquery.ui/custom.css'), null,  array('block' => 'scriptBottom'));?>
 <style>
 .tab-content .table tbody tr:nth-child(2n+1) td, .tab-content .table tbody tr:nth-child(2n+1) th {
     background-color: #ffffff;    
 }    
 </style>
+<?php echo $this->Form->create('Order', array('class'=>'well form-search'));?>
+    <?php
+    echo $this->Form->input('customer_type', array('div'=>false,'placeholder'=>__('Name'), 'options'=>$customer_types, 'empty'=>__('Customer Type'),
+                            'error' => array('attributes' => array('style' => 'display:none')),
+                            'after'=>'&nbsp;',
+                            'label'=>false, 'class'=>'input-medium search-query'));    
+    echo $this->Form->input('customer_name', array('div'=>false,'placeholder'=>__('Customer Name'),
+                            'error' => array('attributes' => array('style' => 'display:none')),
+                            'after'=>'&nbsp;',
+                            'label'=>false, 'class'=>'input-medium search-query'));
+    echo $this->Form->input('from', array('div'=>false,'placeholder'=>__('From Date'), 'id'=>'from',
+                            'error' => array('attributes' => array('style' => 'display:none')),
+                            'after'=>'&nbsp;',
+                            'label'=>false, 'class'=>'input-medium search-query'));
+    echo $this->Form->input('to', array('div'=>false,'placeholder'=>__('To Date'), 'id'=>'to',
+                            'error' => array('attributes' => array('style' => 'display:none')),
+                            'after'=>'&nbsp;',
+                            'label'=>false, 'class'=>'input-medium search-query'));
+    ?>    
+    
+    <button class="btn btn-info" type="submit">Search</button>
+<?php echo $this->Form->end();?>
+    
+<?php
+if(isset($conditions)){
+    $this->passedArgs = array_merge($this->passedArgs, array('conditions'=>$conditions));
+    $this->Paginator->options(array('url' => $this->passedArgs));
+}
+?>    
 <?php $vietnamCity = Configure::read('VietnamCities');?>
 <div class="orders">
 	<table cellpadding="0" cellspacing="0" id="table-orders" class="table table-striped table-bordered table-condensed">
@@ -267,6 +298,24 @@
 	$(document).ready(function(){
 		$('.asc').closest('th').addClass('headerSortDown');
 		$('.desc').closest('th').addClass('headerSortUp');
+	});
+
+	$(function() {
+		var dates = $( "#from, #to" ).datepicker({
+                        dateFormat: 'dd/mm/yy',
+			defaultDate: "+1w",                       
+			changeMonth: false,
+			numberOfMonths: 3,
+			onSelect: function( selectedDate ) {
+				var option = this.id == "from" ? "minDate" : "maxDate",
+					instance = $( this ).data( "datepicker" ),
+					date = $.datepicker.parseDate(
+						instance.settings.dateFormat ||
+						$.datepicker._defaults.dateFormat,
+						selectedDate, instance.settings );
+				dates.not( this ).datepicker( "option", option, date );
+			}
+		});
 	});
 </script>
 </div>

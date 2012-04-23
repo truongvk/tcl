@@ -1,9 +1,9 @@
 <div class="sliders form">
 <ul class="breadcrumb">
     <li>
-		<?php echo $this->Html->link('Slider', array('action'=>'index'));?>
-		<span class="divider">/</span>
-	</li>
+        <?php echo $this->Html->link(__('Slider'), array('action'=>'index'));?>
+        <span class="divider">/</span>
+    </li>
     <li class="active"><?php echo __('Add Slider'); ?></li>
 </ul>
 <?php echo $this->Form->create('Slider', array('class'=>'form-horizontal','type'=>'file'));?>

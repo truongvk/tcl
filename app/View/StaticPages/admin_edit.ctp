@@ -2,7 +2,7 @@
 <div class="staticPages form">
     <ul class="breadcrumb">
         <li>
-            <?php echo $this->Html->link('Manage Pages', array('action' => 'index')); ?>
+            <?php echo $this->Html->link(__('Manage Page'), array('action' => 'index')); ?>
             <span class="divider">/</span>
         </li>
         <li class="active"><?php echo __('Edit Page'); ?></li>

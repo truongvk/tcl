@@ -1,9 +1,9 @@
 <div class="sliders form">
 <ul class="breadcrumb">
     <li>
-		<?php echo $this->Html->link('Slider', array('action'=>'index'));?>
-		<span class="divider">/</span>
-	</li>
+        <?php echo $this->Html->link(__('Slider'), array('action'=>'index'));?>
+        <span class="divider">/</span>
+    </li>
     <li class="active"><?php echo __('Edit Slider'); ?></li>
 </ul>
 <?php echo $this->Form->create('Slider', array('class'=>'form-horizontal','type'=>'file'));?>
@@ -31,12 +31,25 @@
 					'after'=>$this->Form->error('photo', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
 					'error' => array('attributes' => array('style' => 'display:none')),
 					'label'=>false, 'class'=>'input-xlarge'));
-                echo $this->Form->input('photo_dir', array('type' => 'hidden'));
+                echo $this->Form->input('photo_dir', array('type' => 'hidden'));              
+                
+                
 		echo $this->Form->input('published', array('div'=>'control-group', 'type'=>'checkbox','placeholder'=>'',
 					'before'=>'<label>'.__('Published').'</label><div class="controls">',
 					'after'=>$this->Form->error('published', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
 					'error' => array('attributes' => array('style' => 'display:none')),
 					'label'=>false, 'class'=>''));
+                
+                $image = null;
+                if(fileExistsInPath(WWW_ROOT.DS.'/files/sliders/'.$this->data['Slider']['photo_dir'].'/big_'.$this->data['Slider']['photo'])):
+                    $image = $this->Html->image('../files/sliders/'.$this->data['Slider']['photo_dir'].'/big_'.$this->data['Slider']['photo']);
+                endif;
+                if($image != null):
+                    echo "<div class=\"control-group\"><label>&nbsp;</label>
+                        <div class=\"controls\"><div class='row'><div class='span4'><div class='thumbnail'>";
+                    echo $image;
+                    echo "</div></div></div></div></div>";
+                endif;                
 	?>
         <div class="form-actions">
             <?php echo $this->Form->submit(__('Submit'), array('class'=>'btn btn-primary', 'div'=>false));?>            <?php echo $this->Form->reset(__('Cancel'), array('class'=>'btn', 'div'=>false));?>        </div>

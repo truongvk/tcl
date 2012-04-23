@@ -9,13 +9,13 @@
                     </a>
                 </div>
                 <div class="span7">
-                    <h3>About TCL</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h3><?php echo __('About TCL');?></h3>
+                    <p><?php echo Configure::read('Settings.footer_about_us.value');?></p>
                 </div>
                 <div class="span3" style="">
                     <h3>Contact Us</h3>
-                    <p><i class="icon-envelope icon-white"></i>&nbsp;Support&nbsp;-&nbsp;<a href="">support@tclvn.vn</a></p>
-                    <p><i class="icon-book icon-white"></i>&nbsp;Phone&nbsp;-&nbsp;(08) 3555555</p>
+                    <p><i class="icon-envelope icon-white"></i>&nbsp;<?php echo __('Email');?>&nbsp;-&nbsp;<a href=""><?php echo Configure::read('Settings.contact_email.value');?></a></p>
+                    <p><i class="icon-book icon-white"></i>&nbsp;<?php echo __('Phone');?>&nbsp;-&nbsp;<?php echo Configure::read('Settings.contact_phone.value');?></p>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="span12">
             <div class="row">
                 <div class="span5">
-                    <p>2012 © TCL Vietnam Corporation | All Rights Reserved</p>
+                    <p><?php echo __('2012 © TCL Vietnam Corporation | All Rights Reserved');?></p>
                 </div>
                 <div class="span7 pull-right">
 <!--                            <ul class="footer-menu">

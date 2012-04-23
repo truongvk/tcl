@@ -54,7 +54,11 @@ class Slider extends AppModel {
             ),
         )
     );
+    public function beforeValidate($options = array()) {
+        parent::beforeValidate($options);
 
+        $this->validate['title']['notempty']['message'] = __('Not empty.');
+    }
     public function get_sliders(){
         if (($sliders = Cache::read('get_sliders')) === false) {
             $sliders = $this->find('all', array(

@@ -20,10 +20,10 @@
             ?>
             
             <tr id="configuration-<?php echo $configKey ?>">
-                <td width="1" nowrap><a href="#" rel="tooltip" title="<?php echo $tip_desc;?>"><?php echo  $configKey ?></a></td>
+                <td width="1" nowrap><span class="label link-white"><a href="#" rel="tooltip" data-placement="right" title="<?php echo $tip_desc;?>"><?php echo Inflector::humanize($configKey); ?> <i class="icon-info-sign icon-white"></i></a></span></td>
                 <td>
-                    <?php echo  $this->Form->input("OldSettings." . $configKey, array("type"=>"textarea", "class"=>"input-xlarge", "value" => $configValue['value'], "rows" => 3, "label"=>false, "div"=>false)); ?>
-                    <?php echo  $this->Form->input("Edit_" . $configKey . ".desc", array("type"=>"textarea","id" => "txtDesc_" . $configKey, "class"=>"input-xlarge", "style" => "display:none", "label"=>false, "div"=>false, "value" => $configValue['desc'], "rows" => 3)); ?>
+                    <?php echo  $this->Form->input("OldSettings." . $configKey, array("type"=>"textarea", "class"=>"input-xlarge", "value" => $configValue['value'], "style"=>"width:90%","label"=>false, "div"=>false)); ?>
+                    <?php echo  $this->Form->input("Edit_" . $configKey . ".desc", array("type"=>"textarea","id" => "txtDesc_" . $configKey, "class"=>"input-xlarge", "style" => "display:none", "label"=>false, "div"=>false, "value" => $configValue['desc'])); ?>
                 </td>
         </tr>
         <?php

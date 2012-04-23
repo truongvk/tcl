@@ -6,7 +6,7 @@
 <div class="products form">
 <ul class="breadcrumb">
         <li>
-		<?php echo $this->Html->link('Product', array('action'=>'index'));?>
+		<?php echo $this->Html->link(__('Product'), array('action'=>'index'));?>
 		<span class="divider">/</span>
 	</li>
     <li class="active"><?php echo __('Update Product'); ?></li>

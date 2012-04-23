@@ -8,7 +8,7 @@
             <div class="span8">
                 
                     <?php if($this->Session->check('Auth.User.id')): ?>
-                    <div style="margin-bottom: 9px" class="btn-toolbar pull-right">
+                    <div style="margin:10px -20px 5px" class="btn-toolbar pull-right">
                         <div class="btn-group">
                             <a href="<?php echo $this->Html->url(array('controller'=>'orders', 'action'=>'history'));?>" class="btn"><i class="icon-asterisk"></i> <?php echo __('Order History');?></a>
                             <a href="<?php echo $this->Html->url('/users/edit_profile');?>" class="btn"><i class="icon-pencil"></i> <?php echo __('Edit Profile');?></a>                            

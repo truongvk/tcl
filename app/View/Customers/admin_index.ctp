@@ -1,3 +1,38 @@
+<?php echo $this->Html->script(array('jquery/jquery-ui/jquery-ui-datepicker.min.js'), array('block' => 'scriptBottom'));?>
+<?php echo $this->Html->css(array('jquery.ui/jquery-ui-1.8.19.custom.css', 'jquery.ui/custom.css'), null,  array('block' => 'scriptBottom'));?>
+<?php echo $this->Form->create('Customer', array('class'=>'well form-search'));?>
+    <?php
+    echo $this->Form->input('customer_type', array('div'=>false,'placeholder'=>__('Name'), 'options'=>$customer_types, 'empty'=>__('Customer Type'),
+                            'error' => array('attributes' => array('style' => 'display:none')),
+                            'after'=>'&nbsp;',
+                            'label'=>false, 'class'=>'input-medium search-query'));
+    echo $this->Form->input('customer_name', array('div'=>false,'placeholder'=>__('Name'),
+                            'error' => array('attributes' => array('style' => 'display:none')),
+                            'after'=>'&nbsp;',
+                            'label'=>false, 'class'=>'input-medium search-query'));
+    echo $this->Form->input('customer_email', array('div'=>false,'placeholder'=>__('Email'),
+                            'error' => array('attributes' => array('style' => 'display:none')),
+                            'after'=>'&nbsp;',
+                            'label'=>false, 'class'=>'input-medium search-query'));
+    echo $this->Form->input('from', array('div'=>false,'placeholder'=>__('From Date'), 'id'=>'from',
+                            'error' => array('attributes' => array('style' => 'display:none')),
+                            'after'=>'&nbsp;',
+                            'label'=>false, 'class'=>'input-medium search-query'));
+    echo $this->Form->input('to', array('div'=>false,'placeholder'=>__('To Date'), 'id'=>'to',
+                            'error' => array('attributes' => array('style' => 'display:none')),
+                            'after'=>'&nbsp;',
+                            'label'=>false, 'class'=>'input-medium search-query'));
+    ?>    
+    
+    <button class="btn btn-info" type="submit"><?php echo __('Search');?></button>
+<?php echo $this->Form->end();?>
+    
+<?php
+if(isset($conditions)){
+    $this->passedArgs = array_merge($this->passedArgs, array('conditions'=>$conditions));
+    $this->Paginator->options(array('url' => $this->passedArgs));
+}
+?>
 <div class="customers">
 	<table cellpadding="0" cellspacing="0" id="table-customers" class="table table-striped table-bordered table-condensed">
 	<thead>
@@ -44,3 +79,22 @@
 		</ul>
 	</div>
 </div>
+<script type="text/javascript">
+$(function() {
+        var dates = $( "#from, #to" ).datepicker({
+                dateFormat: 'dd/mm/yy',
+                defaultDate: "+1w",                       
+                changeMonth: false,
+                numberOfMonths: 3,
+                onSelect: function( selectedDate ) {
+                        var option = this.id == "from" ? "minDate" : "maxDate",
+                                instance = $( this ).data( "datepicker" ),
+                                date = $.datepicker.parseDate(
+                                        instance.settings.dateFormat ||
+                                        $.datepicker._defaults.dateFormat,
+                                        selectedDate, instance.settings );
+                        dates.not( this ).datepicker( "option", option, date );
+                }
+        });
+});    
+</script>

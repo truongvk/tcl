@@ -1,0 +1,1853 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-04-20 12:10+0200\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller\CartController.php:100
+msgid "Please check your information before checkout."
+msgstr ""
+
+#: Controller\CategoriesController.php:35;140
+#: View\Elements\top-nav.ctp:45
+#: View\Products\admin_add.ctp:63
+#: View\Products\admin_edit.ctp:77
+#: View\Products\admin_view.ctp:18
+#: View\Properties\admin_add.ctp:17
+#: View\Properties\admin_edit.ctp:15
+#: View\Properties\admin_index.ctp:12
+#: View\Properties\admin_view.ctp:46
+msgid "Category"
+msgstr ""
+
+#: Controller\CategoriesController.php:36
+#: View\Elements\top-nav.ctp:47
+msgid "Manage Category"
+msgstr ""
+
+#: Controller\CategoriesController.php:53;76
+#: Controller\CustomerTypesController.php:37;58
+#: Controller\EmailMarketingsController.php:89;114
+#: Controller\OrdersController.php:97;120
+#: Controller\ProductsController.php:196;225
+#: Controller\PropertiesController.php:71;85;111
+#: Controller\SlidersController.php:64;85
+#: Controller\StaticPagesController.php:83;107
+#: Controller\SubscribersController.php:67
+msgid "Data has been saved"
+msgstr ""
+
+#: Controller\CategoriesController.php:56;80
+#: Controller\CustomerTypesController.php:40;61
+#: Controller\EmailMarketingsController.php:92;117
+#: Controller\OrdersController.php:100;123
+#: Controller\ProductsController.php:199;228
+#: Controller\PropertiesController.php:88;114
+#: Controller\SlidersController.php:67;88
+#: Controller\StaticPagesController.php:86;110
+#: Controller\SubscribersController.php:70
+msgid "Data could not be saved. Please, try again."
+msgstr ""
+
+#: Controller\CategoriesController.php:72
+msgid "Invalid category"
+msgstr ""
+
+#: Controller\CategoriesController.php:101
+#: Controller\ContactsController.php:44
+#: Controller\CustomerTypesController.php:54;80
+#: Controller\CustomersController.php:41
+#: Controller\EmailMarketingsController.php:37;110
+#: Controller\OrdersController.php:79;116
+#: Controller\ProductsController.php:173;215
+#: Controller\PropertiesController.php:53;107;137
+#: Controller\SlidersController.php:46;81;107
+#: Controller\StaticPagesController.php:63
+#: Controller\SubscribersController.php:63;89
+msgid "Invalid Data"
+msgstr ""
+
+#: Controller\CategoriesController.php:104
+#: Controller\CustomerTypesController.php:83
+#: Controller\CustomersController.php:133
+#: Controller\EmailMarketingsController.php:139
+#: Controller\OrdersController.php:147
+#: Controller\ProductsController.php:276
+#: Controller\PropertiesController.php:141
+#: Controller\SlidersController.php:110
+#: Controller\StaticPagesController.php:132
+#: Controller\SubscribersController.php:92
+msgid "Data deleted"
+msgstr ""
+
+#: Controller\CategoriesController.php:107
+#: Controller\CustomerTypesController.php:86
+#: Controller\CustomersController.php:136
+#: Controller\EmailMarketingsController.php:142
+#: Controller\OrdersController.php:150
+#: Controller\ProductsController.php:279
+#: Controller\PropertiesController.php:144
+#: Controller\SlidersController.php:113
+#: Controller\StaticPagesController.php:135
+#: Controller\SubscribersController.php:95
+msgid "Data was not deleted"
+msgstr ""
+
+#: Controller\CategoriesController.php:141
+#: View\Elements\top-nav.ctp:50
+msgid "Order Category"
+msgstr ""
+
+#: Controller\ContactsController.php:25;47
+#: View\Elements\top-nav.ctp:23
+msgid "Contact"
+msgstr ""
+
+#: Controller\ContactsController.php:26
+msgid "Manage Contact"
+msgstr ""
+
+#: Controller\ContactsController.php:48
+#: Controller\EmailMarketingsController.php:41
+#: View\Orders\history.ctp:14
+msgid "Review"
+msgstr ""
+
+#: Controller\ContactsController.php:60
+#: Controller\SubscribersController.php:41
+msgid "Invalid Contact"
+msgstr ""
+
+#: Controller\ContactsController.php:70
+msgid "Feedback"
+msgstr ""
+
+#: Controller\CustomerTypesController.php:18
+msgid "CustomerType"
+msgstr ""
+
+#: Controller\CustomerTypesController.php:19
+msgid "Manage CustomerType"
+msgstr ""
+
+#: Controller\CustomersController.php:19;36
+#: View\Elements\top-nav.ctp:35
+msgid "Customer"
+msgstr ""
+
+#: Controller\CustomersController.php:20
+#: View\Elements\top-nav.ctp:37
+msgid "Manage Customer"
+msgstr ""
+
+#: Controller\CustomersController.php:37
+#: View\Orders\admin_index.ctp:74
+#: View\Orders\admin_view.ctp:21
+#: View\Orders\history.ctp:42
+msgid "Customer Info"
+msgstr ""
+
+#: Controller\CustomersController.php:80
+#: Controller\EmailMarketingsController.php:18
+#: View\Elements\top-nav.ctp:40
+msgid "Email Marketing"
+msgstr ""
+
+#: Controller\CustomersController.php:81
+msgid "Send Email To Customers"
+msgstr ""
+
+#: Controller\EmailMarketingsController.php:19
+msgid "Manage Email Marketing"
+msgstr ""
+
+#: Controller\EmailMarketingsController.php:40
+msgid "EmailMarketing"
+msgstr ""
+
+#: Controller\EmailMarketingsController.php:97
+#: View\Elements\top-nav.ctp:31
+#: View\EmailMarketings\admin_index.ctp:14
+#: View\EmailMarketings\admin_view.ctp:15
+msgid "Subscribers"
+msgstr ""
+
+#: Controller\EmailMarketingsController.php:136
+msgid "Invalid email marketing"
+msgstr ""
+
+#: Controller\GlobalConfigController.php:68
+msgid "Global Config"
+msgstr ""
+
+#: Controller\GlobalConfigController.php:69
+msgid "Manage Config"
+msgstr ""
+
+#: Controller\GlobalConfigController.php:112
+msgid "Success"
+msgstr ""
+
+#: Controller\GlobalConfigController.php:115
+msgid "Settings cannot save"
+msgstr ""
+
+#: Controller\GlobalConfigController.php:119
+msgid "File cannot write"
+msgstr ""
+
+#: Controller\OrdersController.php:33;82
+#: View\Categories\admin_view.ctp:9
+#: View\CustomerTypes\admin_index.ctp:5
+#: View\Orders\admin_index.ctp:62
+#: View\Orders\history.ctp:30
+#: View\Products\admin_index.ctp:5
+#: View\Sliders\admin_index.ctp:5
+#: View\StaticPages\admin_index.ctp:5
+msgid "Order"
+msgstr ""
+
+#: Controller\OrdersController.php:34
+msgid "Manage Order"
+msgstr ""
+
+#: Controller\OrdersController.php:83
+#: View\Orders\admin_view.ctp:10
+msgid "View Order"
+msgstr ""
+
+#: Controller\OrdersController.php:144
+msgid "Invalid order"
+msgstr ""
+
+#: Controller\ProductsController.php:42
+msgid "Invalid Category"
+msgstr ""
+
+#: Controller\ProductsController.php:154;176
+#: View\Elements\top-nav.ctp:63
+msgid "Product"
+msgstr ""
+
+#: Controller\ProductsController.php:155
+#: View\Elements\top-nav.ctp:65
+msgid "Manage Product"
+msgstr ""
+
+#: Controller\ProductsController.php:177
+msgid "View Product"
+msgstr ""
+
+#: Controller\ProductsController.php:257
+msgid "Invalid product"
+msgstr ""
+
+#: Controller\PropertiesController.php:20;56;153
+#: View\Elements\top-nav.ctp:54
+#: View\Properties\admin_add.ctp:22
+msgid "Property"
+msgstr ""
+
+#: Controller\PropertiesController.php:21
+#: View\Elements\top-nav.ctp:56
+msgid "Manage Property"
+msgstr ""
+
+#: Controller\PropertiesController.php:57
+msgid "View Property"
+msgstr ""
+
+#: Controller\PropertiesController.php:154
+#: View\Elements\top-nav.ctp:59
+msgid "Order Property"
+msgstr ""
+
+#: Controller\SlidersController.php:27;49
+#: View\Elements\top-nav.ctp:27
+msgid "Slider"
+msgstr ""
+
+#: Controller\SlidersController.php:28
+msgid "Manage Slider"
+msgstr ""
+
+#: Controller\SlidersController.php:50
+msgid "View Slider"
+msgstr ""
+
+#: Controller\StaticPagesController.php:34
+msgid "Invalid Page"
+msgstr ""
+
+#: Controller\StaticPagesController.php:45;66;78;99
+msgid "Page"
+msgstr ""
+
+#: Controller\StaticPagesController.php:46
+msgid "Manage Page"
+msgstr ""
+
+#: Controller\StaticPagesController.php:67
+msgid "View Page"
+msgstr ""
+
+#: Controller\StaticPagesController.php:79
+#: View\StaticPages\admin_add.ctp:8;12
+msgid "Add Page"
+msgstr ""
+
+#: Controller\StaticPagesController.php:100
+#: View\StaticPages\admin_edit.ctp:8;24
+msgid "Edit Page"
+msgstr ""
+
+#: Controller\StaticPagesController.php:103;129;201
+msgid "Invalid page"
+msgstr ""
+
+#: Controller\SubscribersController.php:23
+msgid "Subscriber"
+msgstr ""
+
+#: Controller\SubscribersController.php:24
+msgid "Manage Subscriber"
+msgstr ""
+
+#: Model\CheckoutAddress.php:96;97;98;99;100;101;102
+#: Model\Customer.php:70;71;72
+#: Model\DeliveryAddress.php:75;76;77;78;79;80;81
+#: Model\EmailMarketing.php:39;40
+#: Model\Order.php:60;61
+#: Model\Product.php:64
+#: Model\Slider.php:60
+#: Model\StaticPage.php:62
+#: C:\xampp\htdocs\tclvn\app\Model\CheckoutAddress.php:validation for field first_name;validation for field last_name;validation for field phone;validation for field address;validation for field ward;validation for field district;validation for field city
+#: C:\xampp\htdocs\tclvn\app\Model\DeliveryAddress.php:validation for field phone;validation for field address;validation for field ward;validation for field district;validation for field city
+msgid "Not empty."
+msgstr ""
+
+#: Model\Contact.php:65
+msgid "Name cannot be null"
+msgstr ""
+
+#: Model\Contact.php:66
+msgid "Title cannot be null"
+msgstr ""
+
+#: Model\Contact.php:67
+msgid "Content cannot be null"
+msgstr ""
+
+#: Model\Contact.php:68
+msgid "Email cannot be null"
+msgstr ""
+
+#: Model\Contact.php:69
+msgid "Email invalid"
+msgstr ""
+
+#: Model\Subscriber.php:33
+#: Plugin\AclManagement\Model\User.php:118
+#: C:\xampp\htdocs\tclvn\app\Model\Subscriber.php:validation for field email
+msgid "Invalid email."
+msgstr ""
+
+#: Model\Subscriber.php:34
+#: Plugin\AclManagement\Model\User.php:119
+#: C:\xampp\htdocs\tclvn\app\Model\Subscriber.php:validation for field email
+msgid "Email already in use."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\GroupsController.php:22
+msgid "Groups"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\GroupsController.php:23
+#: View\Elements\top-nav.ctp:86
+msgid "Manage Groups"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\GroupsController.php:38;69;95
+msgid "Invalid group"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\GroupsController.php:52;73
+msgid "The group has been saved"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\GroupsController.php:55;76
+msgid "The group could not be saved. Please, try again."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\GroupsController.php:98
+msgid "Group deleted"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\GroupsController.php:101
+msgid "Group was not deleted"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:98;184
+msgid "Your account has been banned. Please contact system administrator for more information."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:239
+msgid "Something wrong happened."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:282
+msgid "Users"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:283
+#: View\Elements\top-nav.ctp:83
+msgid "Manage Users"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:298;517;546
+msgid "Invalid user"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:356;376
+msgid "Congrats! Register successfully"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:359;379;446;481
+msgid "Something went wrong. Please, check your information."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:443
+msgid "Congrats! Profile has been updated successfully"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:464
+msgid "Password does not match."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:478
+msgid "Congrats! Your profile has been updated successfully"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:498;521
+msgid "The user has been saved"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:501;524
+msgid "The user could not be saved. Please, try again."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:549
+msgid "User deleted"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:552
+msgid "User was not deleted"
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:576
+msgid "Please check your email for instructions on resetting your password."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:579
+msgid "Your email is invalid or not registered."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:592
+msgid "New password is saved."
+msgstr ""
+
+#: Plugin\AclManagement\Controller\UsersController.php:595
+msgid "Sorry password could not be saved. Please check your email and click the password reset link again."
+msgstr ""
+
+#: Plugin\AclManagement\Lib\AclExtras.php:241
+msgid "Better manage, and easily synchronize you application's ACO tree"
+msgstr ""
+
+#: Plugin\AclManagement\Lib\AclExtras.php:243
+msgid "Add new ACOs for new controllers and actions. Does not remove nodes from the ACO table."
+msgstr ""
+
+#: Plugin\AclManagement\Lib\AclExtras.php:245
+msgid "Perform a full sync on the ACO table.Will create new ACOs or missing controllers and actions.Will also remove orphaned entries that no longer have a matching controller/action"
+msgstr ""
+
+#: Plugin\AclManagement\Lib\AclExtras.php:249
+msgid "Verify the tree structure of either your Aco or Aro Trees"
+msgstr ""
+
+#: Plugin\AclManagement\Lib\AclExtras.php:254
+msgid "The type of tree to verify"
+msgstr ""
+
+#: Plugin\AclManagement\Lib\AclExtras.php:260
+msgid "Recover a corrupted Tree"
+msgstr ""
+
+#: Plugin\AclManagement\Lib\AclExtras.php:265
+msgid "The type of tree to recover"
+msgstr ""
+
+#: Plugin\AclManagement\Model\User.php:120
+msgid "Password mismatch or less than 6 characters."
+msgstr ""
+
+#: Plugin\AclManagement\Model\User.php:178
+msgid "Forgot your password, %s ?<br> We received a request to reset the password for your account (%s) . If you want to reset your password, please click on the link below (or copy and paste the URL into your browser).\n            <br>"
+msgstr ""
+
+#: Plugin\AclManagement\Model\User.php:185
+#: Plugin\AclManagement\View\Users\forgot_password.ctp:1;8
+msgid "Forgot Password"
+msgstr ""
+
+#: Plugin\AclManagement\View\Elements\pagination.ctp:5
+#: View\Contacts\admin_index.ctp:29
+#: View\CustomerTypes\admin_index.ctp:29
+#: View\Customers\admin_index.ctp:36
+#: View\EmailMarketings\admin_index.ctp:33
+#: View\Orders\admin_index.ctp:282
+#: View\Orders\history.ctp:240
+#: View\Products\admin_index.ctp:67
+#: View\Sliders\admin_index.ctp:37
+#: View\StaticPages\admin_index.ctp:41
+#: View\Subscribers\admin_index.ctp:36
+msgid "Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}"
+msgstr ""
+
+#: Plugin\AclManagement\View\Elements\pagination.ctp:11
+#: View\Contacts\admin_index.ctp:34
+#: View\CustomerTypes\admin_index.ctp:33
+#: View\Customers\admin_index.ctp:40
+#: View\EmailMarketings\admin_index.ctp:38
+#: View\Orders\admin_index.ctp:286
+#: View\Orders\history.ctp:244
+#: View\Products\admin_index.ctp:71
+#: View\Sliders\admin_index.ctp:41
+#: View\StaticPages\admin_index.ctp:46
+#: View\Subscribers\admin_index.ctp:41
+msgid "previous"
+msgstr ""
+
+#: Plugin\AclManagement\View\Elements\pagination.ctp:13
+#: View\Contacts\admin_index.ctp:36
+#: View\CustomerTypes\admin_index.ctp:35
+#: View\Customers\admin_index.ctp:42
+#: View\EmailMarketings\admin_index.ctp:40
+#: View\Orders\admin_index.ctp:288
+#: View\Orders\history.ctp:246
+#: View\Products\admin_index.ctp:73
+#: View\Sliders\admin_index.ctp:43
+#: View\StaticPages\admin_index.ctp:48
+#: View\Subscribers\admin_index.ctp:43
+msgid "next"
+msgstr ""
+
+#: Plugin\AclManagement\View\Groups\add.ctp:8
+msgid "Add Group"
+msgstr ""
+
+#: Plugin\AclManagement\View\Groups\add.ctp:11
+#: Plugin\AclManagement\View\Groups\edit.ctp:12
+#: Plugin\AclManagement\View\Users\add.ctp:11
+#: Plugin\AclManagement\View\Users\edit.ctp:12
+#: View\Categories\admin_add.ctp:19
+#: View\Categories\admin_edit.ctp:20
+#: View\Contacts\admin_add.ctp:14
+#: View\Contacts\admin_view.ctp:11
+#: View\CustomerTypes\admin_add.ctp:14
+#: View\CustomerTypes\admin_edit.ctp:15
+#: View\Elements\front\contact.ctp:12
+#: View\Products\admin_add.ctp:29
+#: View\Products\admin_edit.ctp:43
+#: View\Products\admin_view.ctp:25
+#: View\Properties\admin_add.ctp:27
+#: View\Properties\admin_edit.ctp:25
+#: View\Properties\admin_index.ctp:23
+#: View\Properties\admin_view.ctp:39
+msgid "Name"
+msgstr ""
+
+#: Plugin\AclManagement\View\Groups\add.ctp:17
+#: Plugin\AclManagement\View\Groups\edit.ctp:18
+#: Plugin\AclManagement\View\Users\activate_password.ctp:48
+#: Plugin\AclManagement\View\Users\add.ctp:38
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:177
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:173
+#: Plugin\AclManagement\View\Users\edit.ctp:39
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:162
+#: Plugin\AclManagement\View\Users\forgot_password.ctp:41
+#: Plugin\AclManagement\View\Users\login.ctp:48
+#: Plugin\AclManagement\View\Users\register.ctp:163
+#: Plugin\Filter\View\Elements\filter_form_end.ctp:15
+#: View\Categories\admin_add.ctp:30
+#: View\Categories\admin_edit.ctp:31
+#: View\Contacts\admin_add.ctp:35
+#: View\CustomerTypes\admin_add.ctp:20
+#: View\CustomerTypes\admin_edit.ctp:21
+#: View\Elements\front\contact.ctp:32
+#: View\EmailMarketings\admin_add.ctp:31
+#: View\EmailMarketings\admin_edit.ctp:31
+#: View\Orders\admin_add.ctp:35
+#: View\Orders\admin_edit.ctp:36
+#: View\Products\admin_add.ctp:141
+#: View\Products\admin_edit.ctp:173
+#: View\Properties\admin_add.ctp:39
+#: View\Properties\admin_edit.ctp:36
+#: View\Sliders\admin_add.ctp:41
+#: View\Sliders\admin_edit.ctp:42
+#: View\StaticPages\admin_add.ctp:37
+#: View\StaticPages\admin_edit.ctp:68
+#: View\Subscribers\admin_edit.ctp:26
+msgid "Submit"
+msgstr ""
+
+#: Plugin\AclManagement\View\Groups\add.ctp:18
+#: Plugin\AclManagement\View\Groups\edit.ctp:19
+#: Plugin\AclManagement\View\Users\activate_password.ctp:49
+#: Plugin\AclManagement\View\Users\add.ctp:39
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:178
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:174
+#: Plugin\AclManagement\View\Users\edit.ctp:40
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:163
+#: Plugin\AclManagement\View\Users\forgot_password.ctp:42
+#: Plugin\AclManagement\View\Users\login.ctp:49
+#: Plugin\AclManagement\View\Users\register.ctp:164
+#: View\Categories\admin_add.ctp:30
+#: View\Categories\admin_edit.ctp:31
+#: View\Contacts\admin_add.ctp:35
+#: View\CustomerTypes\admin_add.ctp:20
+#: View\CustomerTypes\admin_edit.ctp:21
+#: View\Elements\front\contact.ctp:33
+#: View\EmailMarketings\admin_add.ctp:31
+#: View\EmailMarketings\admin_edit.ctp:31
+#: View\Orders\admin_add.ctp:35
+#: View\Orders\admin_edit.ctp:36
+#: View\Products\admin_add.ctp:142
+#: View\Products\admin_edit.ctp:174
+#: View\Properties\admin_add.ctp:40
+#: View\Properties\admin_edit.ctp:37
+#: View\Sliders\admin_add.ctp:41
+#: View\Sliders\admin_edit.ctp:42
+#: View\StaticPages\admin_add.ctp:37
+#: View\StaticPages\admin_edit.ctp:68
+#: View\Subscribers\admin_edit.ctp:26
+msgid "Cancel"
+msgstr ""
+
+#: Plugin\AclManagement\View\Groups\edit.ctp:8
+msgid "Edit Group"
+msgstr ""
+
+#: Plugin\AclManagement\View\Groups\index.ctp:8
+#: Plugin\AclManagement\View\Users\index.ctp:9
+#: View\Categories\admin_index.ctp:15
+#: View\Categories\admin_view.ctp:12
+#: View\Contacts\admin_index.ctp:8
+#: View\CustomerTypes\admin_index.ctp:8
+#: View\Customers\admin_index.ctp:10
+#: View\EmailMarketings\admin_index.ctp:8
+#: View\Orders\admin_index.ctp:41
+#: View\Products\admin_index.ctp:11
+#: View\Properties\admin_index.ctp:25
+#: View\Sliders\admin_index.ctp:8
+#: View\StaticPages\admin_index.ctp:9
+#: View\Subscribers\admin_index.ctp:7
+msgid "Actions"
+msgstr ""
+
+#: Plugin\AclManagement\View\Groups\index.ctp:19
+#: Plugin\AclManagement\View\Users\index.ctp:34
+#: View\Categories\admin_index.ctp:41
+#: View\Categories\admin_view.ctp:47
+#: View\CustomerTypes\admin_index.ctp:19
+#: View\Customers\admin_index.ctp:26
+#: View\Products\admin_index.ctp:57
+#: View\Properties\admin_index.ctp:45
+#: View\Sliders\admin_index.ctp:27
+#: View\StaticPages\admin_index.ctp:30
+#: View\Subscribers\admin_index.ctp:25
+msgid "Edit"
+msgstr ""
+
+#: Plugin\AclManagement\View\Groups\index.ctp:20
+#: Plugin\AclManagement\View\Users\index.ctp:35
+#: View\Cart\index.ctp:39
+#: View\Categories\admin_index.ctp:42
+#: View\Categories\admin_view.ctp:48
+#: View\Contacts\admin_index.ctp:19
+#: View\CustomerTypes\admin_index.ctp:20
+#: View\Customers\admin_index.ctp:27
+#: View\EmailMarketings\admin_index.ctp:23
+#: View\Orders\admin_index.ctp:273
+#: View\Products\admin_index.ctp:58
+#: View\Properties\admin_index.ctp:46
+#: View\Sliders\admin_index.ctp:28
+#: View\StaticPages\admin_edit.ctp:52
+#: View\StaticPages\admin_index.ctp:31
+#: View\Subscribers\admin_index.ctp:26
+msgid "Delete"
+msgstr ""
+
+#: Plugin\AclManagement\View\Groups\index.ctp:20
+#: Plugin\AclManagement\View\Users\index.ctp:35
+#: View\Categories\admin_index.ctp:42
+#: View\Categories\admin_view.ctp:48
+#: View\Contacts\admin_index.ctp:19
+#: View\CustomerTypes\admin_index.ctp:20
+#: View\Customers\admin_index.ctp:27
+#: View\EmailMarketings\admin_index.ctp:23
+#: View\Orders\admin_index.ctp:273
+#: View\Products\admin_index.ctp:58
+#: View\Properties\admin_index.ctp:46
+#: View\Sliders\admin_index.ctp:28
+#: View\StaticPages\admin_index.ctp:31
+#: View\Subscribers\admin_index.ctp:26
+msgid "Are you sure you want to delete # %s?"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\activate_password.ctp:1;8
+msgid "Activate Password"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\activate_password.ctp:13
+#: Plugin\AclManagement\View\Users\forgot_password.ctp:13
+msgid "Help"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\activate_password.ctp:22
+#: Plugin\AclManagement\View\Users\add.ctp:21
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:31
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:28
+#: Plugin\AclManagement\View\Users\edit.ctp:22
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:21
+#: Plugin\AclManagement\View\Users\login.ctp:32
+#: Plugin\AclManagement\View\Users\register.ctp:23
+msgid "Password"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\activate_password.ctp:27
+#: Plugin\AclManagement\View\Users\add.ctp:26
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:36
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:33
+#: Plugin\AclManagement\View\Users\edit.ctp:27
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:26
+#: Plugin\AclManagement\View\Users\register.ctp:28
+msgid "Confirm Password"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\activate_password.ctp:39
+#: Plugin\AclManagement\View\Users\forgot_password.ctp:32
+msgid "Give us a call at %s or shoot us an email at %s"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\add.ctp:8
+#: View\Elements\top-nav.ctp:84
+msgid "New User"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\add.ctp:16
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:26
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:23
+#: Plugin\AclManagement\View\Users\edit.ctp:17
+#: Plugin\AclManagement\View\Users\forgot_password.ctp:22
+#: Plugin\AclManagement\View\Users\login.ctp:27
+#: Plugin\AclManagement\View\Users\register.ctp:18
+#: Plugin\AclManagement\View\Users\view.ctp:13
+#: View\Contacts\admin_add.ctp:19
+#: View\Contacts\admin_view.ctp:18
+#: View\Customers\admin_index.ctp:6
+#: View\Customers\admin_view.ctp:19
+#: View\Elements\front\contact.ctp:17
+#: View\Subscribers\admin_edit.ctp:15
+msgid "Email"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\add.ctp:31
+#: Plugin\AclManagement\View\Users\edit.ctp:32
+#: Plugin\AclManagement\View\Users\view.ctp:17
+msgid "Group"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\add.ctp:34
+#: Plugin\AclManagement\View\Users\edit.ctp:35
+#: View\Products\admin_add.ctp:54
+#: View\Products\admin_edit.ctp:68
+#: View\Sliders\admin_index.ctp:7
+msgid "Status"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:6
+msgid "Edit Customer"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:14
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:13
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:8
+#: Plugin\AclManagement\View\Users\register.ctp:8
+msgid "General Information"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:15
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:14
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:9
+#: Plugin\AclManagement\View\Users\register.ctp:9
+#: View\Cart\checkout.ctp:16
+#: View\Customers\admin_view.ctp:13
+msgid "Checkout Information"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:20
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:19
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:14
+#: Plugin\AclManagement\View\Users\register.ctp:14
+msgid "Login Information"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:42
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:39
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:32
+#: Plugin\AclManagement\View\Users\register.ctp:34
+#: View\Cart\checkout.ctp:30
+#: View\Customers\admin_view.ctp:12
+#: View\Orders\admin_add.ctp:19
+#: View\Orders\admin_edit.ctp:20
+msgid "Personal Information"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:46
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:43
+#: View\Customers\admin_index.ctp:5
+#: View\EmailMarketings\admin_index.ctp:5
+#: View\EmailMarketings\admin_view.ctp:11
+msgid "Customer Type"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:51;98
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:48;95
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:36;83
+#: Plugin\AclManagement\View\Users\register.ctp:38;85
+#: View\Cart\checkout.ctp:34;83
+#: View\Customers\admin_view.ctp:26
+msgid "First Name"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:56;103
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:53;100
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:41;88
+#: Plugin\AclManagement\View\Users\register.ctp:43;90
+#: View\Cart\checkout.ctp:39;88
+#: View\Customers\admin_view.ctp:33
+msgid "Last Name"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:61
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:58
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:46
+#: Plugin\AclManagement\View\Users\register.ctp:48
+#: View\Cart\checkout.ctp:44
+#: View\Customers\admin_view.ctp:40
+#: View\Orders\admin_index.ctp:153
+#: View\Orders\admin_view.ctp:100
+#: View\Orders\history.ctp:121
+msgid "Company"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:66
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:63
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:51
+#: Plugin\AclManagement\View\Users\register.ctp:53
+#: View\Cart\checkout.ctp:49
+#: View\Customers\admin_view.ctp:47
+#: View\Orders\admin_index.ctp:157
+#: View\Orders\admin_view.ctp:104
+#: View\Orders\history.ctp:125
+msgid "Company Address"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:71
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:68
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:56
+#: Plugin\AclManagement\View\Users\register.ctp:58
+#: View\Cart\checkout.ctp:54
+#: View\Customers\admin_view.ctp:54
+#: View\Orders\admin_index.ctp:161
+#: View\Orders\admin_view.ctp:108
+#: View\Orders\history.ctp:129
+msgid "Tax No"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:76
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:73
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:61
+#: Plugin\AclManagement\View\Users\register.ctp:63
+#: View\Cart\checkout.ctp:59
+#: View\Customers\admin_view.ctp:61
+msgid "Website"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:81
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:78
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:66
+#: Plugin\AclManagement\View\Users\register.ctp:68
+#: View\Cart\checkout.ctp:64
+#: View\Customers\admin_view.ctp:68
+#: View\Orders\admin_index.ctp:169
+#: View\Orders\admin_view.ctp:116
+#: View\Orders\history.ctp:137
+msgid "Fax"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:86;108;148
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:83;105;144
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:71;93;133
+#: Plugin\AclManagement\View\Users\register.ctp:73;95;134
+#: View\Cart\checkout.ctp:69;93;132
+#: View\Customers\admin_view.ctp:75;93;120
+#: View\Orders\admin_index.ctp:173;189;217
+#: View\Orders\admin_view.ctp:120;136;164
+#: View\Orders\history.ctp:141;157;185
+msgid "Phone"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:94
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:91
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:79
+#: Plugin\AclManagement\View\Users\register.ctp:81
+#: View\Cart\checkout.ctp:79
+#: View\Customers\admin_view.ctp:85
+#: View\Orders\admin_index.ctp:77
+#: View\Orders\admin_view.ctp:24
+#: View\Orders\history.ctp:45
+msgid "Checkout Address"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:113;153
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:110;149
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:98;138
+#: Plugin\AclManagement\View\Users\register.ctp:100;139
+#: View\Cart\checkout.ctp:98;137
+#: View\Customers\admin_view.ctp:97;124
+#: View\Orders\admin_index.ctp:193;221
+#: View\Orders\admin_view.ctp:140;168
+#: View\Orders\history.ctp:161;189
+msgid "Address"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:118;158
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:115;154
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:103;143
+#: Plugin\AclManagement\View\Users\register.ctp:105;144
+#: View\Cart\checkout.ctp:103;142
+#: View\Customers\admin_view.ctp:101;128
+#: View\Orders\admin_index.ctp:197;225
+#: View\Orders\admin_view.ctp:144;172
+#: View\Orders\history.ctp:165;193
+msgid "Ward"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:123;163
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:120;159
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:108;148
+#: Plugin\AclManagement\View\Users\register.ctp:110;149
+#: View\Cart\checkout.ctp:108;147
+#: View\Customers\admin_view.ctp:105;132
+#: View\Orders\admin_index.ctp:201;229
+#: View\Orders\admin_view.ctp:148;176
+#: View\Orders\history.ctp:169;197
+msgid "District"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:128;168
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:125;164
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:113;153
+#: Plugin\AclManagement\View\Users\register.ctp:115;154
+#: View\Cart\checkout.ctp:113;152
+#: View\Customers\admin_view.ctp:109;136
+#: View\Orders\admin_index.ctp:205;233
+#: View\Orders\admin_view.ctp:152;180
+#: View\Orders\history.ctp:173;201
+msgid "City"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:135;144
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:131;140
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:120;129
+#: Plugin\AclManagement\View\Users\register.ctp:121;130
+#: View\Cart\checkout.ctp:119;128
+#: View\Customers\admin_view.ctp:116
+#: View\Orders\admin_index.ctp:80
+#: View\Orders\admin_view.ctp:27
+#: View\Orders\history.ctp:48
+msgid "Delivery Address"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:136
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:132
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:121
+#: Plugin\AclManagement\View\Users\register.ctp:122
+#: View\Cart\checkout.ctp:120
+msgid "The same checkout address"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:6
+#: View\Elements\Actions\customers\admin_index.ctp:1
+msgid "New Customer"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\edit.ctp:8
+msgid "Edit User"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\edit_profile.ctp:3
+#: Plugin\AclManagement\View\Users\login.ctp:13;40
+#: Plugin\AclManagement\View\Users\register.ctp:3
+#: View\Elements\front\header_menu.ctp:23
+msgid "Register"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\login.ctp:1;8
+#: View\Elements\front\header_menu.ctp:22
+msgid "Login"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\login.ctp:39
+msgid "If you are not a member of TCL. Please click here to register"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\login.ctp:56
+msgid "Forgot password ?"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\login.ctp:64
+msgid "Purchase without register"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\login.ctp:66
+msgid "If you want purchase, but don't want become a member of TCL. Please click here"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\login.ctp:67
+#: View\Cart\index.ctp:47
+#: View\Elements\front\add2cart.ctp:12
+#: View\Elements\front\header_menu.ctp:107
+msgid "Checkout"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\view.ctp:9
+#: View\Products\admin_view.ctp:11
+#: View\Properties\admin_view.ctp:11
+#: View\Sliders\admin_view.ctp:11
+msgid "Id"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\view.ctp:21
+#: View\Contacts\admin_view.ctp:39
+#: View\EmailMarketings\admin_view.ctp:36
+#: View\Products\admin_view.ctp:95
+msgid "Created"
+msgstr ""
+
+#: Plugin\AclManagement\View\Users\view.ctp:25
+msgid "Modified"
+msgstr ""
+
+#: Plugin\Filter\Controller\Component\FilterComponent.php:58;109;131
+msgid "Filter model not found: %s"
+msgstr ""
+
+#: Plugin\Filter\Controller\Component\FilterComponent.php:209
+msgid "Selector method \"%s\" not found in model \"%s\" for field \"%s\"!"
+msgstr ""
+
+#: Plugin\Filter\Model\Behavior\FilteredBehavior.php:97
+msgid "No value present for required field %s and default value not present"
+msgstr ""
+
+#: View\Cart\checkout.ctp:4;162
+#: View\Cart\index.ctp:1
+msgid "Your Cart"
+msgstr ""
+
+#: View\Cart\checkout.ctp:13
+msgid "Customer Information"
+msgstr ""
+
+#: View\Cart\checkout.ctp:19
+msgid "Confirm"
+msgstr ""
+
+#: View\Cart\checkout.ctp:171
+#: View\Cart\index.ctp:12
+#: View\Cart\view.ctp:8
+#: View\Orders\admin_index.ctp:96
+#: View\Orders\admin_view.ctp:43
+#: View\Orders\history.ctp:64
+msgid "Product Name"
+msgstr ""
+
+#: View\Cart\checkout.ctp:172
+#: View\Cart\index.ctp:13
+#: View\Cart\view.ctp:9
+#: View\Orders\admin_index.ctp:97
+#: View\Orders\admin_view.ctp:44
+#: View\Orders\history.ctp:65
+#: View\Products\admin_view.ctp:60
+msgid "Quantity"
+msgstr ""
+
+#: View\Cart\checkout.ctp:173
+#: View\Cart\index.ctp:14
+#: View\Cart\view.ctp:10
+#: View\Orders\admin_index.ctp:98
+#: View\Orders\admin_view.ctp:45
+#: View\Orders\history.ctp:66
+#: View\Products\admin_add.ctp:34
+#: View\Products\admin_edit.ctp:48
+#: View\Products\admin_view.ctp:46
+#: View\Products\detail.ctp:48;54
+msgid "Price"
+msgstr ""
+
+#: View\Cart\checkout.ctp:174
+#: View\Cart\index.ctp:15
+#: View\Cart\view.ctp:11
+#: View\Orders\admin_index.ctp:99
+#: View\Orders\admin_view.ctp:46
+#: View\Orders\history.ctp:67
+msgid "Sub-Total"
+msgstr ""
+
+#: View\Cart\checkout.ctp:203
+#: View\Cart\index.ctp:48
+#: View\Cart\view.ctp:38
+#: View\Orders\admin_index.ctp:133
+#: View\Orders\admin_view.ctp:80
+#: View\Orders\history.ctp:101
+msgid "Total"
+msgstr ""
+
+#: View\Cart\checkout.ctp:212
+msgid "Finish"
+msgstr ""
+
+#: View\Cart\checkout.ctp:235
+msgid "Please correct the errors in the Form"
+msgstr ""
+
+#: View\Cart\index.ctp:16
+msgid "Action"
+msgstr ""
+
+#: View\Cart\index.ctp:39
+msgid "Are you sure you want to delete %s?"
+msgstr ""
+
+#: View\Cart\index.ctp:46
+msgid "Update Cart"
+msgstr ""
+
+#: View\Cart\index.ctp:56
+#: View\Cart\view.ctp:43
+msgid "No items in cart"
+msgstr ""
+
+#: View\Cart\mini_cart.ctp:2
+msgid "items"
+msgstr ""
+
+#: View\Cart\thankyou.ctp:1;5
+msgid "Thank you"
+msgstr ""
+
+#: View\Cart\thankyou.ctp:7
+msgid "We have received your order. We will contact you as soon as possible."
+msgstr ""
+
+#: View\Cart\thankyou.ctp:8
+msgid "Thank you for your order."
+msgstr ""
+
+#: View\Categories\admin_add.ctp:7;11
+msgid "Add Category"
+msgstr ""
+
+#: View\Categories\admin_add.ctp:13
+#: View\Categories\admin_edit.ctp:14
+msgid "Root"
+msgstr ""
+
+#: View\Categories\admin_add.ctp:14
+#: View\Categories\admin_edit.ctp:15
+#: View\Properties\admin_edit.ctp:20
+msgid "Parent"
+msgstr ""
+
+#: View\Categories\admin_add.ctp:24
+#: View\Categories\admin_edit.ctp:25
+#: View\Categories\admin_index.ctp:14
+#: View\Categories\admin_view.ctp:11
+#: View\Orders\admin_add.ctp:29
+#: View\Orders\admin_edit.ctp:30
+#: View\Products\admin_index.ctp:9
+#: View\Sliders\admin_add.ctp:35
+#: View\Sliders\admin_edit.ctp:36
+#: View\Sliders\admin_view.ctp:46
+#: View\StaticPages\admin_add.ctp:31
+#: View\StaticPages\admin_edit.ctp:62
+#: View\Subscribers\admin_edit.ctp:20
+msgid "Published"
+msgstr ""
+
+#: View\Categories\admin_edit.ctp:7;11
+msgid "Edit Category"
+msgstr ""
+
+#: View\Categories\admin_index.ctp:13
+#: View\Categories\admin_view.ctp:10
+#: View\Properties\admin_index.ctp:24
+msgid "Category Name"
+msgstr ""
+
+#: View\Categories\admin_sort.ctp:33
+#: View\Products\admin_add.ctp:179
+#: View\Products\admin_edit.ctp:211
+msgid "Properties"
+msgstr ""
+
+#: View\Categories\admin_view.ctp:28
+msgid "Child list"
+msgstr ""
+
+#: View\Categories\admin_view.ctp:46
+#: View\Contacts\admin_index.ctp:18
+#: View\Customers\admin_index.ctp:25
+#: View\Customers\admin_view.ctp:8
+#: View\EmailMarketings\admin_index.ctp:21
+#: View\EmailMarketings\admin_view.ctp:7
+#: View\Orders\admin_index.ctp:272
+#: View\Orders\history.ctp:231
+#: View\Products\admin_edit.ctp:22
+#: View\Products\admin_index.ctp:56
+#: View\StaticPages\admin_edit.ctp:17
+#: View\StaticPages\admin_index.ctp:29
+msgid "View"
+msgstr ""
+
+#: View\Contacts\admin_add.ctp:7;11
+msgid "Add Contact"
+msgstr ""
+
+#: View\Contacts\admin_add.ctp:24
+#: View\Contacts\admin_view.ctp:25
+#: View\Elements\front\contact.ctp:22
+#: View\EmailMarketings\admin_add.ctp:20
+#: View\EmailMarketings\admin_edit.ctp:20
+#: View\EmailMarketings\admin_index.ctp:6
+#: View\EmailMarketings\admin_view.ctp:22
+#: View\Sliders\admin_add.ctp:14
+#: View\Sliders\admin_edit.ctp:15
+#: View\Sliders\admin_index.ctp:6
+#: View\Sliders\admin_view.ctp:18
+#: View\StaticPages\admin_add.ctp:15
+#: View\StaticPages\admin_edit.ctp:28
+msgid "Title"
+msgstr ""
+
+#: View\Contacts\admin_add.ctp:29
+#: View\Contacts\admin_view.ctp:32
+#: View\Elements\front\contact.ctp:27
+#: View\EmailMarketings\admin_add.ctp:25
+#: View\EmailMarketings\admin_edit.ctp:25
+#: View\EmailMarketings\admin_index.ctp:7
+#: View\EmailMarketings\admin_view.ctp:29
+msgid "Content"
+msgstr ""
+
+#: View\Contacts\admin_view.ctp:7
+msgid "Detail"
+msgstr ""
+
+#: View\CustomerTypes\admin_add.ctp:7;11
+msgid "Add Customer Type"
+msgstr ""
+
+#: View\CustomerTypes\admin_edit.ctp:7;11
+msgid "Edit Customer Type"
+msgstr ""
+
+#: View\Customers\admin_view.ctp:89
+#: View\Orders\admin_index.ctp:10;38;149;185
+#: View\Orders\admin_view.ctp:96;132
+#: View\Orders\history.ctp:117;153
+msgid "Customer Name"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:15
+msgid "Orders"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:19
+msgid "Site Config"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:38
+msgid "Manage Customer Type"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:48
+msgid "New Category"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:57;67
+msgid "New Property"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:71
+msgid "Pages"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:73
+msgid "Manage Pages"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:75
+#: View\Elements\Actions\static_pages\admin_index.ctp:1
+msgid "New Page"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:81
+msgid "Permission"
+msgstr ""
+
+#: View\Elements\top-nav.ctp:87
+msgid "New Group"
+msgstr ""
+
+#: View\Elements\Actions\customer_types\admin_index.ctp:1
+msgid "New Customer Type"
+msgstr ""
+
+#: View\Elements\Actions\email_marketings\admin_index.ctp:1
+msgid "New Email Marketing"
+msgstr ""
+
+#: View\Elements\Actions\global_config\admin_index.ctp:1
+msgid "Save"
+msgstr ""
+
+#: View\Elements\Actions\products\admin_index.ctp:1
+#: View\Products\admin_add.ctp:12
+msgid "New Product"
+msgstr ""
+
+#: View\Elements\Actions\properties\admin_index.ctp:1
+msgid "New Properties"
+msgstr ""
+
+#: View\Elements\Actions\sliders\admin_index.ctp:1
+msgid "New Slider"
+msgstr ""
+
+#: View\Elements\front\add2cart.ctp:5
+msgid "Your Shopping Cart"
+msgstr ""
+
+#: View\Elements\front\add2cart.ctp:10
+msgid "Continue Shopping"
+msgstr ""
+
+#: View\Elements\front\add2cart.ctp:11
+#: View\Elements\front\header_menu.ctp:108
+msgid "View Cart"
+msgstr ""
+
+#: View\Elements\front\breadscrumbs.ctp:2
+msgid "Homepage"
+msgstr ""
+
+#: View\Elements\front\contact.ctp:4
+msgid "Contact Us"
+msgstr ""
+
+#: View\Elements\front\contact.ctp:11;16;21;26
+msgid "Required field"
+msgstr ""
+
+#: View\Elements\front\contact.ctp:32
+msgid "waiting"
+msgstr ""
+
+#: View\Elements\front\contact.ctp:96
+msgid "Thank you for your feedback."
+msgstr ""
+
+#: View\Elements\front\contact.ctp:101
+#: View\Elements\sidebar\subscribe.ctp:45
+msgid "Something went wrong.Sorry for inconvenience."
+msgstr ""
+
+#: View\Elements\front\header_menu.ctp:13
+#: View\Orders\history.ctp:6
+msgid "Order History"
+msgstr ""
+
+#: View\Elements\front\header_menu.ctp:14
+msgid "Edit Profile"
+msgstr ""
+
+#: View\Elements\front\header_menu.ctp:17
+msgid "Logout"
+msgstr ""
+
+#: View\Elements\front\header_menu.ctp:35
+msgid "Products"
+msgstr ""
+
+#: View\Elements\products\latest_products.ctp:5
+msgid "New Products"
+msgstr ""
+
+#: View\Elements\products\latest_products.ctp:33
+#: View\Elements\products\promotion_products.ctp:40
+#: View\Products\detail.ctp:78
+#: View\Products\view.ctp:51
+msgid "Buy"
+msgstr ""
+
+#: View\Elements\products\promotion_products.ctp:6
+msgid "Promotion Products"
+msgstr ""
+
+#: View\Elements\products\related_products.ctp:28
+msgid "detail"
+msgstr ""
+
+#: View\Elements\sidebar\features_filter.ctp:6
+msgid "Filter By Category"
+msgstr ""
+
+#: View\Elements\sidebar\features_filter.ctp:23
+msgid "Filter By Features"
+msgstr ""
+
+#: View\Elements\sidebar\features_filter.ctp:23
+msgid "Reset"
+msgstr ""
+
+#: View\Elements\sidebar\features_filter.ctp:63
+#: View\EmailMarketings\admin_add.ctp:14
+#: View\Properties\admin_index.ctp:11
+msgid "All"
+msgstr ""
+
+#: View\Elements\sidebar\features_filter.ctp:74;93
+msgid "expand"
+msgstr ""
+
+#: View\Elements\sidebar\features_filter.ctp:94
+msgid "collapse"
+msgstr ""
+
+#: View\Elements\sidebar\online_support.ctp:3
+#: View\Products\detail.ctp:62
+msgid "Online Support"
+msgstr ""
+
+#: View\Elements\sidebar\online_support.ctp:5
+msgid "Support Staff"
+msgstr ""
+
+#: View\Elements\sidebar\subscribe.ctp:2
+msgid "Subscribe"
+msgstr ""
+
+#: View\Elements\sidebar\subscribe.ctp:8
+msgid "Your Email"
+msgstr ""
+
+#: View\Elements\sidebar\subscribe.ctp:17
+msgid "Subscribe us to receive many interesting promotion information"
+msgstr ""
+
+#: View\Elements\sidebar\subscribe.ctp:39
+msgid "Your email has been saved. Thank you."
+msgstr ""
+
+#: View\Elements\sidebar\subscribe.ctp:52
+msgid "Email is invalid."
+msgstr ""
+
+#: View\Elements\sidebar\typical_products.ctp:6
+msgid "Typical Products"
+msgstr ""
+
+#: View\EmailMarketings\admin_add.ctp:8;12
+msgid "Add Email Marketing"
+msgstr ""
+
+#: View\EmailMarketings\admin_add.ctp:15
+msgid "Sent to"
+msgstr ""
+
+#: View\EmailMarketings\admin_edit.ctp:7;11
+msgid "Edit Email Marketing"
+msgstr ""
+
+#: View\EmailMarketings\admin_edit.ctp:15
+msgid "Customer Type Id"
+msgstr ""
+
+#: View\EmailMarketings\admin_index.ctp:13
+#: View\EmailMarketings\admin_view.ctp:14
+msgid "All Customer"
+msgstr ""
+
+#: View\GlobalConfig\admin_index.ctp:5
+msgid "key"
+msgstr ""
+
+#: View\GlobalConfig\admin_index.ctp:6
+msgid "value"
+msgstr ""
+
+#: View\Orders\admin_add.ctp:7;11
+msgid "Add Order"
+msgstr ""
+
+#: View\Orders\admin_add.ctp:14
+#: View\Orders\admin_edit.ctp:15
+msgid "User Id"
+msgstr ""
+
+#: View\Orders\admin_add.ctp:24
+#: View\Orders\admin_edit.ctp:25
+#: View\Orders\admin_index.ctp:67
+#: View\Orders\admin_view.ctp:14
+#: View\Orders\history.ctp:35
+msgid "Cart Information"
+msgstr ""
+
+#: View\Orders\admin_edit.ctp:7;11
+msgid "Edit Order"
+msgstr ""
+
+#: View\Orders\admin_index.ctp:14
+msgid "From Date"
+msgstr ""
+
+#: View\Orders\admin_index.ctp:18
+msgid "To Date"
+msgstr ""
+
+#: View\Orders\admin_index.ctp:39
+#: View\Orders\history.ctp:13
+msgid "Order Date"
+msgstr ""
+
+#: View\Orders\admin_index.ctp:40
+msgid "Resolve?"
+msgstr ""
+
+#: View\Orders\admin_index.ctp:56
+msgid "Anonymous Guest"
+msgstr ""
+
+#: View\Orders\admin_index.ctp:165
+#: View\Orders\admin_view.ctp:112
+#: View\Orders\history.ctp:133
+msgid "website"
+msgstr ""
+
+#: View\Orders\admin_index.ctp:256
+#: View\Orders\history.ctp:224
+msgid "Close"
+msgstr ""
+
+#: View\Orders\admin_view.ctp:7
+msgid "Order List"
+msgstr ""
+
+#: View\Orders\history.ctp:12
+msgid "Order ID"
+msgstr ""
+
+#: View\Products\admin_add.ctp:18
+#: View\Products\admin_edit.ctp:31
+msgid "General Infomation"
+msgstr ""
+
+#: View\Products\admin_add.ctp:19
+#: View\Products\admin_edit.ctp:32
+msgid "Attributes"
+msgstr ""
+
+#: View\Products\admin_add.ctp:20
+#: View\Products\admin_edit.ctp:33
+msgid "Excerpt"
+msgstr ""
+
+#: View\Products\admin_add.ctp:21;100
+#: View\Products\admin_edit.ctp:34;114
+#: View\Products\admin_view.ctp:39
+#: View\Products\detail.ctp:132
+msgid "Features"
+msgstr ""
+
+#: View\Products\admin_add.ctp:22
+#: View\Products\admin_edit.ctp:35
+#: View\Products\detail.ctp:135
+msgid "Article"
+msgstr ""
+
+#: View\Products\admin_add.ctp:23
+#: View\Products\admin_edit.ctp:36
+#: View\Products\detail.ctp:138
+msgid "Gallery"
+msgstr ""
+
+#: View\Products\admin_add.ctp:39
+#: View\Products\admin_edit.ctp:53
+msgid "Promotion Price"
+msgstr ""
+
+#: View\Products\admin_add.ctp:44
+#: View\Products\admin_edit.ctp:58
+#: View\Products\admin_view.ctp:67
+msgid "Instock"
+msgstr ""
+
+#: View\Products\admin_add.ctp:49
+#: View\Products\admin_edit.ctp:63
+msgid "Promoted Product"
+msgstr ""
+
+#: View\Products\admin_add.ctp:62
+#: View\Products\admin_edit.ctp:76
+msgid "Select a category"
+msgstr ""
+
+#: View\Products\admin_add.ctp:74
+#: View\Products\admin_edit.ctp:88
+msgid "Product Excerpt"
+msgstr ""
+
+#: View\Products\admin_add.ctp:82
+#: View\Products\admin_edit.ctp:96
+#: View\Products\admin_view.ctp:74
+msgid "Promotion Content"
+msgstr ""
+
+#: View\Products\admin_add.ctp:92
+#: View\Products\admin_edit.ctp:106
+msgid "Features Excerpt"
+msgstr ""
+
+#: View\Products\admin_add.ctp:123
+#: View\Products\admin_edit.ctp:137
+msgid "Upload file"
+msgstr ""
+
+#: View\Products\admin_edit.ctp:12
+msgid "Update Product"
+msgstr ""
+
+#: View\Products\admin_edit.ctp:21
+#: View\Sliders\admin_add.ctp:24
+#: View\Sliders\admin_edit.ctp:25
+#: View\StaticPages\admin_edit.ctp:16
+msgid "URL"
+msgstr ""
+
+#: View\Products\admin_index.ctp:7
+msgid "In Stock?"
+msgstr ""
+
+#: View\Products\admin_index.ctp:8
+msgid "Promotion"
+msgstr ""
+
+#: View\Products\admin_view.ctp:7
+msgid "Admin View Product"
+msgstr ""
+
+#: View\Products\admin_view.ctp:32
+#: View\Sliders\admin_add.ctp:19
+#: View\Sliders\admin_edit.ctp:20
+#: View\Sliders\admin_view.ctp:25
+#: View\StaticPages\admin_add.ctp:20
+#: View\StaticPages\admin_edit.ctp:33
+msgid "Description"
+msgstr ""
+
+#: View\Products\admin_view.ctp:53
+msgid "Discount"
+msgstr ""
+
+#: View\Products\admin_view.ctp:81
+msgid "Is Promoted"
+msgstr ""
+
+#: View\Products\admin_view.ctp:88
+#: View\Sliders\admin_view.ctp:53
+msgid "Ordered"
+msgstr ""
+
+#: View\Products\detail.ctp:49
+msgid "List Price"
+msgstr ""
+
+#: View\Products\detail.ctp:120
+msgid "Not in stock"
+msgstr ""
+
+#: View\Products\view.ctp:64
+msgid "No results found."
+msgstr ""
+
+#: View\Properties\admin_add.ctp:10;14
+msgid "Add Property"
+msgstr ""
+
+#: View\Properties\admin_add.ctp:16
+#: View\Properties\admin_edit.ctp:14
+msgid "Select Category"
+msgstr ""
+
+#: View\Properties\admin_add.ctp:21;49
+#: View\Properties\admin_edit.ctp:19;48
+msgid "Select Property"
+msgstr ""
+
+#: View\Properties\admin_edit.ctp:7;11
+msgid "Edit Property"
+msgstr ""
+
+#: View\Properties\admin_edit.ctp:29
+msgid "No need input. You can modify later."
+msgstr ""
+
+#: View\Properties\admin_edit.ctp:30
+msgid "Slug"
+msgstr ""
+
+#: View\Properties\admin_index.ctp:13
+msgid "Search"
+msgstr ""
+
+#: View\Properties\admin_index.ctp:53
+msgid "No data found"
+msgstr ""
+
+#: View\Properties\admin_view.ctp:7
+msgid "Admin View Property"
+msgstr ""
+
+#: View\Properties\admin_view.ctp:18
+msgid "Parent Property"
+msgstr ""
+
+#: View\Properties\admin_view.ctp:25
+msgid "Lft"
+msgstr ""
+
+#: View\Properties\admin_view.ctp:32
+msgid "Rght"
+msgstr ""
+
+#: View\Sliders\admin_add.ctp:7;11
+msgid "Add Slider"
+msgstr ""
+
+#: View\Sliders\admin_add.ctp:29
+#: View\Sliders\admin_edit.ctp:30
+#: View\Sliders\admin_view.ctp:32
+msgid "Photo"
+msgstr ""
+
+#: View\Sliders\admin_edit.ctp:7;11
+msgid "Edit Slider"
+msgstr ""
+
+#: View\Sliders\admin_view.ctp:7
+msgid "Admin View Slider"
+msgstr ""
+
+#: View\Sliders\admin_view.ctp:39
+msgid "Photo Dir"
+msgstr ""
+
+#: View\StaticPages\admin_add.ctp:25
+#: View\StaticPages\admin_edit.ctp:38
+msgid "Attachment"
+msgstr ""
+
+#: View\StaticPages\admin_edit.ctp:51
+#: View\StaticPages\display.ctp:15
+msgid "Download"
+msgstr ""
+
+#: View\StaticPages\admin_edit.ctp:87
+msgid "Are you sure"
+msgstr ""
+
+#: View\StaticPages\admin_edit.ctp:90
+msgid "This action will be permanently deleted your image"
+msgstr ""
+
+#: View\StaticPages\admin_edit.ctp:93
+msgid "Yes"
+msgstr ""
+
+#: View\StaticPages\admin_edit.ctp:94
+msgid "No"
+msgstr ""
+
+#: View\StaticPages\admin_view.ctp:7
+msgid "Preview Page"
+msgstr ""
+
+#: View\Subscribers\admin_edit.ctp:7;11
+msgid "Edit Subscriber"
+msgstr ""
+
+#: C:\xampp\htdocs\tclvn\app\Model\Category.php:validation for field ordered
+#: C:\xampp\htdocs\tclvn\app\Model\Customer.php:validation for field customer_type_id;validation for field user_id
+#: C:\xampp\htdocs\tclvn\app\Model\CustomerType.php:validation for field ordered
+#: C:\xampp\htdocs\tclvn\app\Model\Order.php:validation for field user_id;validation for field published
+#: C:\xampp\htdocs\tclvn\app\Model\Product.php:validation for field ordered
+#: C:\xampp\htdocs\tclvn\app\Model\Property.php:validation for field parent_id
+#: C:\xampp\htdocs\tclvn\app\Model\StaticPage.php:validation for field ordered
+msgid "numeric"
+msgstr ""
+
+#: C:\xampp\htdocs\tclvn\app\Model\Contact.php:validation for field name;validation for field email;validation for field title;validation for field content
+#: C:\xampp\htdocs\tclvn\app\Model\Customer.php:validation for field first_name;validation for field last_name;validation for field phone
+#: C:\xampp\htdocs\tclvn\app\Model\CustomerType.php:validation for field name
+#: C:\xampp\htdocs\tclvn\app\Model\EmailMarketing.php:validation for field title;validation for field content
+#: C:\xampp\htdocs\tclvn\app\Model\Order.php:validation for field personal_information;validation for field cart_information
+#: C:\xampp\htdocs\tclvn\app\Model\Product.php:validation for field name
+#: C:\xampp\htdocs\tclvn\app\Model\Slider.php:validation for field title
+#: C:\xampp\htdocs\tclvn\app\Model\StaticPage.php:validation for field title
+msgid "notempty"
+msgstr ""
+
+#: C:\xampp\htdocs\tclvn\app\Model\Contact.php:validation for field email
+msgid "email"
+msgstr ""
+
+#: C:\xampp\htdocs\tclvn\app\Model\Product.php:validation for field instock;validation for field is_promoted
+#: C:\xampp\htdocs\tclvn\app\Model\StaticPage.php:validation for field published
+msgid "boolean"
+msgstr ""
+

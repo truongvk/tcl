@@ -10,13 +10,13 @@
                 <div id="navigation" style="display:none;">
                     <ul>
                         <li class="selected">
-                            <a href="#"><?php echo __('Customer Information');?><</a>
+                            <a href="#"><?php echo __('Customer Information');?></a>
                         </li>
                         <li>
-                            <a href="#"><?php echo __('Checkout Information');?><</a>
+                            <a href="#"><?php echo __('Checkout Information');?></a>
                         </li>
                      	<li>
-                            <a href="#"><?php echo __('Confirm');?><</a>
+                            <a href="#"><?php echo __('Confirm');?></a>
                         </li>
                     </ul>
                 </div>                    

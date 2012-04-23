@@ -60,14 +60,14 @@ class SubscribersController extends AppController {
     public function admin_edit($id = null) {
         $this->Subscriber->id = $id;
         if (!$this->Subscriber->exists()) {
-            throw new NotFoundException(__('Invalid subscriber'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Subscriber->save($this->request->data)) {
-                $this->Session->setFlash(__('The subscriber has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The subscriber could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         } else {
             $this->request->data = $this->Subscriber->read(null, $id);
@@ -86,13 +86,13 @@ class SubscribersController extends AppController {
         }
         $this->Subscriber->id = $id;
         if (!$this->Subscriber->exists()) {
-            throw new NotFoundException(__('Invalid subscriber'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->Subscriber->delete()) {
-            $this->Session->setFlash(__('Subscriber deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Subscriber was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect(array('action' => 'index'));
     }
 

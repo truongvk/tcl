@@ -66,7 +66,7 @@ class CartController extends AppController {
         foreach($this->request->data['Cart']['quantity'] as $itemId => $itemQty){
             $this->shoppingCart->edit_item(intval($itemId), intval($itemQty));            
         }
-        $this->redirect(array('action'=>'checkout'));
+        $this->redirect(array('action'=>'index'));
     }
     
     public function delete($id=null){
@@ -79,9 +79,14 @@ class CartController extends AppController {
     }
 
     public function checkout($IsCheckoutWithoutLogin=0){
+        if($this->shoppingCart->itemcount <= 0){
+            $this->redirect(array('action'=>'index'));
+        }
+        
         if(!$this->Session->check('Auth.User.id') && !$IsCheckoutWithoutLogin){
             $this->redirect('/users/login');
         }
+        
         $this->set(compact('IsCheckoutWithoutLogin'));
 
         if ($this->request->is('post')) {            

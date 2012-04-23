@@ -27,4 +27,10 @@ class Subscriber extends AppModel {
                     )
 		)
 	);
+    public function beforeValidate($options = array()) {
+        parent::beforeValidate($options);
+
+        $this->validate['email']['email']['message'] = __('Invalid email.');
+        $this->validate['email']['unique']['message'] = __('Email already in use.');
+    }        
 }

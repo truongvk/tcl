@@ -33,15 +33,47 @@ class OrdersController extends AppController {
         $this->set('title', __('Order'));
         $this->set('description', __('Manage Order'));
 
+        $conditions = array();
+        if ($this->request->is('post')) {
+            if(!empty($this->request->data)){
+                $this->set('conditions', base64_encode(serialize($this->request->data)));
+            }            
+        }else{
+            if(isset($this->request->params['named']['conditions'])){
+                $this->request->data = unserialize(base64_decode($this->request->params['named']['conditions']));
+            }
+        }
+        
+        if(!empty($this->request->data['Order']['customer_type'])){
+            $conditions[] = array('Customer.customer_type_id ='.$this->request->data['Order']['customer_type']);
+        }
+        
+        if(!empty($this->request->data['Order']['customer_name'])){
+            $conditions['OR'][] = array('Customer.first_name LIKE "%'.$this->request->data['Order']['customer_name'].'%"');
+            $conditions['OR'][] = array('Customer.last_name LIKE "%'.$this->request->data['Order']['customer_name'].'%"');
+        }
+        if(!empty($this->request->data['Order']['from']) && !empty($this->request->data['Order']['to'])){
+            $from = explode('/',$this->request->data['Order']['from']);
+            array_reverse($from);
+            $from = implode('-',$from);  
 
+            $to = explode('/',$this->request->data['Order']['to']);
+            array_reverse($to);
+            $to = implode('-',$to);                
+            $conditions[] = "Order.created BETWEEN '".date('Y-m-d 00:00:00', strtotime($from))."' AND '". date('Y-m-d 23:59:59', strtotime($to))."'";
+        }
+        
         $this->paginate = array(
             'contain' => array('Customer'),
-            'conditions' => array(), 
+            'conditions' => $conditions,             
             'order' => array('Order.created' => 'DESC')
         );
 
         $this->Order->recursive = 0;
         $this->set('orders', $this->paginate());
+        
+        $customer_types = $this->Order->Customer->CustomerType->find('list');
+        $this->set(compact('customer_types'));        
     }
 
     /**
@@ -53,7 +85,7 @@ class OrdersController extends AppController {
     public function admin_view($id = null) {
         $this->Order->id = $id;
         if (!$this->Order->exists()) {
-            throw new NotFoundException(__('Invalid order'));
+            throw new NotFoundException(__('Invalid Data'));
         }
 
         $this->set('title', __('Order'));
@@ -71,10 +103,10 @@ class OrdersController extends AppController {
         if ($this->request->is('post')) {
             $this->Order->create();
             if ($this->Order->save($this->request->data)) {
-                $this->Session->setFlash(__('The order has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The order could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         }
         $users = $this->Order->User->find('list');
@@ -90,14 +122,14 @@ class OrdersController extends AppController {
     public function admin_edit($id = null) {
         $this->Order->id = $id;
         if (!$this->Order->exists()) {
-            throw new NotFoundException(__('Invalid order'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Order->save($this->request->data)) {
-                $this->Session->setFlash(__('The order has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The order could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         } else {
             $this->request->data = $this->Order->read(null, $id);
@@ -121,10 +153,10 @@ class OrdersController extends AppController {
             throw new NotFoundException(__('Invalid order'));
         }
         if ($this->Order->delete()) {
-            $this->Session->setFlash(__('Order deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Order was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect(array('action' => 'index'));
     }
 

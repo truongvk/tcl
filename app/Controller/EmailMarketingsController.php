@@ -34,11 +34,11 @@ class EmailMarketingsController extends AppController {
     public function admin_view($id = null) {
         $this->EmailMarketing->id = $id;
         if (!$this->EmailMarketing->exists()) {
-            throw new NotFoundException(__('Invalid email marketing'));
+            throw new NotFoundException(__('Invalid Data'));
         }
 
         $this->set('title', __('EmailMarketing'));
-        $this->set('description', __('View EmailMarketing'));
+        $this->set('description', __('Review'));
 
         $this->set('emailMarketing', $this->EmailMarketing->read(null, $id));
     }
@@ -81,15 +81,15 @@ class EmailMarketingsController extends AppController {
             
             if ($this->EmailMarketing->save($this->request->data)) {
                 foreach($customers as $customer){
-                    $this->Email->from(array('no-reply@'.Configure::read('Settings.domain.value') => 'TCLVN'));
-                    $this->Email->to($customer);
-                    $this->Email->subject($this->request->data['EmailMarketing']['content']);
+                    $this->Email->from = 'no-reply@'.Configure::read('Settings.domain.value');
+                    $this->Email->to = $customer;
+                    $this->Email->subject = $this->request->data['EmailMarketing']['content'];
                     $this->Email->send($this->request->data['EmailMarketing']['content']);
                 }
-                $this->Session->setFlash(__('The email marketing has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The email marketing could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         }
         
@@ -107,14 +107,14 @@ class EmailMarketingsController extends AppController {
     public function admin_edit($id = null) {
         $this->EmailMarketing->id = $id;
         if (!$this->EmailMarketing->exists()) {
-            throw new NotFoundException(__('Invalid email marketing'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->EmailMarketing->save($this->request->data)) {
-                $this->Session->setFlash(__('The email marketing has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The email marketing could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         } else {
             $this->request->data = $this->EmailMarketing->read(null, $id);
@@ -136,10 +136,10 @@ class EmailMarketingsController extends AppController {
             throw new NotFoundException(__('Invalid email marketing'));
         }
         if ($this->EmailMarketing->delete()) {
-            $this->Session->setFlash(__('Email marketing deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Email marketing was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect(array('action' => 'index'));
     }
 

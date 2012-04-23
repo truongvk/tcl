@@ -2,7 +2,7 @@
 	<table cellpadding="0" cellspacing="0" id="table-customerTypes" class="table table-striped table-bordered table-condensed">
 	<thead>
 	<tr>
-	<th width="40px" nowrap=""><?php echo __('Order'); ?></th>
+	<th width="60px" nowrap=""><?php echo __('Order'); ?></th>
 			<th class="header" ><?php echo $this->Paginator->sort('name');?></th>
 			<th class="header" ><?php echo $this->Paginator->sort('created');?></th>
 			<th class="header" style="text-align: center"><?php echo __('Actions');?></th>

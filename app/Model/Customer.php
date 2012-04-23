@@ -64,7 +64,14 @@ class Customer extends AppModel {
 			),
 		),
 	);
-
+        public function beforeValidate($options = array()) {
+            parent::beforeValidate($options);
+            
+            $this->validate['first_name']['notempty']['message'] = __('Not empty.');
+            $this->validate['last_name']['notempty']['message'] = __('Not empty.');
+            $this->validate['phone']['notempty']['message'] = __('Not empty.');           
+            
+        }
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

@@ -62,10 +62,22 @@
                             <a href="#" class="btn btn-primary"><i class="icon-user icon-white"></i> <?php echo __('Online Support');?></a>
                             <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <?php
+                                    $yahoosupports = $this->requestAction('/global_config/setting2array/support_by_yahoo/1');
+                                    $skypesupports = $this->requestAction('/global_config/setting2array/support_by_skype/1');
+                                ?>                                
                                 <?php if(Configure::read('debug') == 0):?>
-                                <li><a href="ymsgr:sendim?khanhtruong111@yahoo.com" border="0"><img src="http://opi.yahoo.com/online?u=khanhtruong111&t=2"></a> </li>
-                                <li><a href="ymsgr:sendim?khanhtruong111@yahoo.com" border="0"><img src="http://opi.yahoo.com/online?u=khanhtruong111&t=2"></a> </li>
-                                <li><a href="skype:khanhtruong111?call"><img src="http://mystatus.skype.com/smallclassic/khanhtruong111" style="border: none;" alt="My status" /></a></li>
+                                    <?php 
+                                        foreach($yahoosupports as $ysupport):
+                                            $u = substr($ysupport,0, strpos($ysupport, '@'));
+                                    ?>
+                                    <li><a href="ymsgr:sendim?<?php echo $ysupport;?>" border="0"><img src="http://opi.yahoo.com/online?u=<?php echo $u;?>&t=2"></a> </li>
+                                    <?php endforeach;?>
+                                    <?php 
+                                        foreach($skypesupports as $ssupport):                    
+                                    ?>
+                                    <li><a href="skype:<?php echo $ssupport;?>?call"><img src="http://mystatus.skype.com/smallclassic/<?php echo $ssupport;?>" style="border: none;" alt="Offline" /></a></li>
+                                    <?php endforeach;?>
                                 <?php endif;?>
                             </ul>
                         </div>

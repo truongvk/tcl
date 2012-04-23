@@ -35,7 +35,11 @@ class AppController extends Controller {
 
         if( (isset($this->params->admin) && $this->params->admin) || (preg_match("/admin\//i", $this->params->url))){
             $this->layout = 'admin';
-        }        
+        }
+        
+        $locale = Configure::read('Config.language');
+       
+        
         //$this->Auth->allow();//comment after generate action
         //Configure AuthComponent
         $this->Auth->flash = array("element" => "error", "key" => "auth", "params" => array());

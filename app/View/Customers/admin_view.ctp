@@ -2,7 +2,7 @@
 <div class="customers view">
 <ul class="breadcrumb">
     <li>
-        <?php echo $this->Html->link('Customer', array('action'=>'index'));?>
+        <?php echo $this->Html->link(__('Customer'), array('action'=>'index'));?>
         <span class="divider">/</span>
     </li>
     <li class="active"><?php echo __('View'); ?></li>

@@ -111,7 +111,14 @@ class User extends AclManagementAppModel {
         return array('model' => 'Group', 'foreign_key' => $user['User']['group_id']);
     }
 
-    public function beforeValidate() {
+
+    public function beforeValidate($options = array()) {
+        parent::beforeValidate($options);
+
+        $this->validate['email']['email']['message'] = __('Invalid email.');
+        $this->validate['email']['unique']['message'] = __('Email already in use.');
+        $this->validate['password']['message'] = __('Password mismatch or less than 6 characters.');
+            
         if (isset($this->data['User']['id'])) {
             $this->validate['password']['required'] = false;
             $this->validate['password']['allowEmpty'] = true;

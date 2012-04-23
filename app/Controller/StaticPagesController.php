@@ -60,7 +60,7 @@ class StaticPagesController extends AppController {
     public function admin_view($id = null) {
         $this->StaticPage->id = $id;
         if (!$this->StaticPage->exists()) {
-            throw new NotFoundException(__('Invalid static page'));
+            throw new NotFoundException(__('Invalid Data'));
         }
 
         $this->set('title', __('Page'));
@@ -80,10 +80,10 @@ class StaticPagesController extends AppController {
         if ($this->request->is('post')) {
             $this->StaticPage->create();
             if ($this->StaticPage->save($this->request->data)) {
-                $this->Session->setFlash(__('Page has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The static page could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         }
     }
@@ -104,10 +104,10 @@ class StaticPagesController extends AppController {
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->StaticPage->save($this->request->data)) {
-                $this->Session->setFlash(__('Page has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The page could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         } else {
             $this->request->data = $this->StaticPage->read(null, $id);
@@ -129,10 +129,10 @@ class StaticPagesController extends AppController {
             throw new NotFoundException(__('Invalid page'));
         }
         if ($this->StaticPage->delete()) {
-            $this->Session->setFlash(__('Page deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Page was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect(array('action' => 'index'));
     }
 

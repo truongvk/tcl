@@ -33,7 +33,7 @@ if($cart->itemcount > 0) {
     <tr>
         <td width="1%" nowrap><img src="<?php echo $thumb;?>"/></td>
         <td style="vertical-align: middle"><?php echo $this->Html->link($item['info'], array('controller'=>'products', 'action'=>'detail', $item['id'].'_'.$slug));?></td>
-        <td style="vertical-align: middle; text-align: center"><?php echo $this->Form->input('Cart.quantity.'.$item['id'], array('value'=>$item['qty'], 'style'=>'text-align:right', 'div'=>false, 'label'=>false, 'class'=>'input-small'));?></td>
+        <td style="vertical-align: middle; text-align: center"><?php echo $this->Form->input('Cart.quantity.'.$item['id'], array('value'=>$item['qty'], 'style'=>'text-align:right', 'div'=>false, 'label'=>false, 'class'=>'input-small', 'type'=>'number'));?></td>
         <td style="vertical-align: middle; text-align: right"><?php echo $price;?></td>
         <td style="vertical-align: middle; text-align: right"><?php echo $subtotal;?></td>
         <td style="vertical-align: middle; text-align: center"><span class="label label-important link-white"><i class="icon-trash icon-white"></i> <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $item['id']), null, __('Are you sure you want to delete %s?', $item['info'])); ?></span></td>

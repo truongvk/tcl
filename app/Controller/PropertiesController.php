@@ -50,7 +50,7 @@ class PropertiesController extends AppController {
     public function admin_view($id = null) {
         $this->Property->id = $id;
         if (!$this->Property->exists()) {
-            throw new NotFoundException(__('Invalid property'));
+            throw new NotFoundException(__('Invalid Data'));
         }
 
         $this->set('title', __('Property'));
@@ -68,7 +68,7 @@ class PropertiesController extends AppController {
         if ($this->request->is('post')) {
             $this->Property->create();
             if(empty($this->request->data['Property']['name'])){
-                $this->Session->setFlash(__('The property has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'add', $category_id));
             }
 
@@ -82,10 +82,10 @@ class PropertiesController extends AppController {
                                 );
             }
             if ($this->Property->saveMany($prepareData)) {
-                $this->Session->setFlash(__('The property has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The property could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         }
 
@@ -104,14 +104,14 @@ class PropertiesController extends AppController {
     public function admin_edit($id = null) {
         $this->Property->id = $id;
         if (!$this->Property->exists()) {
-            throw new NotFoundException(__('Invalid property'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Property->save($this->request->data)) {
-                $this->Session->setFlash(__('The property has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The property could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         } else {
             $this->request->data = $this->Property->read(null, $id);
@@ -134,14 +134,14 @@ class PropertiesController extends AppController {
         }
         $this->Property->id = $id;
         if (!$this->Property->exists()) {
-            throw new NotFoundException(__('Invalid property'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->Property->delete()) {
             $this->Property->deleteAll(array('Property.parent_id'=>$id));
-            $this->Session->setFlash(__('Property deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Property was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect(array('action' => 'index'));
     }
 

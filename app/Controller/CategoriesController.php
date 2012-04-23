@@ -50,10 +50,10 @@ class CategoriesController extends AppController {
         if ($this->request->is('post')) {
             $this->Category->create();
             if ($this->Category->save($this->request->data)) {
-                $this->Session->setFlash(__('The category has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The category could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         }
         $parentCategories = $this->Category->generateTreeList();
@@ -73,11 +73,11 @@ class CategoriesController extends AppController {
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Category->save($this->request->data)) {
-                $this->Session->setFlash(__('The category has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 //$this->redirect($this->__getPreviousUrl());
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The category could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         } else {
             $this->request->data = $this->Category->read(null, $id);
@@ -98,13 +98,13 @@ class CategoriesController extends AppController {
         }
         $this->Category->id = $id;
         if (!$this->Category->exists()) {
-            throw new NotFoundException(__('Invalid category'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->Category->delete()) {
-            $this->Session->setFlash(__('Category deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Category was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect($this->__getPreviousUrl());
     }
 
@@ -175,7 +175,8 @@ class CategoriesController extends AppController {
         }
 
         // send success response
-        Cache::delete('getAllCategory');
+        Cache::clear();
+        clearCache();
         exit('1');
     }
 
@@ -209,7 +210,8 @@ class CategoriesController extends AppController {
         }
 
         // send success response
-        Cache::delete('getAllCategory');
+        Cache::clear();
+        clearCache();
         exit('1');
     }
 }

@@ -41,11 +41,10 @@ class ContactsController extends AppController {
     public function admin_view($id = null) {
         $this->Contact->id = $id;
         if (!$this->Contact->exists()) {
-            throw new NotFoundException(__('Invalid contact'));
+            throw new NotFoundException(__('Invalid Data'));
         }
 
         $this->set('title', __('Contact'));
-        $this->set('description', __('View Contact'));
 
         $this->set('contact', $this->Contact->read(null, $id));
     }

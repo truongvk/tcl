@@ -14,33 +14,7 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/orders/index');?>"><?php echo __('Orders');?> </a>
                     </li>
-                    
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/global_config/index');?>"><?php echo __('Site Config');?></a>
-                    </li>
-
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/contacts/index');?>"><?php echo __('Contact');?></a>
-                    </li>
-
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/sliders/index');?>"><?php echo __('Slider');?></a>
-                    </li>
-
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/subscribers/index');?>"><?php echo __('Subscribers');?></a>
-                    </li>
-
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Customer');?> <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->Html->url('/admin/customers');?>"><?php echo __('Manage Customer');?></a></li>
-                            <li><a href="<?php echo $this->Html->url('/admin/customer_types/');?>"><?php echo __('Manage Customer Type');?></a></li>
-                            <li class="divider"></li>
-                            <li><a href="<?php echo $this->Html->url('/admin/email_marketings/');?>"><?php echo __('Email Marketing');?></a></li>
-                        </ul>
-                    </li>
-
+                  
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Category');?> <b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -64,7 +38,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo $this->Html->url('/admin/products');?>"><?php echo __('Manage Product');?></a></li>
                             <li class="divider"></li>
-                            <li><a href="<?php echo $this->Html->url('/admin/products/add');?>"><?php echo __('New Property');?></a></li>                            
+                            <li><a href="<?php echo $this->Html->url('/admin/products/add');?>"><?php echo __('New Product');?></a></li>                            
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -75,6 +49,31 @@
                             <li><a href="<?php echo $this->Html->url('/admin/static_pages/add');?>"><?php echo __('New Page');?></a></li>
                         </ul>
                     </li>
+                    
+                   
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Customer');?> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo $this->Html->url('/admin/customers');?>"><?php echo __('Manage Customer');?></a></li>
+                            <li><a href="<?php echo $this->Html->url('/admin/customer_types/');?>"><?php echo __('Manage Customer Type');?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url('/admin/email_marketings/');?>"><?php echo __('Email Marketing');?></a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#"><?php echo __('Other');?> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo $this->Html->url('/admin/sliders');?>"><?php echo __('Slider');?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url('/admin/contacts/');?>"><?php echo __('Contact');?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url('/admin/subscribers/');?>"><?php echo __('Subscribers');?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url('/admin/global_config/');?>"><?php echo __('Site Config');?></a></li>
+                        </ul>
+                    </li>
+
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">Users <b class="caret"></b></a>
                         <ul class="dropdown-menu">

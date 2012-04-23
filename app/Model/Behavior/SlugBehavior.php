@@ -316,7 +316,7 @@ class SlugBehavior extends ModelBehavior {
             $slug_field = $this->settings[$model->name]['slug_field'];
             $replacement = $this->settings['replacement'];
             $primary_key = $this->settings[$model->name]['primary_key'];
-            $DBCheck = $this->settings['DBcheck'];
+            $DBCheck = (isset($this->settings['DBcheck'])) ? $this->settings['DBcheck'] : $this->defaultSettings['DBcheck'];
             if(isset($model->data[$model->name][$field])){
                 $slug = Inflector::slug(strtolower($this->_slug(trim($model->data[$model->name][$field]))), $replacement);
                 if($DBCheck){

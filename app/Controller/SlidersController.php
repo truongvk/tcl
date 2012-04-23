@@ -43,7 +43,7 @@ class SlidersController extends AppController {
     public function admin_view($id = null) {
         $this->Slider->id = $id;
         if (!$this->Slider->exists()) {
-            throw new NotFoundException(__('Invalid slider'));
+            throw new NotFoundException(__('Invalid Data'));
         }
 
         $this->set('title', __('Slider'));
@@ -61,10 +61,10 @@ class SlidersController extends AppController {
         if ($this->request->is('post')) {
             $this->Slider->create();
             if ($this->Slider->save($this->request->data)) {
-                $this->Session->setFlash(__('The slider has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The slider could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         }
     }
@@ -78,14 +78,14 @@ class SlidersController extends AppController {
     public function admin_edit($id = null) {
         $this->Slider->id = $id;
         if (!$this->Slider->exists()) {
-            throw new NotFoundException(__('Invalid slider'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->Slider->save($this->request->data)) {
-                $this->Session->setFlash(__('The slider has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The slider could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         } else {
             $this->request->data = $this->Slider->read(null, $id);
@@ -104,13 +104,13 @@ class SlidersController extends AppController {
         }
         $this->Slider->id = $id;
         if (!$this->Slider->exists()) {
-            throw new NotFoundException(__('Invalid slider'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->Slider->delete()) {
-            $this->Session->setFlash(__('Slider deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Slider was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect(array('action' => 'index'));
     }
 

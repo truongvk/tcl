@@ -57,8 +57,15 @@ class Product extends AppModel {
             ),
         ),
     );
+    
+    public function beforeValidate($options = array()) {
+        parent::beforeValidate($options);
+
+        $this->validate['name']['notempty']['message'] = __('Not empty.');
+    }
+        
     public $actsAs = array(
-        'Slug' => array('field' => 'name', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '-'),
+        'Slug' => array('field' => 'name', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '-', 'DBcheck'=>true),
         'Containable'
         );
     //The Associations below have been created with all possible keys, those that are not needed can be removed

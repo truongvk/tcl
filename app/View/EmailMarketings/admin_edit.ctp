@@ -1,7 +1,7 @@
 <div class="emailMarketings form">
 <ul class="breadcrumb">
     <li>
-		<?php echo $this->Html->link('EmailMarketing', array('action'=>'index'));?>
+		<?php echo $this->Html->link(__('EmailMarketing'), array('action'=>'index'));?>
 		<span class="divider">/</span>
 	</li>
     <li class="active"><?php echo __('Edit Email Marketing'); ?></li>

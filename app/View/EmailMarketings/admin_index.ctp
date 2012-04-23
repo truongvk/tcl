@@ -9,14 +9,17 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($emailMarketings as $emailMarketing): ?>
+            <?php foreach ($emailMarketings as $emailMarketing): 
+                $cusType = ($emailMarketing['EmailMarketing']['customer_type_id'] > 0) ? $emailMarketing['CustomerType']['name'] : __('All Customer');
+                $cusType = ($emailMarketing['EmailMarketing']['customer_type_id'] < 0) ? __('Subscribers') : $cusType;
+            ?>
                 <tr id='<?php echo $emailMarketing['EmailMarketing']['id']; ?>'>
-                    <td><?php echo h($emailMarketing['EmailMarketing']['customer_type_id']); ?>&nbsp;</td>
+                    <td><?php echo h($cusType); ?>&nbsp;</td>
                     <td><?php echo h($emailMarketing['EmailMarketing']['title']); ?>&nbsp;</td>
                     <td><?php echo h(date('d/m/Y', strtotime($emailMarketing['EmailMarketing']['created']))); ?>&nbsp;</td>
                     <td style="text-align: center">
                         <span class="label label-info link-white"><i class="icon-zoom-in icon-white"></i> <?php echo $this->Html->link(__('View'), array('action' => 'view', $emailMarketing['EmailMarketing']['id'])); ?></span>
-                        <span class="label label-warning link-white"><i class="icon-edit icon-white"></i> <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $emailMarketing['EmailMarketing']['id'])); ?></span>
+<!--                        <span class="label label-warning link-white"><i class="icon-edit icon-white"></i> <?php //echo $this->Html->link(__('Edit'), array('action' => 'edit', $emailMarketing['EmailMarketing']['id'])); ?></span>-->
                         <span class="label label-important link-white"><i class="icon-trash icon-white"></i> <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $emailMarketing['EmailMarketing']['id']), null, __('Are you sure you want to delete # %s?', $emailMarketing['EmailMarketing']['id'])); ?></span>
                     </td>
                 </tr>

@@ -154,11 +154,42 @@ class ProductsController extends AppController {
         $this->set('title', __('Product'));
         $this->set('description', __('Manage Product'));
 
+        $conditions = array();
+        if ($this->request->is('post')) {
+            if(!empty($this->request->data)){
+                $this->set('conditions', base64_encode(serialize($this->request->data)));
+            }
+        }else{
+            if(isset($this->request->params['named']['conditions'])){
+                $this->request->data = unserialize(base64_decode($this->request->params['named']['conditions']));
+            }
+        }
 
-        $this->paginate = array('conditions' => array(), 'order' => array('Product.created' => 'DESC', 'Product.ordered' => 'ASC'));
+        if(!empty($this->request->data['Product']['category_id'])){
+            $conditions[] = array('Product.category_id ='.$this->request->data['Product']['category_id']);
+        }
+        if(isset($this->request->data['Product']['product_name']) && !empty($this->request->data['Product']['product_name'])){
+            $conditions['OR'][] = array('Product.name LIKE "%'.$this->request->data['Product']['product_name'].'%"');
+        }
+        if((isset($this->request->data['Product']['from']) && !empty($this->request->data['Product']['from']))
+                && (isset($this->request->data['Product']['to']) && !empty($this->request->data['Product']['to']))){
+            $from = explode('/',$this->request->data['Product']['from']);
+            array_reverse($from);
+            $from = implode('-',$from);
+
+            $to = explode('/',$this->request->data['Product']['to']);
+            array_reverse($to);
+            $to = implode('-',$to);
+            $conditions[] = "Product.created BETWEEN '".date('Y-m-d 00:00:00', strtotime($from))."' AND '". date('Y-m-d 23:59:59', strtotime($to))."'";
+        }
+
+        $this->paginate = array('conditions' => $conditions, 'order' => array('Product.created' => 'DESC', 'Product.ordered' => 'ASC'));
 
         $this->Product->recursive = 0;
         $this->set('products', $this->paginate());
+
+        $categories = $this->Product->Category->generateTreeList();
+        $this->set(compact('categories'));
     }
 
     /**
@@ -170,7 +201,7 @@ class ProductsController extends AppController {
     public function admin_view($id = null) {
         $this->Product->id = $id;
         if (!$this->Product->exists()) {
-            throw new NotFoundException(__('Invalid product'));
+            throw new NotFoundException(__('Invalid Data'));
         }
 
         $this->set('title', __('Product'));
@@ -193,10 +224,10 @@ class ProductsController extends AppController {
 
                 $this->ProductsProperty->saveProperties($this->request->data, $lastID);
 
-                $this->Session->setFlash(__('The product has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'edit', $lastID));
             } else {
-                $this->Session->setFlash(__('The product could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         }
         $categories = $this->Product->Category->generateTreeList();
@@ -212,7 +243,7 @@ class ProductsController extends AppController {
     public function admin_edit($id = null) {
         $this->Product->id = $id;
         if (!$this->Product->exists()) {
-            throw new NotFoundException(__('Invalid product'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         $this->loadModel('ProductsProperty');
 
@@ -222,10 +253,10 @@ class ProductsController extends AppController {
 
                 $this->ProductsProperty->saveProperties($this->request->data, $lastID);
 
-                $this->Session->setFlash(__('The product has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'edit', $lastID));
             } else {
-                $this->Session->setFlash(__('The product could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         } else {
             $this->request->data = $this->Product->read(null, $id);
@@ -273,10 +304,10 @@ class ProductsController extends AppController {
                 $this->Product->Gallery->deleteAll(array('Gallery.id'=>$galleries));
             }
 
-            $this->Session->setFlash(__('Product deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Product was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect(array('action' => 'index'));
     }
 

@@ -33,7 +33,13 @@ class EmailMarketing extends AppModel {
 			),
 		),
 	);
-
+        public function beforeValidate($options = array()) {
+            parent::beforeValidate($options);
+            
+            $this->validate['title']['notempty']['message'] = __('Not empty.');
+            $this->validate['content']['notempty']['message'] = __('Not empty.');            
+            
+        }
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

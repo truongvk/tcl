@@ -69,5 +69,16 @@ class DeliveryAddress extends AppModel {
 			),
 		)
 	);
-
+        public function beforeValidate($options = array()) {
+            parent::beforeValidate($options);
+            
+            $this->validate['first_name']['notempty']['message'] = __('Not empty.');
+            $this->validate['last_name']['notempty']['message'] = __('Not empty.');
+            $this->validate['phone']['notempty']['message'] = __('Not empty.');
+            $this->validate['address']['notempty']['message'] = __('Not empty.');
+            $this->validate['ward']['notempty']['message'] = __('Not empty.');
+            $this->validate['district']['notempty']['message'] = __('Not empty.');
+            $this->validate['city']['notempty']['message'] = __('Not empty.');
+            
+        }
 }

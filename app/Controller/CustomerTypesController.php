@@ -34,10 +34,10 @@ class CustomerTypesController extends AppController {
         if ($this->request->is('post')) {
             $this->CustomerType->create();
             if ($this->CustomerType->save($this->request->data)) {
-                $this->Session->setFlash(__('The customer type has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The customer type could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         }
     }
@@ -51,14 +51,14 @@ class CustomerTypesController extends AppController {
     public function admin_edit($id = null) {
         $this->CustomerType->id = $id;
         if (!$this->CustomerType->exists()) {
-            throw new NotFoundException(__('Invalid customer type'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->CustomerType->save($this->request->data)) {
-                $this->Session->setFlash(__('The customer type has been saved'), 'success');
+                $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The customer type could not be saved. Please, try again.'), 'error');
+                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
             }
         } else {
             $this->request->data = $this->CustomerType->read(null, $id);
@@ -77,13 +77,13 @@ class CustomerTypesController extends AppController {
         }
         $this->CustomerType->id = $id;
         if (!$this->CustomerType->exists()) {
-            throw new NotFoundException(__('Invalid customer type'));
+            throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->CustomerType->delete()) {
-            $this->Session->setFlash(__('Customer type deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Customer type was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect(array('action' => 'index'));
     }
 

@@ -1,7 +1,7 @@
 <div class="customerTypes form">
 <ul class="breadcrumb">
     <li>
-		<?php echo $this->Html->link('CustomerType', array('action'=>'index'));?>
+		<?php echo $this->Html->link(__('CustomerType'), array('action'=>'index'));?>
 		<span class="divider">/</span>
 	</li>
     <li class="active"><?php echo __('Edit Customer Type'); ?></li>

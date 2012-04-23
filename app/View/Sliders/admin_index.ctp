@@ -2,7 +2,7 @@
 	<table cellpadding="0" cellspacing="0" id="table-sliders" class="table table-striped table-bordered table-condensed">
 	<thead>
 	<tr>
-                <th width="40px" nowrap=""><?php echo __('Order'); ?></th>
+                <th width="60px" nowrap=""><?php echo __('Order'); ?></th>
                 <th class="header" ><?php echo $this->Paginator->sort('title', __('Title'));?></th>
                 <th class="header" style="text-align: center; width: 200px"><?php echo $this->Paginator->sort('published', __('Status'));?></th>
                 <th class="header" style="text-align: center; width: 200px"><?php echo __('Actions');?></th>

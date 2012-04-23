@@ -102,5 +102,7 @@
     });
     
     </script>
+    <?php echo $this->Html->script(array('smoke/smoke.min'), array());?>
+    <?php echo $this->Html->css(array('../js/smoke/smoke', '../js/smoke/themes/default'), null, array());?>
     <?php echo $this->fetch('scriptBottom');?>
 </html>

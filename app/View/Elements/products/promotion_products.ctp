@@ -20,7 +20,7 @@
                             foreach($product['Gallery'] as $gallery):
                                 if(fileExistsInPath(WWW_ROOT.DS.'/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment'])){
                     ?>
-                    <a data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['slug']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
+                    <a data-placement="bottom" data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['slug']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
                         <img alt="" src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment']);?>">
                     </a>
                     <?php

@@ -1,7 +1,7 @@
 <div class="contacts view">
     <ul class="breadcrumb">
         <li>
-            <?php echo $this->Html->link('Contact', array('action' => 'index')); ?>
+            <?php echo $this->Html->link(__('Contact'), array('action' => 'index')); ?>
             <span class="divider">/</span>
         </li>
         <li class="active"><?php echo __('Detail'); ?></li>

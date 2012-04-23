@@ -19,11 +19,47 @@ class CustomersController extends AppController {
         $this->set('title', __('Customer'));
         $this->set('description', __('Manage Customer'));
 
+        $conditions = array();
+        if ($this->request->is('post')) {
+            if(!empty($this->request->data)){
+                $this->set('conditions', base64_encode(serialize($this->request->data)));
+            }            
+        }else{
+            if(isset($this->request->params['named']['conditions'])){
+                $this->request->data = unserialize(base64_decode($this->request->params['named']['conditions']));
+            }
+        }        
+        
+        if(!empty($this->request->data['Customer']['customer_type'])){
+            $conditions[] = array('Customer.customer_type_id ='.$this->request->data['Customer']['customer_type']);
+        }
+        
+        if(!empty($this->request->data['Customer']['customer_name'])){
+            $conditions['OR'][] = array('Customer.first_name LIKE "%'.$this->request->data['Customer']['customer_name'].'%"');
+            $conditions['OR'][] = array('Customer.last_name LIKE "%'.$this->request->data['Customer']['customer_name'].'%"');
+        }
+        
+        if(!empty($this->request->data['Customer']['customer_email'])){
+            $conditions[] = array('User.email LIKE "%'.$this->request->data['Customer']['customer_email'].'%"');
+        }
+        if(!empty($this->request->data['Customer']['from']) && !empty($this->request->data['Customer']['to'])){
+            $from = explode('/',$this->request->data['Customer']['from']);
+            array_reverse($from);
+            $from = implode('-',$from);  
 
-        $this->paginate = array('conditions' => array(), 'order' => array('Customer.ordered' => 'ASC'));
+            $to = explode('/',$this->request->data['Customer']['to']);
+            array_reverse($to);
+            $to = implode('-',$to);                
+            $conditions[] = "User.created BETWEEN '".date('Y-m-d 00:00:00', strtotime($from))."' AND '". date('Y-m-d 23:59:59', strtotime($to))."'";
+        }
+        
+        $this->paginate = array('conditions' => $conditions, 'order' => array('Customer.id' => 'ASC'));
 
         $this->Customer->recursive = 0;
         $this->set('customers', $this->paginate());
+        
+        $customer_types = $this->Customer->CustomerType->find('list');
+        $this->set(compact('customer_types'));        
     }
 
     /**
@@ -38,7 +74,7 @@ class CustomersController extends AppController {
 
         $this->Customer->User->id = $id;
         if (!$this->Customer->User->exists()) {
-            throw new NotFoundException(__('Invalid customer'));
+            throw new NotFoundException(__('Invalid Data'));
         }
 
         $this->Customer->User->bindModel(array(
@@ -130,10 +166,10 @@ class CustomersController extends AppController {
             $this->CheckoutAddress->deleteAll(array('CheckoutAddress.user_id'=>$id));
             $this->DeliveryAddress->deleteAll(array('DeliveryAddress.user_id'=>$id));
             
-            $this->Session->setFlash(__('Customer deleted'), 'success');
+            $this->Session->setFlash(__('Data deleted'), 'success');
             $this->redirect(array('action' => 'index'));
         }
-        $this->Session->setFlash(__('Customer was not deleted'), 'error');
+        $this->Session->setFlash(__('Data was not deleted'), 'error');
         $this->redirect(array('action' => 'index'));
     }
 }

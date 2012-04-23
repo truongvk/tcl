@@ -5,8 +5,7 @@ $(document).ready(function()  {
   $("#table-properties").treeTable({expandable: false});
 });
 </script>
-<div class="well">
-<?php echo $this->Form->create('Property', array('class'=>'form-horizontal'));?>
+<?php echo $this->Form->create('Property', array('class'=>'form-horizontal well form-search'));?>
 	<?php		
             echo $this->Form->input('category_id', array('div'=>'control-group','placeholder'=>'','empty'=>array('0'=>__('All')),'id'=>'CategoryId',
 					'before'=>'<label>'.__('Category').'</label><div class="controls">',
@@ -15,7 +14,6 @@ $(document).ready(function()  {
 					'label'=>false, 'class'=>'input-xlarge'));                
 	?>        
 <?php echo $this->Form->end();?>    
-</div>
 <div class="properties">
 	<table cellpadding="0" cellspacing="0" id="table-properties" class="table table-bordered table-condensed">
 	<thead>

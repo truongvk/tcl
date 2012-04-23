@@ -34,12 +34,14 @@ class Category extends AppModel {
         parent::beforeSave($options);
 
         Cache::clear();
+        clearCache();
     }
 
     public function  afterDelete() {
         parent::afterDelete();
 
         Cache::clear();
+        clearCache();
     }
 
 

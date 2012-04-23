@@ -30,7 +30,7 @@ Ext.onReady(function(){
     });
 
     var root = new Tree.AsyncTreeNode({
-        text:'<?php echo __('Properties');?>',
+        text:'<?php echo __('Category');?>',
         draggable:false,
         id:'0'
     });

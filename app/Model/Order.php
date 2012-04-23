@@ -54,7 +54,14 @@ class Order extends AppModel {
 			),
 		),
 	);
-
+        public function beforeValidate($options = array()) {
+            parent::beforeValidate($options);
+            
+            $this->validate['personal_information']['notempty']['message'] = __('Not empty.');
+            $this->validate['cart_information']['notempty']['message'] = __('Not empty.');
+           
+            
+        }
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

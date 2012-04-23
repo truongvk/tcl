@@ -1,23 +1,20 @@
 <div class="emailMarketings view">
 <ul class="breadcrumb">
     <li>
-		<?php echo $this->Html->link('EmailMarketing', array('action'=>'index'));?>
+		<?php echo $this->Html->link('Email Marketing', array('action'=>'index'));?>
 		<span class="divider">/</span>
 	</li>
-    <li class="active"><?php echo __('Admin View Email Marketing'); ?></li>
+    <li class="active"><?php echo __('View'); ?></li>
 </ul>
-	<table class="table table-condensed table-bordered">
+	<table class="table table-condensed table-bordered">	
 	<tr>
-		<th><?php echo __('Id'); ?></th>
+		<th nowrap=""><?php echo __('Customer Type'); ?></th>
 		<td>
-			<?php echo h($emailMarketing['EmailMarketing']['id']); ?>
-			&nbsp;
-		</td>
-	</tr>
-	<tr>
-		<th><?php echo __('Customer Type Id'); ?></th>
-		<td>
-			<?php echo h($emailMarketing['EmailMarketing']['customer_type_id']); ?>
+			<?php 
+                        $cusType = ($emailMarketing['EmailMarketing']['customer_type_id'] > 0) ? $emailMarketing['CustomerType']['name'] : __('All Customer');
+                        $cusType = ($emailMarketing['EmailMarketing']['customer_type_id'] < 0) ? __('Subscribers') : $cusType;
+                        echo h($cusType); 
+                        ?>
 			&nbsp;
 		</td>
 	</tr>
@@ -29,9 +26,9 @@
 		</td>
 	</tr>
 	<tr>
-		<th><?php echo __('Content'); ?></th>
+            <th style="vertical-align: top"><?php echo __('Content'); ?></th>
 		<td>
-			<?php echo h($emailMarketing['EmailMarketing']['content']); ?>
+			<?php echo $emailMarketing['EmailMarketing']['content']; ?>
 			&nbsp;
 		</td>
 	</tr>

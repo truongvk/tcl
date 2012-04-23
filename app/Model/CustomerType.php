@@ -32,25 +32,5 @@ class CustomerType extends AppModel {
 			),
 		),
 	);
-/**
- * belongsTo associations
- *
- * @var array
- */
-	public $belongsTo = array(
-		'CustomerType' => array(
-			'className' => 'CustomerType',
-			'foreignKey' => 'customer_type_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
-		'User' => array(
-			'className' => 'AclManagement.User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		)
-	);        
+
 }
