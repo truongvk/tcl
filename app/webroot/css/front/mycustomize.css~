@@ -33,7 +33,7 @@ a {
 }
 
 #header_menu #ldd_menu{
-    font-family: 'PT Sans',sans-serif;
+    font-family: sans-serif,'PT Sans';
     font-size: 15px;
     font-weight: bold;
     line-height: normal;
