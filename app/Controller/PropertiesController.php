@@ -188,6 +188,8 @@ class PropertiesController extends AppController {
         }
 
         // send success response
+        Cache::clear();
+        clearCache();        
         exit('1');
     }
 

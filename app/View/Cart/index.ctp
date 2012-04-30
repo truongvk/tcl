@@ -44,7 +44,7 @@ if($cart->itemcount > 0) {
     <tr>
         <td colspan="5">
             <a class="btn btn-warning" onclick="javascript:document.updateCart.submit();" href="javascript:;;"><i class="icon-edit icon-white"></i> <?php echo __('Update Cart');?></a>
-            <a class="btn btn-success" onclick="javascript:document.updateCart.submit();" href="javascript:;;"><i class="icon-check icon-white"></i> <?php echo __('Checkout');?></a>
+            <a class="btn btn-success" href="<?php echo $this->Html->url('/cart/checkout');?>"><i class="icon-check icon-white"></i> <?php echo __('Checkout');?></a>
             <h4 class="pull-right" style="margin-top: 5px"><?php echo __('Total').': '.$total;?></h4></td>
         <td></td>
     </tr>

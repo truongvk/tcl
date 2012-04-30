@@ -85,6 +85,7 @@
  */
 Cache::config('default', array('engine' => 'File'));
 
+Configure::load('google_analytics');
 Configure::load('config');
 Configure::load('vietnam_cities');
 /**

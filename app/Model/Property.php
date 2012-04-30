@@ -98,7 +98,7 @@ class Property extends AppModel {
             }
             //setup data follow cakephp optgroupt
             if(!empty($properties)){
-                $root_properties = $this->find('list', array('fields'=>array('id', 'id'),'conditions'=>array('Property.category_id'=>$category_id, 'Property.parent_id'=>0)));
+                $root_properties = $this->find('list', array('fields'=>array('id', 'id'), 'conditions'=>array('Property.category_id'=>$category_id, 'Property.parent_id'=>0)));
                 $optgroup = null;
                 foreach($properties as $property_id => $property_name){
                     if(in_array($property_id, $root_properties)){

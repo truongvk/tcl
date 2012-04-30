@@ -10,11 +10,18 @@ App::uses('AppController', 'Controller');
 class OrdersController extends AppController {
     public $helpers = array('Number');
     
+    function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('history');
+    }    
     /**
      * Order history of customer 
      */
     public function history(){
-         $this->paginate = array(
+        if(!$this->Session->check('Auth.User.id')){
+            $this->redirect("/");
+        }
+        $this->paginate = array(
             //'contain' => array('Customer'),
             'conditions' => array('User.id'=>$this->Auth->user('id')), 
             'order' => array('Order.created' => 'DESC')
@@ -48,10 +55,16 @@ class OrdersController extends AppController {
             $conditions[] = array('Customer.customer_type_id ='.$this->request->data['Order']['customer_type']);
         }
         
+        if(!empty($this->request->data['Order']['status'])){
+            $status = ($this->request->data['Order']['status'] > 0) ? $this->request->data['Order']['status'] : 0;
+            $conditions[] = array('Order.published'=>intval($status));
+        }
+        
         if(!empty($this->request->data['Order']['customer_name'])){
             $conditions['OR'][] = array('Customer.first_name LIKE "%'.$this->request->data['Order']['customer_name'].'%"');
             $conditions['OR'][] = array('Customer.last_name LIKE "%'.$this->request->data['Order']['customer_name'].'%"');
         }
+        
         if(!empty($this->request->data['Order']['from']) && !empty($this->request->data['Order']['to'])){
             $from = explode('/',$this->request->data['Order']['from']);
             array_reverse($from);

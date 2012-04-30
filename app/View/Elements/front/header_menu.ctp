@@ -2,7 +2,7 @@
     <div id="logo" class="container">
         <div class="row">
             <div class="span4">
-                <?php echo $this->Html->link($this->Html->image('front/logo.png'), array('controller'=>'products', 'action'=>'index'), array('escape'=>false));?>
+                <?php echo $this->Html->link($this->Html->image('front/logo.png'), array('plugin'=>false,'controller'=>'products', 'action'=>'index'), array('escape'=>false));?>
 <!--                <img src="http://placehold.it/83x50">-->
             </div>
             <div class="span8">
@@ -10,7 +10,7 @@
                     <?php if($this->Session->check('Auth.User.id')): ?>
                     <div style="margin:10px -20px 5px" class="btn-toolbar pull-right">
                         <div class="btn-group">
-                            <a href="<?php echo $this->Html->url(array('controller'=>'orders', 'action'=>'history'));?>" class="btn"><i class="icon-asterisk"></i> <?php echo __('Order History');?></a>
+                            <a href="<?php echo $this->Html->url(array('plugin'=>false,'controller'=>'orders', 'action'=>'history'));?>" class="btn"><i class="icon-asterisk"></i> <?php echo __('Order History');?></a>
                             <a href="<?php echo $this->Html->url('/users/edit_profile');?>" class="btn"><i class="icon-pencil"></i> <?php echo __('Edit Profile');?></a>                            
                         </div>
                         <div class="btn-group">

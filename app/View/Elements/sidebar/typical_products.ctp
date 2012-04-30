@@ -9,6 +9,7 @@ if(!empty($products)):
         <li>
             <div class="row">
                 <div class="span1">
+                    <a href="<?php echo $this->Html->url('/sp/'.$product['Product']['slug'].'.html');?>">
                     <?php
                     if(!empty($product['Gallery'])):
                         foreach($product['Gallery'] as $gallery):
@@ -22,9 +23,10 @@ if(!empty($products)):
                             echo '<img alt="" src="http://placehold.it/120x80">';
                         endif;
                     ?>
+                    </a>
                 </div>
                 <div class="span1 intro">                    
-                    <p><?php echo h($product['Product']['name']);?></p>
+                    <p><a href="<?php echo $this->Html->url('/sp/'.$product['Product']['slug'].'.html');?>"><?php echo h($product['Product']['name']);?></a></p>
                 </div>
             </div>
         </li>

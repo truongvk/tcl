@@ -64,7 +64,7 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => '12345',
+		'password' => '',
 		'database' => 'tclvn',
 		'prefix' => '',
 		'encoding' => 'utf8',

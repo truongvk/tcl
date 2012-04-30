@@ -25,21 +25,21 @@
 					'before'=>'<label>'.__('URL').'</label><div class="controls">',
 					'after'=>$this->Form->error('url', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
 					'error' => array('attributes' => array('style' => 'display:none')),
-					'label'=>false, 'class'=>'input-xlarge'));                
+					'label'=>false, 'class'=>'input-xlarge'));
 		echo $this->Form->input('photo', array('div'=>'control-group','placeholder'=>'','type'=>'file',
 					'before'=>'<label>'.__('Photo').'</label><div class="controls">',
 					'after'=>$this->Form->error('photo', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
 					'error' => array('attributes' => array('style' => 'display:none')),
 					'label'=>false, 'class'=>'input-xlarge'));
-                echo $this->Form->input('photo_dir', array('type' => 'hidden'));              
-                
-                
+                echo $this->Form->input('photo_dir', array('type' => 'hidden'));
+
+
 		echo $this->Form->input('published', array('div'=>'control-group', 'type'=>'checkbox','placeholder'=>'',
 					'before'=>'<label>'.__('Published').'</label><div class="controls">',
 					'after'=>$this->Form->error('published', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
 					'error' => array('attributes' => array('style' => 'display:none')),
 					'label'=>false, 'class'=>''));
-                
+
                 $image = null;
                 if(fileExistsInPath(WWW_ROOT.DS.'/files/sliders/'.$this->data['Slider']['photo_dir'].'/big_'.$this->data['Slider']['photo'])):
                     $image = $this->Html->image('../files/sliders/'.$this->data['Slider']['photo_dir'].'/big_'.$this->data['Slider']['photo']);
@@ -49,7 +49,7 @@
                         <div class=\"controls\"><div class='row'><div class='span4'><div class='thumbnail'>";
                     echo $image;
                     echo "</div></div></div></div></div>";
-                endif;                
+                endif;
 	?>
         <div class="form-actions">
             <?php echo $this->Form->submit(__('Submit'), array('class'=>'btn btn-primary', 'div'=>false));?>            <?php echo $this->Form->reset(__('Cancel'), array('class'=>'btn', 'div'=>false));?>        </div>

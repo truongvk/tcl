@@ -156,6 +156,8 @@ class SlidersController extends AppController {
             endforeach;
             $queryStr .= 'END WHERE id IN (' . implode(", ", $orderLists) . ');';
 
+            Cache::clear();
+            clearCache(); 
             return $this->Slider->query($queryStr);
         }
         return false;

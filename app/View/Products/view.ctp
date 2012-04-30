@@ -30,7 +30,7 @@
          ?>
                 <li class="span3">
                     <div class="thumbnail">
-                         <a data-placement="bottom" data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/products/detail/'.$product['Product']['slug']);?>" data-original-title="<?php echo $product['Product']['name'];?>">
+                         <a data-placement="bottom" data-content="<?php echo $features_excerpt;?>" rel="popover" href="<?php echo $this->Html->url('/sp/'.$product['Product']['slug'].'.html');?>" data-original-title="<?php echo $product['Product']['name'];?>">
         <?php
                         if(!empty($product['Gallery'])):
                             foreach($product['Gallery'] as $gallery):

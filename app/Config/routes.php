@@ -27,11 +27,13 @@
  */
         Router::parseExtensions('html');
 	Router::connect('/', array('controller' => 'products', 'action' => 'index'));
+	Router::connect('/admin', array('admin'=>true, 'controller' => 'dashboards', 'action' => 'index'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	Router::connect('/p/*', array('controller' => 'static_pages', 'action' => 'display', 'ext'=>'html'));
+	Router::connect('/sp/*', array('controller' => 'products', 'action' => 'detail', 'ext'=>'html'));
 
 /**
  * Load all plugin routes.  See the CakePlugin documentation on 

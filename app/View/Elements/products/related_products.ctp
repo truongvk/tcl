@@ -10,6 +10,7 @@ if($countPost > 0):
         <?php foreach ($related_products as $product) :?>
         <li>
             <div>
+                <a href="<?php echo $this->Html->url('/sp/'.$product['Product']['slug'].'.html');?>">
                 <?php
                 if(!empty($product['Gallery'])):
                     foreach($product['Gallery'] as $gallery):
@@ -23,9 +24,10 @@ if($countPost > 0):
                         echo '<img alt="" src="http://placehold.it/120x80">';
                     endif;
                 ?>
+                </a>
                 <span class="rp_title"><?php echo h($product['Product']['name']);?></span>
                 <span class="rp_links">
-                    <?php echo $this->Html->link(__('detail'), array('controller'=>'products', 'action'=>'detail', $product['Product']['slug']))?>
+                    <?php echo $this->Html->link(__('detail'), '/sp/'.$product['Product']['slug'].'.html')?>
                 </span>
             </div>
         </li>

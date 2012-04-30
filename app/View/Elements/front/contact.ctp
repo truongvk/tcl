@@ -1,7 +1,7 @@
 <div class="options display_switch" style="left: -365px;">
         <div class="open_close open_close_display_options"></div>
         <div class="full_options">
-                <h3><?php echo __('Contact Us');?></h3>
+                <h3><?php echo __('Feedback to us');?></h3>
         </div>
 
         <div style="padding-top: 20px; border-top: solid 1px #eeeeee;" class="full_options">

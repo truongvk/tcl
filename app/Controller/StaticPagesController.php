@@ -24,7 +24,7 @@ class StaticPagesController extends AppController {
      * @return type 
      */
     public function get_pages(){
-        return $this->StaticPage->find('all', array('fields'=>array('StaticPage.id', 'StaticPage.title', 'StaticPage.slug'), 'conditions'=>array('StaticPage.published'=>1)));
+        return $this->StaticPage->find('all', array('order'=>array('StaticPage.ordered'=>'ASC'),'fields'=>array('StaticPage.id', 'StaticPage.title', 'StaticPage.slug'), 'conditions'=>array('StaticPage.published'=>1)));
     }
     
     public function display($slug=null){
@@ -180,6 +180,8 @@ class StaticPagesController extends AppController {
             $queryStr .= 'END WHERE id IN (' . implode(", ", $orderLists) . ');';
 
             $this->StaticPage->query($queryStr);
+            Cache::clear();
+            clearCache();             
             return true;
         }
         return false;

@@ -115,6 +115,9 @@ class ProductsController extends AppController {
 
     public function detail($slug=null) {
         $id = $this->Product->getProductIdBySlug($slug);
+        if(!$id){
+            throw new NotFoundException(__('Invalid Data'));
+        }
         /**
          * Get product detail
          */

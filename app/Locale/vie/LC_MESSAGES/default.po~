@@ -589,7 +589,7 @@ msgid "Name"
 msgstr "Tên"
 
 msgid "Feedback to us"
-msgstr "Gửi chúng tôi góp ý của bạn"
+msgstr "Gửi cho chúng tôi góp ý của bạn"
 
 #: Plugin\AclManagement\View\Groups\add.ctp:17
 #: Plugin\AclManagement\View\Groups\edit.ctp:18

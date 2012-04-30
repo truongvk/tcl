@@ -12,6 +12,10 @@
                 <ul class="nav">
 
                     <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/dashboards/index');?>"><?php echo __('Dashboard');?> </a>
+                    </li>
+
+                    <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="<?php echo $this->Html->url('/admin/orders/index');?>"><?php echo __('Orders');?> </a>
                     </li>
                   
@@ -69,6 +73,8 @@
                             <li><a href="<?php echo $this->Html->url('/admin/contacts/');?>"><?php echo __('Contact');?></a></li>
                             <li class="divider"></li>
                             <li><a href="<?php echo $this->Html->url('/admin/subscribers/');?>"><?php echo __('Subscribers');?></a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?php echo $this->Html->url('/admin/rightbanners/');?>"><?php echo __('Rightbanner');?></a></li>
                             <li class="divider"></li>
                             <li><a href="<?php echo $this->Html->url('/admin/global_config/');?>"><?php echo __('Site Config');?></a></li>
                         </ul>
