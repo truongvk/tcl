@@ -4,6 +4,7 @@
     <div id="slider" class="nivoSlider">
         <?php 
         $sliders = $this->requestAction('/sliders/get_sliders');
+        $htmlcaption='';
         if(!empty($sliders)):
             $i=0;
             foreach($sliders as $slider):
@@ -28,12 +29,10 @@
                 }
                 
                 echo $image;
-        ?>        
-        <?php if(!empty($slider['Slider']['description'])):?>
-        <div id="htmlcaption<?php echo $slider['Slider']['id'];?>" class="nivo-html-caption">
-            <?php echo h($slider['Slider']['description']);?>
-        </div>        
-        <?php 
+            
+            
+            if(!empty($slider['Slider']['description'])):
+                $htmlcaption .= '<div id="htmlcaption'.$slider['Slider']['id'].'" class="nivo-html-caption">'.h($slider['Slider']['description']).'</div>';        
             endif;
         ?>
         <?php 
@@ -42,12 +41,15 @@
         endif;
         ?>        
     </div>
-    
+    <?php echo $htmlcaption;?>
 </div>
 <?php echo $this->Html->script(array('nivo-slider/jquery.nivo.slider.pack'), array('block' => ''));?>
 <script type="text/javascript">
 $(window).load(function() {
-    $('#slider').nivoSlider();
+    $('#slider').nivoSlider({
+        effect:'random',
+        pauseOnHover:true
+    });
 });
 </script>
 <?php /*

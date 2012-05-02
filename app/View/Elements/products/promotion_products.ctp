@@ -36,7 +36,7 @@
                         <a href="<?php echo $this->Html->url('/sp/'.$product['Product']['slug'].'.html');?>">
                             <h3><?php echo $product['Product']['name'];?></h3>
                         </a>
-                        <p><?php echo $this->Text->excerpt($product['Product']['excerpt'], '');?></p>
+                        <p><?php echo h($this->Text->excerpt($product['Product']['excerpt'], ''));?></p>
                         <p><span class="label label-info"><?php echo $price;?></span><a class="btn pull-right add2cart" data-cart="<?php echo $dataCart;?>" href="javascript:;;"><i class='icon-shopping-cart'></i>&nbsp;<?php echo __('Buy');?></a></p>
                     </div>
                 </div>

@@ -231,6 +231,7 @@
  * any date & time related errors.
  */
 	//date_default_timezone_set('UTC');
+	date_default_timezone_set('Asia/Saigon');
 
 /**
  * Pick the caching engine to use.  If APC is enabled use it.

@@ -26,7 +26,7 @@ class ContactsController extends AppController {
         $this->set('description', __('Manage Contact'));
 
 
-        $this->paginate = array('conditions' => array(), 'order' => array('Contact.ordered' => 'ASC'));
+        $this->paginate = array('conditions' => array(), 'order' => array('Contact.created' => 'DESC'));
 
         $this->Contact->recursive = 0;
         $this->set('contacts', $this->paginate());
@@ -61,12 +61,14 @@ class ContactsController extends AppController {
         $this->autoRender = false;
         if ($this->request->is('post')) {
             $this->Contact->create();
+            $this->request->data['Contact']['created'] = date('Y-m-d H:i:s');
             if ($this->Contact->save($this->request->data)) {
                 $sentTo = $this->requestAction('/global_config/setting2array/admin_email/1');
                 $email = $this->Email;
-                $email->from(array($this->request->data['Contact']['email']));
-                $email->to($sentTo);
-                $email->subject('[TCLVN]'.__('Feedback'));
+                $email->from = $this->request->data['Contact']['email'];
+                $email->to = $sentTo;
+                $email->subject = '[TCLVN]'.__('Feedback');
+                $email->sendAs = 'html';
                 $email->send($this->request->data['Contact']['content']);
                 
                 return true;

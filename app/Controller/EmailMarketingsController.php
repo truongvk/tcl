@@ -84,6 +84,7 @@ class EmailMarketingsController extends AppController {
                     $this->Email->from = 'no-reply@'.Configure::read('Settings.domain.value');
                     $this->Email->to = $customer;
                     $this->Email->subject = $this->request->data['EmailMarketing']['content'];
+                    $email->sendAs = 'html';
                     $this->Email->send($this->request->data['EmailMarketing']['content']);
                 }
                 $this->Session->setFlash(__('Data has been saved'), 'success');

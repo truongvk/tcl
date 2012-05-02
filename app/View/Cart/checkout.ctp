@@ -1,7 +1,7 @@
 <?php echo $this->Html->script(array('sliding_form/sliding.form'), array());?>
 <?php echo $this->Html->css(array('../js/sliding_form/style'), null, array('block' => 'css'));?>
 
-<?php echo $this->element('front/breadscrumbs', array('data'=>array(array('name'=>__('Your Cart')))));?>
+<?php echo $this->element('front/breadscrumbs', array('data'=>array(array('name'=>__('Checkout')))));?>
 <?php $vietnamCity = Configure::read('VietnamCities');?>
 <div class="row">
     <div class="span12" style="">

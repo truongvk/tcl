@@ -5,34 +5,56 @@
 
 <div class="row">
     <div class="span6">
-            <div class="pix_diapo">
+           
             <?php
                 if(!empty($product['Gallery'])):
-                    $limit = 5;
-                    $i=1;
-                    foreach($product['Gallery'] as $gallery):
-                        if($i==$limit){
-                            break;
-                        }
-                        if(fileExistsInPath(WWW_ROOT.DS.'/files/products/'.$gallery['dir'].'/'.$gallery['attachment'])){
+                        if(count($product['Gallery']) > 1):
+            ?>
+                     <div class="pix_diapo">
+            <?php
+                        $limit = 5;
+                        $i=1;
+                        foreach($product['Gallery'] as $gallery):
+                            if($i==$limit){
+                                break;
+                            }
+                            if(fileExistsInPath(WWW_ROOT.DS.'/files/products/'.$gallery['dir'].'/'.$gallery['attachment'])){
             ?>
                             <div data-thumb="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment']);?>">
                                  <a href="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/'.$gallery['attachment']);?>" class="fancybox"><img src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/small_'.$gallery['attachment']);?>"></a>
                             </div>
             <?php
-                        }
-                        $i++;
-                    endforeach;
-                else:
+                            }
+                            $i++;
+                        endforeach;
             ?>
-                <div data-thumb="http://placehold.it/80x80.gif">
-                    <a href="http://placehold.it/800x600.gif" class="fancybox"><img src="http://placehold.it/450x340.gif"></a>
-                </div>
+                    </div><!-- #pix_diapo -->
+                    <script type="text/javascript">
+                    $(function(){
+                            $('.pix_diapo').diapo({'time': 1500, 'transPeriod' : 1500});
+                    });
+                    </script>
+            <?php
+                        else:
+                            foreach($product['Gallery'] as $gallery):
+                                 if(fileExistsInPath(WWW_ROOT.DS.'/files/products/'.$gallery['dir'].'/'.$gallery['attachment'])){
+            ?>
+                                    <div class="thumbnail" data-thumb="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/thumb_'.$gallery['attachment']);?>">
+                                        <a href="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/'.$gallery['attachment']);?>" class="fancybox"><img src="<?php echo $this->Html->url('/files/products/'.$gallery['dir'].'/small_'.$gallery['attachment']);?>"></a>
+                                    </div>   
+            <?php
+                                 }
+                             endforeach;    
+                        endif;
+                                        
+                    else:
+            ?>
+                    <div class="thumbnail" data-thumb="http://placehold.it/80x80.gif">
+                        <a href="http://placehold.it/800x600.gif" class="fancybox"><img src="http://placehold.it/450x340.gif"></a>
+                    </div>         
             <?php
                 endif;
-            ?>
-
-           </div><!-- #pix_diapo -->
+            ?>          
     </div>
     <div class="span6">
         <div class="row">
@@ -55,7 +77,15 @@
                     <?php
                     }
                     ?>
-                    <p><?php echo h($product['Product']['excerpt']);?></p>
+                    <p>
+                    <?php 
+                    if(!empty($product['Product']['excerpt'])):
+                        echo h($product['Product']['excerpt']);
+                    else:
+                        echo $product['Product']['features_excerpt'];
+                    endif;
+                    ?>
+                    </p>
 
                     <div style="margin-bottom: 9px" class="btn-toolbar">
                         <div class="btn-group pull-left">
@@ -224,8 +254,7 @@ echo $this->element('front/add2cart', array('qtyContainer'=>'item_qty'));
 echo $this->element('products/related_products', array('related_products'=>$related_products));
 ?>
 <script type="text/javascript">
-$(function(){
-	$('.pix_diapo').diapo({'time': 1500, 'transPeriod' : 1500});
+$(function(){	
         $('.fancybox').fancybox();
         $('.fancybox-buttons').fancybox({
                 openEffect  : 'none',

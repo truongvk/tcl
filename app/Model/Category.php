@@ -7,9 +7,8 @@ App::uses('AppModel', 'Model');
  *
  */
 class Category extends AppModel {
-    public $actsAs = array(
-        'Slug' => array('field' => 'name', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '_', 'DBcheck'=>true),
-        'Tree'
+    public $actsAs = array('Tree',
+                    'Slug' => array('field' => 'name', 'slug_field' => 'slug', 'primary_key' => 'id', 'replacement' => '_', 'DBcheck'=>true),
         );
 
     /**

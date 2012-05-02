@@ -1,4 +1,3 @@
-<?php if(!empty($attributes) && !empty($categoryList)): ?>
 <?php
 if(!empty($categoryList)):
 ?>
@@ -19,6 +18,7 @@ if(!empty($categoryList)):
 <?php    
 endif;
 ?>
+<?php if(!empty($attributes)): ?>
 <div class="widget-shop">
     <div class="widget-title"><?php echo __('Filter By Features');?>&nbsp;&nbsp;<span class="label label-warning"><a href="<?php echo $this->Html->url(array('controller'=>'products', 'action'=>'view', $slug));?>" style="color:#FFFFFF"><i class="icon-retweet icon-white"></i> <?php echo __('Reset');?></a></span></div>
     <ul class="nav nav-list">

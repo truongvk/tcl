@@ -4,8 +4,8 @@
 	<tr>
 	<th width="60px" nowrap=""><?php echo __('Order'); ?></th>
 			<th class="header" ><?php echo $this->Paginator->sort('name');?></th>
-			<th class="header" ><?php echo $this->Paginator->sort('created');?></th>
-			<th class="header" style="text-align: center"><?php echo __('Actions');?></th>
+			<th class="header" style="text-align: center; width: 200px"><?php echo $this->Paginator->sort('created');?></th>
+			<th class="header" style="text-align: center; width: 200px"><?php echo __('Actions');?></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -14,7 +14,7 @@
 	<tr id='<?php echo $customerType['CustomerType']['id'];?>'>
 		<td class="dragHandle"></td>
 		<td><?php echo h($customerType['CustomerType']['name']); ?>&nbsp;</td>
-		<td><?php echo h($customerType['CustomerType']['created']); ?>&nbsp;</td>
+		<td style="text-align: center"><?php echo h(date('d/m/Y H:i', strtotime($customerType['CustomerType']['created']))); ?>&nbsp;</td>
 		<td style="text-align: center">
 			<span class="label label-warning link-white"><i class="icon-edit icon-white"></i> <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $customerType['CustomerType']['id'])); ?></span>
 			<span class="label label-important link-white"><i class="icon-trash icon-white"></i> <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $customerType['CustomerType']['id']), null, __('Are you sure you want to delete # %s?', $customerType['CustomerType']['id'])); ?></span>

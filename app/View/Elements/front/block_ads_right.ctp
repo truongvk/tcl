@@ -1,7 +1,7 @@
 <?php
 $rightbanner = $this->requestAction('/rightbanners/get_rightbanner');
 $url = '#';
-$image = 'http://placehold.it/960x340';
+$image = '';//'http://placehold.it/220x600';
 if(!empty($rightbanner)):
     $i=0;
 
@@ -13,8 +13,8 @@ if(!empty($rightbanner)):
     if(!empty($rightbanner['Rightbanner']['url'])){
         $url = $rightbanner['Rightbanner']['url'];
     }
-
-endif;
+    
+    if($image):
 ?>
 <ul class="thumbnails">
     <li class="span3">
@@ -22,4 +22,8 @@ endif;
             <a href="<?php echo $url;?>"><img src="<?php echo $image;?>"></a>
         </div>
     </li>
-</ul>
+</ul>    
+<?php
+    endif;
+endif;
+?>

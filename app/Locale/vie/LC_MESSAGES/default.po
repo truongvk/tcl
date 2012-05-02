@@ -17,7 +17,7 @@ msgstr ""
 
 #: Controller\CartController.php:100
 msgid "Please check your information before checkout."
-msgstr "Hãy kiểm tra kỹ lại thông tin trước khi checkout"
+msgstr "Hãy kiểm tra kỹ lại thông tin trước khi thanh toán"
 
 #: Controller\CategoriesController.php:35;140
 #: View\Elements\top-nav.ctp:45
@@ -1911,3 +1911,10 @@ msgstr "Lưu dữ liệu thành công"
 
 msgid "The data could not be saved. Please, try again."
 msgstr "Không thể lưu dữ liệu, hãy thử lại."
+
+#: Controller\CartController.php:106
+msgid "Warning New Order"
+msgstr "Thông báo: Có đơn đặt hàng mới"
+
+msgid "Just had a new order. Plese visit website to process this order."
+msgstr "Vừa có một đơn hàng đặt hàng của khách. Bạn hãy truy cập %s để xử lý đơn hàng này."

@@ -110,20 +110,19 @@ a {
 	color: #ffffff
 }
 .product-title {
-	background: none repeat scroll 0 0 #484848; /*#DB261D*/
+	background: none repeat scroll 0 0 #DB261D; /*#484848*/
 	color: #DB261D;
 	float: left;
 	margin-bottom: 30px;
 	width: 100%;
 }
 .product-title h5 {
-	font-size: 18px;
+	font-size: 16px;
 }
 .product-title span {
 	background: none repeat scroll 0 0 #FFFFFF;
-	color: #DB261D;
-	font-family: 'PT Sans',sans-serif;
-	font-weight: 400;
+	color: #484848;
+	font-family: sans-serif, 'PT Sans';
 	margin-left: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -236,6 +235,7 @@ div.summary {
     float: right;
     margin-bottom: 20px;
     padding: 5px;
+    width: 440px;
 }
 div.summary span.label{
     font-size: 14px;

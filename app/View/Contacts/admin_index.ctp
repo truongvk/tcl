@@ -4,8 +4,8 @@
             <tr>
                 <th class="header" ><?php echo $this->Paginator->sort('name'); ?></th>
                 <th class="header" ><?php echo $this->Paginator->sort('title'); ?></th>
-                <th class="header" ><?php echo $this->Paginator->sort('created'); ?></th>
-                <th class="header" style="text-align: center"><?php echo __('Actions'); ?></th>
+                <th class="header" style="text-align: center; width: 200px"><?php echo $this->Paginator->sort('created'); ?></th>
+                <th class="header" style="text-align: center; width: 200px"><?php echo __('Actions'); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -13,7 +13,7 @@
                 <tr id='<?php echo $contact['Contact']['id']; ?>'>
                     <td><?php echo h($contact['Contact']['name']); ?>&nbsp;</td>
                     <td><?php echo h($contact['Contact']['title']); ?>&nbsp;</td>
-                    <td><?php echo h($contact['Contact']['created']); ?>&nbsp;</td>
+                    <td style="text-align: center;"><?php echo h(date('d/m/Y H:i', strtotime($contact['Contact']['created']))); ?>&nbsp;</td>
                     <td style="text-align: center">
                         <span class="label label-info link-white"><i class="icon-zoom-in icon-white"></i> <?php echo $this->Html->link(__('View'), array('action' => 'view', $contact['Contact']['id'])); ?></span>
                         <span class="label label-important link-white"><i class="icon-trash icon-white"></i> <?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $contact['Contact']['id']), null, __('Are you sure you want to delete # %s?', $contact['Contact']['id'])); ?></span>

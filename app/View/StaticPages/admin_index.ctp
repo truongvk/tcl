@@ -24,7 +24,7 @@
                             ?>
                         </span>&nbsp;
                     </td>
-                    <td style="text-align: center"><?php echo h($staticPage['StaticPage']['created']); ?>&nbsp;</td>
+                    <td style="text-align: center"><?php echo h(date('d/m/Y H:i', strtotime($staticPage['StaticPage']['created']))); ?>&nbsp;</td>
                     <td style="text-align: center">
                         <span class="label label-info link-white"><i class="icon-zoom-in icon-white"></i> <?php echo $this->Html->link(__('View'), '/p/'.$staticPage['StaticPage']['slug']); ?></span>
                         <span class="label label-warning link-white"><i class="icon-edit icon-white"></i> <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $staticPage['StaticPage']['id'])); ?></span>
