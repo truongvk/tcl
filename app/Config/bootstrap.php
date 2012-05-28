@@ -128,4 +128,5 @@ Configure::load('vietnam_cities');
 CakePlugin::load('Upload');
 CakePlugin::load('Filter');
 CakePlugin::load('DebugKit');
+CakePlugin::load('Csv');
 CakePlugin::load('AclManagement', array('routes'=>true));

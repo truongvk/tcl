@@ -8,7 +8,17 @@ App::uses('AppController', 'Controller');
  * @property Subscriber $Subscriber
  */
 class SubscribersController extends AppController {
-
+    public $components = array('Csv.Csv' => array(
+        'length' => 0,
+        'delimiter' => ',',
+        'enclosure' => '"',
+        'escape' => '\\',
+        // Generates a Model.field headings row from the csv file
+        'headers' => true, 
+        // If true, String $content is the data, not a path to the file
+        'text' => false,
+    ));
+    
     public function beforeFilter() {
         parent::beforeFilter();
         
@@ -22,8 +32,11 @@ class SubscribersController extends AppController {
     public function admin_index() {
         $this->set('title', __('Subscriber'));
         $this->set('description', __('Manage Subscriber'));
-
-
+//import csv
+//$this->data = $this->Csv->import('files'.DS.'csv'.DS.'subscribers.csv', array('Subscriber.name', 'Subscriber.email'));
+//pr($this->data);
+//var_dump($this->Subscriber->saveAll($this->data, array('validate'=>false)));
+//exit;
         $this->paginate = array('conditions' => array(), 'order' => array('Subscriber.id' => 'DESC'));
 
         $this->Subscriber->recursive = 0;
