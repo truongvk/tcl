@@ -163,6 +163,10 @@ msgstr "Thông tin Khách hàng"
 #: View\Elements\top-nav.ctp:40
 msgid "Email Marketing"
 msgstr "Email Marketing"
+msgid "Please wait, send email takes a long time to complete"
+msgstr "Việc gửi mail mất khá nhiều thời gian để hoàn tất. Xin bạn vui lòng đợi..."
+msgid "CSV File is not valid"
+msgstr "File CSV không hợp lệ..."
 
 #: Controller\CustomersController.php:81
 msgid "Send Email To Customers"

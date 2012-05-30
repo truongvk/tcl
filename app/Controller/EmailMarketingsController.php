@@ -8,7 +8,16 @@ App::uses('AppController', 'Controller');
  * @property EmailMarketing $EmailMarketing
  */
 class EmailMarketingsController extends AppController {
-    public $components = array('Email');
+    public $components = array('Email', 'Csv.Csv' => array(
+                                                    'length' => 0,
+                                                    'delimiter' => ',',
+                                                    'enclosure' => '"',
+                                                    'escape' => '\\',
+                                                    // Generates a Model.field headings row from the csv file
+                                                    'headers' => true, 
+                                                    // If true, String $content is the data, not a path to the file
+                                                    'text' => false,
+    ));
     /**
      * admin_index method
      *
@@ -50,6 +59,42 @@ class EmailMarketingsController extends AppController {
      */
     public function admin_add() {
         if ($this->request->is('post')) {
+            /**
+             * Import CSV 
+             */
+            $csvEmail = array();
+            if($this->request->data['EmailMarketing']['csv']['error'] == UPLOAD_ERR_OK){
+                $mimes = array('application/vnd.ms-excel','text/plain','text/csv','text/tsv');
+                if(in_array($this->request->data['EmailMarketing']['csv']['type'],$mimes)){
+                    //import csv
+                    $tmp_name = $this->request->data['EmailMarketing']['csv']['tmp_name'];
+                    $name = uniqid()."_".$this->request->data['EmailMarketing']['csv']['name'];
+                    $dest = "files".DS."csv".DS.$name;
+                    move_uploaded_file($tmp_name, WWW_ROOT.$dest);
+                    if(is_file($dest)){
+                        $data = $this->Csv->import($dest, array('Subscriber.email'));
+                        $sqlString = "";
+                        foreach($data as $email):
+                           $csvEmail[] = $email['Subscriber']['email'];
+                           $sqlString .= ", ('".$email['Subscriber']['email']."')";
+                        endforeach;
+                        $sqlString = substr($sqlString, 1);
+                        $sqlString = "INSERT IGNORE INTO `subscribers` (email) VALUES ".$sqlString;
+                        $this->EmailMarketing->query($sqlString);
+                    }
+                    
+                    //var_dump($this->Subscriber->saveAll($this->data, array('validate'=>false)));                    
+                }else{
+                    $this->Session->setFlash(__('CSV File is not valid'), 'error');
+                    $this->redirect(array('action'=>'admin_add'));
+                    exit;
+                }
+            }
+
+        
+            /**
+             * Send mail 
+             */
             $this->EmailMarketing->create();
             $this->loadModel('AclManagement.User');
             $this->loadModel('Subscriber');
@@ -76,8 +121,8 @@ class EmailMarketingsController extends AppController {
                                 ))),
                     'conditions'=>$conditions));
             }
-            $customers = array_merge($customers, $subscribers);
-            $customers = array_unique($customers);
+            $customers = array_merge($customers, $subscribers, $csvEmail);
+            $customers = array_unique($customers);            
             
             if ($this->EmailMarketing->save($this->request->data)) {
                 foreach($customers as $customer){

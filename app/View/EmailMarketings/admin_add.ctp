@@ -7,7 +7,7 @@
 	</li>
     <li class="active"><?php echo __('Add Email Marketing'); ?></li>
 </ul>
-<?php echo $this->Form->create('EmailMarketing', array('class'=>'form-horizontal'));?>
+<?php echo $this->Form->create('EmailMarketing', array('class'=>'form-horizontal', 'type'=>'file'));?>
 	<fieldset>
 		<legend><?php echo __('Add Email Marketing'); ?></legend>
 	<?php
@@ -21,6 +21,11 @@
 					'after'=>$this->Form->error('title', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
 					'error' => array('attributes' => array('style' => 'display:none')),
 					'label'=>false, 'class'=>'input-xxlarge'));
+		echo $this->Form->input('csv', array('div'=>'control-group','placeholder'=>'','type'=>'file',
+					'before'=>'<label>'.__('Import CSV').'</label><div class="controls">',
+					'after'=>$this->Form->error('csv', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
+					'error' => array('attributes' => array('style' => 'display:none')),
+					'label'=>false, 'class'=>'input-xxlarge'));
 		echo $this->Form->input('content', array('div'=>'control-group','placeholder'=>'',
 					'before'=>'<label>'.__('Content').'</label><div class="controls">',
 					'after'=>$this->Form->error('content', array(), array('wrap' => 'span', 'class' => 'help-inline')).'</div>',
@@ -28,11 +33,17 @@
 					'label'=>false, 'class'=>'input-xlarge'));
 	?>
         <div class="form-actions">
-            <?php echo $this->Form->submit(__('Submit'), array('class'=>'btn btn-primary', 'div'=>false));?>            <?php echo $this->Form->reset(__('Cancel'), array('class'=>'btn', 'div'=>false));?>        </div>
+            <?php echo $this->Form->submit(__('Submit'), array('class'=>'btn btn-primary', 'id'=>"fat-btn", "data-loading-text"=>__('Please wait, send email takes a long time to complete'), 'div'=>false));?>            <?php echo $this->Form->reset(__('Cancel'), array('class'=>'btn', 'div'=>false));?>        </div>
 	</fieldset>
 <?php echo $this->Form->end();?>
 </div>
 <script type="text/javascript">
+$(function(){
+    var btn = $('#fat-btn').click(function () {
+        $this = $(this);
+        $this.button('loading');
+    });
+});
 CKEDITOR.config.toolbar = [
    ['Templates','Format','Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','-'],
    ['NumberedList','BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
