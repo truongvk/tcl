@@ -37,8 +37,8 @@ class OrdersController extends AppController {
      * @return void
      */
     public function admin_index() {
-        $this->set('title', __('Order'));
-        $this->set('description', __('Manage Order'));
+        $this->set('title', __('Manage Order'));
+        //$this->set('description', __('Manage Order'));
 
         $conditions = array();
         if ($this->request->is('post')) {
@@ -77,7 +77,7 @@ class OrdersController extends AppController {
         }
         
         $this->paginate = array(
-            'contain' => array('Customer'),
+            'contain' => array('Customer', 'User'=>array('fields'=>array('User.id','User.email'))),
             'conditions' => $conditions,             
             'order' => array('Order.created' => 'DESC')
         );
@@ -107,24 +107,6 @@ class OrdersController extends AppController {
         $this->set('order', $this->Order->read(null, $id));
     }
 
-    /**
-     * admin_add method
-     *
-     * @return void
-     */
-    public function admin_add() {
-        if ($this->request->is('post')) {
-            $this->Order->create();
-            if ($this->Order->save($this->request->data)) {
-                $this->Session->setFlash(__('Data has been saved'), 'success');
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('Data could not be saved. Please, try again.'), 'error');
-            }
-        }
-        $users = $this->Order->User->find('list');
-        $this->set(compact('users'));
-    }
 
     /**
      * admin_edit method
@@ -138,6 +120,12 @@ class OrdersController extends AppController {
             throw new NotFoundException(__('Invalid Data'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
+            $this->request->data['Order']['total'] = floatval($this->request->data['Order']['ordertotal']) 
+                                                    + floatval($this->request->data['Order']['shipping_fee'])
+                                                    + floatval($this->request->data['Order']['fee_arising']);
+            if($this->request->data['Order']['published'] < 2){
+                $this->request->data['Order']['cancel_reason'] = null;
+            }
             if ($this->Order->save($this->request->data)) {
                 $this->Session->setFlash(__('Data has been saved'), 'success');
                 $this->redirect(array('action' => 'index'));
@@ -146,9 +134,7 @@ class OrdersController extends AppController {
             }
         } else {
             $this->request->data = $this->Order->read(null, $id);
-        }
-        $users = $this->Order->User->find('list');
-        $this->set(compact('users'));
+        }        
     }
 
     /**

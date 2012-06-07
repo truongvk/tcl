@@ -121,6 +121,10 @@
 
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<?php echo $this->Html->url('/js/twitter/bootstrap.min.js');?>"></script>
-
+    <script type="text/javascript">
+        $(function(){            
+           $('a[rel="tooltip"]').tooltip();
+        });    
+    </script>
   </body>
 </html>

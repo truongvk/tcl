@@ -12,9 +12,10 @@ $(function() {
         var fieldsetCount = $('#formElem').children().length;
 
         /*
-            current position of fieldset / navigation link
-            */
+        current position of fieldset / navigation link
+        */
         var current 	= 1;
+
 
         /*
             sum and save the widths of each one of the fieldsets
@@ -43,7 +44,7 @@ $(function() {
             when clicking on a navigation link
             the form slides to the corresponding fieldset
             */
-        $('#navigation a').bind('click',function(e){
+        $('#navigation a').bind('change',function(e){
             var $this	= $(this);
             var prev	= current;
             $this.closest('ul').find('li').removeClass('selected');
@@ -86,20 +87,70 @@ $(function() {
             e.preventDefault();
         });
 
+
+
+        $('#confirmStep').bind('click', {}, function(){
+                var error = validateStep(parseInt(current));
+                if(error > 0){
+                    var $writeHTML = '';
+                    $('#navigation li:nth-child(' + (parseInt(current)+1) + ') a').change();
+                    $i = 0;
+                    $formElemLength = $('#formElem').find('.formInfo').length;
+                    $('#formElem').find('.formInfo').each(function(){
+                        var $formInfo = $(this);
+                        $header = $formInfo.find('.page-header').html();
+                        $i++;
+                        
+                        if($i == $formElemLength){//check is Delivery Address                            
+                            if ($('#is_delivery_address').is(':checked')) {
+                                //do nothing
+                                return false;
+                            }
+                        }
+                        
+                        var $formInfo = $(this);
+                        $header = $formInfo.find('.page-header').html();
+                        $writeHTML += $header;
+                        $writeHTML += '<table class="table table-striped"><tbody>';
+                        $formInfo.find('input[type="text"]').each(function(){
+                            $label = $(this).parent().parent().find('label').html();
+                            $value = $(this).val();
+                            if($value != ""){
+                                $writeHTML += '<tr><td width="1%" nowrap=""><strong>'+$label+'</strong></td><td>'+$value+'</td></tr>';
+                            }
+                        });
+                        $writeHTML += '</tbody></table>';
+                    });
+                    $('#confirmInfo').html($writeHTML);
+                }
+        });
         /*
             clicking on the tab (on the last input of each fieldset), makes the form
             slide to the next step
             */
         $('#formElem > fieldset').each(function(){
             var $fieldset = $(this);
-            $fieldset.children(':last').find(':input').keydown(function(e){
-                if (e.which == 9){
-                    $('#navigation li:nth-child(' + (parseInt(current)+1) + ') a').click();
-                    /* force the blur for validation */
-                    $(this).blur();
-                    e.preventDefault();
+            var $element =  $fieldset.children(':last');
+
+            $element.find('.next-step').click(function(){
+                var error = validateStep(parseInt(current));
+                if(error > 0){
+                    $('#navigation li:nth-child(' + (parseInt(current)+1) + ') a').change();
                 }
             });
+
+            $element.find('.prev-step').click(function(){
+                $('#navigation li:nth-child(' + (parseInt(current)-1) + ') a').change();
+            });
+
+//            $fieldset.children(':last').find(':input').keydown(function(e){
+//                if (e.which == 9){
+//                    $('#navigation li:nth-child(' + (parseInt(current)+1) + ') a').click();
+//                    /* force the blur for validation */
+//                    $(this).blur();
+//                    e.preventDefault();
+//                }
+//            });
         });
 
         /*

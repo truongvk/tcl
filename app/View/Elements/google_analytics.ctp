@@ -6,7 +6,7 @@ $iSelectedMonth = date('n');
 $iSelectedYear = date('Y');
 ?>
 <div class="row">
-    <div class="span10">
+    <div class="span11">
         <h3>Pageviews & Visits</h3>
         <div id="placeholder"></div>
     </div>

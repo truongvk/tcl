@@ -61,9 +61,9 @@ class Order extends AppModel {
             $this->validate['cart_information']['notempty']['message'] = __('Not empty.');
            
             
-        }
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
+        }        
+        
+//The Associations below have been created with all possible keys, those that are not needed can be removed
 /**
  * belongsTo associations
  *

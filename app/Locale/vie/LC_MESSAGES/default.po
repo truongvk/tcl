@@ -971,7 +971,7 @@ msgstr "Địa chỉ"
 #: View\Orders\admin_view.ctp:144;172
 #: View\Orders\history.ctp:165;193
 msgid "Ward"
-msgstr "Quận/Huyện"
+msgstr "Phường/Xã"
 
 #: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:123;163
 #: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:120;159
@@ -983,7 +983,7 @@ msgstr "Quận/Huyện"
 #: View\Orders\admin_view.ctp:148;176
 #: View\Orders\history.ctp:169;197
 msgid "District"
-msgstr "Phường/Xã"
+msgstr "Quận/Huyện"
 
 #: Plugin\AclManagement\View\Users\admin_editcustomer.ctp:128;168
 #: Plugin\AclManagement\View\Users\admin_newcustomer.ctp:125;164
@@ -1157,6 +1157,10 @@ msgstr "Tổng giá trị"
 #: View\Cart\checkout.ctp:212
 msgid "Finish"
 msgstr "Hoàn tất"
+msgid "Back"
+msgstr "Quay lại"
+msgid "Next"
+msgstr "Tiếp tục"
 
 #: View\Cart\checkout.ctp:235
 msgid "Please correct the errors in the Form"
@@ -1578,13 +1582,27 @@ msgstr "Đã giải quyết?"
 
 #: View\Orders\admin_index.ctp:56
 msgid "Anonymous Guest"
-msgstr "Khách"
+msgstr "Khách vãng lai"
 
 #: View\Orders\admin_index.ctp:165
 #: View\Orders\admin_view.ctp:112
 #: View\Orders\history.ctp:133
 msgid "website"
 msgstr "website"
+msgid "OrderID"
+msgstr "Mã số"
+msgid "Cancel Order"
+msgstr "Đơn hàng bị hủy"
+msgid "Order Total"
+msgstr "Đơn giá"
+msgid "Shipping Fee"
+msgstr "Phí vận chuyển"
+msgid "Fee Arising"
+msgstr "Phí phát sinh"
+msgid "Note"
+msgstr "Ghi chú"
+msgid "Cancel Reason"
+msgstr "Lí do hủy hóa đơn"
 
 #: View\Orders\admin_index.ctp:256
 #: View\Orders\history.ctp:224

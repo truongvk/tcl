@@ -1,5 +1,5 @@
-<?php echo $this->Html->script(array('jquery/jquery.easing.1.3', 'jquery/jquery.hoverIntent.minified', 'diapo/diapo.min', 'fancybox/jquery.fancybox', 'fancybox/helpers/jquery.fancybox-buttons.js?v=2.0.4'), array('block' => 'scriptBottom'));?>
-<?php echo $this->Html->css(array('../js/fancybox/jquery.fancybox', '../js/fancybox/helpers/jquery.fancybox-buttons.css?v=2.0.4', '../js/diapo/diapo','slidebox/style'), null, array());?>
+<?php echo $this->Html->script(array('pulloutcontent/pulloutcontent', 'jquery/jquery.easing.1.3', 'jquery/jquery.hoverIntent.minified', 'diapo/diapo.min', 'fancybox/jquery.fancybox', 'fancybox/helpers/jquery.fancybox-buttons.js?v=2.0.4'), array('block' => 'scriptBottom'));?>
+<?php echo $this->Html->css(array('../js/pulloutcontent/pulloutcontent','../js/fancybox/jquery.fancybox', '../js/fancybox/helpers/jquery.fancybox-buttons.css?v=2.0.4', '../js/diapo/diapo'), null, array());?>
 <script type="text/javascript" src="http://download.skype.com/share/skypebuttons/js/skypeCheck.js"></script>
 <?php echo $this->element('front/breadscrumbs', array('breadscrumbs'=>$breadscrumbs, 'product_name'=>h($product['Product']['name'])));?>
 
@@ -59,24 +59,39 @@
     <div class="span6">
         <div class="row">
             <div class="span6">
-                <div class="summary">
+                <div class="">
                     <div class="page-header">
-                        <h3><?php echo h($product['Product']['name']);?></h3>
+                        <h2><?php echo h($product['Product']['name']);?></h2>
                     </div>
-                    <?php
-                    if($product['Product']['promotion_price'] > 0){
-                    ?>
-                    <p>
-                        <span class="label label-important"><?php echo __('Price').': '.h($this->Number->currency($product['Product']['promotion_price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span>
-                        <strike><span class="label"><?php echo __('List Price').': '.h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span></strike>
-                    </p>
-                    <?php
-                    }else{
-                    ?>
-                    <p><span class="label label-important"><?php echo __('Price').': '.h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span></p>
-                    <?php
-                    }
-                    ?>
+                    <div class="btn-toolbar">
+                            <div class="btn-group">
+                                <?php
+                                if($product['Product']['promotion_price'] > 0){
+                                ?>
+                                    <h3><?php echo __('Price').': '.h($this->Number->currency($product['Product']['promotion_price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></h3>
+                                    <strike><span class="label"><?php echo __('List Price').': '.h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></span></strike>
+                                <?php
+                                }else{
+                                ?>
+                                <h3><?php echo __('Price').': '.h($this->Number->currency($product['Product']['price'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?></h3>
+                                <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="btn-group pull-right">
+                                <?php
+                                $dataCart = array('id'=>$product['Product']['id'],'qty'=>1);
+                                $dataCart = h(json_encode($dataCart));
+                                ?>
+                                <a class="btn btn-success add2cart" data-cart="<?php echo $dataCart;?>" href="javascript:;;"><i class="icon-shopping-cart icon-white"></i> <?php echo __('Buy');?></a>
+                            </div>
+                            <div class="btn-group pull-right">
+                                <a href="javascript:;;" id="qty-minus" class="btn btn-small" style="margin-bottom:9px"><i class="icon-minus-sign"></i></a>
+                                <a href="#" class="btn active"><span id="item_qty">1</span></a>
+                                <a href="javascript:;;" id="qty-plus" class="btn btn-small"><i class="icon-plus-sign"></i></a>&nbsp;
+                            </div>
+                    </div>                    
+
                     <p>
                     <?php 
                     if(!empty($product['Product']['excerpt'])):
@@ -111,48 +126,33 @@
                                 <?php endif;?>
                             </ul>
                         </div>
-
                         <div class="btn-group pull-right">
-                            <?php
-                            $dataCart = array('id'=>$product['Product']['id'],'qty'=>1);
-                            $dataCart = h(json_encode($dataCart));
-                            ?>
-                            <a class="btn btn-success add2cart" data-cart="<?php echo $dataCart;?>" href="javascript:;;"><i class="icon-shopping-cart icon-white"></i> <?php echo __('Buy');?></a>
-                        </div>
-                        <div class="btn-group pull-right">
-                            <a href="javascript:;;" id="qty-minus" class="btn btn-small" style="margin-bottom:9px"><i class="icon-minus-sign"></i></a>
-                            <a href="#" class="btn active"><span id="item_qty">1</span></a>
-                            <a href="javascript:;;" id="qty-plus" class="btn btn-small"><i class="icon-plus-sign"></i></a>&nbsp;
+                            <?php if(Configure::read('debug') == 0): ?>
+                            <!-- AddThis Button BEGIN -->
+                            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                            <a class="addthis_button_preferred_1"></a>
+                            <a class="addthis_button_preferred_2"></a>
+                            <a class="addthis_button_preferred_3"></a>
+                            <a class="addthis_button_preferred_4"></a>
+                            <a class="addthis_button_compact"></a>
+                            <a class="addthis_counter addthis_bubble_style"></a>
+                            </div>
+                            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f88443513c1aca4"></script>
+                            <!-- AddThis Button END -->
+                            <!-- AddThis Button small BEGIN -->
+                            <!--                <div class="addthis_toolbox addthis_default_style ">
+                            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+                            <a class="addthis_counter addthis_pill_style"></a>
+                            </div>
+                            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f88443513c1aca4"></script>-->
+                            <!-- AddThis Button END -->                            
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="span6">
-                <?php if(Configure::read('debug') == 0): ?>
-                <!-- AddThis Button BEGIN -->
-                <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-                <a class="addthis_button_preferred_1"></a>
-                <a class="addthis_button_preferred_2"></a>
-                <a class="addthis_button_preferred_3"></a>
-                <a class="addthis_button_preferred_4"></a>
-                <a class="addthis_button_compact"></a>
-                <a class="addthis_counter addthis_bubble_style"></a>
-                </div>
-                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f88443513c1aca4"></script>
-                <!-- AddThis Button END -->
-                <!-- AddThis Button small BEGIN -->
-<!--                <div class="addthis_toolbox addthis_default_style ">
-                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-                <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-                <a class="addthis_counter addthis_pill_style"></a>
-                </div>
-                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f88443513c1aca4"></script>-->
-                <!-- AddThis Button END -->
-                <?php endif;?>
-            </div>
-        </div>
+        </div>        
         <?php
         if($product['Product']['instock'] < 1){
         ?>
@@ -167,7 +167,7 @@
 </div>
 <div class="clearfix"><br/></div>
 <div class="row" id="detail-tabs">
-    <div class="span12">
+    <div class="span12">        
         <div class="tabbable">
             <ul class="nav nav-tabs" style="margin-bottom: 0px;border-bottom: none">
                 <?php if(!empty($product['Product']['features'])): ?>
@@ -178,6 +178,9 @@
                 <?php endif; ?>
                 <?php if(!empty($product['Gallery'])): ?>
                 <li><a href="#gallery" data-toggle="tab"><?php echo __('Gallery');?></a></li>
+                <?php endif; ?>
+                <?php if(!empty($product['Product']['promotion_content'])): ?>
+                <li><a href="#promotion" data-toggle="tab"><?php echo __('Promotion');?></a></li>
                 <?php endif; ?>
             </ul>
             <div class="tab-content" style="border: 1px solid #DDDDDD;padding: 15px 5px 10px 5px;">
@@ -216,39 +219,15 @@
                     </div>
                 </div>
                 <?php endif; ?>
+                <?php if(!empty($product['Product']['promotion_content'])): ?>
+                <div class="tab-pane" id="promotion">
+                    <?php echo $product['Product']['promotion_content'];?>
+                </div>
+                <?php endif; ?>                
             </div>
         </div>
     </div>
 </div>
-<?php if(!empty($product['Product']['promotion_content'])): ?>
- <span id="last"></span>
-<div id="slidebox">
-    <a class="close"></a>
-    <?php echo $product['Product']['promotion_content'];?>
-</div>
- <script type="text/javascript">
-$(function() {
-    /**
-     * Slide box in footer
-     */
-
-    $(window).scroll(function(){
-            /* when reaching the element with id "last" we want to show the slidebox. Let's get the distance from the top to the element */
-            var distanceTop = $('#last').offset().top - $(window).height();
-
-            if  ($(window).scrollTop() > distanceTop)
-                    $('#slidebox').animate({'right':'0px'},300);
-            else
-                    $('#slidebox').stop(true).animate({'right':'-430px'},100);
-    });
-    $('#slidebox').animate({'right':'0px'},300);
-    /* remove the slidebox when clicking the cross */
-    $('#slidebox .close').bind('click',function(){
-            $(this).parent().remove();
-    });
-});
- </script>
-<?php endif; ?>
 <?php
 echo $this->element('front/add2cart', array('qtyContainer'=>'item_qty'));
 echo $this->element('products/related_products', array('related_products'=>$related_products));

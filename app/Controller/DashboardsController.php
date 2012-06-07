@@ -26,8 +26,15 @@ class DashboardsController extends OrdersController {
         $orders = $this->Order->find('all', array('order'=>array('Order.created'=>'DESC'), 'limit'=>20));
         $this->set('orders', $orders);
 
-        $users = $this->User->find('all', array('order'=>array('User.created'=>'DESC'), 'limit'=>10));
-        $this->set('users', $users);
+//        $this->User->bindModel(array('hasOne' => array(
+//                'Customer' => array(
+//                    'className' => 'Customer',
+//                    'foreignKey' => 'user_id',
+//                    'dependent' => true
+//                )
+//                )), false);
+//        $users = $this->User->find('all', array('order'=>array('User.created'=>'DESC'), 'limit'=>10));
+//        $this->set('users', $users);
 
         //google analytics
 	try {
@@ -69,19 +76,8 @@ class DashboardsController extends OrdersController {
 	} catch (Exception $e) {
 		echo 'Caught exception: ' . $e->getMessage();
 	}
-    }
-    
-    //remove item = 0 or null
-    private function array_filter_recursive($input) {
-            if(empty($input)) return false;
-
-            foreach ($input as &$value) {
-                    if (is_array($value)) {
-                            $value = $this->array_filter_recursive($value);
-                    }
-            }
-            return array_filter($input);
-    }
+    }   
+   
 
     public function admin_toggle($id, $status, $field='published') {
         return parent::admin_toggle($id, $status, $field);

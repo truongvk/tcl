@@ -2,12 +2,25 @@
 $vietnamCity = Configure::read('VietnamCities');
 if(isset($order) && !empty($order)):
 $orderId = $order['Order']['id'];
+
+if(isset($showNormal)):
 ?>
-<div id="cartModal<?php echo $order['Order']['id'];?>" class="modal hide fade" style="display: none; ">
+<div id="cartModal<?php echo $order['Order']['id'];?>" style="">
+    <div class="modal-header">       
+        <h3><?php echo __('Your Cart');?></h3>
+    </div>
+<?php
+else:
+?>
+<div id="cartModal<?php echo $order['Order']['id'];?>" class="modal hide fade" style="display: none; width:660px;">
     <div class="modal-header">
         <a class="close" data-dismiss="modal">×</a>
         <h3><?php echo __('Your Cart');?></h3>
-    </div>
+    </div>    
+<?php
+endif;
+?>    
+    
     <div class="modal-body">
         <div class="tabbable">
             <ul class="nav nav-tabs">
@@ -49,7 +62,7 @@ $orderId = $order['Order']['id'];
                         <tbody>
                     <?php
                         $cart = unserialize($order['Order']['cart_information']);
-                        $total = h($this->Number->currency($cart['total'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));
+                        //$total = h($this->Number->currency($cart['total'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));
                         foreach($cart as $idx => $item) {
                             if(!is_numeric($idx)){
                                 continue;
@@ -75,23 +88,80 @@ $orderId = $order['Order']['id'];
                     <?php
                         }
                     ?>
+                        
+                    <?php     
+                        if($order['Order']['ordertotal'] > 0 && ($order['Order']['shipping_fee'] > 0 || $order['Order']['fee_arising'] > 0)){
+                            $ordertotal = h($this->Number->currency($order['Order']['ordertotal'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));
+                    ?>
                         <tr>
-                            <td colspan="5">
-                                <h4 class="pull-right" style="margin-top: 5px"><?php echo __('Total').': '.$total;?></h4>
+                            <td colspan="4"><span class="pull-right"><?php echo __('Order Total');?></span></td>
+                            <td  width="20%">
+                                <h4 class="pull-right" style="margin-top: 5px"><?php echo $ordertotal;?></h4>
+                            </td>
+                        </tr>                                
+                    <?php
+                        }
+                    ?>
+                    <?php     
+                        if($order['Order']['shipping_fee'] > 0){
+                            $shipping_fee = h($this->Number->currency($order['Order']['shipping_fee'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));
+                    ?>
+                        <tr>                            
+                            <td colspan="4"><span class="pull-right"><?php echo __('Shipping Fee');?></span></td>
+                            <td  width="20%">
+                                <h4 class="pull-right" style="margin-top: 5px"><?php echo $shipping_fee;?></h4>
+                            </td>
+                        </tr>                                
+                    <?php
+                        }
+                    ?>
+                    <?php     
+                        if($order['Order']['fee_arising'] > 0){
+                            $fee_arising = h($this->Number->currency($order['Order']['fee_arising'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));
+                    ?>
+                        <tr>
+                            <td colspan="4"><span class="pull-right"><?php echo __('Fee Arising');?></span></td>
+                            <td  width="20%">
+                                <h4 class="pull-right" style="margin-top: 5px"><?php echo $fee_arising;?></h4>
+                            </td>
+                        </tr>                                
+                    <?php
+                        }
+                    ?>
+                        <tr>
+                            <td colspan="4"><span class="pull-right"><?php echo __('Total');?></span></td>
+                            <td  width="20%">
+                            <?php $total = h($this->Number->currency($order['Order']['total'], ' VND', array('wholePosition'=>'after', 'places'=>0,'thousands'=>'.', 'decimals'=>',')));?>
+                            <h4 class="pull-right" style="margin-top: 5px"><?php echo $total;?></h4>
                             </td>
                         </tr>
+                    <?php     
+                        if($order['Order']['published'] == 2){                            
+                    ?>
+                        <tr>
+                            <td colspan="5"><p><span class="label label-important"><i class="icon-ban-circle icon-white"></i> <?php echo __('Cancel Order');?></span> <span class="label"><?php echo $order['Order']['cancel_reason'];?></span></p></td>
+                        </tr>                                
+                    <?php
+                        }
+                    ?>
+                        
                         </tbody>
                     </table>                                        
                 </div>                                    
                 <?php 
                 if(!empty($customer_info)):
                     $i=2;
-                    foreach($customer_info as $type => $info):
+                    $email = isset($customer_info['User']['email']) ?$customer_info['User']['email'] : null;
+                    foreach($customer_info as $type => $info):                        
                         switch($type):
                             case 'Customer':
                                 echo '<div class="tab-pane" id="'.$orderId.$type.'">';
                                 echo '<table class="table table-bordered table-condensed">';
                                 echo '    <tbody>';
+                                echo '      <tr>';
+                                echo '          <th width="1%" nowrap="">'.__('Email').'</th>';
+                                echo '          <td>'.$email.'</td>';
+                                echo '      </tr>';
                                 echo '      <tr>';
                                 echo '          <th width="1%" nowrap="">'.__('Customer Name').'</th>';
                                 echo '          <td>'.$info['last_name'].' '.$info['first_name'].'</td>';
@@ -198,10 +268,14 @@ $orderId = $order['Order']['id'];
             </div>
         </div>
     </div>
+<?php
+if(!isset($showNormal)):
+?>    
     <div class="modal-footer">
         <p>
             <a href="#" class="btn" data-dismiss="modal"><i class="icon-remove"></i> <?php echo __('Close');?></a>
         </p>
     </div>
+<?php endif; ?>    
 </div>
 <?php endif; ?>

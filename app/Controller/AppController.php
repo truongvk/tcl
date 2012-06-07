@@ -74,6 +74,20 @@ class AppController extends Controller {
             $this->Session->write('HistoryComponent.current', $current);
         }
     }
+    
+    /**
+     *Remove item = 0 or null
+     */    
+    function array_filter_recursive($input) {
+        if(empty($input)) return false;
+        
+        foreach ($input as &$value) {
+            if (is_array($value)) {
+                $value = $this->array_filter_recursive($value);
+            }
+        }
+        return array_filter($input);
+    }    
 
 }
 

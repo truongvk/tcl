@@ -95,7 +95,10 @@ class CartController extends AppController {
             $this->request->data['Order']['personal_information'] = serialize($this->request->data);
             $cartInfo = $this->shoppingCart->get_contents();
             $cartInfo['total'] = $this->shoppingCart->total;
+            $this->request->data['Order']['ordertotal'] = $this->shoppingCart->total;
+            $this->request->data['Order']['total'] = $this->shoppingCart->total;
             $this->request->data['Order']['cart_information'] = serialize($cartInfo);
+            $this->request->data['Order']['id'] = date('Ymd') .'_'. mt_rand(100,99999) .$this->Session->read('Auth.User.id');
             if($this->Order->save($this->request->data['Order'])){
                 $this->shoppingCart->empty_cart();
 
@@ -116,9 +119,9 @@ class CartController extends AppController {
                 $this->loadModel('AclManagement.User');
                 $userInfo = $this->User->find('first', array(
                                                 'conditions'=>array('User.id'=>$this->Auth->user('id')),
-                                                'fields'=>array('CheckoutAddress.*', 'DeliveryAddress.*', 'Customer.*')
+                                                'fields'=>array('User.email' ,'CheckoutAddress.*', 'DeliveryAddress.*', 'Customer.*')
                                             ));
-                $this->data = $userInfo;
+                $this->data = $this->array_filter_recursive($userInfo);
             }
         }
         $this->set('cart', $this->shoppingCart);
